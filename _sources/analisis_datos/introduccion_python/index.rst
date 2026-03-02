@@ -8,3 +8,4 @@ Contenido del tema de Introducción a Python.
    :caption: Subtemas:
 
    preparacion
+   pandas

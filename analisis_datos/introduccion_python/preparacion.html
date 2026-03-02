@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Primera práctica: Introducción a Python &#8212; Portafolio de Cursos</title>
+    <title>1. Primera práctica: Introducción a Python &#8212; Portafolio de Cursos</title>
   
   
   
@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/introduccion_python/preparacion';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="2. Análisis Multivariado" href="../analisis_multivariado/index.html" />
+    <link rel="next" title="Práctica 2: Lectura y manipulación de datos con Pandas" href="pandas.html" />
     <link rel="prev" title="1. Introducción a Python" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -165,7 +165,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">1. Introducción a Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_multivariado/index.html">2. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -386,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Primera práctica: Introducción a Python</h1>
+    <h1>1. Primera práctica: Introducción a Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,8 +422,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="Primera-práctica:-Introducción-a-Python">
-<h1>Primera práctica: Introducción a Python<a class="headerlink" href="#Primera-práctica:-Introducción-a-Python" title="Link to this heading">#</a></h1>
+  <section id="1.-Primera-práctica:-Introducción-a-Python">
+<h1>1. Primera práctica: Introducción a Python<a class="headerlink" href="#1.-Primera-práctica:-Introducción-a-Python" title="Link to this heading">#</a></h1>
 <p>En esta práctica aprenderás los conceptos más básicos de Python:</p>
 <ul class="simple">
 <li><p>Variables y tipos de datos</p></li>
@@ -433,7 +434,7 @@ document.write(`
 <li><p>Ciclos (loops)</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Hola Mundo - tu primer programa en Python</span>
@@ -452,8 +453,47 @@ document.write(`
 <section id="2.-Variables-y-tipos-de-datos">
 <h2>2. Variables y tipos de datos<a class="headerlink" href="#2.-Variables-y-tipos-de-datos" title="Link to this heading">#</a></h2>
 <p>En Python no necesitas declarar el tipo de variable, se asigna automáticamente.</p>
+<p>Se puede trabajar con datos de tipo numérico o tipo «cadena de texto»</p>
+<p><strong>Tipos Numéricos:</strong></p>
+<p>Son los bloques básicos para cualquier cálculo matemático</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> <strong>(Enteros):</strong> Números sin decimales, ya sean positivos o negativos (ej. 5, -10)</p>
+<p><code class="docutils literal notranslate"><span class="pre">float</span></code> <strong>(Punto flotante):</strong> Números con decimales (ej. 3.14, 2.0)</p>
+<p><code class="docutils literal notranslate"><span class="pre">complex</span></code> <strong>(Complejos):</strong> Se usan en ingeniería y matemáticas avanzadas. Tienen una parte real y una imaginaria, representada por una <span class="math notranslate nohighlight">\(j\)</span> (ej. <span class="math notranslate nohighlight">\(2 + 3j\)</span>).</p>
+<p><strong>Tipos de Texto:</strong></p>
+<p>Solo hay uno, pero es extremadamente versátil.</p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> <strong>(Strings/Cadenas):</strong> Texto encerrado en comillas simples (”…”) o dobles (»…»). Python trata el texto como una secuencia de caracteres.</p>
+<p><strong>Tipo Booleano:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code> <strong>(Booleano):</strong> Solo puede tener dos valores: <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>. Se usa para representar condiciones lógicas (ej. <code class="docutils literal notranslate"><span class="pre">es_mayor</span> <span class="pre">=</span> <span class="pre">True</span></code>).</p>
+<p><strong>Tipos de Secuencias:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>¿Es mutable?</p></th>
+<th class="head"><p>Definición</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td><p>Sí</p></td>
+<td><p>Colección ordenada. Se define con corchetes: <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">&quot;hola&quot;,</span> <span class="pre">3.4]</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></td>
+<td><p>No</p></td>
+<td><p>Colección ordenada inmutable. Se define con paréntesis: <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></td>
+<td><p>No</p></td>
+<td><p>Genera una secuencia de números, común en bucles <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+<td><p>Sí</p></td>
+<td><p>Colección de pares clave-valor. Se define con llaves: <code class="docutils literal notranslate"><span class="pre">{&quot;nombre&quot;:</span> <span class="pre">&quot;Ana&quot;,</span> <span class="pre">&quot;edad&quot;:</span> <span class="pre">25}</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables numéricas</span>
@@ -488,7 +528,7 @@ Nombre: Natalia, tipo: &lt;class &#39;str&#39;&gt;
 <h2>3. Operaciones aritméticas<a class="headerlink" href="#3.-Operaciones-aritméticas" title="Link to this heading">#</a></h2>
 <p>Python puede usarse como una calculadora.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
@@ -523,7 +563,7 @@ Potencia: 10 ** 3 = 1000
 <h2>4. Cadenas de texto (Strings)<a class="headerlink" href="#4.-Cadenas-de-texto-(Strings)" title="Link to this heading">#</a></h2>
 <p>Las cadenas se pueden manipular de muchas formas.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saludo</span> <span class="o">=</span> <span class="s2">&quot;Hola, bienvenido al curso&quot;</span>
@@ -562,7 +602,7 @@ Hola, bienvenido al curso, Natalia!
 <h2>5. Listas<a class="headerlink" href="#5.-Listas" title="Link to this heading">#</a></h2>
 <p>Las listas son colecciones ordenadas que pueden contener cualquier tipo de dato.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una lista</span>
@@ -607,7 +647,7 @@ Primeras dos: [&#39;manzana&#39;, &#39;cereza&#39;]
 <h2>6. Condicionales (if / elif / else)<a class="headerlink" href="#6.-Condicionales-(if-/-elif-/-else)" title="Link to this heading">#</a></h2>
 <p>Permiten ejecutar código según una condición.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nota</span> <span class="o">=</span> <span class="mi">85</span>
@@ -643,7 +683,7 @@ Aprobado
 <section id="Ciclo-for-—-recorre-una-secuencia">
 <h3>Ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> — recorre una secuencia<a class="headerlink" href="#Ciclo-for-—-recorre-una-secuencia" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recorrer una lista</span>
@@ -679,7 +719,7 @@ Número: 5
 <section id="Ciclo-while-—-repite-mientras-una-condición-sea-verdadera">
 <h3>Ciclo <code class="docutils literal notranslate"><span class="pre">while</span></code> — repite mientras una condición sea verdadera<a class="headerlink" href="#Ciclo-while-—-repite-mientras-una-condición-sea-verdadera" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contador</span> <span class="o">=</span> <span class="mi">1</span>
@@ -711,7 +751,7 @@ Contando: 5
 <p><strong>Ejercicio:</strong> Crea una lista con las notas de 5 estudiantes y calcula el promedio.</p>
 <p>Intenta resolverlo en la celda de abajo antes de ver la solución.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escribe tu solución aquí:</span>
@@ -721,11 +761,11 @@ Contando: 5
 <section id="Solución">
 <h3>Solución<a class="headerlink" href="#Solución" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lista de notas</span>
-<span class="n">notas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">88</span><span class="p">]</span>
+<span class="n">notas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">]</span>
 
 <span class="c1"># Calcular el promedio</span>
 <span class="n">suma</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
@@ -750,11 +790,11 @@ Contando: 5
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Notas: [85, 92, 78, 95, 88]
-Suma: 438
+Notas: [4.5, 3.2, 1.8, 2.5, 4.8]
+Suma: 16.8
 Cantidad de estudiantes: 5
-Promedio: 87.60
-El grupo aprobó en promedio
+Promedio: 3.36
+El grupo reprobó en promedio
 </pre></div></div>
 </div>
 </section>
@@ -782,11 +822,11 @@ El grupo aprobó en promedio
       </div>
     </a>
     <a class="right-next"
-       href="../analisis_multivariado/index.html"
+       href="pandas.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">2. Análisis Multivariado</p>
+        <p class="prev-next-title">Práctica 2: Lectura y manipulación de datos con Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
