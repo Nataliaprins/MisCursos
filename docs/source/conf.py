@@ -12,7 +12,7 @@ extensions = [
 ]
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["Thumbs.db", ".DS_Store"]
 
 language = "es"
 
@@ -25,11 +25,13 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
-    "path_to_docs": "docs",
+    "path_to_docs": "docs/source",
 }
 
 # Crear .nojekyll automáticamente para GitHub Pages
 import pathlib
 
-pathlib.Path("_build/html/.nojekyll").touch(exist_ok=True)
-pathlib.Path("_build/html/.nojekyll").touch(exist_ok=True)
+nojekyll = pathlib.Path("../build/html/.nojekyll")
+nojekyll.parent.mkdir(parents=True, exist_ok=True)
+nojekyll.touch(exist_ok=True)
+nojekyll.touch(exist_ok=True)
