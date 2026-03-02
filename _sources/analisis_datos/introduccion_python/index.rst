@@ -1,7 +1,7 @@
-Introducción a Python
+1. Introducción a Python
 =====================
 
-Contenido del tema de Análisis Multivariado.
+Contenido del tema de Introducción a Python.
 
 .. toctree::
    :maxdepth: 2
