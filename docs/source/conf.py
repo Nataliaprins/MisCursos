@@ -2,8 +2,8 @@
 
 # -- Project information -----------------------------------------------------
 project = "MisCursos"
-copyright = "2026, Natalia Acevedo"
-author = "Natalia Acevedo"
+copyright = "2026, Natalia Acevedo Prins"
+author = "Natalia Acevedo Prins"
 release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------

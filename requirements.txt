@@ -2,3 +2,4 @@ sphinx
 sphinx-book-theme
 nbsphinx
 ipykernel
+ghp-import
