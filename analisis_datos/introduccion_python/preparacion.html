@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Primera práctica: Introducción a Python y Colab &#8212; documentación de MisCursos - 0.1.0</title>
+    <title>Primera práctica: Introducción a Python &#8212; documentación de MisCursos - 0.1.0</title>
   
   
   
@@ -157,7 +157,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Análisis de Datos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Introducción a Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Primera práctica: Introducción a Python y Colab</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Primera práctica: Introducción a Python</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_multivariado/index.html">Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -360,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -371,11 +373,32 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Primera práctica: Introducción a Python y Colab</h1>
+    <h1>Primera práctica: Introducción a Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Variables-y-tipos-de-datos">2. Variables y tipos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Operaciones-aritméticas">3. Operaciones aritméticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Cadenas-de-texto-(Strings)">4. Cadenas de texto (Strings)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Listas">5. Listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Condicionales-(if-/-elif-/-else)">6. Condicionales (if / elif / else)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Ciclos-(Loops)">7. Ciclos (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ciclo-for-—-recorre-una-secuencia">Ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> — recorre una secuencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ciclo-while-—-repite-mientras-una-condición-sea-verdadera">Ciclo <code class="docutils literal notranslate"><span class="pre">while</span></code> — repite mientras una condición sea verdadera</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Ejercicio-práctico">8. Ejercicio práctico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Solución">Solución</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -385,13 +408,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="Primera-práctica:-Introducción-a-Python-y-Colab">
-<h1>Primera práctica: Introducción a Python y Colab<a class="headerlink" href="#Primera-práctica:-Introducción-a-Python-y-Colab" title="Link to this heading">#</a></h1>
+  <section id="Primera-práctica:-Introducción-a-Python">
+<h1>Primera práctica: Introducción a Python<a class="headerlink" href="#Primera-práctica:-Introducción-a-Python" title="Link to this heading">#</a></h1>
+<p>En esta práctica aprenderás los conceptos más básicos de Python:</p>
+<ul class="simple">
+<li><p>Variables y tipos de datos</p></li>
+<li><p>Operaciones aritméticas</p></li>
+<li><p>Cadenas de texto (strings)</p></li>
+<li><p>Listas</p></li>
+<li><p>Condicionales</p></li>
+<li><p>Ciclos (loops)</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola mundo&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Hola Mundo - tu primer programa en Python</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Hola Mundo!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -400,9 +433,319 @@ document.write(`
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-hola mundo
+¡Hola Mundo!
 </pre></div></div>
 </div>
+<section id="2.-Variables-y-tipos-de-datos">
+<h2>2. Variables y tipos de datos<a class="headerlink" href="#2.-Variables-y-tipos-de-datos" title="Link to this heading">#</a></h2>
+<p>En Python no necesitas declarar el tipo de variable, se asigna automáticamente.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables numéricas</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">estatura</span> <span class="o">=</span> <span class="mf">1.75</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Edad: </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2">, tipo: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">edad</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estatura: </span><span class="si">{</span><span class="n">estatura</span><span class="si">}</span><span class="s2">, tipo: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">estatura</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Variables de texto (strings)</span>
+<span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Natalia&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nombre: </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">, tipo: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Variables booleanas</span>
+<span class="n">es_estudiante</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿Es estudiante?: </span><span class="si">{</span><span class="n">es_estudiante</span><span class="si">}</span><span class="s2">, tipo: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">es_estudiante</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Edad: 25, tipo: &lt;class &#39;int&#39;&gt;
+Estatura: 1.75, tipo: &lt;class &#39;float&#39;&gt;
+Nombre: Natalia, tipo: &lt;class &#39;str&#39;&gt;
+¿Es estudiante?: True, tipo: &lt;class &#39;bool&#39;&gt;
+</pre></div></div>
+</div>
+</section>
+<section id="3.-Operaciones-aritméticas">
+<h2>3. Operaciones aritméticas<a class="headerlink" href="#3.-Operaciones-aritméticas" title="Link to this heading">#</a></h2>
+<p>Python puede usarse como una calculadora.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Suma: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resta: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiplicación: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;División: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;División entera: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> // </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Módulo (residuo): </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> % </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Potencia: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> ** </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Suma: 10 + 3 = 13
+Resta: 10 - 3 = 7
+Multiplicación: 10 * 3 = 30
+División: 10 / 3 = 3.33
+División entera: 10 // 3 = 3
+Módulo (residuo): 10 % 3 = 1
+Potencia: 10 ** 3 = 1000
+</pre></div></div>
+</div>
+</section>
+<section id="4.-Cadenas-de-texto-(Strings)">
+<h2>4. Cadenas de texto (Strings)<a class="headerlink" href="#4.-Cadenas-de-texto-(Strings)" title="Link to this heading">#</a></h2>
+<p>Las cadenas se pueden manipular de muchas formas.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saludo</span> <span class="o">=</span> <span class="s2">&quot;Hola, bienvenido al curso&quot;</span>
+
+<span class="c1"># Métodos básicos de strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">saludo</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>          <span class="c1"># Todo en mayúsculas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">saludo</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>          <span class="c1"># Todo en minúsculas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">saludo</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;curso&quot;</span><span class="p">,</span> <span class="s2">&quot;taller&quot;</span><span class="p">))</span>  <span class="c1"># Reemplazar texto</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">saludo</span><span class="p">))</span>             <span class="c1"># Longitud de la cadena</span>
+
+<span class="c1"># Concatenar strings</span>
+<span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Natalia&quot;</span>
+<span class="n">mensaje</span> <span class="o">=</span> <span class="n">saludo</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">nombre</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+
+<span class="c1"># f-strings (formato moderno)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">saludo</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+HOLA, BIENVENIDO AL CURSO
+hola, bienvenido al curso
+Hola, bienvenido al taller
+25
+Hola, bienvenido al curso, Natalia!
+Hola, bienvenido al curso, Natalia!
+</pre></div></div>
+</div>
+</section>
+<section id="5.-Listas">
+<h2>5. Listas<a class="headerlink" href="#5.-Listas" title="Link to this heading">#</a></h2>
+<p>Las listas son colecciones ordenadas que pueden contener cualquier tipo de dato.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una lista</span>
+<span class="n">frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;manzana&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cereza&quot;</span><span class="p">,</span> <span class="s2">&quot;durazno&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lista: </span><span class="si">{</span><span class="n">frutas</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Acceder a elementos (el índice empieza en 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Primera fruta: </span><span class="si">{</span><span class="n">frutas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Última fruta: </span><span class="si">{</span><span class="n">frutas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Agregar y eliminar elementos</span>
+<span class="n">frutas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;uva&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Después de agregar: </span><span class="si">{</span><span class="n">frutas</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">frutas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Después de eliminar: </span><span class="si">{</span><span class="n">frutas</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Longitud de la lista</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de frutas: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rebanar (slicing)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Primeras dos: </span><span class="si">{</span><span class="n">frutas</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Lista: [&#39;manzana&#39;, &#39;banana&#39;, &#39;cereza&#39;, &#39;durazno&#39;]
+Primera fruta: manzana
+Última fruta: durazno
+Después de agregar: [&#39;manzana&#39;, &#39;banana&#39;, &#39;cereza&#39;, &#39;durazno&#39;, &#39;uva&#39;]
+Después de eliminar: [&#39;manzana&#39;, &#39;cereza&#39;, &#39;durazno&#39;, &#39;uva&#39;]
+Total de frutas: 4
+Primeras dos: [&#39;manzana&#39;, &#39;cereza&#39;]
+</pre></div></div>
+</div>
+</section>
+<section id="6.-Condicionales-(if-/-elif-/-else)">
+<h2>6. Condicionales (if / elif / else)<a class="headerlink" href="#6.-Condicionales-(if-/-elif-/-else)" title="Link to this heading">#</a></h2>
+<p>Permiten ejecutar código según una condición.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nota</span> <span class="o">=</span> <span class="mi">85</span>
+
+<span class="k">if</span> <span class="n">nota</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Excelente&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">nota</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aprobado&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reprobado&quot;</span><span class="p">)</span>
+
+<span class="c1"># Operadores de comparación</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;10 &gt; 5: </span><span class="si">{</span><span class="mi">10</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;10 == 10: </span><span class="si">{</span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;10 != 5: </span><span class="si">{</span><span class="mi">10</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Aprobado
+10 &gt; 5: True
+10 == 10: True
+10 != 5: True
+</pre></div></div>
+</div>
+</section>
+<section id="7.-Ciclos-(Loops)">
+<h2>7. Ciclos (Loops)<a class="headerlink" href="#7.-Ciclos-(Loops)" title="Link to this heading">#</a></h2>
+<section id="Ciclo-for-—-recorre-una-secuencia">
+<h3>Ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> — recorre una secuencia<a class="headerlink" href="#Ciclo-for-—-recorre-una-secuencia" title="Link to this heading">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recorrer una lista</span>
+<span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rojo&quot;</span><span class="p">,</span> <span class="s2">&quot;verde&quot;</span><span class="p">,</span> <span class="s2">&quot;azul&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Color: </span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usar range para generar números</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Color: rojo
+Color: verde
+Color: azul
+---
+Número: 1
+Número: 2
+Número: 3
+Número: 4
+Número: 5
+</pre></div></div>
+</div>
+</section>
+<section id="Ciclo-while-—-repite-mientras-una-condición-sea-verdadera">
+<h3>Ciclo <code class="docutils literal notranslate"><span class="pre">while</span></code> — repite mientras una condición sea verdadera<a class="headerlink" href="#Ciclo-while-—-repite-mientras-una-condición-sea-verdadera" title="Link to this heading">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contador</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">contador</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contando: </span><span class="si">{</span><span class="n">contador</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">contador</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Incrementar el contador</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¡Fin del conteo!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Contando: 1
+Contando: 2
+Contando: 3
+Contando: 4
+Contando: 5
+¡Fin del conteo!
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="8.-Ejercicio-práctico">
+<h2>8. Ejercicio práctico<a class="headerlink" href="#8.-Ejercicio-práctico" title="Link to this heading">#</a></h2>
+<p><strong>Ejercicio:</strong> Crea una lista con las notas de 5 estudiantes y calcula el promedio.</p>
+<p>Intenta resolverlo en la celda de abajo antes de ver la solución.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escribe tu solución aquí:</span>
+<br/></pre></div>
+</div>
+</div>
+<section id="Solución">
+<h3>Solución<a class="headerlink" href="#Solución" title="Link to this heading">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lista de notas</span>
+<span class="n">notas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">88</span><span class="p">]</span>
+
+<span class="c1"># Calcular el promedio</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+<span class="n">cantidad</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+<span class="n">promedio</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">/</span> <span class="n">cantidad</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Notas: </span><span class="si">{</span><span class="n">notas</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Suma: </span><span class="si">{</span><span class="n">suma</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cantidad de estudiantes: </span><span class="si">{</span><span class="n">cantidad</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Promedio: </span><span class="si">{</span><span class="n">promedio</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Determinar si el grupo aprobó</span>
+<span class="k">if</span> <span class="n">promedio</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El grupo aprobó en promedio&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El grupo reprobó en promedio&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Notas: [85, 92, 78, 95, 88]
+Suma: 438
+Cantidad de estudiantes: 5
+Promedio: 87.60
+El grupo aprobó en promedio
+</pre></div></div>
+</div>
+</section>
+</section>
 </section>
 
 
@@ -440,6 +783,34 @@ hola mundo
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Variables-y-tipos-de-datos">2. Variables y tipos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Operaciones-aritméticas">3. Operaciones aritméticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Cadenas-de-texto-(Strings)">4. Cadenas de texto (Strings)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Listas">5. Listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Condicionales-(if-/-elif-/-else)">6. Condicionales (if / elif / else)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Ciclos-(Loops)">7. Ciclos (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ciclo-for-—-recorre-una-secuencia">Ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> — recorre una secuencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ciclo-while-—-repite-mientras-una-condición-sea-verdadera">Ciclo <code class="docutils literal notranslate"><span class="pre">while</span></code> — repite mientras una condición sea verdadera</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Ejercicio-práctico">8. Ejercicio práctico</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Solución">Solución</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
