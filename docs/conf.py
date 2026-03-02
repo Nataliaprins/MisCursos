@@ -27,3 +27,9 @@ html_theme_options = {
     "use_edit_page_button": True,
     "path_to_docs": "docs",
 }
+
+# Crear .nojekyll automáticamente para GitHub Pages
+import pathlib
+
+pathlib.Path("_build/html/.nojekyll").touch(exist_ok=True)
+pathlib.Path("_build/html/.nojekyll").touch(exist_ok=True)
