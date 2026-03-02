@@ -182,7 +182,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../portafolios_inversion/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../portafolios_inversion/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
 </ul>
 </details></li>
 </ul>
@@ -467,7 +468,7 @@ document.write(`
 </div>
 <p>Para usarla, primero hay que importarla:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>  <span class="c1"># &quot;pd&quot; es la convención estándar</span>
@@ -490,7 +491,7 @@ Versión de Pandas: 3.0.1
 <h3>Series<a class="headerlink" href="#Series" title="Link to this heading">#</a></h3>
 <p>Una <code class="docutils literal notranslate"><span class="pre">Series</span></code> es como una lista con índices (etiquetas).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una Serie desde una lista</span>
@@ -542,7 +543,7 @@ Nota de Ana: 85
 <h3>DataFrame<a class="headerlink" href="#DataFrame" title="Link to this heading">#</a></h3>
 <p>Un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> es una tabla con filas y columnas. Se puede crear desde un diccionario.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un DataFrame desde un diccionario</span>
@@ -568,7 +569,7 @@ DataFrame:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -665,7 +666,7 @@ DataFrame:
 </div>
 <p>Para este ejemplo, guardaremos nuestro DataFrame como CSV y luego lo leeremos.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guardar el DataFrame como archivo CSV</span>
@@ -690,7 +691,7 @@ DataFrame leído desde CSV:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -763,7 +764,7 @@ DataFrame leído desde CSV:
 <h2>4. Exploración de datos<a class="headerlink" href="#4.-Exploración-de-datos" title="Link to this heading">#</a></h2>
 <p>Cuando recibes datos nuevos, lo primero es explorarlos para entender su estructura.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver las primeras filas</span>
@@ -817,7 +818,7 @@ dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resumen de información general</span>
@@ -853,7 +854,7 @@ Estadísticas descriptivas:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -930,7 +931,7 @@ Estadísticas descriptivas:
 <section id="Seleccionar-columnas">
 <h3>Seleccionar columnas<a class="headerlink" href="#Seleccionar-columnas" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar una sola columna (devuelve una Serie)</span>
@@ -960,7 +961,7 @@ Columnas &#39;Nombre&#39; y &#39;Nota&#39;:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1024,7 +1025,7 @@ Columnas &#39;Nombre&#39; y &#39;Nota&#39;:
 <li><p><code class="docutils literal notranslate"><span class="pre">loc</span></code> → selección por <strong>etiqueta</strong> (nombre del índice)</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar la primera fila por posición</span>
@@ -1068,7 +1069,7 @@ Nota de la fila 2: 78
 <h3>Filtrar datos con condiciones<a class="headerlink" href="#Filtrar-datos-con-condiciones" title="Link to this heading">#</a></h3>
 <p>Puedes filtrar filas que cumplan una condición lógica.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estudiantes con nota mayor o igual a 90</span>
@@ -1116,7 +1117,7 @@ Nota &gt;= 85 y edad &lt; 23:
 <section id="Agregar-y-eliminar-columnas">
 <h3>Agregar y eliminar columnas<a class="headerlink" href="#Agregar-y-eliminar-columnas" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar una nueva columna calculada</span>
@@ -1170,7 +1171,7 @@ Sin &#39;Nota_sobre_100&#39;:
 <section id="Ordenar-datos">
 <h3>Ordenar datos<a class="headerlink" href="#Ordenar-datos" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ordenar por nota (ascendente)</span>
@@ -1210,7 +1211,7 @@ Ordenado por nota (mayor a menor):
 <h3>Agrupar datos con <code class="docutils literal notranslate"><span class="pre">groupby</span></code><a class="headerlink" href="#Agrupar-datos-con-groupby" title="Link to this heading">#</a></h3>
 <p>Permite agrupar filas por una columna y calcular estadísticas por grupo.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Promedio de nota por ciudad</span>
@@ -1266,7 +1267,7 @@ Medellín  90.0   88   92
 <li><p>Ordena el DataFrame por monto de venta de mayor a menor</p></li>
 </ol>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos de ejemplo</span>
@@ -1284,7 +1285,7 @@ Medellín  90.0   88   92
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1375,7 +1376,7 @@ Medellín  90.0   88   92
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escribe tu solución aquí:</span>
@@ -1385,7 +1386,7 @@ Medellín  90.0   88   92
 <section id="Solución">
 <h3>Solución<a class="headerlink" href="#Solución" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Dimensiones del DataFrame</span>
