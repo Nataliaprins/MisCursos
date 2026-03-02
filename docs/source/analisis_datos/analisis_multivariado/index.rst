@@ -1,4 +1,4 @@
-Análisis Multivariado
+2. Análisis Multivariado
 =====================
 
 Contenido del tema de Análisis Multivariado.

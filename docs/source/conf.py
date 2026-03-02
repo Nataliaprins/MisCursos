@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information -----------------------------------------------------
-project = "MisCursos"
+project = "Cursos"
 copyright = "2026, Natalia Acevedo Prins"
 author = "Natalia Acevedo Prins"
 release = "0.1.0"
@@ -19,6 +19,7 @@ language = "es"
 # -- Options for HTML output -------------------------------------------------
 html_theme = "sphinx_book_theme"
 html_static_path = ["_static"]
+html_title = "Portafolio de Cursos"
 
 html_theme_options = {
     "repository_url": "https://github.com/Nataliaprins/MisCursos",
@@ -26,7 +27,12 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "path_to_docs": "docs/source",
+    "logo": {
+        "text": "Portafolio de Cursos",
+    },
 }
+
+html_logo = "_static/logo.png"
 
 # Crear .nojekyll automáticamente para GitHub Pages
 import pathlib
