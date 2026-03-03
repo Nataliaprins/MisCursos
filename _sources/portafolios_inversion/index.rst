@@ -10,4 +10,4 @@ Descarga las condiciones del curso aquí: :download:`Generalidades del curso <0_
    :caption: Temas:
 
    mercado_capitales
-   teoria_portafolios
+   diversificacion_ingenua
