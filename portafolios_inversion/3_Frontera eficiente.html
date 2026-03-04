@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/3_Frontera eficiente';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">2. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">3. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">4. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">5. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/3_Frontera eficiente.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/3_Frontera eficiente.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/portafolios_inversion/3_Frontera eficiente.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos varianzas y covarianzas de ejemplo para los tres activos</span>
+<span class="n">var_A</span> <span class="o">=</span> <span class="mf">0.04</span>  <span class="c1"># Varianza del activo A</span>
+<span class="n">var_B</span> <span class="o">=</span> <span class="mf">0.0225</span>  <span class="c1"># Varianza del activo B</span>
+<span class="n">var_C</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Varianza del activo C</span>
+<span class="n">cov_AB</span> <span class="o">=</span> <span class="mf">0.012</span>  <span class="c1"># Covarianza entre A y B</span>
+<span class="n">cov_AC</span> <span class="o">=</span> <span class="mf">0.008</span>  <span class="c1"># Covarianza entre A y C</span>
+<span class="n">cov_BC</span> <span class="o">=</span> <span class="mf">0.006</span>  <span class="c1"># Covarianza entre B y C</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># contruyamos una frontera eficiente con los tres activos, variando los pesos entre 0 y 1, de forma manual y graficala</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># definimos los pesos de los activos</span>
+<span class="n">pesos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">volatilidades</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># calculamos la volatilidad del portafolio para cada combinación de pesos</span>
+<span class="k">for</span> <span class="n">peso_A</span> <span class="ow">in</span> <span class="n">pesos</span><span class="p">:</span>
+    <span class="n">peso_B</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">peso_A</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># suponemos que peso_C = 1 - peso_A - peso_B</span>
+    <span class="k">if</span> <span class="n">peso_B</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">peso_C</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">peso_A</span> <span class="o">-</span> <span class="n">peso_B</span>
+    <span class="k">if</span> <span class="n">peso_C</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="n">var_portafolio</span> <span class="o">=</span> <span class="p">(</span><span class="n">peso_A</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">var_A</span> <span class="o">+</span> <span class="p">(</span><span class="n">peso_B</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">var_B</span> <span class="o">+</span> <span class="p">(</span><span class="n">peso_C</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">var_C</span>
+    <span class="n">var_portafolio</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">peso_A</span> <span class="o">*</span> <span class="n">peso_B</span> <span class="o">*</span> <span class="n">cov_AB</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">peso_A</span> <span class="o">*</span> <span class="n">peso_C</span> <span class="o">*</span> <span class="n">cov_AC</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">peso_B</span> <span class="o">*</span> <span class="n">peso_C</span> <span class="o">*</span> <span class="n">cov_BC</span>
+    <span class="n">vol_portafolio</span> <span class="o">=</span> <span class="n">var_portafolio</span> <span class="o">**</span> <span class="mf">0.5</span>
+    <span class="n">volatilidades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vol_portafolio</span><span class="p">)</span>
+
+<span class="c1"># graficamos la frontera eficiente</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Frontera Eficiente&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frontera Eficiente con tres activos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_3_Frontera_eficiente_1_0.png" src="../_images/portafolios_inversion_3_Frontera_eficiente_1_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cálculo de los pesos óptimos que minimizan la volatilidad del portafolio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="c1"># Supongamos retornos esperados de ejemplo para los activos</span>
+<span class="n">retornos_esperados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">])</span>
+
+<span class="c1"># Matriz de covarianza</span>
+<span class="n">cov_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">var_A</span><span class="p">,</span> <span class="n">cov_AB</span><span class="p">,</span> <span class="n">cov_AC</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">cov_AB</span><span class="p">,</span> <span class="n">var_B</span><span class="p">,</span> <span class="n">cov_BC</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">cov_AC</span><span class="p">,</span> <span class="n">cov_BC</span><span class="p">,</span> <span class="n">var_C</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">volatilidad_portafolio</span><span class="p">(</span><span class="n">pesos</span><span class="p">,</span> <span class="n">cov_matrix</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pesos</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">,</span> <span class="n">pesos</span><span class="p">)))</span>
+
+<span class="c1"># Restricción: suma de pesos = 1</span>
+<span class="n">restriccion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span>
+<span class="c1"># Límites: cada peso entre 0 y 1</span>
+<span class="n">limites</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1"># Pesos iniciales</span>
+<span class="n">pesos_inicial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">volatilidad_portafolio</span><span class="p">,</span> <span class="n">pesos_inicial</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">,),</span>
+                     <span class="n">method</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">limites</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">restriccion</span><span class="p">)</span>
+
+<span class="n">pesos_optimos</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">x</span>
+<span class="n">vol_optima</span> <span class="o">=</span> <span class="n">volatilidad_portafolio</span><span class="p">(</span><span class="n">pesos_optimos</span><span class="p">,</span> <span class="n">cov_matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pesos óptimos (minimizan volatilidad):&#39;</span><span class="p">,</span> <span class="n">pesos_optimos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volatilidad mínima:&#39;</span><span class="p">,</span> <span class="n">vol_optima</span><span class="p">)</span>
+
+<span class="c1"># Comparación con un portafolio sin optimizar (pesos iguales)</span>
+<span class="n">pesos_iguales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">vol_igual</span> <span class="o">=</span> <span class="n">volatilidad_portafolio</span><span class="p">(</span><span class="n">pesos_iguales</span><span class="p">,</span> <span class="n">cov_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volatilidad con pesos iguales:&#39;</span><span class="p">,</span> <span class="n">vol_igual</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pesos óptimos (minimizan volatilidad): [0.01359653 0.18971858 0.79668489]
+Volatilidad mínima: 0.09598584407613732
+Volatilidad con pesos iguales: 0.11761519176251566
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Frontera eficiente con optimización de Markowitz</span>
+<span class="n">num_puntos</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">retornos_objetivo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">retornos_esperados</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">retornos_esperados</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">num_puntos</span><span class="p">)</span>
+<span class="n">vols_efficient</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pesos_efficient</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">r_obj</span> <span class="ow">in</span> <span class="n">retornos_objetivo</span><span class="p">:</span>
+    <span class="n">restricciones</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">},</span>  <span class="c1"># suma de pesos = 1</span>
+        <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">retornos_esperados</span><span class="p">)</span> <span class="o">-</span> <span class="n">r_obj</span><span class="p">}</span>  <span class="c1"># retorno objetivo</span>
+    <span class="p">)</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">volatilidad_portafolio</span><span class="p">,</span> <span class="n">pesos_inicial</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">,),</span>
+                         <span class="n">method</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">limites</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">restricciones</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">resultado</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="n">vols_efficient</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
+        <span class="n">pesos_efficient</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vols_efficient</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">pesos_efficient</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+
+<span class="c1"># Graficar la frontera eficiente optimizada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vols_efficient</span><span class="p">,</span> <span class="n">retornos_objetivo</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Frontera Eficiente (Markowitz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vol_optima</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pesos_optimos</span><span class="p">,</span> <span class="n">retornos_esperados</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Portafolio Mínima Varianza&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vol_igual</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pesos_iguales</span><span class="p">,</span> <span class="n">retornos_esperados</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Portafolio Pesos Iguales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frontera Eficiente de Markowitz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_3_Frontera_eficiente_3_0.png" src="../_images/portafolios_inversion_3_Frontera_eficiente_3_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descargar datos históricos de precios de tres activos: Apple, Microsoft y Google</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+
+<span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOGL&#39;</span><span class="p">]</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[*********************100%***********************]  3 of 3 completed
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Price           Close                              High             \
+Ticker           AAPL      GOOGL        MSFT       AAPL      GOOGL
+Date
+2020-01-02  72.400490  67.920807  152.158356  72.460753  67.920807
+2020-01-03  71.696632  67.565498  150.263779  72.455950  68.172416
+2020-01-06  72.267937  69.366394  150.652145  72.306506  69.391700
+2020-01-07  71.928055  69.232391  149.278503  72.533095  69.648748
+2020-01-08  73.085121  69.725174  151.656326  73.386438  70.063120
+
+Price                         Low                              Open  \
+Ticker            MSFT       AAPL      GOOGL        MSFT       AAPL
+Date
+2020-01-02  152.262561  71.156652  66.819630  149.989002  71.409755
+2020-01-03  151.523715  71.472454  66.860824  149.733282  71.629138
+2020-01-06  150.718465  70.568510  67.043446  148.264897  70.819208
+2020-01-07  151.258396  71.708695  69.056225  149.032206  72.277578
+2020-01-08  152.328929  71.631567  69.109328  149.629064  71.631567
+
+Price                                 Volume
+Ticker          GOOGL        MSFT       AAPL     GOOGL      MSFT
+Date
+2020-01-02  66.914911  150.415292  135480400  27278000  22622100
+2020-01-03  66.894573  149.979594  146322800  23408000  21116200
+2020-01-06  67.074704  148.804876  118387200  46768000  20813700
+2020-01-07  69.497887  150.926843  108872000  34330000  21634100
+2020-01-08  69.218004  150.557433  132079200  35314000  27746500
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extraer precios de cierre y calcular retornos logarítmicos</span>
+<span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Close&#39;</span> <span class="ow">in</span> <span class="n">datos</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+    <span class="n">precios</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Si los datos tienen MultiIndex en columnas (por ticker y tipo de precio)</span>
+    <span class="n">precios</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Calcular retornos logarítmicos</span>
+<span class="n">daily_log_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precios</span> <span class="o">/</span> <span class="n">precios</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">daily_log_returns</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Eliminar filas con NaN resultantes del cálculo de retornos</span>
+<span class="n">daily_log_returns</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>AAPL</th>
+      <th>GOOGL</th>
+      <th>MSFT</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-03</th>
+      <td>-0.009769</td>
+      <td>-0.005245</td>
+      <td>-0.012530</td>
+    </tr>
+    <tr>
+      <th>2020-01-06</th>
+      <td>0.007937</td>
+      <td>0.026305</td>
+      <td>0.002581</td>
+    </tr>
+    <tr>
+      <th>2020-01-07</th>
+      <td>-0.004714</td>
+      <td>-0.001934</td>
+      <td>-0.009160</td>
+    </tr>
+    <tr>
+      <th>2020-01-08</th>
+      <td>0.015958</td>
+      <td>0.007093</td>
+      <td>0.015803</td>
+    </tr>
+    <tr>
+      <th>2020-01-09</th>
+      <td>0.021018</td>
+      <td>0.010443</td>
+      <td>0.012416</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cálculo de la matriz de covarianza</span>
+<span class="n">matriz_covarianza</span> <span class="o">=</span> <span class="n">daily_log_returns</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matriz de Covarianza:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matriz_covarianza</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Matriz de Covarianza:
+Ticker      AAPL     GOOGL      MSFT
+Ticker
+AAPL    0.000541  0.000372  0.000415
+GOOGL   0.000372  0.000474  0.000397
+MSFT    0.000415  0.000397  0.000481
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculo de la volatiliad del portafolio con pesos iguales</span>
+<span class="n">pesos_iguales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">vol_igual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pesos_iguales</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matriz_covarianza</span><span class="p">,</span> <span class="n">pesos_iguales</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volatilidad con pesos iguales:&#39;</span><span class="p">,</span> <span class="n">vol_igual</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Volatilidad con pesos iguales: 0.020720147789113325
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular los pesos óptimos que minimizan la volatilidad del portafolio usando la matriz de covarianza real</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="c1"># Usar los retornos medios diarios como retornos esperados</span>
+<span class="n">retornos_esperados</span> <span class="o">=</span> <span class="n">daily_log_returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">cov_matrix</span> <span class="o">=</span> <span class="n">matriz_covarianza</span><span class="o">.</span><span class="n">values</span>
+<span class="n">num_activos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">retornos_esperados</span><span class="p">)</span>
+
+<span class="c1"># Función objetivo: volatilidad del portafolio</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">volatilidad_portafolio</span><span class="p">(</span><span class="n">pesos</span><span class="p">,</span> <span class="n">cov_matrix</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pesos</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">,</span> <span class="n">pesos</span><span class="p">)))</span>
+
+<span class="c1"># Restricción: suma de pesos = 1</span>
+<span class="n">restriccion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span>
+<span class="c1"># Límites: cada peso entre 0 y 1</span>
+<span class="n">limites</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_activos</span><span class="p">))</span>
+<span class="c1"># Pesos iniciales</span>
+<span class="n">pesos_inicial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="n">num_activos</span><span class="p">]</span><span class="o">*</span><span class="n">num_activos</span><span class="p">)</span>
+
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">volatilidad_portafolio</span><span class="p">,</span> <span class="n">pesos_inicial</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">,),</span>
+                     <span class="n">method</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">limites</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">restriccion</span><span class="p">)</span>
+
+<span class="n">pesos_optimos</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">x</span>
+<span class="n">vol_optima</span> <span class="o">=</span> <span class="n">volatilidad_portafolio</span><span class="p">(</span><span class="n">pesos_optimos</span><span class="p">,</span> <span class="n">cov_matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pesos óptimos (minimizan volatilidad):&#39;</span><span class="p">,</span> <span class="n">pesos_optimos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volatilidad mínima:&#39;</span><span class="p">,</span> <span class="n">vol_optima</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pesos óptimos (minimizan volatilidad): [0.33333333 0.33333333 0.33333333]
+Volatilidad mínima: 0.020720147789113325
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Frontera eficiente de Markowitz (todos los portafolios óptimos) con datos reales</span>
+<span class="n">retornos_objetivo_real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">retornos_esperados</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">retornos_esperados</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">vols_markowitz</span><span class="p">,</span> <span class="n">rets_markowitz</span><span class="p">,</span> <span class="n">pesos_markowitz</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">r_obj</span> <span class="ow">in</span> <span class="n">retornos_objetivo_real</span><span class="p">:</span>
+    <span class="n">restricciones</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">r_obj</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">retornos_esperados</span><span class="p">)</span> <span class="o">-</span> <span class="n">r</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">resultado</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span>
+        <span class="n">volatilidad_portafolio</span><span class="p">,</span>
+        <span class="n">pesos_inicial</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">cov_matrix</span><span class="p">,),</span>
+        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span>
+        <span class="n">bounds</span><span class="o">=</span><span class="n">limites</span><span class="p">,</span>
+        <span class="n">constraints</span><span class="o">=</span><span class="n">restricciones</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">resultado</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="n">vols_markowitz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
+        <span class="n">rets_markowitz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">retornos_esperados</span><span class="p">))</span>
+        <span class="n">pesos_markowitz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resultado</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">vols_markowitz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vols_markowitz</span><span class="p">)</span>
+<span class="n">rets_markowitz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rets_markowitz</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vols_markowitz</span><span class="p">,</span> <span class="n">rets_markowitz</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vols_markowitz</span><span class="p">,</span> <span class="n">rets_markowitz</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">rets_markowitz</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Portafolios óptimos&#39;</span><span class="p">)</span>
+
+<span class="n">idx_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">vols_markowitz</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vols_markowitz</span><span class="p">[</span><span class="n">idx_min</span><span class="p">],</span> <span class="n">rets_markowitz</span><span class="p">[</span><span class="n">idx_min</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mínima varianza&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad diaria&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno esperado diario&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frontera eficiente de Markowitz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Retorno esperado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
