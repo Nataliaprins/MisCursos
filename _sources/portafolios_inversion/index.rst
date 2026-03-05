@@ -11,3 +11,4 @@ Descarga las condiciones del curso aquí: :download:`Generalidades del curso <0_
 
    mercado_capitales
    diversificacion_ingenua
+   3_Frontera_eficiente
