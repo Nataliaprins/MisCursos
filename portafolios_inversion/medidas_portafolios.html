@@ -1,0 +1,1421 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. Medidas de Desempeño de Portafolios &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/medidas_portafolios';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="5. Riesgo diversificable vs No diversificable" href="beta_activo_individual.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">2. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">3. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">4. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">5. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Portafolios de Inversión</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6. Medidas de Desempeño de Portafolios</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/medidas_portafolios.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/medidas_portafolios.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/portafolios_inversion/medidas_portafolios.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. Medidas de Desempeño de Portafolios</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratios-de-información:-¿qué-tan-bien-lo-hizo-mi-portafolio?">Ratios de información: ¿qué tan bien lo hizo mi portafolio?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Datos-del-ejemplo">Datos del ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1-—-Descargar-datos-y-construir-el-portafolio">Paso 1 — Descargar datos y construir el portafolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Estadísticas-básicas-anualizadas">Estadísticas básicas anualizadas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-1-—-Sharpe">Ratio 1 — Sharpe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-2-—-Treynor">Ratio 2 — Treynor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-3-—-Alfa-de-Jensen-(\alpha)">Ratio 3 — Alfa de Jensen (<span class="math notranslate nohighlight">\(\alpha\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-4-—-Sortino">Ratio 4 — Sortino</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-5-—-Ratio-de-Información-(Information-Ratio)">Ratio 5 — Ratio de Información (Information Ratio)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-6-—-Modigliani-(M²)">Ratio 6 — Modigliani (M²)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen-comparativo-de-todos-los-ratios">Resumen comparativo de todos los ratios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualización-comparativa">Visualización comparativa</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Cuándo-usar-cada-ratio?">¿Cuándo usar cada ratio?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Relación-entre-los-ratios:">Relación entre los ratios:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="6.-Medidas-de-Desempeño-de-Portafolios">
+<h1>6. Medidas de Desempeño de Portafolios<a class="headerlink" href="#6.-Medidas-de-Desempeño-de-Portafolios" title="Link to this heading">#</a></h1>
+<section id="Ratios-de-información:-¿qué-tan-bien-lo-hizo-mi-portafolio?">
+<h2>Ratios de información: ¿qué tan bien lo hizo mi portafolio?<a class="headerlink" href="#Ratios-de-información:-¿qué-tan-bien-lo-hizo-mi-portafolio?" title="Link to this heading">#</a></h2>
+<p>Los <strong>ratios de desempeño</strong> permiten evaluar si el rendimiento de un portafolio compensa adecuadamente el riesgo asumido. No basta con mirar el rendimiento bruto: un portafolio que rindió 20% con altísima volatilidad puede ser peor que uno que rindió 12% con baja volatilidad.</p>
+<p>En este cuaderno calculamos <strong>6 ratios fundamentales</strong> con datos reales:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ratio</p></th>
+<th class="head"><p>¿Qué mide?</p></th>
+<th class="head"><p>Fórmula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Sharpe</strong></p></td>
+<td><p>Rendimiento por unidad de riesgo total (<span class="math notranslate nohighlight">\(\sigma\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_f}{\sigma_p}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Treynor</strong></p></td>
+<td><p>Rendimiento por unidad de riesgo sistemático (<span class="math notranslate nohighlight">\(\beta\)</span>)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_f}{\beta_p}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Alfa de Jensen</strong></p></td>
+<td><p>Rendimiento en exceso vs. lo que predice el CAPM</p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha = R_p - [R_f + \beta_p(R_m - R_f)]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sortino</strong></p></td>
+<td><p>Rendimiento por unidad de riesgo <em>a la baja</em></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_f}{\sigma_{downside}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Ratio de Información</strong></p></td>
+<td><p>Rendimiento activo por unidad de tracking error</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_b}{\sigma(R_p - R_b)}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Modigliani (M²)</strong></p></td>
+<td><p>Rendimiento ajustado al mismo riesgo del mercado</p></td>
+<td><p><span class="math notranslate nohighlight">\(M^2 = R_f + \frac{R_p - R_f}{\sigma_p} \cdot \sigma_m\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<section id="Datos-del-ejemplo">
+<h3>Datos del ejemplo<a class="headerlink" href="#Datos-del-ejemplo" title="Link to this heading">#</a></h3>
+<p>Construiremos un <strong>portafolio equiponderado</strong> con 5 acciones reales y lo compararemos contra el <strong>S&amp;P 500</strong> como benchmark.</p>
+</section>
+</section>
+<section id="Paso-1-—-Descargar-datos-y-construir-el-portafolio">
+<h2>Paso 1 — Descargar datos y construir el portafolio<a class="headerlink" href="#Paso-1-—-Descargar-datos-y-construir-el-portafolio" title="Link to this heading">#</a></h2>
+<p>Descargamos precios de cierre de 5 acciones diversificadas por sector y del S&amp;P 500 como benchmark:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ticker</p></th>
+<th class="head"><p>Empresa</p></th>
+<th class="head"><p>Sector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AAPL</p></td>
+<td><p>Apple</p></td>
+<td><p>Tecnología</p></td>
+</tr>
+<tr class="row-odd"><td><p>JNJ</p></td>
+<td><p>Johnson &amp; Johnson</p></td>
+<td><p>Salud</p></td>
+</tr>
+<tr class="row-even"><td><p>JPM</p></td>
+<td><p>JPMorgan Chase</p></td>
+<td><p>Financiero</p></td>
+</tr>
+<tr class="row-odd"><td><p>XOM</p></td>
+<td><p>ExxonMobil</p></td>
+<td><p>Energía</p></td>
+</tr>
+<tr class="row-even"><td><p>PG</p></td>
+<td><p>Procter &amp; Gamble</p></td>
+<td><p>Consumo básico</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+
+<span class="c1"># ─── Configuración ───</span>
+<span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s2">&quot;JNJ&quot;</span><span class="p">,</span> <span class="s2">&quot;JPM&quot;</span><span class="p">,</span> <span class="s2">&quot;XOM&quot;</span><span class="p">,</span> <span class="s2">&quot;PG&quot;</span><span class="p">]</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="s2">&quot;^GSPC&quot;</span>
+<span class="n">inicio</span> <span class="o">=</span> <span class="s2">&quot;2022-01-01&quot;</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="s2">&quot;2025-01-01&quot;</span>
+<span class="n">rf_anual</span> <span class="o">=</span> <span class="mf">0.05</span>                    <span class="c1"># Tasa libre de riesgo anual (5%)</span>
+<span class="n">rf_diario</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf_anual</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">252</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Tasa diaria equivalente</span>
+
+<span class="c1"># ─── Descargar datos ───</span>
+<span class="n">todos</span> <span class="o">=</span> <span class="n">tickers</span> <span class="o">+</span> <span class="p">[</span><span class="n">benchmark</span><span class="p">]</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">inicio</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">fin</span><span class="p">)[</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">if</span> <span class="n">t</span> <span class="o">!=</span> <span class="n">benchmark</span> <span class="k">else</span> <span class="s2">&quot;SP500&quot;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">datos</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="c1"># ─── Rendimientos logarítmicos diarios ───</span>
+<span class="n">rendimientos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">datos</span> <span class="o">/</span> <span class="n">datos</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># ─── Portafolio equiponderado (20% cada activo) ───</span>
+<span class="n">pesos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">tickers</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">tickers</span><span class="p">))</span>
+<span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="n">tickers</span><span class="p">]</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pesos</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Período: </span><span class="si">{</span><span class="n">inicio</span><span class="si">}</span><span class="s2"> a </span><span class="si">{</span><span class="n">fin</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Activos: </span><span class="si">{</span><span class="n">tickers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pesos: </span><span class="si">{</span><span class="n">pesos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tasa libre de riesgo: </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2"> anual (</span><span class="si">{</span><span class="n">rf_diario</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> diaria)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Observaciones: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="si">}</span><span class="s2"> días&quot;</span><span class="p">)</span>
+<span class="n">rendimientos</span><span class="p">[</span><span class="n">tickers</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;SP500&quot;</span><span class="p">,</span> <span class="s2">&quot;Portafolio&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[*********************100%***********************]  6 of 6 completed
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Período: 2022-01-01 a 2025-01-01
+Activos: [&#39;AAPL&#39;, &#39;JNJ&#39;, &#39;JPM&#39;, &#39;XOM&#39;, &#39;PG&#39;]
+Pesos: [0.2 0.2 0.2 0.2 0.2]
+Tasa libre de riesgo: 5% anual (0.000194 diaria)
+Observaciones: 752 días
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>JNJ</th>
+      <th>JPM</th>
+      <th>XOM</th>
+      <th>PG</th>
+      <th>SP500</th>
+      <th>Portafolio</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-01-04</th>
+      <td>-0.012773</td>
+      <td>-0.002685</td>
+      <td>0.037209</td>
+      <td>0.036924</td>
+      <td>0.003493</td>
+      <td>-0.000630</td>
+      <td>0.012434</td>
+    </tr>
+    <tr>
+      <th>2022-01-05</th>
+      <td>-0.026960</td>
+      <td>0.006642</td>
+      <td>-0.018451</td>
+      <td>0.012361</td>
+      <td>0.004517</td>
+      <td>-0.019583</td>
+      <td>-0.004379</td>
+    </tr>
+    <tr>
+      <th>2022-01-06</th>
+      <td>-0.016834</td>
+      <td>-0.003432</td>
+      <td>0.010568</td>
+      <td>0.023248</td>
+      <td>-0.008439</td>
+      <td>-0.000964</td>
+      <td>0.001022</td>
+    </tr>
+    <tr>
+      <th>2022-01-07</th>
+      <td>0.000988</td>
+      <td>0.013427</td>
+      <td>0.009860</td>
+      <td>0.008163</td>
+      <td>-0.000553</td>
+      <td>-0.004058</td>
+      <td>0.006377</td>
+    </tr>
+    <tr>
+      <th>2022-01-10</th>
+      <td>0.000116</td>
+      <td>-0.004956</td>
+      <td>0.000957</td>
+      <td>-0.005970</td>
+      <td>-0.013735</td>
+      <td>-0.001442</td>
+      <td>-0.004718</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="Estadísticas-básicas-anualizadas">
+<h3>Estadísticas básicas anualizadas<a class="headerlink" href="#Estadísticas-básicas-anualizadas" title="Link to this heading">#</a></h3>
+<p>Antes de calcular los ratios, necesitamos las métricas base: rendimiento medio, volatilidad y beta del portafolio.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Métricas anualizadas ───</span>
+<span class="n">Rp</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">252</span>         <span class="c1"># Rendimiento portafolio</span>
+<span class="n">Rm</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;SP500&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">252</span>              <span class="c1"># Rendimiento mercado</span>
+<span class="n">sigma_p</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>  <span class="c1"># Volatilidad portafolio</span>
+<span class="n">sigma_m</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;SP500&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>       <span class="c1"># Volatilidad mercado</span>
+
+<span class="c1"># ─── Beta del portafolio ───</span>
+<span class="n">cov_pm</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;SP500&quot;</span><span class="p">])</span>
+<span class="n">var_m</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;SP500&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">beta_p</span> <span class="o">=</span> <span class="n">cov_pm</span> <span class="o">/</span> <span class="n">var_m</span>
+
+<span class="c1"># ─── Downside deviation (solo rendimientos negativos) ───</span>
+<span class="n">exceso_diario</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rf_diario</span>
+<span class="n">downside</span> <span class="o">=</span> <span class="n">exceso_diario</span><span class="p">[</span><span class="n">exceso_diario</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sigma_downside</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">downside</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
+
+<span class="c1"># ─── Tracking error ───</span>
+<span class="n">tracking</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rendimientos</span><span class="p">[</span><span class="s2">&quot;SP500&quot;</span><span class="p">]</span>
+<span class="n">tracking_error</span> <span class="o">=</span> <span class="n">tracking</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  MÉTRICAS BASE (anualizadas)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Rendimiento portafolio (Rp)  = </span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Rendimiento mercado (Rm)     = </span><span class="si">{</span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Tasa libre de riesgo (Rf)    = </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Volatilidad portafolio (σp)  = </span><span class="si">{</span><span class="n">sigma_p</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Volatilidad mercado (σm)     = </span><span class="si">{</span><span class="n">sigma_m</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Beta del portafolio (βp)     = </span><span class="si">{</span><span class="n">beta_p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Downside deviation           = </span><span class="si">{</span><span class="n">sigma_downside</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Tracking error               = </span><span class="si">{</span><span class="n">tracking_error</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+=======================================================
+  MÉTRICAS BASE (anualizadas)
+=======================================================
+  Rendimiento portafolio (Rp)  = 9.82%
+  Rendimiento mercado (Rm)     = 6.83%
+  Tasa libre de riesgo (Rf)    = 5.00%
+  Volatilidad portafolio (σp)  = 14.19%
+  Volatilidad mercado (σm)     = 17.51%
+  Beta del portafolio (βp)     = 0.6317
+  Downside deviation           = 14.34%
+  Tracking error               = 10.99%
+=======================================================
+</pre></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Ratio-1-—-Sharpe">
+<h2>Ratio 1 — Sharpe<a class="headerlink" href="#Ratio-1-—-Sharpe" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\text{Sharpe} = \frac{R_p - R_f}{\sigma_p}\]</div>
+<p>El ratio de Sharpe mide <strong>cuánto rendimiento en exceso</strong> (sobre la tasa libre de riesgo) se obtiene <strong>por cada unidad de riesgo total</strong> (volatilidad).</p>
+<ul class="simple">
+<li><p>Sharpe &gt; 1 → excelente relación riesgo-rendimiento</p></li>
+<li><p>Sharpe entre 0.5 y 1 → buena</p></li>
+<li><p>Sharpe &lt; 0.5 → pobre</p></li>
+<li><p>Sharpe &lt; 0 → el portafolio rindió menos que la tasa libre de riesgo</p></li>
+</ul>
+<p><strong>Usa riesgo total (:math:`sigma_p`)</strong> → adecuado para portafolios <strong>no diversificados</strong> o como medida general.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Ratio de Sharpe ───</span>
+<span class="n">sharpe</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rp</span> <span class="o">-</span> <span class="n">rf_anual</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_p</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sharpe = (Rp - Rf) / σp&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sharpe = (</span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">) / </span><span class="si">{</span><span class="n">sigma_p</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sharpe = </span><span class="si">{</span><span class="n">Rp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">sigma_p</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Sharpe = </span><span class="si">{</span><span class="n">sharpe</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># También calculamos el Sharpe del mercado para comparar</span>
+<span class="n">sharpe_mercado</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rm</span> <span class="o">-</span> <span class="n">rf_anual</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_m</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Sharpe del mercado (S&amp;P 500) = </span><span class="si">{</span><span class="n">sharpe_mercado</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sharpe</span> <span class="o">&gt;</span> <span class="n">sharpe_mercado</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio tiene MEJOR relación riesgo-rendimiento que el mercado&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El mercado tiene MEJOR relación riesgo-rendimiento que el portafolio&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  Sharpe = (Rp - Rf) / σp
+  Sharpe = (9.82% - 5.00%) / 14.19%
+  Sharpe = 4.82% / 14.19%
+
+  ► Sharpe = 0.3394
+  ► Sharpe del mercado (S&amp;P 500) = 0.1047
+
+  → El portafolio tiene MEJOR relación riesgo-rendimiento que el mercado
+</pre></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Ratio-2-—-Treynor">
+<h2>Ratio 2 — Treynor<a class="headerlink" href="#Ratio-2-—-Treynor" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\text{Treynor} = \frac{R_p - R_f}{\beta_p}\]</div>
+<p>El ratio de Treynor es similar al Sharpe, pero en lugar de usar el riesgo total (<span class="math notranslate nohighlight">\(\sigma_p\)</span>), <strong>usa el riesgo sistemático</strong> (<span class="math notranslate nohighlight">\(\beta_p\)</span>).</p>
+<p><strong>Diferencia clave con Sharpe:</strong></p>
+<ul class="simple">
+<li><p>Sharpe penaliza <strong>todo</strong> el riesgo (incluido el diversificable).</p></li>
+<li><p>Treynor <strong>solo</strong> penaliza el riesgo de mercado.</p></li>
+</ul>
+<p>→ <strong>Treynor es más apropiado para portafolios bien diversificados</strong>, donde el riesgo idiosincrático ya fue eliminado y solo queda el sistemático.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Ratio de Treynor ───</span>
+<span class="n">treynor</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rp</span> <span class="o">-</span> <span class="n">rf_anual</span><span class="p">)</span> <span class="o">/</span> <span class="n">beta_p</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Treynor = (Rp - Rf) / βp&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Treynor = (</span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">) / </span><span class="si">{</span><span class="n">beta_p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Treynor = </span><span class="si">{</span><span class="n">treynor</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Treynor del mercado (beta del mercado = 1)</span>
+<span class="n">treynor_mercado</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rm</span> <span class="o">-</span> <span class="n">rf_anual</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Treynor del mercado = </span><span class="si">{</span><span class="n">treynor_mercado</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">treynor</span> <span class="o">&gt;</span> <span class="n">treynor_mercado</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio genera MÁS rendimiento por unidad de riesgo sistemático&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El mercado genera MÁS rendimiento por unidad de riesgo sistemático&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  Treynor = (Rp - Rf) / βp
+  Treynor = (9.82% - 5.00%) / 0.6317
+
+  ► Treynor = 0.0763
+  ► Treynor del mercado = 0.0183
+
+  → El portafolio genera MÁS rendimiento por unidad de riesgo sistemático
+</pre></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Ratio-3-—-Alfa-de-Jensen-(\alpha)">
+<h2>Ratio 3 — Alfa de Jensen (<span class="math notranslate nohighlight">\(\alpha\)</span>)<a class="headerlink" href="#Ratio-3-—-Alfa-de-Jensen-(\alpha)" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\alpha_p = R_p - \left[R_f + \beta_p \cdot (R_m - R_f)\right]\]</div>
+<p>El alfa de Jensen mide el <strong>rendimiento en exceso</strong> del portafolio respecto a lo que <strong>debería</strong> haber rendido según el CAPM, dado su nivel de riesgo sistemático.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>: el gestor <strong>agregó valor</strong> — rindió más de lo esperado para el riesgo asumido.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha = 0\)</span>: el portafolio rindió exactamente lo que predice el CAPM.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha &lt; 0\)</span>: el gestor <strong>destruyó valor</strong> — no compensó el riesgo.</p></li>
+</ul>
+<p><strong>Es la medida clásica de la habilidad del gestor de portafolios.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Alfa de Jensen ───</span>
+<span class="c1"># Rendimiento esperado según CAPM</span>
+<span class="n">Rp_capm</span> <span class="o">=</span> <span class="n">rf_anual</span> <span class="o">+</span> <span class="n">beta_p</span> <span class="o">*</span> <span class="p">(</span><span class="n">Rm</span> <span class="o">-</span> <span class="n">rf_anual</span><span class="p">)</span>
+<span class="n">alpha_jensen</span> <span class="o">=</span> <span class="n">Rp</span> <span class="o">-</span> <span class="n">Rp_capm</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  α = Rp - [Rf + βp × (Rm - Rf)]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  α = </span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - [</span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">beta_p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> × (</span><span class="si">{</span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">)]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  α = </span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - [</span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">beta_p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> × </span><span class="si">{</span><span class="n">Rm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  α = </span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">Rp_capm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Alfa de Jensen = </span><span class="si">{</span><span class="n">alpha_jensen</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">alpha_jensen</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio SUPERÓ lo que predice el CAPM en </span><span class="si">{</span><span class="n">alpha_jensen</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Interpretación: el gestor generó valor adicional&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio rindió </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">alpha_jensen</span><span class="p">)</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> MENOS que lo que predice el CAPM&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Interpretación: no se compensó adecuadamente el riesgo asumido&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  α = Rp - [Rf + βp × (Rm - Rf)]
+  α = 9.82% - [5.00% + 0.6317 × (6.83% - 5.00%)]
+  α = 9.82% - [5.00% + 0.6317 × 1.83%]
+  α = 9.82% - 6.16%
+
+  ► Alfa de Jensen = 3.66%
+
+  → El portafolio SUPERÓ lo que predice el CAPM en 3.66%
+  → Interpretación: el gestor generó valor adicional
+</pre></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Ratio-4-—-Sortino">
+<h2>Ratio 4 — Sortino<a class="headerlink" href="#Ratio-4-—-Sortino" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\text{Sortino} = \frac{R_p - R_f}{\sigma_{downside}}\]</div>
+<p>El ratio de Sortino es una <strong>mejora del Sharpe</strong> que solo penaliza la volatilidad <strong>a la baja</strong> (downside deviation), en lugar de toda la volatilidad.</p>
+<p><strong>¿Por qué es útil?</strong> Porque a un inversionista no le molesta la volatilidad al alza (ganancias inesperadas). Solo le preocupa la volatilidad cuando pierde dinero.</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{downside} = \sqrt{\frac{1}{T}\sum_{t=1}^{T} \min(R_{p,t} - R_f, \; 0)^2}\]</div>
+<ul class="simple">
+<li><p>Sortino &gt; Sharpe → la mayor parte de la volatilidad viene de rendimientos positivos (buena señal).</p></li>
+<li><p>Sortino &lt; Sharpe → hay mucha volatilidad a la baja (mala señal).</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Ratio de Sortino ───</span>
+<span class="n">sortino</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rp</span> <span class="o">-</span> <span class="n">rf_anual</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_downside</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sortino = (Rp - Rf) / σ_downside&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Sortino = (</span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">) / </span><span class="si">{</span><span class="n">sigma_downside</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Sortino = </span><span class="si">{</span><span class="n">sortino</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Sharpe  = </span><span class="si">{</span><span class="n">sharpe</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  (para comparar)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sortino</span> <span class="o">&gt;</span> <span class="n">sharpe</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Sortino &gt; Sharpe: la volatilidad a la baja es MENOR que la total&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Buena señal: gran parte de la volatilidad proviene de ganancias&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Sortino &lt; Sharpe: hay proporcionalmente más volatilidad a la baja&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio tiene más riesgo de pérdida del que sugiere Sharpe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  Sortino = (Rp - Rf) / σ_downside
+  Sortino = (9.82% - 5.00%) / 14.34%
+
+  ► Sortino = 0.3359
+  ► Sharpe  = 0.3394  (para comparar)
+
+  → Sortino &lt; Sharpe: hay proporcionalmente más volatilidad a la baja
+  → El portafolio tiene más riesgo de pérdida del que sugiere Sharpe
+</pre></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Ratio-5-—-Ratio-de-Información-(Information-Ratio)">
+<h2>Ratio 5 — Ratio de Información (Information Ratio)<a class="headerlink" href="#Ratio-5-—-Ratio-de-Información-(Information-Ratio)" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[IR = \frac{R_p - R_b}{\sigma(R_p - R_b)} = \frac{\text{Rendimiento activo}}{\text{Tracking Error}}\]</div>
+<p>El ratio de información mide cuánto <strong>rendimiento adicional</strong> (respecto al benchmark) obtiene el gestor <strong>por cada unidad de desviación</strong> respecto al benchmark.</p>
+<ul class="simple">
+<li><p><strong>Rendimiento activo</strong> (<span class="math notranslate nohighlight">\(R_p - R_b\)</span>): cuánto más (o menos) rindió el portafolio vs. el benchmark.</p></li>
+<li><p><strong>Tracking error</strong> (<span class="math notranslate nohighlight">\(\sigma(R_p - R_b)\)</span>): volatilidad de esa diferencia — qué tan consistente es el gestor en superar al benchmark.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>IR</p></th>
+<th class="head"><p>Interpretación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IR &gt; 0.5</p></td>
+<td><p>Gestor muy bueno</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.25 &lt; IR &lt; 0.5</p></td>
+<td><p>Gestor aceptable</p></td>
+</tr>
+<tr class="row-even"><td><p>IR &lt; 0.25</p></td>
+<td><p>Gestor pobre</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Es la medida preferida en gestión activa</strong> y complementa al alfa de Jensen.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Ratio de Información ───</span>
+<span class="n">rendimiento_activo</span> <span class="o">=</span> <span class="n">Rp</span> <span class="o">-</span> <span class="n">Rm</span>  <span class="c1"># Rendimiento activo anualizado</span>
+<span class="n">info_ratio</span> <span class="o">=</span> <span class="n">rendimiento_activo</span> <span class="o">/</span> <span class="n">tracking_error</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  IR = (Rp - Rb) / Tracking Error&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  IR = (</span><span class="si">{</span><span class="n">Rp</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">) / </span><span class="si">{</span><span class="n">tracking_error</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  IR = </span><span class="si">{</span><span class="n">rendimiento_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">tracking_error</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Information Ratio = </span><span class="si">{</span><span class="n">info_ratio</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rendimiento_activo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio superó al benchmark en </span><span class="si">{</span><span class="n">rendimiento_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El portafolio quedó por debajo del benchmark en </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">rendimiento_activo</span><span class="p">)</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → Tracking error = </span><span class="si">{</span><span class="n">tracking_error</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (desviación respecto al benchmark)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  IR = (Rp - Rb) / Tracking Error
+  IR = (9.82% - 6.83%) / 10.99%
+  IR = 2.98% / 10.99%
+
+  ► Information Ratio = 0.2716
+
+  → El portafolio superó al benchmark en 2.98%
+  → Tracking error = 10.99% (desviación respecto al benchmark)
+</pre></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Ratio-6-—-Modigliani-(M²)">
+<h2>Ratio 6 — Modigliani (M²)<a class="headerlink" href="#Ratio-6-—-Modigliani-(M²)" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[M^2 = R_f + \frac{R_p - R_f}{\sigma_p} \cdot \sigma_m = R_f + \text{Sharpe}_p \cdot \sigma_m\]</div>
+<p>La medida de Modigliani &amp; Modigliani (M²) <strong>ajusta el rendimiento del portafolio</strong> para que tenga el <strong>mismo nivel de riesgo que el mercado</strong>. Esto permite una comparación directa en términos de rendimiento.</p>
+<p><strong>Idea intuitiva:</strong> «Si mi portafolio tuviera <em>exactamente</em> la misma volatilidad que el mercado, ¿cuánto habría rendido?»</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M^2 &gt; R_m\)</span>: el portafolio es <strong>superior</strong> al mercado (a igual riesgo, rinde más).</p></li>
+<li><p><span class="math notranslate nohighlight">\(M^2 &lt; R_m\)</span>: el portafolio es <strong>inferior</strong> al mercado.</p></li>
+<li><p><span class="math notranslate nohighlight">\(M^2 - R_m\)</span>: diferencia de rendimiento ajustada por riesgo (se expresa en %).</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Medida de Modigliani (M²) ───</span>
+<span class="n">M2</span> <span class="o">=</span> <span class="n">rf_anual</span> <span class="o">+</span> <span class="n">sharpe</span> <span class="o">*</span> <span class="n">sigma_m</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  M² = Rf + Sharpe_p × σm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  M² = </span><span class="si">{</span><span class="n">rf_anual</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">sharpe</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> × </span><span class="si">{</span><span class="n">sigma_m</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► M² = </span><span class="si">{</span><span class="n">M2</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Rendimiento del mercado = </span><span class="si">{</span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ► Diferencia (M² - Rm) = </span><span class="si">{</span><span class="n">M2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">M2</span> <span class="o">&gt;</span> <span class="n">Rm</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → A igual riesgo que el mercado, el portafolio habría rendido </span><span class="si">{</span><span class="n">M2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> MÁS&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → A igual riesgo que el mercado, el portafolio habría rendido </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">M2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Rm</span><span class="p">)</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> MENOS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  M² = Rf + Sharpe_p × σm
+  M² = 5.00% + 0.3394 × 17.51%
+
+  ► M² = 10.94%
+  ► Rendimiento del mercado = 6.83%
+  ► Diferencia (M² - Rm) = 4.11%
+
+  → A igual riesgo que el mercado, el portafolio habría rendido 4.11% MÁS
+</pre></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Resumen-comparativo-de-todos-los-ratios">
+<h2>Resumen comparativo de todos los ratios<a class="headerlink" href="#Resumen-comparativo-de-todos-los-ratios" title="Link to this heading">#</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ─── Tabla resumen ───</span>
+<span class="n">resumen</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Ratio&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Sharpe&quot;</span><span class="p">,</span> <span class="s2">&quot;Treynor&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfa de Jensen&quot;</span><span class="p">,</span> <span class="s2">&quot;Sortino&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Information Ratio&quot;</span><span class="p">,</span> <span class="s2">&quot;Modigliani (M²)&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Valor Portafolio&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sharpe</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">treynor</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alpha_jensen</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sortino</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">info_ratio</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">M2</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Valor Mercado&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sharpe_mercado</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">treynor_mercado</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;0.00%&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;—&quot;</span><span class="p">,</span> <span class="s2">&quot;—&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Rm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Medida de riesgo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;σ (total)&quot;</span><span class="p">,</span> <span class="s2">&quot;β (sistemático)&quot;</span><span class="p">,</span> <span class="s2">&quot;β (CAPM)&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;σ_downside (a la baja)&quot;</span><span class="p">,</span> <span class="s2">&quot;Tracking error&quot;</span><span class="p">,</span> <span class="s2">&quot;σ (ajustado)&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Interpretación&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Rend. por unidad de riesgo total&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Rend. por unidad de riesgo sistemático&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Exceso vs. predicción CAPM&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Rend. por unidad de riesgo bajista&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Rend. activo por unidad de tracking error&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Rend. ajustado al riesgo del mercado&quot;</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">resumen</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">resumen</span><span class="o">.</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">resumen</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ratio</th>
+      <th>Valor Portafolio</th>
+      <th>Valor Mercado</th>
+      <th>Medida de riesgo</th>
+      <th>Interpretación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Sharpe</td>
+      <td>0.3394</td>
+      <td>0.1047</td>
+      <td>σ (total)</td>
+      <td>Rend. por unidad de riesgo total</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Treynor</td>
+      <td>0.0763</td>
+      <td>0.0183</td>
+      <td>β (sistemático)</td>
+      <td>Rend. por unidad de riesgo sistemático</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alfa de Jensen</td>
+      <td>3.66%</td>
+      <td>0.00%</td>
+      <td>β (CAPM)</td>
+      <td>Exceso vs. predicción CAPM</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sortino</td>
+      <td>0.3359</td>
+      <td>—</td>
+      <td>σ_downside (a la baja)</td>
+      <td>Rend. por unidad de riesgo bajista</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Information Ratio</td>
+      <td>0.2716</td>
+      <td>—</td>
+      <td>Tracking error</td>
+      <td>Rend. activo por unidad de tracking error</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Modigliani (M²)</td>
+      <td>10.94%</td>
+      <td>6.83%</td>
+      <td>σ (ajustado)</td>
+      <td>Rend. ajustado al riesgo del mercado</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="Visualización-comparativa">
+<h3>Visualización comparativa<a class="headerlink" href="#Visualización-comparativa" title="Link to this heading">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># ─── Panel 1: Ratios adimensionales (Sharpe, Treynor, Sortino, IR) ───</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ratios_nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sharpe&quot;</span><span class="p">,</span> <span class="s2">&quot;Treynor&quot;</span><span class="p">,</span> <span class="s2">&quot;Sortino&quot;</span><span class="p">,</span> <span class="s2">&quot;Info Ratio&quot;</span><span class="p">]</span>
+<span class="n">ratios_port</span> <span class="o">=</span> <span class="p">[</span><span class="n">sharpe</span><span class="p">,</span> <span class="n">treynor</span><span class="p">,</span> <span class="n">sortino</span><span class="p">,</span> <span class="n">info_ratio</span><span class="p">]</span>
+<span class="n">ratios_merc</span> <span class="o">=</span> <span class="p">[</span><span class="n">sharpe_mercado</span><span class="p">,</span> <span class="n">treynor_mercado</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ratios_nombres</span><span class="p">))</span>
+<span class="n">ancho</span> <span class="o">=</span> <span class="mf">0.35</span>
+
+<span class="n">barras_p</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">ancho</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">ratios_port</span><span class="p">,</span> <span class="n">ancho</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Portafolio&quot;</span><span class="p">,</span>
+                   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">barras_m</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">ancho</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                   <span class="p">[</span><span class="n">v</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ratios_merc</span><span class="p">],</span>
+                   <span class="n">ancho</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mercado (S&amp;P 500)&quot;</span><span class="p">,</span>
+                   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ratios_nombres</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Valor del ratio&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ratios de rendimiento ajustado por riesgo&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Agregar valores sobre las barras</span>
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">barras_p</span><span class="p">:</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span>
+             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># ─── Panel 2: Comparación de rendimientos (%) ───</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">nombres_rend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Rp</span><span class="se">\n</span><span class="s2">(real)&quot;</span><span class="p">,</span> <span class="s2">&quot;Rm</span><span class="se">\n</span><span class="s2">(mercado)&quot;</span><span class="p">,</span> <span class="s2">&quot;CAPM</span><span class="se">\n</span><span class="s2">(esperado)&quot;</span><span class="p">,</span> <span class="s2">&quot;M²</span><span class="se">\n</span><span class="s2">(ajustado)&quot;</span><span class="p">,</span> <span class="s2">&quot;Rf&quot;</span><span class="p">]</span>
+<span class="n">valores_rend</span> <span class="o">=</span> <span class="p">[</span><span class="n">Rp</span><span class="p">,</span> <span class="n">Rm</span><span class="p">,</span> <span class="n">Rp_capm</span><span class="p">,</span> <span class="n">M2</span><span class="p">,</span> <span class="n">rf_anual</span><span class="p">]</span>
+<span class="n">colores_rend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="s2">&quot;mediumpurple&quot;</span><span class="p">,</span> <span class="s2">&quot;seagreen&quot;</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">]</span>
+
+<span class="n">barras</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">nombres_rend</span><span class="p">,</span> <span class="p">[</span><span class="n">v</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">valores_rend</span><span class="p">],</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">colores_rend</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimiento anual (%)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Comparación de rendimientos&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bar</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">barras</span><span class="p">,</span> <span class="n">valores_rend</span><span class="p">):</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span>
+             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_medidas_portafolios_20_0.png" src="../_images/portafolios_inversion_medidas_portafolios_20_0.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#Conclusiones" title="Link to this heading">#</a></h2>
+<section id="¿Cuándo-usar-cada-ratio?">
+<h3>¿Cuándo usar cada ratio?<a class="headerlink" href="#¿Cuándo-usar-cada-ratio?" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Situación</p></th>
+<th class="head"><p>Ratio recomendado</p></th>
+<th class="head"><p>¿Por qué?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Evaluar un portafolio <strong>único</strong></p></td>
+<td><p><strong>Sharpe</strong></p></td>
+<td><p>Usa riesgo total, aplicable siempre</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparar portafolios <strong>bien diversificados</strong></p></td>
+<td><p><strong>Treynor</strong></p></td>
+<td><p>Solo riesgo sistemático es relevante</p></td>
+</tr>
+<tr class="row-even"><td><p>Medir habilidad del <strong>gestor</strong></p></td>
+<td><p><strong>Alfa de Jensen</strong></p></td>
+<td><p>¿Generó valor sobre lo que predice el CAPM?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Preocupación por <strong>pérdidas</strong></p></td>
+<td><p><strong>Sortino</strong></p></td>
+<td><p>Solo penaliza la volatilidad a la baja</p></td>
+</tr>
+<tr class="row-even"><td><p>Gestión <strong>activa</strong> vs. benchmark</p></td>
+<td><p><strong>Information Ratio</strong></p></td>
+<td><p>¿Cuánto gana por desviarse del benchmark?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparar rendimientos en <strong>términos absolutos</strong></p></td>
+<td><p><strong>Modigliani (M²)</strong></p></td>
+<td><p>Resultado en %, fácil de interpretar</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="Relación-entre-los-ratios:">
+<h3>Relación entre los ratios:<a class="headerlink" href="#Relación-entre-los-ratios:" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Sharpe</strong> y <strong>M²</strong> están directamente relacionados: <span class="math notranslate nohighlight">\(M^2 = R_f + \text{Sharpe} \times \sigma_m\)</span>. Si el Sharpe es mayor que el del mercado, M² superará a <span class="math notranslate nohighlight">\(R_m\)</span>.</p></li>
+<li><p><strong>Treynor</strong> y <strong>Alfa de Jensen</strong> usan el mismo riesgo (<span class="math notranslate nohighlight">\(\beta\)</span>), pero Jensen da una diferencia absoluta y Treynor un ratio.</p></li>
+<li><p><strong>Sortino</strong> mejora al <strong>Sharpe</strong> al distinguir volatilidad buena (al alza) de mala (a la baja).</p></li>
+<li><p>El <strong>Information Ratio</strong> es independiente de los anteriores: mide <strong>consistencia</strong> en superar al benchmark.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Ningún ratio es suficiente por sí solo.</strong> Un análisis robusto requiere evaluar varios ratios en conjunto para obtener una imagen completa del desempeño ajustado por riesgo.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="beta_activo_individual.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">5. Riesgo diversificable vs No diversificable</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratios-de-información:-¿qué-tan-bien-lo-hizo-mi-portafolio?">Ratios de información: ¿qué tan bien lo hizo mi portafolio?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Datos-del-ejemplo">Datos del ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1-—-Descargar-datos-y-construir-el-portafolio">Paso 1 — Descargar datos y construir el portafolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Estadísticas-básicas-anualizadas">Estadísticas básicas anualizadas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-1-—-Sharpe">Ratio 1 — Sharpe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-2-—-Treynor">Ratio 2 — Treynor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-3-—-Alfa-de-Jensen-(\alpha)">Ratio 3 — Alfa de Jensen (<span class="math notranslate nohighlight">\(\alpha\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-4-—-Sortino">Ratio 4 — Sortino</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-5-—-Ratio-de-Información-(Information-Ratio)">Ratio 5 — Ratio de Información (Information Ratio)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Ratio-6-—-Modigliani-(M²)">Ratio 6 — Modigliani (M²)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen-comparativo-de-todos-los-ratios">Resumen comparativo de todos los ratios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualización-comparativa">Visualización comparativa</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Cuándo-usar-cada-ratio?">¿Cuándo usar cada ratio?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Relación-entre-los-ratios:">Relación entre los ratios:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

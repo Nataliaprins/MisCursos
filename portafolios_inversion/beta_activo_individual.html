@@ -1,0 +1,1276 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Riesgo diversificable vs No diversificable &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/beta_activo_individual';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="6. Medidas de Desempeño de Portafolios" href="medidas_portafolios.html" />
+    <link rel="prev" title="4. Efecto de la Diversificación sobre el Riesgo" href="efecto_diversificacion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">2. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">3. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">4. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">5. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Portafolios de Inversión</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="medidas_portafolios.html">6. Medidas de Desempeño de Portafolios</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/beta_activo_individual.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/beta_activo_individual.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/portafolios_inversion/beta_activo_individual.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Riesgo diversificable vs No diversificable</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1.-Riesgo-diversificable">5.1. Riesgo diversificable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Beta-(\beta)-de-un-Activo-Individual-—-Riesgo-sistemático">Beta (<span class="math notranslate nohighlight">\(\beta\)</span>) de un Activo Individual — Riesgo sistemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1-—-Importar-librerías-y-descargar-datos">Paso 1 — Importar librerías y descargar datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualización-de-precios-normalizados">Visualización de precios normalizados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-2-—-Calcular-rendimientos-logarítmicos">Paso 2 — Calcular rendimientos logarítmicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualización-de-rendimientos">Visualización de rendimientos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-3-—-Calcular-la-Covarianza-y-la-Varianza">Paso 3 — Calcular la Covarianza y la Varianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-4-—-Calcular-el-Beta-(Método-1:-Fórmula-directa)">Paso 4 — Calcular el Beta (Método 1: Fórmula directa)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-5-—-Calcular-el-Beta-(Método-2:-Regresión-Lineal-por-MCO)">Paso 5 — Calcular el Beta (Método 2: Regresión Lineal por MCO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-6-—-Verificación:-comparar-ambos-métodos">Paso 6 — Verificación: comparar ambos métodos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-7-—-Gráfico:-Diagrama-de-dispersión-y-recta-de-regresión">Paso 7 — Gráfico: Diagrama de dispersión y recta de regresión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-8-—-Métricas-complementarias">Paso 8 — Métricas complementarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-9-—-Rendimiento-esperado-según-CAPM">Paso 9 — Rendimiento esperado según CAPM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-10-—-Gráfico-final:-Security-Market-Line-(SML)">Paso 10 — Gráfico final: Security Market Line (SML)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen-del-procedimiento:">Resumen del procedimiento:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="5.-Riesgo-diversificable-vs-No-diversificable">
+<h1>5. Riesgo diversificable vs No diversificable<a class="headerlink" href="#5.-Riesgo-diversificable-vs-No-diversificable" title="Link to this heading">#</a></h1>
+<p>El riesgo total de un valor se divide en dos partes: el riesgo sistemático, denominado beta, que mide la variación del activo en relación con los movimientos del mercado, y el riesgo no sistemático, que es único para cada activo.</p>
+<section id="5.1.-Riesgo-diversificable">
+<h2>5.1. Riesgo diversificable<a class="headerlink" href="#5.1.-Riesgo-diversificable" title="Link to this heading">#</a></h2>
+<p>El riesgo no sistemático, también denominado riesgo diversificable, no es compensado por el mercado. De hecho, se puede eliminar mediante la creación de carteras diversificadas. ver: <a class="reference internal" href="efecto_diversificacion.html"><span class="doc">efecto_diversificación</span></a></p>
+</section>
+<section id="Beta-(\beta)-de-un-Activo-Individual-—-Riesgo-sistemático">
+<h2>Beta (<span class="math notranslate nohighlight">\(\beta\)</span>) de un Activo Individual — Riesgo sistemático<a class="headerlink" href="#Beta-(\beta)-de-un-Activo-Individual-—-Riesgo-sistemático" title="Link to this heading">#</a></h2>
+<p>El <strong>beta</strong> (<span class="math notranslate nohighlight">\(\beta\)</span>) mide la <strong>sensibilidad</strong> del rendimiento de un activo frente al rendimiento del mercado. Es el indicador central de <strong>riesgo sistemático</strong> (no diversificable) dentro del modelo CAPM.</p>
+<div class="math notranslate nohighlight">
+\[\beta_i = \frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)}\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_i\)</span>: rendimiento del activo <span class="math notranslate nohighlight">\(i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R_m\)</span>: rendimiento del mercado (benchmark)</p></li>
+</ul>
+<p><strong>Interpretación:</strong> | Valor de <span class="math notranslate nohighlight">\(\beta\)</span> | Significado | |—|—| | <span class="math notranslate nohighlight">\(\beta = 1\)</span> | El activo se mueve igual que el mercado | | <span class="math notranslate nohighlight">\(\beta &gt; 1\)</span> | El activo es <strong>más volátil</strong> que el mercado (agresivo) | | <span class="math notranslate nohighlight">\(\beta &lt; 1\)</span> | El activo es <strong>menos volátil</strong> que el mercado (defensivo) | | <span class="math notranslate nohighlight">\(\beta &lt; 0\)</span> | El activo se mueve en <strong>dirección contraria</strong> al mercado |</p>
+<hr class="docutils" />
+<p>En este cuaderno calcularemos el beta de <strong>Apple (AAPL)</strong> utilizando el <strong>S&amp;P 500 (^GSPC)</strong> como benchmark, con datos reales de Yahoo Finance.</p>
+</section>
+<section id="Paso-1-—-Importar-librerías-y-descargar-datos">
+<h2>Paso 1 — Importar librerías y descargar datos<a class="headerlink" href="#Paso-1-—-Importar-librerías-y-descargar-datos" title="Link to this heading">#</a></h2>
+<p>Necesitamos:</p>
+<ul class="simple">
+<li><p><strong>yfinance</strong> para descargar precios históricos desde Yahoo Finance.</p></li>
+<li><p><strong>numpy</strong> y <strong>pandas</strong> para cálculos numéricos.</p></li>
+<li><p><strong>matplotlib</strong> para visualización.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+
+<span class="c1"># Configuración</span>
+<span class="n">ticker</span> <span class="o">=</span> <span class="s2">&quot;AAPL&quot;</span>           <span class="c1"># Acción a analizar</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="s2">&quot;^GSPC&quot;</span>        <span class="c1"># S&amp;P 500 como mercado</span>
+<span class="n">inicio</span> <span class="o">=</span> <span class="s2">&quot;2022-01-01&quot;</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="s2">&quot;2025-01-01&quot;</span>
+
+<span class="c1"># Descargar precios de cierre ajustados</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="n">ticker</span><span class="p">,</span> <span class="n">benchmark</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="n">inicio</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">fin</span><span class="p">)[</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">ticker</span><span class="p">,</span> <span class="n">benchmark</span><span class="p">]</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[*********************100%***********************]  2 of 2 completed
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AAPL</th>
+      <th>^GSPC</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-01-03</th>
+      <td>178.103653</td>
+      <td>4796.560059</td>
+    </tr>
+    <tr>
+      <th>2022-01-04</th>
+      <td>175.843231</td>
+      <td>4793.540039</td>
+    </tr>
+    <tr>
+      <th>2022-01-05</th>
+      <td>171.165848</td>
+      <td>4700.580078</td>
+    </tr>
+    <tr>
+      <th>2022-01-06</th>
+      <td>168.308502</td>
+      <td>4696.049805</td>
+    </tr>
+    <tr>
+      <th>2022-01-07</th>
+      <td>168.474854</td>
+      <td>4677.029785</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="Visualización-de-precios-normalizados">
+<h3>Visualización de precios normalizados<a class="headerlink" href="#Visualización-de-precios-normalizados" title="Link to this heading">#</a></h3>
+<p>Para comparar el comportamiento de AAPL vs. el S&amp;P 500, normalizamos ambos a <strong>base 100</strong> (primer día = 100). Esto permite ver el desempeño relativo, ya que los precios absolutos tienen escalas muy diferentes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalizar precios a base 100</span>
+<span class="n">precios_norm</span> <span class="o">=</span> <span class="n">datos</span> <span class="o">/</span> <span class="n">datos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">precios_norm</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">ticker</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">precios_norm</span><span class="p">[</span><span class="n">benchmark</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;S&amp;P 500&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Evolución de precios normalizados (Base 100)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Precio normalizado&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_beta_activo_individual_6_0.png" src="../_images/portafolios_inversion_beta_activo_individual_6_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Paso-2-—-Calcular-rendimientos-logarítmicos">
+<h2>Paso 2 — Calcular rendimientos logarítmicos<a class="headerlink" href="#Paso-2-—-Calcular-rendimientos-logarítmicos" title="Link to this heading">#</a></h2>
+<p>Para calcular el beta necesitamos <strong>rendimientos</strong>, no precios. Usamos rendimientos logarítmicos (log-returns) porque:</p>
+<ol class="arabic simple">
+<li><p>Son <strong>aditivos en el tiempo</strong> (se pueden sumar para obtener rendimientos acumulados).</p></li>
+<li><p>Tienen una distribución más cercana a la <strong>normal</strong>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular rendimientos logarítmicos diarios</span>
+<span class="n">rendimientos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">datos</span> <span class="o">/</span> <span class="n">datos</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">rendimientos</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rendimientos diarios calculados: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="si">}</span><span class="s2"> observaciones</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">rendimientos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Rendimientos diarios calculados: 752 observaciones
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>r_AAPL</th>
+      <th>r_^GSPC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>752.000000</td>
+      <td>752.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.000446</td>
+      <td>0.000271</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.017038</td>
+      <td>0.011032</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-0.060472</td>
+      <td>-0.044199</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-0.008472</td>
+      <td>-0.005801</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.001117</td>
+      <td>0.000250</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.009704</td>
+      <td>0.006706</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.085236</td>
+      <td>0.053953</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="Visualización-de-rendimientos">
+<h3>Visualización de rendimientos<a class="headerlink" href="#Visualización-de-rendimientos" title="Link to this heading">#</a></h3>
+<p>Grafiquemos los rendimientos diarios de ambos para observar su co-movimiento.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rendimientos diarios de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimiento&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rendimientos diarios del S&amp;P 500&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimiento&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_beta_activo_individual_10_0.png" src="../_images/portafolios_inversion_beta_activo_individual_10_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Paso-3-—-Calcular-la-Covarianza-y-la-Varianza">
+<h2>Paso 3 — Calcular la Covarianza y la Varianza<a class="headerlink" href="#Paso-3-—-Calcular-la-Covarianza-y-la-Varianza" title="Link to this heading">#</a></h2>
+<p>El beta se calcula como:</p>
+<div class="math notranslate nohighlight">
+\[\beta_i = \frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)}\]</div>
+<p>Desglosemos cada componente:</p>
+<ul class="simple">
+<li><p><strong>Covarianza</strong> <span class="math notranslate nohighlight">\(\text{Cov}(R_i, R_m)\)</span>: mide cómo se mueven <strong>juntos</strong> los rendimientos del activo y del mercado. Si es positiva, tienden a moverse en la misma dirección.</p></li>
+<li><p><strong>Varianza</strong> <span class="math notranslate nohighlight">\(\text{Var}(R_m)\)</span>: mide la dispersión de los rendimientos del mercado. Es el «denominador normalizador».</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Matriz de covarianza ---</span>
+<span class="n">matriz_cov</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matriz de Covarianza:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matriz_cov</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Extraer la covarianza entre AAPL y el mercado</span>
+<span class="n">cov_activo_mercado</span> <span class="o">=</span> <span class="n">matriz_cov</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cov(</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">, S&amp;P 500) = </span><span class="si">{</span><span class="n">cov_activo_mercado</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Varianza del mercado</span>
+<span class="n">var_mercado</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Var(S&amp;P 500)           = </span><span class="si">{</span><span class="n">var_mercado</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Matriz de Covarianza:
+           r_AAPL   r_^GSPC
+r_AAPL   0.000290  0.000147
+r_^GSPC  0.000147  0.000122
+
+Cov(AAPL, S&amp;P 500) = 0.00014714
+Var(S&amp;P 500)           = 0.00012171
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-4-—-Calcular-el-Beta-(Método-1:-Fórmula-directa)">
+<h2>Paso 4 — Calcular el Beta (Método 1: Fórmula directa)<a class="headerlink" href="#Paso-4-—-Calcular-el-Beta-(Método-1:-Fórmula-directa)" title="Link to this heading">#</a></h2>
+<p>Aplicamos directamente la fórmula:</p>
+<div class="math notranslate nohighlight">
+\[\beta_{AAPL} = \frac{\text{Cov}(R_{AAPL}, R_m)}{\text{Var}(R_m)}\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Método 1: Fórmula directa  Cov(Ri, Rm) / Var(Rm)</span>
+<span class="n">beta_formula</span> <span class="o">=</span> <span class="n">cov_activo_mercado</span> <span class="o">/</span> <span class="n">var_mercado</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Beta de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> (fórmula directa):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  β = Cov / Var = </span><span class="si">{</span><span class="n">cov_activo_mercado</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">var_mercado</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  β = </span><span class="si">{</span><span class="n">beta_formula</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Beta de AAPL (fórmula directa):
+  β = Cov / Var = 0.00014714 / 0.00012171
+  β = 1.2090
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-5-—-Calcular-el-Beta-(Método-2:-Regresión-Lineal-por-MCO)">
+<h2>Paso 5 — Calcular el Beta (Método 2: Regresión Lineal por MCO)<a class="headerlink" href="#Paso-5-—-Calcular-el-Beta-(Método-2:-Regresión-Lineal-por-MCO)" title="Link to this heading">#</a></h2>
+<p>El beta también es la <strong>pendiente</strong> de la regresión lineal:</p>
+<div class="math notranslate nohighlight">
+\[R_i = \alpha + \beta \cdot R_m + \varepsilon\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> (alfa o intercepto): rendimiento del activo <strong>no explicado</strong> por el mercado. Si <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, el activo genera valor por encima del mercado.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> (pendiente): sensibilidad al mercado = <strong>el beta que buscamos</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon\)</span>: error aleatorio (riesgo idiosincrático).</p></li>
+</ul>
+<p>Usamos <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> para ajustar una recta.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Método 2: Regresión lineal  Ri = alpha + beta * Rm</span>
+<span class="n">Rm</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">Ri</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># polyfit devuelve [pendiente, intercepto] para grado 1</span>
+<span class="n">beta_regresion</span><span class="p">,</span> <span class="n">alpha_regresion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">Rm</span><span class="p">,</span> <span class="n">Ri</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Beta de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> (regresión lineal):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  β (pendiente) = </span><span class="si">{</span><span class="n">beta_regresion</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  α (intercepto) = </span><span class="si">{</span><span class="n">alpha_regresion</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ecuación estimada:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  R_AAPL = </span><span class="si">{</span><span class="n">alpha_regresion</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">beta_regresion</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> × R_mercado&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Beta de AAPL (regresión lineal):
+  β (pendiente) = 1.2090
+  α (intercepto) = 0.000118
+
+Ecuación estimada:
+  R_AAPL = 0.000118 + 1.2090 × R_mercado
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-6-—-Verificación:-comparar-ambos-métodos">
+<h2>Paso 6 — Verificación: comparar ambos métodos<a class="headerlink" href="#Paso-6-—-Verificación:-comparar-ambos-métodos" title="Link to this heading">#</a></h2>
+<p>Ambos métodos deben dar el <strong>mismo resultado</strong>, ya que la pendiente de la regresión MCO es algebraicamente equivalente a <span class="math notranslate nohighlight">\(\frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)}\)</span>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparación de métodos</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  RESUMEN: Beta de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Método 1 (Cov/Var):        β = </span><span class="si">{</span><span class="n">beta_formula</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Método 2 (Regresión MCO):  β = </span><span class="si">{</span><span class="n">beta_regresion</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  ¿Son iguales? </span><span class="si">{</span><span class="s1">&#39;✓ Sí&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">beta_formula</span><span class="p">,</span><span class="w"> </span><span class="n">beta_regresion</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;✗ No&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+==================================================
+  RESUMEN: Beta de AAPL
+==================================================
+  Método 1 (Cov/Var):        β = 1.2090
+  Método 2 (Regresión MCO):  β = 1.2090
+==================================================
+
+  ¿Son iguales? ✓ Sí
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-7-—-Gráfico:-Diagrama-de-dispersión-y-recta-de-regresión">
+<h2>Paso 7 — Gráfico: Diagrama de dispersión y recta de regresión<a class="headerlink" href="#Paso-7-—-Gráfico:-Diagrama-de-dispersión-y-recta-de-regresión" title="Link to this heading">#</a></h2>
+<p>Este gráfico es la <strong>representación visual del beta</strong>. Cada punto es un par <span class="math notranslate nohighlight">\((R_m, R_i)\)</span> de un día. La <strong>pendiente</strong> de la recta roja es el beta.</p>
+<ul class="simple">
+<li><p>Si la nube de puntos sigue de cerca la recta → alta correlación con el mercado.</p></li>
+<li><p>Si la pendiente es &gt; 1 → el activo amplifica los movimientos del mercado.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diagrama de dispersión + recta de regresión</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Nube de puntos</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Rm</span><span class="p">,</span> <span class="n">Ri</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rendimientos diarios&quot;</span><span class="p">)</span>
+
+<span class="c1"># Recta de regresión: Ri = alpha + beta * Rm</span>
+<span class="n">x_linea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Rm</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Rm</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y_linea</span> <span class="o">=</span> <span class="n">alpha_regresion</span> <span class="o">+</span> <span class="n">beta_regresion</span> <span class="o">*</span> <span class="n">x_linea</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_linea</span><span class="p">,</span> <span class="n">y_linea</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Regresión: β = </span><span class="si">{</span><span class="n">beta_regresion</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Línea de referencia beta = 1 (si se moviera igual que el mercado)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_linea</span><span class="p">,</span> <span class="n">x_linea</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;β = 1 (referencia)&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rendimiento del mercado (S&amp;P 500)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rendimiento de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Beta de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: Diagrama de dispersión y regresión&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_beta_activo_individual_20_0.png" src="../_images/portafolios_inversion_beta_activo_individual_20_0.png" />
+</div>
+</div>
+</section>
+<section id="Paso-8-—-Métricas-complementarias">
+<h2>Paso 8 — Métricas complementarias<a class="headerlink" href="#Paso-8-—-Métricas-complementarias" title="Link to this heading">#</a></h2>
+<p>Calculemos métricas adicionales que complementan el análisis del beta:</p>
+<ul class="simple">
+<li><p><strong>Correlación</strong> (<span class="math notranslate nohighlight">\(\rho\)</span>): mide la fuerza de la relación lineal entre activo y mercado (entre -1 y 1).</p></li>
+<li><p><strong>R²</strong>: proporción de la varianza del activo explicada por el mercado. Un R² alto significa que el riesgo del activo es mayormente <strong>sistemático</strong>.</p></li>
+<li><p><strong>Volatilidades</strong>: desviación estándar anualizada de cada serie.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlación</span>
+<span class="n">correlacion</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span>
+
+<span class="c1"># R² (coeficiente de determinación)</span>
+<span class="n">r_cuadrado</span> <span class="o">=</span> <span class="n">correlacion</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># Volatilidades anualizadas (252 días de trading)</span>
+<span class="n">vol_activo</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
+<span class="n">vol_mercado</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
+
+<span class="c1"># Rendimiento medio anualizado</span>
+<span class="n">rend_activo</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">252</span>
+<span class="n">rend_mercado</span> <span class="o">=</span> <span class="n">rendimientos</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;r_</span><span class="si">{</span><span class="n">benchmark</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">252</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ANÁLISIS COMPLETO: </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> vs S&amp;P 500&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Beta (β)               = </span><span class="si">{</span><span class="n">beta_formula</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Alfa (α) diario        = </span><span class="si">{</span><span class="n">alpha_regresion</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Correlación (ρ)        = </span><span class="si">{</span><span class="n">correlacion</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  R²                     = </span><span class="si">{</span><span class="n">r_cuadrado</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">r_cuadrado</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Volatilidad </span><span class="si">{</span><span class="n">ticker</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2">    = </span><span class="si">{</span><span class="n">vol_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Volatilidad S&amp;P 500    = </span><span class="si">{</span><span class="n">vol_mercado</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Rendimiento </span><span class="si">{</span><span class="n">ticker</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2">   = </span><span class="si">{</span><span class="n">rend_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Rendimiento S&amp;P 500    = </span><span class="si">{</span><span class="n">rend_mercado</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">55</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+=======================================================
+  ANÁLISIS COMPLETO: AAPL vs S&amp;P 500
+=======================================================
+  Beta (β)               = 1.2090
+  Alfa (α) diario        = 0.000118
+  Correlación (ρ)        = 0.7828
+  R²                     = 0.6128 (61.3%)
+-------------------------------------------------------
+  Volatilidad  AAPL    = 27.05%
+  Volatilidad S&amp;P 500    = 17.51%
+  Rendimiento  AAPL   = 11.24%
+  Rendimiento S&amp;P 500    = 6.83%
+=======================================================
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-9-—-Rendimiento-esperado-según-CAPM">
+<h2>Paso 9 — Rendimiento esperado según CAPM<a class="headerlink" href="#Paso-9-—-Rendimiento-esperado-según-CAPM" title="Link to this heading">#</a></h2>
+<p>Con el beta calculado, podemos estimar el <strong>rendimiento esperado</strong> del activo según el modelo CAPM:</p>
+<div class="math notranslate nohighlight">
+\[E(R_i) = R_f + \beta_i \cdot \left[E(R_m) - R_f\right]\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(R_f\)</span> es la tasa libre de riesgo y <span class="math notranslate nohighlight">\(E(R_m) - R_f\)</span> es la <strong>prima de riesgo del mercado</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa libre de riesgo (Treasury yield ~ 5% anual)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># Prima de riesgo del mercado</span>
+<span class="n">prima_mercado</span> <span class="o">=</span> <span class="n">rend_mercado</span> <span class="o">-</span> <span class="n">rf</span>
+
+<span class="c1"># Rendimiento esperado CAPM</span>
+<span class="n">rend_capm</span> <span class="o">=</span> <span class="n">rf</span> <span class="o">+</span> <span class="n">beta_formula</span> <span class="o">*</span> <span class="n">prima_mercado</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tasa libre de riesgo (Rf)   = </span><span class="si">{</span><span class="n">rf</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rendimiento mercado E(Rm)   = </span><span class="si">{</span><span class="n">rend_mercado</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prima de riesgo (Rm - Rf)   = </span><span class="si">{</span><span class="n">prima_mercado</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Beta de </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">             = </span><span class="si">{</span><span class="n">beta_formula</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  E(R_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">rf</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">beta_formula</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> × </span><span class="si">{</span><span class="n">prima_mercado</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  E(R_</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">rend_capm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">rend_activo</span> <span class="o">&gt;</span> <span class="n">rend_capm</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> rindió </span><span class="si">{</span><span class="n">rend_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (histórico) vs </span><span class="si">{</span><span class="n">rend_capm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (CAPM)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El activo SUPERÓ lo que predice el CAPM (α positivo)&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2"> rindió </span><span class="si">{</span><span class="n">rend_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (histórico) vs </span><span class="si">{</span><span class="n">rend_capm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> (CAPM)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → El activo NO alcanzó lo que predice el CAPM (α negativo)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tasa libre de riesgo (Rf)   = 5.00%
+Rendimiento mercado E(Rm)   = 6.83%
+Prima de riesgo (Rm - Rf)   = 1.83%
+Beta de AAPL             = 1.2090
+
+  E(R_AAPL) = 5.00% + 1.2090 × 1.83%
+  E(R_AAPL) = 7.22%
+
+  → AAPL rindió 11.24% (histórico) vs 7.22% (CAPM)
+  → El activo SUPERÓ lo que predice el CAPM (α positivo)
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-10-—-Gráfico-final:-Security-Market-Line-(SML)">
+<h2>Paso 10 — Gráfico final: Security Market Line (SML)<a class="headerlink" href="#Paso-10-—-Gráfico-final:-Security-Market-Line-(SML)" title="Link to this heading">#</a></h2>
+<p>La <strong>Línea del Mercado de Valores (SML)</strong> muestra la relación riesgo-rendimiento según el CAPM. Todo activo eficiente debería ubicarse <strong>sobre</strong> esta línea.</p>
+<ul class="simple">
+<li><p>Activos <strong>por encima</strong> de la SML → subvalorados (buen negocio).</p></li>
+<li><p>Activos <strong>por debajo</strong> de la SML → sobrevalorados.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Security Market Line (SML)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Línea SML: E(R) = Rf + beta * (Rm - Rf)</span>
+<span class="n">betas_linea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">sml</span> <span class="o">=</span> <span class="n">rf</span> <span class="o">+</span> <span class="n">betas_linea</span> <span class="o">*</span> <span class="n">prima_mercado</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">betas_linea</span><span class="p">,</span> <span class="n">sml</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;SML (CAPM)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Punto del mercado (beta = 1)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rend_mercado</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Mercado</span><span class="se">\n</span><span class="s2">(S&amp;P 500)&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">rend_mercado</span><span class="p">),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.15</span><span class="p">,</span> <span class="n">rend_mercado</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+
+<span class="c1"># Punto del activo libre de riesgo (beta = 0)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Rf&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rf</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">rf</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;goldenrod&quot;</span><span class="p">)</span>
+
+<span class="c1"># Punto del activo (rendimiento histórico real)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">beta_formula</span><span class="p">,</span> <span class="n">rend_activo</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="se">\n</span><span class="s2">(real: </span><span class="si">{</span><span class="n">rend_activo</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">beta_formula</span><span class="p">,</span> <span class="n">rend_activo</span><span class="p">),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">beta_formula</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">rend_activo</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">),</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.2</span><span class="p">))</span>
+
+<span class="c1"># Punto del activo (rendimiento esperado CAPM)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">beta_formula</span><span class="p">,</span> <span class="n">rend_capm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="se">\n</span><span class="s2">(CAPM: </span><span class="si">{</span><span class="n">rend_capm</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">beta_formula</span><span class="p">,</span> <span class="n">rend_capm</span><span class="p">),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">beta_formula</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">rend_capm</span> <span class="o">-</span> <span class="mf">0.03</span><span class="p">),</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.2</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Beta (β)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimiento esperado anual&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Security Market Line (SML) — CAPM&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_beta_activo_individual_26_0.png" src="../_images/portafolios_inversion_beta_activo_individual_26_0.png" />
+</div>
+</div>
+</section>
+<section id="Conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#Conclusiones" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepto</p></th>
+<th class="head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Activo analizado</strong></p></td>
+<td><p>AAPL (Apple Inc.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Benchmark</strong></p></td>
+<td><p>S&amp;P 500 (^GSPC)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Período</strong></p></td>
+<td><p>2022 – 2025</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Beta calculado</strong></p></td>
+<td><p>Se obtiene el mismo valor por ambos métodos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="Resumen-del-procedimiento:">
+<h3>Resumen del procedimiento:<a class="headerlink" href="#Resumen-del-procedimiento:" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Descargar datos</strong> de precios de cierre de Yahoo Finance.</p></li>
+<li><p><strong>Calcular rendimientos</strong> logarítmicos diarios.</p></li>
+<li><p><strong>Obtener covarianza</strong> entre activo y mercado y <strong>varianza</strong> del mercado.</p></li>
+<li><p><strong>Aplicar la fórmula</strong>: <span class="math notranslate nohighlight">\(\beta = \frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)}\)</span></p></li>
+<li><p><strong>Verificar</strong> con regresión lineal (la pendiente = beta).</p></li>
+<li><p><strong>Interpretar</strong>: <span class="math notranslate nohighlight">\(\beta &gt; 1\)</span> → activo agresivo; <span class="math notranslate nohighlight">\(\beta &lt; 1\)</span> → activo defensivo.</p></li>
+<li><p><strong>Aplicar CAPM</strong> para estimar el rendimiento esperado: <span class="math notranslate nohighlight">\(E(R_i) = R_f + \beta_i(E(R_m) - R_f)\)</span>.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Nota:</strong> El beta es una medida <strong>histórica</strong> basada en datos pasados. No garantiza el comportamiento futuro del activo, pero es una herramienta fundamental para la gestión de riesgo y la construcción de portafolios.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="efecto_diversificacion.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">4. Efecto de la Diversificación sobre el Riesgo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="medidas_portafolios.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">6. Medidas de Desempeño de Portafolios</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1.-Riesgo-diversificable">5.1. Riesgo diversificable</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Beta-(\beta)-de-un-Activo-Individual-—-Riesgo-sistemático">Beta (<span class="math notranslate nohighlight">\(\beta\)</span>) de un Activo Individual — Riesgo sistemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1-—-Importar-librerías-y-descargar-datos">Paso 1 — Importar librerías y descargar datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualización-de-precios-normalizados">Visualización de precios normalizados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-2-—-Calcular-rendimientos-logarítmicos">Paso 2 — Calcular rendimientos logarítmicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Visualización-de-rendimientos">Visualización de rendimientos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-3-—-Calcular-la-Covarianza-y-la-Varianza">Paso 3 — Calcular la Covarianza y la Varianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-4-—-Calcular-el-Beta-(Método-1:-Fórmula-directa)">Paso 4 — Calcular el Beta (Método 1: Fórmula directa)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-5-—-Calcular-el-Beta-(Método-2:-Regresión-Lineal-por-MCO)">Paso 5 — Calcular el Beta (Método 2: Regresión Lineal por MCO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-6-—-Verificación:-comparar-ambos-métodos">Paso 6 — Verificación: comparar ambos métodos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-7-—-Gráfico:-Diagrama-de-dispersión-y-recta-de-regresión">Paso 7 — Gráfico: Diagrama de dispersión y recta de regresión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-8-—-Métricas-complementarias">Paso 8 — Métricas complementarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-9-—-Rendimiento-esperado-según-CAPM">Paso 9 — Rendimiento esperado según CAPM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-10-—-Gráfico-final:-Security-Market-Line-(SML)">Paso 10 — Gráfico final: Security Market Line (SML)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen-del-procedimiento:">Resumen del procedimiento:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

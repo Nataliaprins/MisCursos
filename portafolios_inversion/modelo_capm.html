@@ -1,0 +1,1293 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Modelo CAPM, Frontera Eficiente y Línea de Mercado de Capitales &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/modelo_capm';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">2. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">3. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">4. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">5. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="medidas_portafolios.html">6. Medidas de Desempeño de Portafolios</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/modelo_capm.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/modelo_capm.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/portafolios_inversion/modelo_capm.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Modelo CAPM, Frontera Eficiente y Línea de Mercado de Capitales</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conceptos-clave">Conceptos clave</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Modelo-CAPM">Modelo CAPM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Línea-de-Mercado-de-Capitales-(CML)">Línea de Mercado de Capitales (CML)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-Importar-librerías-necesarias">1. Importar librerías necesarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Descargar-datos-de-Yahoo-Finance">2. Descargar datos de Yahoo Finance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Calcular-retornos-y-matriz-de-covarianza">3. Calcular retornos y matriz de covarianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Optimización-de-portafolios-con-PyPortfolioOpt">4. Optimización de portafolios con PyPortfolioOpt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-Portafolio-de-Mínima-Varianza">4.1 Portafolio de Mínima Varianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Portafolio-Tangente-(Máximo-Sharpe-Ratio)">4.2 Portafolio Tangente (Máximo Sharpe Ratio)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Construcción-de-la-Frontera-Eficiente">5. Construcción de la Frontera Eficiente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Cálculo-del-Beta-(β)-de-cada-activo">6. Cálculo del Beta (β) de cada activo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Beta-del-Portafolio-Tangente">6.1 Beta del Portafolio Tangente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2-Retorno-esperado-CAPM-vs.-histórico-para-cada-activo">6.2 Retorno esperado CAPM vs. histórico para cada activo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Gráfica-Final:-Frontera-Eficiente-+-Línea-de-Mercado-de-Capitales-(CML)">7. Gráfica Final: Frontera Eficiente + Línea de Mercado de Capitales (CML)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Gráfica-Security-Market-Line-(SML)">8. Gráfica Security Market Line (SML)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen">Resumen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="5.-Modelo-CAPM,-Frontera-Eficiente-y-Línea-de-Mercado-de-Capitales">
+<h1>5. Modelo CAPM, Frontera Eficiente y Línea de Mercado de Capitales<a class="headerlink" href="#5.-Modelo-CAPM,-Frontera-Eficiente-y-Línea-de-Mercado-de-Capitales" title="Link to this heading">#</a></h1>
+<p>En este módulo construiremos una <strong>frontera eficiente</strong> utilizando la librería <a class="reference external" href="https://pyportfolioopt.readthedocs.io/en/latest/">PyPortfolioOpt</a> con datos reales descargados de Yahoo Finance. Además, calcularemos:</p>
+<ul class="simple">
+<li><p>Los <strong>pesos óptimos</strong> del portafolio de máximo Sharpe y de mínima varianza.</p></li>
+<li><p>El <strong>Beta (β)</strong> de cada activo y del portafolio óptimo usando el modelo CAPM.</p></li>
+<li><p>La <strong>Línea de Mercado de Capitales (CML)</strong>, que conecta el activo libre de riesgo con el portafolio tangente.</p></li>
+</ul>
+<section id="Conceptos-clave">
+<h2>Conceptos clave<a class="headerlink" href="#Conceptos-clave" title="Link to this heading">#</a></h2>
+<section id="Modelo-CAPM">
+<h3>Modelo CAPM<a class="headerlink" href="#Modelo-CAPM" title="Link to this heading">#</a></h3>
+<p>El modelo de valoración de activos de capital (CAPM) establece que el retorno esperado de un activo está en función de su riesgo sistemático:</p>
+<div class="math notranslate nohighlight">
+\[E(R_i) = R_f + \beta_i \cdot (E(R_m) - R_f)\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_f\)</span>: tasa libre de riesgo</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_i = \frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)}\)</span>: sensibilidad del activo al mercado</p></li>
+<li><p><span class="math notranslate nohighlight">\(E(R_m)\)</span>: retorno esperado del mercado</p></li>
+</ul>
+</section>
+<section id="Línea-de-Mercado-de-Capitales-(CML)">
+<h3>Línea de Mercado de Capitales (CML)<a class="headerlink" href="#Línea-de-Mercado-de-Capitales-(CML)" title="Link to this heading">#</a></h3>
+<p>La CML representa las combinaciones entre el activo libre de riesgo y el <strong>portafolio tangente</strong> (máximo Sharpe ratio):</p>
+<div class="math notranslate nohighlight">
+\[E(R_p) = R_f + \frac{E(R_m) - R_f}{\sigma_m} \cdot \sigma_p\]</div>
+</section>
+</section>
+<section id="1.-Importar-librerías-necesarias">
+<h2>1. Importar librerías necesarias<a class="headerlink" href="#1.-Importar-librerías-necesarias" title="Link to this heading">#</a></h2>
+<p>Utilizaremos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yfinance</span></code> para descargar datos de precios.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pypfopt</span></code> (PyPortfolioOpt) para la optimización del portafolio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para cálculos y visualización.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypfopt</span><span class="w"> </span><span class="kn">import</span> <span class="n">expected_returns</span><span class="p">,</span> <span class="n">risk_models</span><span class="p">,</span> <span class="n">EfficientFrontier</span><span class="p">,</span> <span class="n">CLA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypfopt</span><span class="w"> </span><span class="kn">import</span> <span class="n">plotting</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.-Descargar-datos-de-Yahoo-Finance">
+<h2>2. Descargar datos de Yahoo Finance<a class="headerlink" href="#2.-Descargar-datos-de-Yahoo-Finance" title="Link to this heading">#</a></h2>
+<p>Seleccionaremos <strong>5 acciones</strong> representativas de distintos sectores, y el índice <strong>S&amp;P 500 (^GSPC)</strong> como proxy del mercado:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ticker</p></th>
+<th class="head"><p>Empresa</p></th>
+<th class="head"><p>Sector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AAPL</p></td>
+<td><p>Apple</p></td>
+<td><p>Tecnología</p></td>
+</tr>
+<tr class="row-odd"><td><p>JNJ</p></td>
+<td><p>Johnson &amp; Johnson</p></td>
+<td><p>Salud</p></td>
+</tr>
+<tr class="row-even"><td><p>JPM</p></td>
+<td><p>JPMorgan Chase</p></td>
+<td><p>Financiero</p></td>
+</tr>
+<tr class="row-odd"><td><p>XOM</p></td>
+<td><p>ExxonMobil</p></td>
+<td><p>Energía</p></td>
+</tr>
+<tr class="row-even"><td><p>PG</p></td>
+<td><p>Procter &amp; Gamble</p></td>
+<td><p>Consumo básico</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir tickers de los 5 activos y el benchmark de mercado</span>
+<span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;JNJ&#39;</span><span class="p">,</span> <span class="s1">&#39;JPM&#39;</span><span class="p">,</span> <span class="s1">&#39;XOM&#39;</span><span class="p">,</span> <span class="s1">&#39;PG&#39;</span><span class="p">]</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="s1">&#39;^GSPC&#39;</span>  <span class="c1"># S&amp;P 500</span>
+
+<span class="c1"># Descargar precios de cierre ajustados (3 años de historia)</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">tickers</span> <span class="o">+</span> <span class="p">[</span><span class="n">benchmark</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2025-01-01&#39;</span><span class="p">)[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Período: </span><span class="si">{</span><span class="n">datos</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2"> a </span><span class="si">{</span><span class="n">datos</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Observaciones: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[*********************100%***********************]  6 of 6 completed
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Período: 2022-01-03 a 2024-12-31
+Observaciones: 753
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>AAPL</th>
+      <th>JNJ</th>
+      <th>JPM</th>
+      <th>PG</th>
+      <th>XOM</th>
+      <th>^GSPC</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-01-03</th>
+      <td>178.103668</td>
+      <td>151.770050</td>
+      <td>144.929535</td>
+      <td>146.320892</td>
+      <td>54.760242</td>
+      <td>4796.560059</td>
+    </tr>
+    <tr>
+      <th>2022-01-04</th>
+      <td>175.843231</td>
+      <td>151.363052</td>
+      <td>150.423737</td>
+      <td>146.832886</td>
+      <td>56.819992</td>
+      <td>4793.540039</td>
+    </tr>
+    <tr>
+      <th>2022-01-05</th>
+      <td>171.165817</td>
+      <td>152.371689</td>
+      <td>147.673691</td>
+      <td>147.497589</td>
+      <td>57.526688</td>
+      <td>4700.580078</td>
+    </tr>
+    <tr>
+      <th>2022-01-06</th>
+      <td>168.308502</td>
+      <td>151.849670</td>
+      <td>149.242554</td>
+      <td>146.258041</td>
+      <td>58.879753</td>
+      <td>4696.049805</td>
+    </tr>
+    <tr>
+      <th>2022-01-07</th>
+      <td>168.474854</td>
+      <td>153.902283</td>
+      <td>150.721298</td>
+      <td>146.177170</td>
+      <td>59.362354</td>
+      <td>4677.029785</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Separar precios de los activos y del mercado</span>
+<span class="n">precios_activos</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="n">tickers</span><span class="p">]</span>
+<span class="n">precios_mercado</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="n">benchmark</span><span class="p">]</span>
+
+<span class="c1"># Visualizar la evolución de precios normalizados (base 100)</span>
+<span class="n">precios_norm</span> <span class="o">=</span> <span class="n">precios_activos</span> <span class="o">/</span> <span class="n">precios_activos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">precios_norm</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">precios_norm</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">precios_norm</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">col</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Evolución de precios normalizados (base 100)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precio normalizado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_modelo_capm_5_0.png" src="../_images/portafolios_inversion_modelo_capm_5_0.png" />
+</div>
+</div>
+</section>
+<section id="3.-Calcular-retornos-y-matriz-de-covarianza">
+<h2>3. Calcular retornos y matriz de covarianza<a class="headerlink" href="#3.-Calcular-retornos-y-matriz-de-covarianza" title="Link to this heading">#</a></h2>
+<p>Utilizaremos los métodos de PyPortfolioOpt para estimar:</p>
+<ul class="simple">
+<li><p><strong>Retornos esperados anualizados</strong> usando la media histórica.</p></li>
+<li><p><strong>Matriz de covarianza</strong> de los retornos mediante el estimador de muestra.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retornos esperados anualizados (media histórica)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">expected_returns</span><span class="o">.</span><span class="n">mean_historical_return</span><span class="p">(</span><span class="n">precios_activos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retornos esperados anualizados:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Matriz de covarianza anualizada (estimador de muestra)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">risk_models</span><span class="o">.</span><span class="n">sample_cov</span><span class="p">(</span><span class="n">precios_activos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matriz de covarianza anualizada:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Retornos esperados anualizados:
+Ticker
+AAPL    0.1189
+JNJ    -0.0277
+JPM     0.1736
+XOM     0.2361
+PG      0.0351
+dtype: float64
+
+Matriz de covarianza anualizada:
+Ticker    AAPL     JNJ     JPM     XOM      PG
+Ticker
+AAPL    0.0734  0.0082  0.0238  0.0125  0.0137
+JNJ     0.0082  0.0268  0.0108  0.0053  0.0125
+JPM     0.0238  0.0108  0.0625  0.0203  0.0093
+XOM     0.0125  0.0053  0.0203  0.0741  0.0020
+PG      0.0137  0.0125  0.0093  0.0020  0.0309
+</pre></div></div>
+</div>
+</section>
+<section id="4.-Optimización-de-portafolios-con-PyPortfolioOpt">
+<h2>4. Optimización de portafolios con PyPortfolioOpt<a class="headerlink" href="#4.-Optimización-de-portafolios-con-PyPortfolioOpt" title="Link to this heading">#</a></h2>
+<section id="4.1-Portafolio-de-Mínima-Varianza">
+<h3>4.1 Portafolio de Mínima Varianza<a class="headerlink" href="#4.1-Portafolio-de-Mínima-Varianza" title="Link to this heading">#</a></h3>
+<p>Es el portafolio con el menor riesgo posible, ubicado en el extremo izquierdo de la frontera eficiente.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Portafolio de mínima varianza</span>
+<span class="n">ef_min_var</span> <span class="o">=</span> <span class="n">EfficientFrontier</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="n">ef_min_var</span><span class="o">.</span><span class="n">min_volatility</span><span class="p">()</span>
+<span class="n">pesos_min_var</span> <span class="o">=</span> <span class="n">ef_min_var</span><span class="o">.</span><span class="n">clean_weights</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pesos del portafolio de mínima varianza:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">peso</span> <span class="ow">in</span> <span class="n">pesos_min_var</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">peso</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">ret_min</span><span class="p">,</span> <span class="n">vol_min</span><span class="p">,</span> <span class="n">sharpe_min</span> <span class="o">=</span> <span class="n">ef_min_var</span><span class="o">.</span><span class="n">portfolio_performance</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pesos del portafolio de mínima varianza:
+  AAPL: 0.0735
+  JNJ: 0.3875
+  JPM: 0.0723
+  XOM: 0.1541
+  PG: 0.3126
+Expected annual return: 5.8%
+Annual volatility: 12.8%
+Sharpe Ratio: 0.45
+</pre></div></div>
+</div>
+</section>
+<section id="4.2-Portafolio-Tangente-(Máximo-Sharpe-Ratio)">
+<h3>4.2 Portafolio Tangente (Máximo Sharpe Ratio)<a class="headerlink" href="#4.2-Portafolio-Tangente-(Máximo-Sharpe-Ratio)" title="Link to this heading">#</a></h3>
+<p>Es el portafolio que maximiza la relación retorno/riesgo. Es el punto donde la <strong>CML</strong> es tangente a la frontera eficiente.</p>
+<div class="math notranslate nohighlight">
+\[\text{Sharpe Ratio} = \frac{E(R_p) - R_f}{\sigma_p}\]</div>
+<p>Usaremos una tasa libre de riesgo del <strong>5.0%</strong> anual (aproximación del rendimiento de bonos del Tesoro de EE.UU.).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasa libre de riesgo anual</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># Portafolio de máximo Sharpe ratio (portafolio tangente)</span>
+<span class="n">ef_max_sharpe</span> <span class="o">=</span> <span class="n">EfficientFrontier</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="n">ef_max_sharpe</span><span class="o">.</span><span class="n">max_sharpe</span><span class="p">(</span><span class="n">risk_free_rate</span><span class="o">=</span><span class="n">rf</span><span class="p">)</span>
+<span class="n">pesos_tangente</span> <span class="o">=</span> <span class="n">ef_max_sharpe</span><span class="o">.</span><span class="n">clean_weights</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pesos del portafolio tangente (máximo Sharpe):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">peso</span> <span class="ow">in</span> <span class="n">pesos_tangente</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">peso</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">ret_tan</span><span class="p">,</span> <span class="n">vol_tan</span><span class="p">,</span> <span class="n">sharpe_tan</span> <span class="o">=</span> <span class="n">ef_max_sharpe</span><span class="o">.</span><span class="n">portfolio_performance</span><span class="p">(</span><span class="n">risk_free_rate</span><span class="o">=</span><span class="n">rf</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pesos del portafolio tangente (máximo Sharpe):
+  AAPL: 0.0511
+  JNJ: 0.0000
+  JPM: 0.3421
+  XOM: 0.6068
+  PG: 0.0000
+Expected annual return: 20.9%
+Annual volatility: 21.2%
+Sharpe Ratio: 0.75
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="5.-Construcción-de-la-Frontera-Eficiente">
+<h2>5. Construcción de la Frontera Eficiente<a class="headerlink" href="#5.-Construcción-de-la-Frontera-Eficiente" title="Link to this heading">#</a></h2>
+<p>Generamos múltiples portafolios óptimos a lo largo de la frontera eficiente usando el algoritmo CLA (Critical Line Algorithm) de PyPortfolioOpt.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar puntos de la frontera eficiente usando simulación de Monte Carlo</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n_portafolios</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_portafolios</span><span class="p">))</span>
+
+<span class="n">retornos_diarios</span> <span class="o">=</span> <span class="n">precios_activos</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">mu_array</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">values</span>
+<span class="n">S_array</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">values</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_portafolios</span><span class="p">):</span>
+    <span class="c1"># Generar pesos aleatorios</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tickers</span><span class="p">))</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="c1"># Retorno y volatilidad anualizados</span>
+    <span class="n">ret_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">mu_array</span><span class="p">)</span>
+    <span class="n">vol_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">S_array</span><span class="p">,</span> <span class="n">w</span><span class="p">)))</span>
+    <span class="n">sharpe_p</span> <span class="o">=</span> <span class="p">(</span><span class="n">ret_p</span> <span class="o">-</span> <span class="n">rf</span><span class="p">)</span> <span class="o">/</span> <span class="n">vol_p</span>
+
+    <span class="n">resultados</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vol_p</span>
+    <span class="n">resultados</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ret_p</span>
+    <span class="n">resultados</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sharpe_p</span>
+
+<span class="c1"># Convertir a DataFrame para facilitar la visualización</span>
+<span class="n">df_resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">,</span> <span class="s1">&#39;Retorno&#39;</span><span class="p">,</span> <span class="s1">&#39;Sharpe&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Portafolios simulados: </span><span class="si">{</span><span class="n">n_portafolios</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_resultados</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Portafolios simulados: 10000
+       Volatilidad     Retorno      Sharpe
+count   10000.0000  10000.0000  10000.0000
+mean        0.1509      0.1079      0.3756
+std         0.0128      0.0268      0.1555
+min         0.1286      0.0038     -0.3289
+25%         0.1416      0.0904      0.2804
+50%         0.1488      0.1078      0.3903
+75%         0.1578      0.1255      0.4875
+max         0.2243      0.2033      0.7296
+</pre></div></div>
+</div>
+</section>
+<section id="6.-Cálculo-del-Beta-(β)-de-cada-activo">
+<h2>6. Cálculo del Beta (β) de cada activo<a class="headerlink" href="#6.-Cálculo-del-Beta-(β)-de-cada-activo" title="Link to this heading">#</a></h2>
+<p>El Beta mide la sensibilidad de un activo frente al mercado. Se calcula como:</p>
+<div class="math notranslate nohighlight">
+\[\beta_i = \frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta &gt; 1\)</span>: El activo es más volátil que el mercado (agresivo).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta = 1\)</span>: Se mueve igual que el mercado.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta &lt; 1\)</span>: El activo es menos volátil que el mercado (defensivo).</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular retornos diarios de activos y mercado</span>
+<span class="n">retornos_activos</span> <span class="o">=</span> <span class="n">precios_activos</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">retornos_mercado</span> <span class="o">=</span> <span class="n">precios_mercado</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Alinear fechas</span>
+<span class="n">retornos_comunes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">retornos_activos</span><span class="p">,</span> <span class="n">retornos_mercado</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">retornos_comunes</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">tickers</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Mercado&#39;</span><span class="p">]</span>
+
+<span class="c1"># Varianza del mercado</span>
+<span class="n">var_mercado</span> <span class="o">=</span> <span class="n">retornos_comunes</span><span class="p">[</span><span class="s1">&#39;Mercado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+
+<span class="c1"># Calcular Beta de cada activo</span>
+<span class="n">betas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
+    <span class="n">cov_con_mercado</span> <span class="o">=</span> <span class="n">retornos_comunes</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">retornos_comunes</span><span class="p">[</span><span class="s1">&#39;Mercado&#39;</span><span class="p">])</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">cov_con_mercado</span> <span class="o">/</span> <span class="n">var_mercado</span>
+    <span class="n">betas</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">beta</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Beta (β) de cada activo:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">betas</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">tipo</span> <span class="o">=</span> <span class="s2">&quot;Agresivo&quot;</span> <span class="k">if</span> <span class="n">beta</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;Defensivo&quot;</span> <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;Neutro&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: β = </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">tipo</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Beta (β) de cada activo:
+------------------------------
+  AAPL: β = 1.2107  (Agresivo)
+  JNJ: β = 0.2466  (Defensivo)
+  JPM: β = 0.8669  (Defensivo)
+  XOM: β = 0.4651  (Defensivo)
+  PG: β = 0.3731  (Defensivo)
+</pre></div></div>
+</div>
+<section id="6.1-Beta-del-Portafolio-Tangente">
+<h3>6.1 Beta del Portafolio Tangente<a class="headerlink" href="#6.1-Beta-del-Portafolio-Tangente" title="Link to this heading">#</a></h3>
+<p>El Beta del portafolio es el promedio ponderado de los betas individuales:</p>
+<div class="math notranslate nohighlight">
+\[\beta_p = \sum_{i=1}^{n} w_i \cdot \beta_i\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Beta del portafolio tangente (máximo Sharpe)</span>
+<span class="n">pesos_tangente_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pesos_tangente</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">])</span>
+<span class="n">beta_portafolio</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pesos_tangente</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="n">betas</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Beta del portafolio tangente:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  β_p = </span><span class="si">{</span><span class="n">beta_portafolio</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Retorno esperado del portafolio según CAPM</span>
+<span class="n">retorno_mercado_anual</span> <span class="o">=</span> <span class="n">retornos_comunes</span><span class="p">[</span><span class="s1">&#39;Mercado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">252</span>
+<span class="n">retorno_capm</span> <span class="o">=</span> <span class="n">rf</span> <span class="o">+</span> <span class="n">beta_portafolio</span> <span class="o">*</span> <span class="p">(</span><span class="n">retorno_mercado_anual</span> <span class="o">-</span> <span class="n">rf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retorno del mercado (anualizado): </span><span class="si">{</span><span class="n">retorno_mercado_anual</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retorno esperado del portafolio según CAPM: </span><span class="si">{</span><span class="n">retorno_capm</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retorno esperado del portafolio (histórico): </span><span class="si">{</span><span class="n">ret_tan</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Beta del portafolio tangente:
+  β_p = 0.6407
+
+Retorno del mercado (anualizado): 0.0837
+Retorno esperado del portafolio según CAPM: 0.0716
+Retorno esperado del portafolio (histórico): 0.2087
+</pre></div></div>
+</div>
+</section>
+<section id="6.2-Retorno-esperado-CAPM-vs.-histórico-para-cada-activo">
+<h3>6.2 Retorno esperado CAPM vs. histórico para cada activo<a class="headerlink" href="#6.2-Retorno-esperado-CAPM-vs.-histórico-para-cada-activo" title="Link to this heading">#</a></h3>
+<p>Comparamos el retorno que predice el CAPM con el retorno histórico observado:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tabla comparativa: Retorno CAPM vs Retorno Histórico</span>
+<span class="n">tabla_capm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">betas</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">],</span>
+    <span class="s1">&#39;Retorno CAPM&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">rf</span> <span class="o">+</span> <span class="n">betas</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">retorno_mercado_anual</span> <span class="o">-</span> <span class="n">rf</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">],</span>
+    <span class="s1">&#39;Retorno Histórico&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mu</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">],</span>
+    <span class="s1">&#39;Peso Tangente&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">pesos_tangente</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">]</span>
+<span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">tickers</span><span class="p">)</span>
+
+<span class="n">tabla_capm</span><span class="p">[</span><span class="s1">&#39;Diferencia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_capm</span><span class="p">[</span><span class="s1">&#39;Retorno Histórico&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">tabla_capm</span><span class="p">[</span><span class="s1">&#39;Retorno CAPM&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabla_capm</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+        Beta  Retorno CAPM  Retorno Histórico  Peso Tangente  Diferencia
+AAPL  1.2107        0.0907             0.1189         0.0511      0.0282
+JNJ   0.2466        0.0583            -0.0277         0.0000     -0.0860
+JPM   0.8669        0.0792             0.1736         0.3421      0.0944
+XOM   0.4651        0.0657             0.2361         0.6068      0.1704
+PG    0.3731        0.0626             0.0351         0.0000     -0.0275
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="7.-Gráfica-Final:-Frontera-Eficiente-+-Línea-de-Mercado-de-Capitales-(CML)">
+<h2>7. Gráfica Final: Frontera Eficiente + Línea de Mercado de Capitales (CML)<a class="headerlink" href="#7.-Gráfica-Final:-Frontera-Eficiente-+-Línea-de-Mercado-de-Capitales-(CML)" title="Link to this heading">#</a></h2>
+<p>La gráfica integra:</p>
+<ol class="arabic simple">
+<li><p><strong>Nube de portafolios simulados</strong> (Monte Carlo) coloreados por Sharpe Ratio.</p></li>
+<li><p><strong>Frontera eficiente</strong> optimizada usando CLA.</p></li>
+<li><p><strong>Portafolio de mínima varianza</strong> (punto rojo).</p></li>
+<li><p><strong>Portafolio tangente</strong> — máximo Sharpe (estrella dorada).</p></li>
+<li><p><strong>Línea de Mercado de Capitales (CML)</strong> que parte de <span class="math notranslate nohighlight">\(R_f\)</span> y pasa por el portafolio tangente.</p></li>
+<li><p><strong>Activos individuales</strong> etiquetados con su Beta.</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- GRÁFICA COMPLETA: Frontera Eficiente + CML + Activos + Beta ---</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># 1. Nube de portafolios Monte Carlo</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">df_resultados</span><span class="p">[</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">],</span> <span class="n">df_resultados</span><span class="p">[</span><span class="s1">&#39;Retorno&#39;</span><span class="p">],</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">df_resultados</span><span class="p">[</span><span class="s1">&#39;Sharpe&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sharpe Ratio&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Frontera eficiente con CLA</span>
+<span class="n">cla</span> <span class="o">=</span> <span class="n">CLA</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="n">cla</span><span class="o">.</span><span class="n">max_sharpe</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">plot_efficient_frontier</span><span class="p">(</span><span class="n">cla</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show_assets</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                       <span class="n">ef_param</span><span class="o">=</span><span class="s1">&#39;risk&#39;</span><span class="p">,</span> <span class="n">ef_param_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">vol_min</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># 3. Portafolio de mínima varianza</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vol_min</span><span class="p">,</span> <span class="n">ret_min</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Mín. Varianza (σ=</span><span class="si">{</span><span class="n">vol_min</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># 4. Portafolio tangente (máximo Sharpe)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vol_tan</span><span class="p">,</span> <span class="n">ret_tan</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Tangente (Sharpe=</span><span class="si">{</span><span class="n">sharpe_tan</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># 5. Línea de Mercado de Capitales (CML)</span>
+<span class="c1"># La CML va desde Rf y tiene pendiente = Sharpe del portafolio tangente</span>
+<span class="n">vol_cml</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ret_cml</span> <span class="o">=</span> <span class="n">rf</span> <span class="o">+</span> <span class="n">sharpe_tan</span> <span class="o">*</span> <span class="n">vol_cml</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vol_cml</span><span class="p">,</span> <span class="n">ret_cml</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;CML (Rf=</span><span class="si">{</span><span class="n">rf</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># 6. Activos individuales etiquetados con Beta</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
+    <span class="n">vol_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ticker</span><span class="p">,</span> <span class="n">ticker</span><span class="p">])</span>
+    <span class="n">ret_i</span> <span class="o">=</span> <span class="n">mu</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span>
+    <span class="n">beta_i</span> <span class="o">=</span> <span class="n">betas</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vol_i</span><span class="p">,</span> <span class="n">ret_i</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="se">\n</span><span class="s1">β=</span><span class="si">{</span><span class="n">beta_i</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">vol_i</span><span class="p">,</span> <span class="n">ret_i</span><span class="p">),</span>
+                <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+                <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round,pad=0.3&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
+
+<span class="c1"># Configuración del gráfico</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frontera Eficiente, CML y Modelo CAPM&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad (σ) anualizada&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno esperado anualizado&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_modelo_capm_21_0.png" src="../_images/portafolios_inversion_modelo_capm_21_0.png" />
+</div>
+</div>
+</section>
+<section id="8.-Gráfica-Security-Market-Line-(SML)">
+<h2>8. Gráfica Security Market Line (SML)<a class="headerlink" href="#8.-Gráfica-Security-Market-Line-(SML)" title="Link to this heading">#</a></h2>
+<p>Mientras la CML grafica retorno vs volatilidad, la <strong>Security Market Line (SML)</strong> grafica retorno esperado vs Beta. Según el CAPM, todos los activos deben ubicarse sobre esta línea en equilibrio:</p>
+<div class="math notranslate nohighlight">
+\[E(R_i) = R_f + \beta_i \cdot (E(R_m) - R_f)\]</div>
+<ul class="simple">
+<li><p>Activos <strong>por encima</strong> de la SML están subvalorados (ofrecen más retorno del que predice su riesgo).</p></li>
+<li><p>Activos <strong>por debajo</strong> de la SML están sobrevalorados.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- GRÁFICA SML: Security Market Line ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Línea SML teórica</span>
+<span class="n">beta_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">sml</span> <span class="o">=</span> <span class="n">rf</span> <span class="o">+</span> <span class="n">beta_range</span> <span class="o">*</span> <span class="p">(</span><span class="n">retorno_mercado_anual</span> <span class="o">-</span> <span class="n">rf</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">beta_range</span><span class="p">,</span> <span class="n">sml</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SML (teórica)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Activos individuales (retorno histórico vs beta)</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">betas</span><span class="p">[</span><span class="n">ticker</span><span class="p">],</span> <span class="n">mu</span><span class="p">[</span><span class="n">ticker</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">betas</span><span class="p">[</span><span class="n">ticker</span><span class="p">],</span> <span class="n">mu</span><span class="p">[</span><span class="n">ticker</span><span class="p">]),</span>
+                <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+                <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round,pad=0.3&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightyellow&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">))</span>
+
+<span class="c1"># Portafolio tangente</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">beta_portafolio</span><span class="p">,</span> <span class="n">ret_tan</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Portafolio Tangente (β=</span><span class="si">{</span><span class="n">beta_portafolio</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mercado (β=1)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">retorno_mercado_anual</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span>
+           <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Mercado S&amp;P 500 (β=1)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tasa libre de riesgo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Rf = </span><span class="si">{</span><span class="n">rf</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Security Market Line (SML) — Modelo CAPM&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Beta (β)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno esperado anualizado&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/portafolios_inversion_modelo_capm_23_0.png" src="../_images/portafolios_inversion_modelo_capm_23_0.png" />
+</div>
+</div>
+</section>
+<section id="Resumen">
+<h2>Resumen<a class="headerlink" href="#Resumen" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepto</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Frontera Eficiente</strong></p></td>
+<td><p>Conjunto de portafolios que maximizan el retorno para un nivel de riesgo dado</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Portafolio Tangente</strong></p></td>
+<td><p>Portafolio con mayor Sharpe Ratio, punto de tangencia con la CML</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>CML</strong></p></td>
+<td><p>Línea que une <span class="math notranslate nohighlight">\(R_f\)</span> con el portafolio tangente; representa las mejores combinaciones riesgo-retorno</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Beta (β)</strong></p></td>
+<td><p>Mide el riesgo sistemático de un activo respecto al mercado</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SML</strong></p></td>
+<td><p>Relación lineal entre Beta y retorno esperado según CAPM</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CAPM</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(E(R_i) = R_f + \beta_i(E(R_m) - R_f)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="Conclusiones">
+<h3>Conclusiones<a class="headerlink" href="#Conclusiones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>La <strong>diversificación</strong> permite reducir el riesgo no sistemático del portafolio.</p></li>
+<li><p>El <strong>Sharpe Ratio</strong> es la métrica clave para identificar el portafolio tangente.</p></li>
+<li><p>La <strong>CML</strong> nos indica que el portafolio óptimo de mercado combinado con el activo libre de riesgo domina a cualquier otro portafolio.</p></li>
+<li><p>El <strong>Beta</strong> del portafolio depende de la composición de activos: seleccionar activos defensivos (<span class="math notranslate nohighlight">\(\beta &lt; 1\)</span>) reduce la exposición al riesgo de mercado.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conceptos-clave">Conceptos clave</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Modelo-CAPM">Modelo CAPM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Línea-de-Mercado-de-Capitales-(CML)">Línea de Mercado de Capitales (CML)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-Importar-librerías-necesarias">1. Importar librerías necesarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Descargar-datos-de-Yahoo-Finance">2. Descargar datos de Yahoo Finance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Calcular-retornos-y-matriz-de-covarianza">3. Calcular retornos y matriz de covarianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Optimización-de-portafolios-con-PyPortfolioOpt">4. Optimización de portafolios con PyPortfolioOpt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-Portafolio-de-Mínima-Varianza">4.1 Portafolio de Mínima Varianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Portafolio-Tangente-(Máximo-Sharpe-Ratio)">4.2 Portafolio Tangente (Máximo Sharpe Ratio)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Construcción-de-la-Frontera-Eficiente">5. Construcción de la Frontera Eficiente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Cálculo-del-Beta-(β)-de-cada-activo">6. Cálculo del Beta (β) de cada activo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Beta-del-Portafolio-Tangente">6.1 Beta del Portafolio Tangente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2-Retorno-esperado-CAPM-vs.-histórico-para-cada-activo">6.2 Retorno esperado CAPM vs. histórico para cada activo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Gráfica-Final:-Frontera-Eficiente-+-Línea-de-Mercado-de-Capitales-(CML)">7. Gráfica Final: Frontera Eficiente + Línea de Mercado de Capitales (CML)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Gráfica-Security-Market-Line-(SML)">8. Gráfica Security Market Line (SML)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen">Resumen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
