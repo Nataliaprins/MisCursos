@@ -14,5 +14,7 @@ Descarga las condiciones del curso aquí: :download:`Generalidades del curso <0_
    3_Frontera_eficiente
    4_efecto_diversificacion
    5_beta_activo_individual
-   6_medidas_portafolios
+   6_CAPM_portafolio
+   7_medidas_portafolios
+   
 

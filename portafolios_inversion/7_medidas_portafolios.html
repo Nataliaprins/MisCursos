@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Medidas de Desempeño de Portafolios &#8212; Portafolio de Cursos</title>
+    <title>7. Medidas de Desempeño de Portafolios &#8212; Portafolio de Cursos</title>
   
   
   
@@ -45,10 +45,10 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/6_medidas_portafolios';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/7_medidas_portafolios';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="prev" title="5. Riesgo diversificable vs No diversificable" href="5_beta_activo_individual.html" />
+    <link rel="prev" title="6. Frontera Eficiente, CML y SML" href="6_CAPM_portafolio.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -187,7 +187,8 @@
 <li class="toctree-l2"><a class="reference internal" href="3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Medidas de Desempeño de Portafolios</a></li>
 </ul>
 </details></li>
 </ul>
@@ -261,7 +262,7 @@
       
       
       
-      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/6_medidas_portafolios.ipynb" target="_blank"
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/7_medidas_portafolios.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -278,7 +279,7 @@
       
       
       
-      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/6_medidas_portafolios.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/7_medidas_portafolios.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +309,7 @@
       
       
       
-      <li><a href="../_sources/portafolios_inversion/6_medidas_portafolios.ipynb" target="_blank"
+      <li><a href="../_sources/portafolios_inversion/7_medidas_portafolios.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -392,7 +393,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6. Medidas de Desempeño de Portafolios</h1>
+    <h1>7. Medidas de Desempeño de Portafolios</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,6 +426,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Relación-entre-los-ratios:">Relación entre los ratios:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taller:-Medidas-de-Desempeño-de-Portafolios-—-Modelo-CAPM">Taller: Medidas de Desempeño de Portafolios — Modelo CAPM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-1-—-Datos-y-construcción-de-portafolios">Parte 1 — Datos y construcción de portafolios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-2-—-Ratio-de-Sharpe">Parte 2 — Ratio de Sharpe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-3-—-Ratio-de-Treynor">Parte 3 — Ratio de Treynor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-4-—-Alfa-de-Jensen">Parte 4 — Alfa de Jensen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-5-—-Ratio-de-Sortino">Parte 5 — Ratio de Sortino</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-6-—-Ratio-de-Información">Parte 6 — Ratio de Información</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-7-—-Medida-de-Modigliani-M²">Parte 7 — Medida de Modigliani M²</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-8-—-Tabla-resumen-y-comparación">Parte 8 — Tabla resumen y comparación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-9-—-Análisis-integral-y-conclusiones">Parte 9 — Análisis integral y conclusiones</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -436,8 +449,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="6.-Medidas-de-Desempeño-de-Portafolios">
-<h1>6. Medidas de Desempeño de Portafolios<a class="headerlink" href="#6.-Medidas-de-Desempeño-de-Portafolios" title="Link to this heading">#</a></h1>
+  <section id="7.-Medidas-de-Desempeño-de-Portafolios">
+<h1>7. Medidas de Desempeño de Portafolios<a class="headerlink" href="#7.-Medidas-de-Desempeño-de-Portafolios" title="Link to this heading">#</a></h1>
 <section id="Ratios-de-información:-¿qué-tan-bien-lo-hizo-mi-portafolio?">
 <h2>Ratios de información: ¿qué tan bien lo hizo mi portafolio?<a class="headerlink" href="#Ratios-de-información:-¿qué-tan-bien-lo-hizo-mi-portafolio?" title="Link to this heading">#</a></h2>
 <p>Los <strong>ratios de desempeño</strong> permiten evaluar si el rendimiento de un portafolio compensa adecuadamente el riesgo asumido. No basta con mirar el rendimiento bruto: un portafolio que rindió 20% con altísima volatilidad puede ser peor que uno que rindió 12% con baja volatilidad.</p>
@@ -679,6 +692,14 @@ Observaciones: 752 días
   </tbody>
 </table>
 </div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <section id="Estadísticas-básicas-anualizadas">
 <h3>Estadísticas básicas anualizadas<a class="headerlink" href="#Estadísticas-básicas-anualizadas" title="Link to this heading">#</a></h3>
@@ -1244,7 +1265,7 @@ Observaciones: 752 días
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/portafolios_inversion_6_medidas_portafolios_20_0.png" src="../_images/portafolios_inversion_6_medidas_portafolios_20_0.png" />
+<img alt="../_images/portafolios_inversion_7_medidas_portafolios_21_0.png" src="../_images/portafolios_inversion_7_medidas_portafolios_21_0.png" />
 </div>
 </div>
 </section>
@@ -1303,6 +1324,172 @@ Observaciones: 752 días
 </div></blockquote>
 </section>
 </section>
+<hr class="docutils" />
+<section id="Taller:-Medidas-de-Desempeño-de-Portafolios-—-Modelo-CAPM">
+<h2>Taller: Medidas de Desempeño de Portafolios — Modelo CAPM<a class="headerlink" href="#Taller:-Medidas-de-Desempeño-de-Portafolios-—-Modelo-CAPM" title="Link to this heading">#</a></h2>
+<div class="line-block">
+<div class="line"><strong>Instrucciones generales:</strong></div>
+<div class="line">Utilice las <strong>mismas 5 acciones que seleccionó en el taller anterior</strong>. Construya 3 portafolios: Uno con los pesos de su <strong>portafolio tangente (máximo Sharpe)</strong>, otro <strong>portafolio equiponderado</strong> (20% cada activo) y por ultimo uno con pesos elegidos por usted (de acuerdo con lo que opina de cada activo). Compare ambos entre sí y contra los resultados del portafolio equiponderado de este cuaderno (AAPL, JNJ, JPM, XOM, PG). Use el S&amp;P 500 como benchmark y <span class="math notranslate nohighlight">\(r_f\)</span> igual a la tasa que
+justificó en el taller anterior.</div>
+</div>
+<hr class="docutils" />
+<section id="Parte-1-—-Datos-y-construcción-de-portafolios">
+<h3>Parte 1 — Datos y construcción de portafolios<a class="headerlink" href="#Parte-1-—-Datos-y-construcción-de-portafolios" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Descargue los precios de cierre diarios de sus 5 acciones y del S&amp;P 500 para el mismo período que usó en el taller anterior.</p></li>
+<li><p>Calcule los rendimientos logarítmicos diarios.</p></li>
+<li><p>Construya <strong>tres portafolios</strong>:</p>
+<ul class="simple">
+<li><p><strong>Portafolio A</strong> — equiponderado (20% cada activo).</p></li>
+<li><p><strong>Portafolio B</strong> — con los pesos del portafolio tangente que obtuvo en el taller 6 con <code class="docutils literal notranslate"><span class="pre">PyPortfolioOpt</span></code>.</p></li>
+<li><p><strong>Portafolio C</strong> - con los pesos que usted considera a discreción</p></li>
+</ul>
+</li>
+<li><p>Calcule y presente las <strong>estadísticas base anualizadas</strong> de ambos portafolios: <span class="math notranslate nohighlight">\(R_p\)</span>, <span class="math notranslate nohighlight">\(\sigma_p\)</span>, <span class="math notranslate nohighlight">\(\beta_p\)</span>, <span class="math notranslate nohighlight">\(\sigma_{downside}\)</span> y tracking error.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-2-—-Ratio-de-Sharpe">
+<h3>Parte 2 — Ratio de Sharpe<a class="headerlink" href="#Parte-2-—-Ratio-de-Sharpe" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="5">
+<li><p>Calcule el <strong>ratio de Sharpe</strong> de ambos portafolios y del mercado (S&amp;P 500).</p></li>
+<li><p>Muestre el desarrollo paso a paso de la fórmula: <span class="math notranslate nohighlight">\(\text{Sharpe} = \frac{R_p - R_f}{\sigma_p}\)</span></p></li>
+<li><p><strong>Pregunta:</strong> ¿Cuál de sus dos portafolios tiene mejor relación riesgo-rendimiento? ¿Alguno supera al mercado? ¿Por qué era esperable (o no) ese resultado?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-3-—-Ratio-de-Treynor">
+<h3>Parte 3 — Ratio de Treynor<a class="headerlink" href="#Parte-3-—-Ratio-de-Treynor" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="8">
+<li><p>Calcule el <strong>ratio de Treynor</strong> de ambos portafolios y del mercado.</p></li>
+<li><p>Muestre el desarrollo: <span class="math notranslate nohighlight">\(\text{Treynor} = \frac{R_p - R_f}{\beta_p}\)</span></p></li>
+<li><p><strong>Pregunta:</strong> ¿El ranking entre sus portafolios cambia al pasar de Sharpe a Treynor? Explique qué significa que un portafolio tenga mejor Treynor que Sharpe (o viceversa) y qué implica sobre la diversificación.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-4-—-Alfa-de-Jensen">
+<h3>Parte 4 — Alfa de Jensen<a class="headerlink" href="#Parte-4-—-Alfa-de-Jensen" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="11">
+<li><p>Calcule el <strong>Alfa de Jensen</strong> de ambos portafolios: <span class="math notranslate nohighlight">\(\alpha_p = R_p - [R_f + \beta_p (R_m - R_f)]\)</span></p></li>
+<li><p>Muestre el rendimiento esperado según el CAPM y compare con el rendimiento real.</p></li>
+<li><p><strong>Pregunta:</strong> ¿Sus portafolios generaron valor sobre lo que predice el modelo CAPM? Si obtiene un alfa negativo, ¿significa que el portafolio fue «malo»? Argumente.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-5-—-Ratio-de-Sortino">
+<h3>Parte 5 — Ratio de Sortino<a class="headerlink" href="#Parte-5-—-Ratio-de-Sortino" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="14">
+<li><p>Calcule la <strong>downside deviation</strong> de ambos portafolios (usando solo los rendimientos en exceso negativos).</p></li>
+<li><p>Calcule el <strong>ratio de Sortino</strong>: <span class="math notranslate nohighlight">\(\text{Sortino} = \frac{R_p - R_f}{\sigma_{downside}}\)</span></p></li>
+<li><p>Compare con el Sharpe de cada portafolio.</p></li>
+<li><p><strong>Pregunta:</strong> ¿Su Sortino es mayor o menor que el Sharpe? ¿Qué le indica esto sobre la distribución de los rendimientos de su portafolio (¿asimetría positiva o negativa?)?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-6-—-Ratio-de-Información">
+<h3>Parte 6 — Ratio de Información<a class="headerlink" href="#Parte-6-—-Ratio-de-Información" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="18">
+<li><p>Calcule el <strong>rendimiento activo</strong> (<span class="math notranslate nohighlight">\(R_p - R_m\)</span>) y el <strong>tracking error</strong> de ambos portafolios.</p></li>
+<li><p>Calcule el <strong>Information Ratio</strong>: <span class="math notranslate nohighlight">\(IR = \frac{R_p - R_m}{\text{Tracking Error}}\)</span></p></li>
+<li><p><strong>Pregunta:</strong> ¿Cuál portafolio es más consistente en superar (o quedar debajo) del benchmark? ¿Un tracking error alto es necesariamente malo? Explique.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-7-—-Medida-de-Modigliani-M²">
+<h3>Parte 7 — Medida de Modigliani M²<a class="headerlink" href="#Parte-7-—-Medida-de-Modigliani-M²" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="21">
+<li><p>Calcule la <strong>medida M²</strong> de ambos portafolios: <span class="math notranslate nohighlight">\(M^2 = R_f + \text{Sharpe}_p \times \sigma_m\)</span></p></li>
+<li><p>Compare <span class="math notranslate nohighlight">\(M^2\)</span> con el rendimiento del mercado <span class="math notranslate nohighlight">\(R_m\)</span>.</p></li>
+<li><p><strong>Pregunta:</strong> Si su <span class="math notranslate nohighlight">\(M^2 &gt; R_m\)</span>, ¿qué significa en palabras simples? ¿Cómo se relaciona M² con el ratio de Sharpe?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-8-—-Tabla-resumen-y-comparación">
+<h3>Parte 8 — Tabla resumen y comparación<a class="headerlink" href="#Parte-8-—-Tabla-resumen-y-comparación" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="24">
+<li><p>Construya una <strong>tabla resumen</strong> con los 6 ratios para:</p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ratio</p></th>
+<th class="head"><p>Portafolio A (equiponderado)</p></th>
+<th class="head"><p>Portafolio B (tangente)</p></th>
+<th class="head"><p>Mercado (S&amp;P 500)</p></th>
+<th class="head"><p>Portafolio ejemplo (este cuaderno)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sharpe</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Treynor</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Alfa de Jensen</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sortino</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Information Ratio</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M²</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="25">
+<li><p>Para la columna «Portafolio ejemplo», use los valores calculados en este cuaderno:</p>
+<ul class="simple">
+<li><p>El portafolio equiponderado de AAPL, JNJ, JPM, XOM, PG (2022-2025)</p></li>
+</ul>
+</li>
+<li><p>Cree un <strong>gráfico de barras doble</strong> (como el de este cuaderno) comparando sus dos portafolios y el mercado en todos los ratios.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Parte-9-—-Análisis-integral-y-conclusiones">
+<h3>Parte 9 — Análisis integral y conclusiones<a class="headerlink" href="#Parte-9-—-Análisis-integral-y-conclusiones" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="27">
+<li><p>Responda las siguientes preguntas en celdas Markdown:</p>
+<ol class="loweralpha simple">
+<li><p><strong>Sharpe vs. Treynor:</strong> ¿Ambos ratios dan el mismo ranking entre sus portafolios? Si difieren, ¿qué le dice sobre el riesgo no sistemático de cada portafolio?</p></li>
+<li><p><strong>Sortino vs. Sharpe:</strong> ¿Su portafolio tiene más volatilidad al alza o a la baja? ¿Cómo afecta esto la percepción de riesgo?</p></li>
+<li><p><strong>Alfa de Jensen:</strong> ¿Alguno de sus portafolios logró generar valor por encima del CAPM? ¿Qué factores podrían explicar un alfa positivo (o negativo)?</p></li>
+<li><p><strong>Comparación con el portafolio del cuaderno:</strong> ¿Su portafolio tangente es mejor o peor que el equiponderado de este cuaderno? ¿En qué métricas gana y en cuáles pierde?</p></li>
+<li><p><strong>¿Cuál ratio usaría usted?</strong> Si tuviera que elegir UN SOLO ratio para evaluar su portafolio, ¿cuál elegiría y por qué? Justifique según las características de su portafolio.</p></li>
+</ol>
+</li>
+<li><p>Redacte unas <strong>conclusiones generales</strong> (mínimo 8 líneas) que integren:</p>
+<ul class="simple">
+<li><p>La comparación entre portafolio equiponderado vs. tangente</p></li>
+<li><p>Qué métricas favorecen a cada uno y por qué</p></li>
+<li><p>Qué aprendió sobre la relación entre diversificación y las diferentes medidas de riesgo</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
 </section>
 
 
@@ -1317,12 +1504,12 @@ Observaciones: 752 días
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="5_beta_activo_individual.html"
+       href="6_CAPM_portafolio.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">5. Riesgo diversificable vs No diversificable</p>
+        <p class="prev-next-title">6. Frontera Eficiente, CML y SML</p>
       </div>
     </a>
 </div>
@@ -1362,6 +1549,18 @@ Observaciones: 752 días
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Conclusiones">Conclusiones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Cuándo-usar-cada-ratio?">¿Cuándo usar cada ratio?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Relación-entre-los-ratios:">Relación entre los ratios:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Taller:-Medidas-de-Desempeño-de-Portafolios-—-Modelo-CAPM">Taller: Medidas de Desempeño de Portafolios — Modelo CAPM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-1-—-Datos-y-construcción-de-portafolios">Parte 1 — Datos y construcción de portafolios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-2-—-Ratio-de-Sharpe">Parte 2 — Ratio de Sharpe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-3-—-Ratio-de-Treynor">Parte 3 — Ratio de Treynor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-4-—-Alfa-de-Jensen">Parte 4 — Alfa de Jensen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-5-—-Ratio-de-Sortino">Parte 5 — Ratio de Sortino</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-6-—-Ratio-de-Información">Parte 6 — Ratio de Información</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-7-—-Medida-de-Modigliani-M²">Parte 7 — Medida de Modigliani M²</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-8-—-Tabla-resumen-y-comparación">Parte 8 — Tabla resumen y comparación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-9-—-Análisis-integral-y-conclusiones">Parte 9 — Análisis integral y conclusiones</a></li>
 </ul>
 </li>
 </ul>
