@@ -11,6 +11,7 @@ Revisar las condiciones del curos aquí: :download:`Generalidades del curso <0_g
    :caption: Temas:
 
    introduccion_python/index
+   introduccion_graficos/index
    analisis_multivariado/index
    diseño_experimental/index
    modelos_regresion/index
