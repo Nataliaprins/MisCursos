@@ -11,6 +11,9 @@ extensions = [
     "nbsphinx",
 ]
 
+# Permitir salidas HTML crudas de los notebooks (necesario para Plotly interactivo)
+nbsphinx_allow_raw_html = True
+
 templates_path = ["_templates"]
 exclude_patterns = ["Thumbs.db", ".DS_Store"]
 
@@ -33,6 +36,11 @@ html_theme_options = {
 }
 
 html_logo = "_static/logo.png"
+
+# Inyectar plotly.js desde CDN en todas las páginas para gráficos interactivos
+html_js_files = [
+    "https://cdn.plot.ly/plotly-3.0.1.min.js",
+]
 
 # Crear .nojekyll automáticamente para GitHub Pages
 import pathlib
