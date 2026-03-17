@@ -1,5 +1,5 @@
-2. Análisis Multivariado
-=====================
+3. Análisis Multivariado
+=============================
 
 Contenido del tema de Análisis Multivariado.
 

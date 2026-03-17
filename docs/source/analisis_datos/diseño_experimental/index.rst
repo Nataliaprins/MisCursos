@@ -1,5 +1,5 @@
-3. Diseño Experimental
-===================
+4. Diseño Experimental
+=========================
 
 Contenido del curso de Diseño Experimental.
 

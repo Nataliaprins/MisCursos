@@ -1,5 +1,5 @@
-2. Introducción Gráficos especializados
-========================================
+2. Introducción a los gráficos especializados
+===============================================
 
 Esta sección contiene información sobre la creación de gráficos especializados en Python. Podrás conocer librerías como Matplotlib, Seaborn y Plotly, que te permitirán crear visualizaciones avanzadas para el análisis de datos.
 
