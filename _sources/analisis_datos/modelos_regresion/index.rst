@@ -1,5 +1,5 @@
-4. Modelos de Regresión
-======================  
+5. Modelos de Regresión
+==========================  
 
 Contenido del curso de Modelos de Regresión.
 .. toctree::

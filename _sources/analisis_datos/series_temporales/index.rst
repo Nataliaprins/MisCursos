@@ -1,5 +1,5 @@
-5. Análisis de Series de Tiempo
-============================
+6. Análisis de Series de Tiempo
+=================================
 Contenido del curso de Análisis de Series de Tiempo.
 .. toctree::
    :maxdepth: 2
