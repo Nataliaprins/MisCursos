@@ -1,5 +1,6 @@
 # Ambiente virtual de Python
 venv/
+.venv/
 
 # Sphinx build output
 docs/build/
