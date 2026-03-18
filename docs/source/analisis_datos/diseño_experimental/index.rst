@@ -3,10 +3,4 @@
 
 Contenido del curso de Diseño Experimental.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Temas:
-
-    aleatorizacion
-    bloqueos
-    anova
+Este apartado está en preparación.

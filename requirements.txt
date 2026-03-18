@@ -4,3 +4,4 @@ nbsphinx
 ipykernel
 ghp-import
 plotly
+scikit-learn
