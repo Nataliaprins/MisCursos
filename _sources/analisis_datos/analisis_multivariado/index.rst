@@ -7,4 +7,5 @@ Contenido del tema de Análisis Multivariado.
    :maxdepth: 2
    :caption: Subtemas:
 
-   preparacion_1
+   1_distancias_pca_multivariado
+   2_analisis_conglomerados

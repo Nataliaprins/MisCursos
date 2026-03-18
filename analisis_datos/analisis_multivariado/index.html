@@ -46,7 +46,7 @@
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="4. Diseño Experimental" href="../dise%C3%B1o_experimental/index.html" />
+    <link rel="next" title="1. Distancias y Análisis de Componentes Principales (PCA)" href="1_distancias_pca_multivariado.html" />
     <link rel="prev" title="Gráficos Interactivos con Plotly" href="../introduccion_graficos/graficos_interactivos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -173,12 +173,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">3. Análisis Multivariado</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">3. Análisis Multivariado</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
 </ul>
@@ -416,6 +416,34 @@ document.write(`
 <h1>3. Análisis Multivariado<a class="headerlink" href="#analisis-multivariado" title="Link to this heading">#</a></h1>
 <p>Contenido del tema de Análisis Multivariado.</p>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Subtemas:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#Objetivos">Objetivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#1.-Concepto-de-distancia">1. Concepto de distancia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#2.-Distancia-Euclidiana-y-Manhattan">2. Distancia Euclidiana y Manhattan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#3.-Distancia-Mahalanobis">3. Distancia Mahalanobis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#4.-Otras-métricas:-Minkowski-y-Coseno">4. Otras métricas: Minkowski y Coseno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#5.-Matriz-de-distancias">5. Matriz de distancias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#6.-Fundamentos-de-PCA">6. Fundamentos de PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#7.-Caso-práctico-integrador">7. Caso práctico integrador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#8.-Ejercicios-propuestos">8. Ejercicios propuestos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#Objetivos">Objetivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#1.-Datos-de-trabajo">1. Datos de trabajo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#2.-Preprocesamiento:-estandarización">2. Preprocesamiento: estandarización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#3.-K-Means">3. K-Means</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#4.-Clustering-Jerárquico">4. Clustering Jerárquico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#5.-Evaluación-de-la-calidad-del-agrupamiento">5. Evaluación de la calidad del agrupamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#6.-Interpretación-y-uso-de-los-resultados">6. Interpretación y uso de los resultados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#7.-Caso-práctico-integrador:-clustering-jerárquico-con-distintos-enlaces">7. Caso práctico integrador: clustering jerárquico con distintos enlaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#8.-Resumen-comparativo">8. Resumen comparativo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#9.-Ejercicios-propuestos">9. Ejercicios propuestos</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 
@@ -440,11 +468,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../dise%C3%B1o_experimental/index.html"
+       href="1_distancias_pca_multivariado.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">4. Diseño Experimental</p>
+        <p class="prev-next-title">1. Distancias y Análisis de Componentes Principales (PCA)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
