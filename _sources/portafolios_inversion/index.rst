@@ -18,6 +18,7 @@ Descarga las condiciones del curso aquí: :download:`Generalidades del curso <0_
    7_medidas_portafolios
    8_shrinkage_ledoit
    9_modelo_black_litterman
+   91_perspectivas
    
 
    
