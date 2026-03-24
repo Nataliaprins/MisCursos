@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/analisis_multivariado/taller_pca';</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="4. Diseño Experimental" href="../dise%C3%B1o_experimental/index.html" />
+    <link rel="prev" title="2. Análisis de Conglomerados (Clúster)" href="2_analisis_conglomerados.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">3. Análisis Multivariado</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/analisis_multivariado/taller_pca.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/analisis_multivariado/taller_pca.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/analisis_datos/analisis_multivariado/taller_pca.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-general">Información General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-dataset">Descripción del Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-generales">Instrucciones Generales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-1-exploracion-de-datos-con-pandas-25-puntos">Parte 1: Exploración de Datos con Pandas (25 puntos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-teoricas">Preguntas Teóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-practicos">Ejercicios Prácticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-2-visualizacion-de-datos-35-puntos">Parte 2: Visualización de Datos (35 puntos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Preguntas Teóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios Prácticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-3-analisis-de-componentes-principales-pca-40-puntos">Parte 3: Análisis de Componentes Principales - PCA (40 puntos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Preguntas Teóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejercicios Prácticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-bonus-biplot-10-puntos-extra">Ejercicio Bonus: Biplot (10 puntos extra)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interprete-que-variables-apuntan-en-la-misma-direccion">Interprete: ¿Qué variables apuntan en la misma dirección?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#que-variables-son-opuestas-que-significa-esto">¿Qué variables son opuestas? ¿Qué significa esto?</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="taller-analisis-exploratorio-y-pca-gestion-de-recursos-humanos">
+<h1>Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos<a class="headerlink" href="#taller-analisis-exploratorio-y-pca-gestion-de-recursos-humanos" title="Link to this heading">#</a></h1>
+<section id="informacion-general">
+<h2>Información General<a class="headerlink" href="#informacion-general" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Curso:</strong> Análisis de Datos Multivariado</p></li>
+<li><p><strong>Dataset:</strong> IBM HR Analytics Employee Attrition &amp; Performance</p></li>
+<li><p><strong>Puntaje Total:</strong> 100 puntos (+10 puntos bonus)</p></li>
+<li><p><strong>Duración estimada:</strong> 2-3 horas</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="descripcion-del-dataset">
+<h2>Descripción del Dataset<a class="headerlink" href="#descripcion-del-dataset" title="Link to this heading">#</a></h2>
+<p>El dataset contiene información de empleados de una empresa, incluyendo variables demográficas, laborales y de desempeño. Las variables principales que utilizaremos son:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Tipo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Age</span></code></p></td>
+<td><p>Edad del empleado</p></td>
+<td><p>Numérica</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MonthlyIncome</span></code></p></td>
+<td><p>Ingreso mensual</p></td>
+<td><p>Numérica</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">YearsAtCompany</span></code></p></td>
+<td><p>Años en la empresa</p></td>
+<td><p>Numérica</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TotalWorkingYears</span></code></p></td>
+<td><p>Años totales de experiencia laboral</p></td>
+<td><p>Numérica</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DistanceFromHome</span></code></p></td>
+<td><p>Distancia del hogar al trabajo</p></td>
+<td><p>Numérica</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NumCompaniesWorked</span></code></p></td>
+<td><p>Número de empresas en las que ha trabajado</p></td>
+<td><p>Numérica</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Department</span></code></p></td>
+<td><p>Departamento (Sales, R&amp;D, HR)</p></td>
+<td><p>Categórica</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Attrition</span></code></p></td>
+<td><p>Si el empleado dejó la empresa (Yes/No)</p></td>
+<td><p>Categórica</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Descarga del dataset:</strong> <a class="reference external" href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset">IBM HR Analytics</a></p>
+</section>
+<hr class="docutils" />
+<section id="instrucciones-generales">
+<h2>Instrucciones Generales<a class="headerlink" href="#instrucciones-generales" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Cree un nuevo Jupyter Notebook para desarrollar el taller</p></li>
+<li><p>Documente su código con comentarios explicativos</p></li>
+<li><p>Responda las preguntas teóricas en celdas Markdown</p></li>
+<li><p>Incluya títulos y etiquetas en todos sus gráficos</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="parte-1-exploracion-de-datos-con-pandas-25-puntos">
+<h2>Parte 1: Exploración de Datos con Pandas (25 puntos)<a class="headerlink" href="#parte-1-exploracion-de-datos-con-pandas-25-puntos" title="Link to this heading">#</a></h2>
+<section id="preguntas-teoricas">
+<h3>Preguntas Teóricas<a class="headerlink" href="#preguntas-teoricas" title="Link to this heading">#</a></h3>
+<p><strong>PT1.1</strong> (2 puntos) ¿Cuál es la diferencia entre los métodos <code class="docutils literal notranslate"><span class="pre">.head()</span></code> y <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> en Pandas? ¿Qué información proporciona cada uno?</p>
+<p><strong>PT1.2</strong> (2 puntos) Explique qué son los valores faltantes (NaN) en un DataFrame y mencione dos estrategias para manejarlos. ¿En qué casos utilizaría cada estrategia?</p>
+<p><strong>PT1.3</strong> (2 puntos) ¿Cuál es la diferencia entre <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> y <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> para seleccionar datos en Pandas? Proporcione un ejemplo de uso de cada uno.</p>
+<p><strong>PT1.4</strong> (2 puntos) Explique el funcionamiento del método <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code>. ¿Qué operaciones se pueden realizar después de agrupar los datos?</p>
+</section>
+<hr class="docutils" />
+<section id="ejercicios-practicos">
+<h3>Ejercicios Prácticos<a class="headerlink" href="#ejercicios-practicos" title="Link to this heading">#</a></h3>
+<p><strong>EP1.1 Exploración inicial</strong> (5 puntos)</p>
+<p>Cargue el dataset y realice las siguientes operaciones:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importe las librerías necesarias</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Cargue el dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;IBM_HR_Employee.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># a) Muestre las primeras 10 filas del dataset</span>
+<span class="c1"># b) Muestre los tipos de datos de cada columna</span>
+<span class="c1"># c) Genere estadísticas descriptivas de las variables numéricas</span>
+</pre></div>
+</div>
+<p><strong>EP1.2 Manejo de valores faltantes</strong> (5 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Cuente el número de valores faltantes por columna</span>
+<span class="c1"># b) Elimine las filas que contengan valores faltantes</span>
+<span class="c1"># c) Verifique que ya no existen valores faltantes</span>
+</pre></div>
+</div>
+<p><strong>EP1.3 Selección y filtrado</strong> (5 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Seleccione únicamente las 6 columnas numéricas: </span>
+<span class="c1">#    Age, MonthlyIncome, YearsAtCompany, TotalWorkingYears, </span>
+<span class="c1">#    DistanceFromHome, NumCompaniesWorked</span>
+
+<span class="c1"># b) Filtre los empleados del departamento &quot;Sales&quot;</span>
+
+<span class="c1"># c) Filtre los empleados con MonthlyIncome &gt; 5000 </span>
+<span class="c1">#    Y YearsAtCompany &gt; 5</span>
+</pre></div>
+</div>
+<p><strong>EP1.4 Agrupación y agregación</strong> (5 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Calcule el promedio de las variables numéricas </span>
+<span class="c1">#    agrupado por Department</span>
+
+<span class="c1"># b) Cuente el número de empleados por Department y Attrition</span>
+</pre></div>
+</div>
+<p><strong>EP1.5 Pregunta de análisis</strong> (3 puntos)</p>
+<p>Basándose en los resultados anteriores, responda:</p>
+<ul class="simple">
+<li><p>¿Qué departamento tiene el mayor ingreso promedio?</p></li>
+<li><p>¿Qué departamento tiene la mayor tasa de rotación (Attrition)?</p></li>
+<li><p>Justifique sus respuestas con los valores numéricos obtenidos.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="parte-2-visualizacion-de-datos-35-puntos">
+<h2>Parte 2: Visualización de Datos (35 puntos)<a class="headerlink" href="#parte-2-visualizacion-de-datos-35-puntos" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Preguntas Teóricas<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>PT2.1</strong> (2 puntos) ¿Qué es una curva de densidad (KDE) y por qué es útil agregarla a un histograma? ¿Qué ventaja tiene sobre un histograma simple?</p>
+<p><strong>PT2.2</strong> (2 puntos) ¿Cuál es la diferencia entre un boxplot y un violinplot? ¿Qué información adicional proporciona el violinplot?</p>
+<p><strong>PT2.3</strong> (2 puntos) ¿Qué es una matriz de correlación? ¿Cómo se interpreta un valor de correlación de +0.8 vs -0.8 vs 0?</p>
+<p><strong>PT2.4</strong> (2 puntos) ¿Qué es un mapa de calor (heatmap) y por qué es útil para visualizar matrices de correlación? ¿Qué características debe tener un buen mapa de calor?</p>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h3>Ejercicios Prácticos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>EP2.1 Distribuciones univariadas</strong> (10 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># Cree una figura con 4 subplots (2 filas x 2 columnas)</span>
+<span class="c1"># Cada subplot debe contener un histograma con KDE de:</span>
+<span class="c1"># a) Age</span>
+<span class="c1"># b) MonthlyIncome</span>
+<span class="c1"># c) YearsAtCompany</span>
+<span class="c1"># d) TotalWorkingYears</span>
+
+<span class="c1"># Incluya títulos descriptivos en cada subplot</span>
+</pre></div>
+</div>
+<p><strong>EP2.2 Boxplots por categoría</strong> (10 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Cree un boxplot de MonthlyIncome separado por Department</span>
+
+<span class="c1"># b) Cree DOS gráficos comparativos usando YearsAtCompany coloreado por Attrition:</span>
+<span class="c1">#    - Un boxplot</span>
+<span class="c1">#    - Un violinplot</span>
+<span class="c1"># Compare visualmente ambos gráficos</span>
+
+<span class="c1"># c) Cree un boxplot de Age separado por Attrition</span>
+</pre></div>
+</div>
+<p><strong>EP2.3 Gráficos de dispersión</strong> (10 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Cree un scatter plot de Age vs MonthlyIncome, </span>
+<span class="c1">#    coloreado por Department (use hue)</span>
+
+<span class="c1"># b) Calcule la matriz de correlación de las 6 variables numéricas</span>
+
+<span class="c1"># c) Visualice la matriz de correlación usando un heatmap</span>
+<span class="c1">#    - Use annot=True para mostrar los valores</span>
+<span class="c1">#    - Use una paleta de colores divergente (ej: &#39;coolwarm&#39;, &#39;RdBu&#39;)</span>
+</pre></div>
+</div>
+<p><strong>EP2.4 Preguntas de análisis</strong> (5 puntos)</p>
+<p>Basándose en sus visualizaciones, responda:</p>
+<p>a) ¿Cuáles son las dos variables con mayor correlación positiva? ¿Y la variable con menor correlación con las demás?</p>
+<p>b) Observando los boxplots/violinplots de Attrition, ¿qué diferencias observa entre los empleados que permanecen vs los que se van? ¿Qué implicaciones tiene esto para el área de Recursos Humanos?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="parte-3-analisis-de-componentes-principales-pca-40-puntos">
+<h2>Parte 3: Análisis de Componentes Principales - PCA (40 puntos)<a class="headerlink" href="#parte-3-analisis-de-componentes-principales-pca-40-puntos" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Preguntas Teóricas<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>PT3.1</strong> (3 puntos) ¿Qué es el Análisis de Componentes Principales (PCA)? Explique en sus propias palabras cuál es el objetivo de esta técnica y cuándo es útil aplicarla.</p>
+<p><strong>PT3.2</strong> (3 puntos) ¿Por qué es <strong>obligatorio</strong> estandarizar los datos antes de aplicar PCA? ¿Qué problemas pueden ocurrir si no se estandarizan? Ilustre con un ejemplo usando las variables MonthlyIncome y Age.</p>
+<p><strong>PT3.3</strong> (3 puntos) ¿Qué representa la «varianza explicada» de un componente principal? Si PC1 tiene 40% de varianza explicada y PC2 tiene 25%, ¿qué significa esto?</p>
+<p><strong>PT3.4</strong> (3 puntos) ¿Qué son las «cargas» (loadings) en PCA? ¿Cómo se utilizan para interpretar el significado de cada componente principal?</p>
+<p><strong>PT3.5</strong> (3 puntos) ¿Cuál es la diferencia entre usar PCA para <strong>reducción de dimensionalidad</strong> vs usarlo para <strong>visualización exploratoria</strong>? ¿Cuántos componentes seleccionaría en cada caso?</p>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>Ejercicios Prácticos<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>EP3.1 Preparación de datos para PCA</strong> (10 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="c1"># a) Seleccione las 6 variables numéricas y guárdelas en un DataFrame X</span>
+
+<span class="c1"># b) Aplique StandardScaler para estandarizar los datos</span>
+<span class="c1">#    - Ajuste el scaler y transforme los datos</span>
+<span class="c1">#    - Guarde los datos escalados en X_scaled</span>
+
+<span class="c1"># c) Verifique la estandarización:</span>
+<span class="c1">#    - Calcule la media de cada variable (debe ser ≈ 0)</span>
+<span class="c1">#    - Calcule la desviación estándar (debe ser ≈ 1)</span>
+</pre></div>
+</div>
+<p><strong>EP3.2 Aplicación de PCA</strong> (10 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Cree un objeto PCA (sin especificar número de componentes)</span>
+<span class="c1">#    y ajústelo a los datos estandarizados</span>
+
+<span class="c1"># b) Cree un DataFrame con:</span>
+<span class="c1">#    - Componente (PC1, PC2, ..., PC6)</span>
+<span class="c1">#    - Varianza explicada individual (%)</span>
+<span class="c1">#    - Varianza explicada acumulada (%)</span>
+
+<span class="c1"># c) Cree un gráfico de líneas mostrando:</span>
+<span class="c1">#    - Varianza acumulada en el eje Y</span>
+<span class="c1">#    - Número de componentes en el eje X</span>
+<span class="c1">#    - Agregue una línea horizontal al 80% de varianza</span>
+<span class="c1">#    - Títulos y etiquetas apropiados</span>
+</pre></div>
+</div>
+<p><strong>EP3.3 Visualización de resultados PCA</strong> (10 puntos)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Transforme los datos usando PCA y cree un DataFrame </span>
+<span class="c1">#    con las puntuaciones de los componentes (PC1, PC2, ...)</span>
+
+<span class="c1"># b) Cree un scatter plot de PC1 vs PC2:</span>
+<span class="c1">#    - Coloreado por Department</span>
+<span class="c1">#    - Incluya el % de varianza explicada en los ejes</span>
+<span class="c1">#    - Título: &quot;Proyección PCA - Departamentos&quot;</span>
+
+<span class="c1"># c) Cree otro scatter plot de PC1 vs PC2:</span>
+<span class="c1">#    - Coloreado por Attrition</span>
+<span class="c1">#    - Analice si hay separación visible entre grupos</span>
+
+<span class="c1"># d) Cree un DataFrame con las cargas (loadings):</span>
+<span class="c1">#    - Filas: nombres de las variables originales</span>
+<span class="c1">#    - Columnas: PC1, PC2, PC3, ...</span>
+<span class="c1">#    Hint: use pca.components_.T</span>
+
+<span class="c1"># e) Visualice las cargas con un heatmap:</span>
+<span class="c1">#    - Use annot=True</span>
+<span class="c1">#    - Use cmap=&#39;RdBu&#39; o similar (divergente)</span>
+<span class="c1">#    - Incluya título y etiquetas</span>
+</pre></div>
+</div>
+<p><strong>EP3.4 Preguntas de análisis</strong> (10 puntos)</p>
+<p>Basándose en sus resultados de PCA, responda las siguientes preguntas:</p>
+<p><strong>a) Selección de componentes</strong> (2.5 puntos)
+¿Cuántos componentes principales necesita para explicar al menos el 80% de la varianza total? Justifique su respuesta con los valores de varianza acumulada.</p>
+<p><strong>b) Interpretación de PC1</strong> (2.5 puntos)
+Observe las cargas del primer componente principal (PC1):</p>
+<ul class="simple">
+<li><p>¿Qué variables tienen mayor peso (positivo o negativo)?</p></li>
+<li><p>¿Qué concepto o dimensión subyacente podría representar PC1?</p></li>
+<li><p>Proponga un nombre descriptivo para este componente.</p></li>
+</ul>
+<p><strong>c) Separación de grupos</strong> (2.5 puntos)
+Observando el gráfico de PC1 vs PC2 coloreado por Attrition:</p>
+<ul class="simple">
+<li><p>¿Existe una separación clara entre empleados que se van vs los que permanecen?</p></li>
+<li><p>¿Qué implicaciones tiene esto para predecir la rotación de empleados?</p></li>
+</ul>
+<p><strong>d) Importancia de la estandarización</strong> (2.5 puntos)
+Considerando las escalas originales de las variables:</p>
+<ul class="simple">
+<li><p>MonthlyIncome: valores en miles (ej: 5000-20000)</p></li>
+<li><p>Age: valores en decenas (ej: 25-60)</p></li>
+<li><p>DistanceFromHome: valores pequeños (ej: 1-30)</p></li>
+</ul>
+<p>Explique qué pasaría si aplicara PCA <strong>sin</strong> estandarizar los datos. ¿Qué variable dominaría el análisis y por qué?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ejercicio-bonus-biplot-10-puntos-extra">
+<h2>Ejercicio Bonus: Biplot (10 puntos extra)<a class="headerlink" href="#ejercicio-bonus-biplot-10-puntos-extra" title="Link to this heading">#</a></h2>
+<p>Un <strong>biplot</strong> es una visualización avanzada que combina:</p>
+<ul class="simple">
+<li><p>Las puntuaciones de las observaciones (scatter de PC1 vs PC2)</p></li>
+<li><p>Los vectores de carga de las variables originales (flechas)</p></li>
+</ul>
+</section>
+</section>
+<section id="interprete-que-variables-apuntan-en-la-misma-direccion">
+<h1>Interprete: ¿Qué variables apuntan en la misma dirección?<a class="headerlink" href="#interprete-que-variables-apuntan-en-la-misma-direccion" title="Link to this heading">#</a></h1>
+</section>
+<section id="que-variables-son-opuestas-que-significa-esto">
+<h1>¿Qué variables son opuestas? ¿Qué significa esto?<a class="headerlink" href="#que-variables-son-opuestas-que-significa-esto" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+---
+
+## Entrega
+
+- **Formato:** Jupyter Notebook (.ipynb)
+- **Nombre del archivo:** `Taller_PCA_Apellidos_Nombres.ipynb`
+- **Contenido esperado:**
+  - Código ejecutable sin errores
+  - Respuestas a preguntas teóricas en celdas Markdown
+  - Gráficos con títulos y etiquetas
+  - Análisis e interpretaciones justificadas
+- **Fecha de entrega:** [13-04-2026]
+---
+
+</pre></div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_analisis_conglomerados.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">2. Análisis de Conglomerados (Clúster)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../dise%C3%B1o_experimental/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">4. Diseño Experimental</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-general">Información General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-dataset">Descripción del Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-generales">Instrucciones Generales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-1-exploracion-de-datos-con-pandas-25-puntos">Parte 1: Exploración de Datos con Pandas (25 puntos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-teoricas">Preguntas Teóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios-practicos">Ejercicios Prácticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-2-visualizacion-de-datos-35-puntos">Parte 2: Visualización de Datos (35 puntos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Preguntas Teóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejercicios Prácticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-3-analisis-de-componentes-principales-pca-40-puntos">Parte 3: Análisis de Componentes Principales - PCA (40 puntos)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Preguntas Teóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ejercicios Prácticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-bonus-biplot-10-puntos-extra">Ejercicio Bonus: Biplot (10 puntos extra)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interprete-que-variables-apuntan-en-la-misma-direccion">Interprete: ¿Qué variables apuntan en la misma dirección?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#que-variables-son-opuestas-que-significa-esto">¿Qué variables son opuestas? ¿Qué significa esto?</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

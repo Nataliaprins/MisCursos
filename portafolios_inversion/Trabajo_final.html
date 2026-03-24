@@ -1,0 +1,1734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'portafolios_inversion/Trabajo_final';</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo" href="HRP.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">5. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../estadistica_ii/index.html">Estadística II</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">PORTAFOLIOS DE INVERSIÓN</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/portafolios_inversion/Trabajo_final.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fportafolios_inversion/Trabajo_final.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/portafolios_inversion/Trabajo_final.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Curso-de-Optimización-de-Portafolios">Curso de Optimización de Portafolios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Descripción-del-Taller">Descripción del Taller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Requisitos-del-Trabajo">Requisitos del Trabajo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Rúbrica-de-Evaluación">Rúbrica de Evaluación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Niveles-de-Desempeño">Niveles de Desempeño</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-1:-Configuración-del-Entorno">Parte 1: Configuración del Entorno</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Importación-de-Librerías">1.1 Importación de Librerías</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-2:-Selección-de-Activos-y-Obtención-de-Datos">Parte 2: Selección de Activos y Obtención de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-Universo-de-Inversión">2.1 Universo de Inversión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-Justificación-de-la-Selección-de-Activos">2.2 Justificación de la Selección de Activos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-3:-Análisis-Exploratorio-de-Datos">Parte 3: Análisis Exploratorio de Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-Cálculo-de-Rendimientos">3.1 Cálculo de Rendimientos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Análisis-de-Correlaciones">3.2 Análisis de Correlaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Visualización-de-Precios-y-Rendimientos">3.3 Visualización de Precios y Rendimientos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-4:-Optimización-de-Markowitz-(Media-Varianza)">Parte 4: Optimización de Markowitz (Media-Varianza)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-Teoría-de-Markowitz">4.1 Teoría de Markowitz</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Problema-de-optimización:">Problema de optimización:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Portafolios-especiales:">Portafolios especiales:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Portafolio-de-Mínima-Varianza-Global-(GMV)">4.2 Portafolio de Mínima Varianza Global (GMV)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-Portafolio-Tangente-(Máximo-Sharpe)">4.3 Portafolio Tangente (Máximo Sharpe)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Construcción-de-la-Frontera-Eficiente">4.4 Construcción de la Frontera Eficiente</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-5:-Modelo-de-Black-Litterman">Parte 5: Modelo de Black-Litterman</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Teoría-de-Black-Litterman">5.1 Teoría de Black-Litterman</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Componentes-del-modelo:">Componentes del modelo:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Fórmula-de-rendimientos-combinados:">Fórmula de rendimientos combinados:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Obtención-de-Ponderaciones-de-Mercado">5.2 Obtención de Ponderaciones de Mercado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.3-Definición-de-Views-(Opiniones-del-Inversionista)">5.3 Definición de Views (Opiniones del Inversionista)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejemplo-de-views-para-el-código:">Ejemplo de views para el código:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.4-Optimización-Black-Litterman">5.4 Optimización Black-Litterman</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-6:-Hierarchical-Risk-Parity-(HRP)">Parte 6: Hierarchical Risk Parity (HRP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Teoría-de-HRP">6.1 Teoría de HRP</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1:-Clustering-Jerárquico">Paso 1: Clustering Jerárquico</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-2:-Quasi-Diagonalización">Paso 2: Quasi-Diagonalización</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-3:-Bisección-Recursiva">Paso 3: Bisección Recursiva</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Ventajas-sobre-Markowitz:">Ventajas sobre Markowitz:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2-Clustering-Jerárquico-y-Dendrograma">6.2 Clustering Jerárquico y Dendrograma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.3-Optimización-HRP">6.3 Optimización HRP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-7:-Evaluación-de-Riesgo---Value-at-Risk-(VaR)">Parte 7: Evaluación de Riesgo - Value at Risk (VaR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.1-Concepto-de-Value-at-Risk">7.1 Concepto de Value at Risk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Métodos-de-cálculo:">Métodos de cálculo:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Fórmulas:">Fórmulas:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.2-Expected-Shortfall-(ES)-o-Conditional-Value-at-Risk-(CVaR)">7.2 Expected Shortfall (ES) o Conditional Value at Risk (CVaR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas-1">Fórmulas:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Comparación-VaR-vs-ES:">Comparación VaR vs ES:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.2-Cálculo-del-VaR-para-el-Portafolio-Óptimo">7.2 Cálculo del VaR para el Portafolio Óptimo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-8:-Métricas-de-Desempeño">Parte 8: Métricas de Desempeño</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#8.1-Ratios-de-Evaluación">8.1 Ratios de Evaluación</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-9:-Comparación-de-Estrategias-y-Backtesting">Parte 9: Comparación de Estrategias y Backtesting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#9.1-Comparación-Visual-de-Portafolios">9.1 Comparación Visual de Portafolios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#9.2-Tabla-Resumen-de-Estrategias">9.2 Tabla Resumen de Estrategias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-10:-Prospecto-del-Portafolio">Parte 10: Prospecto del Portafolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#10.1-Plantilla-de-Prospecto">10.1 Plantilla de Prospecto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#PROSPECTO-DE-INVERSIÓN">PROSPECTO DE INVERSIÓN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Nombre-del-Fondo:-_______________________">Nombre del Fondo: _______________________</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Fecha-de-Emisión:-_______________________">Fecha de Emisión: _______________________</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Gestor/Analista:-_______________________">Gestor/Analista: _______________________</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-OBJETIVO-DE-INVERSIÓN">1. OBJETIVO DE INVERSIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-ESTRATEGIA-DE-INVERSIÓN">2. ESTRATEGIA DE INVERSIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-UNIVERSO-DE-INVERSIÓN">3. UNIVERSO DE INVERSIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-PERFIL-DE-RIESGO">4. PERFIL DE RIESGO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-RENDIMIENTO-ESPERADO">5. RENDIMIENTO ESPERADO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-ANÁLISIS-COMPARATIVO">6. ANÁLISIS COMPARATIVO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-RECOMENDACIONES">7. RECOMENDACIONES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-ADVERTENCIAS-DE-RIESGO">8. ADVERTENCIAS DE RIESGO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#9.-CONCLUSIONES">9. CONCLUSIONES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#10.2-Asignación-Discreta-(Número-de-Acciones)">10.2 Asignación Discreta (Número de Acciones)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Instrucciones-de-Entrega">Instrucciones de Entrega</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Checklist-Final">Checklist Final</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Formato-de-Entrega">Formato de Entrega</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Criterios-de-Evaluación-Adicionales">Criterios de Evaluación Adicionales</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Trabajo-Final:-Construcción-y-Evaluación-de-un-Portafolio-de-Inversión">
+<h1>Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión<a class="headerlink" href="#Trabajo-Final:-Construcción-y-Evaluación-de-un-Portafolio-de-Inversión" title="Link to this heading">#</a></h1>
+<section id="Curso-de-Optimización-de-Portafolios">
+<h2>Curso de Optimización de Portafolios<a class="headerlink" href="#Curso-de-Optimización-de-Portafolios" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="Descripción-del-Taller">
+<h3>Descripción del Taller<a class="headerlink" href="#Descripción-del-Taller" title="Link to this heading">#</a></h3>
+<p>En este trabajo final, usted deberá construir y evaluar un portafolio de inversión utilizando las técnicas aprendidas durante el curso. El objetivo es que aplique de manera integral los conceptos de:</p>
+<ol class="arabic simple">
+<li><p><strong>Optimización de Markowitz</strong> (Media-Varianza)</p></li>
+<li><p><strong>Modelo de Black-Litterman</strong> (incorporación de views)</p></li>
+<li><p><strong>Hierarchical Risk Parity (HRP)</strong> (asignación jerárquica de riesgo)</p></li>
+<li><p><strong>Evaluación de Riesgo con Value at Risk (VaR)</strong> (paramétrico, histórico y Monte Carlo)</p></li>
+<li><p><strong>Métricas de Desempeño</strong> (Sharpe, Sortino, Treynor, etc.)</p></li>
+</ol>
+<p>El resultado final será un <strong>Prospecto de Portafolio</strong> donde documentará sus hallazgos, recomendaciones y justificaciones. <a class="reference external" href="ejemplo_prospecto_portafolio.pdf">(ver ejemplo de prospecto)</a></p>
+</section>
+<hr class="docutils" />
+<section id="Requisitos-del-Trabajo">
+<h3>Requisitos del Trabajo<a class="headerlink" href="#Requisitos-del-Trabajo" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Activos</strong>: Seleccione 10 activos de diferentes sectores/clases de activos</p></li>
+<li><p><strong>Período de análisis</strong>: Mínimo 3 años de datos históricos</p></li>
+<li><p><strong>Herramientas</strong>: Python con las librerías vistas en clase</p></li>
+<li><p><strong>Entregable</strong>: EL cuaderno Notebook con los cálculos + un resumen ejecutivo (máximo 2 páginas)</p></li>
+</ul>
+</section>
+</section>
+<section id="Rúbrica-de-Evaluación">
+<h2>Rúbrica de Evaluación<a class="headerlink" href="#Rúbrica-de-Evaluación" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterio</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Puntos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1. Selección y Justificación de Activos</strong></p></td>
+<td><p>Selección diversificada de activos con justificación clara del universo de inversión</p></td>
+<td><p><strong>10</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2. Análisis Exploratorio</strong></p></td>
+<td><p>Análisis descriptivo completo: rendimientos, volatilidades, correlaciones, distribuciones</p></td>
+<td><p><strong>10</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3. Optimización de Markowitz</strong></p></td>
+<td><p>Construcción correcta de la frontera eficiente, portafolio de mínima varianza y portafolio tangente</p></td>
+<td><p><strong>15</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4. Modelo Black-Litterman</strong></p></td>
+<td><p>Implementación correcta con views propias justificadas y comparación con Markowitz</p></td>
+<td><p><strong>15</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5. Hierarchical Risk Parity (HRP)</strong></p></td>
+<td><p>Implementación del clustering jerárquico y asignación de pesos</p></td>
+<td><p><strong>15</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>6. Value at Risk (VaR)</strong></p></td>
+<td><p>Cálculo del VaR por los tres métodos: paramétrico, histórico y Monte Carlo</p></td>
+<td><p><strong>10</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>7. Métricas de Desempeño</strong></p></td>
+<td><p>Cálculo e interpretación de al menos 4 métricas de desempeño</p></td>
+<td><p><strong>10</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>8. Comparación de Estrategias</strong></p></td>
+<td><p>Análisis comparativo de los 3 métodos de optimización con backtesting</p></td>
+<td><p><strong>10</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9. Prospecto Final</strong></p></td>
+<td><p>Documento profesional con hallazgos, recomendaciones y conclusiones</p></td>
+<td><p><strong>5</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TOTAL</strong></p></td>
+<td></td>
+<td><p><strong>100</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="Niveles-de-Desempeño">
+<h3>Niveles de Desempeño<a class="headerlink" href="#Niveles-de-Desempeño" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nivel</p></th>
+<th class="head"><p>Rango</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Excelente</strong></p></td>
+<td><p>90-100</p></td>
+<td><p>Análisis completo, código correcto, interpretaciones profundas y prospecto profesional</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Bueno</strong></p></td>
+<td><p>80-89</p></td>
+<td><p>Análisis correcto con algunas interpretaciones superficiales</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Aceptable</strong></p></td>
+<td><p>70-79</p></td>
+<td><p>Implementación básica con errores menores o interpretaciones incompletas</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Insuficiente</strong></p></td>
+<td><p>&lt;70</p></td>
+<td><p>Falta de componentes clave o errores significativos en la implementación</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-1:-Configuración-del-Entorno">
+<h2>Parte 1: Configuración del Entorno<a class="headerlink" href="#Parte-1:-Configuración-del-Entorno" title="Link to this heading">#</a></h2>
+<section id="1.1-Importación-de-Librerías">
+<h3>1.1 Importación de Librerías<a class="headerlink" href="#1.1-Importación-de-Librerías" title="Link to this heading">#</a></h3>
+<p>Importamos todas las librerías necesarias para el análisis:</p>
+<ul class="simple">
+<li><p><strong>NumPy/Pandas</strong>: Cálculos numéricos y manejo de datos</p></li>
+<li><p><strong>yfinance</strong>: Descarga de datos financieros</p></li>
+<li><p><strong>scipy</strong>: Optimización y clustering</p></li>
+<li><p><strong>pypfopt</strong>: Optimización de portafolios</p></li>
+<li><p><strong>matplotlib/seaborn</strong>: Visualización</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-2:-Selección-de-Activos-y-Obtención-de-Datos">
+<h2>Parte 2: Selección de Activos y Obtención de Datos<a class="headerlink" href="#Parte-2:-Selección-de-Activos-y-Obtención-de-Datos" title="Link to this heading">#</a></h2>
+</section>
+<section id="2.1-Universo-de-Inversión">
+<h2>2.1 Universo de Inversión<a class="headerlink" href="#2.1-Universo-de-Inversión" title="Link to this heading">#</a></h2>
+<p><strong>INSTRUCCIONES PARA EL ESTUDIANTE:</strong></p>
+<p>Seleccione entre 7 y 12 activos que formarán su universo de inversión. Considere incluir:</p>
+<ul class="simple">
+<li><p><strong>Acciones de diferentes sectores</strong> (tecnología, salud, finanzas, consumo, energía)</p></li>
+<li><p><strong>ETFs sectoriales o geográficos</strong> (mercados emergentes, Europa, etc.)</p></li>
+<li><p><strong>Bonos o ETFs de renta fija</strong> (para diversificación)</p></li>
+<li><p><strong>Commodities</strong> (oro, petróleo)</p></li>
+</ul>
+<p><strong>Justifique su selección en la celda markdown después del código.</strong></p>
+<section id="2.2-Justificación-de-la-Selección-de-Activos">
+<h3>2.2 Justificación de la Selección de Activos<a class="headerlink" href="#2.2-Justificación-de-la-Selección-de-Activos" title="Link to this heading">#</a></h3>
+<p><strong>TODO (ESTUDIANTE): Complete esta sección justificando su selección de activos.</strong></p>
+<p><em>Ejemplo de justificación:</em></p>
+<blockquote>
+<div><p>Se seleccionó un portafolio diversificado que incluye:</p>
+<ul class="simple">
+<li><p><strong>Renta variable EE.UU. (SPY, QQQ)</strong>: Exposición al mercado más grande del mundo, con QQQ proporcionando mayor peso en tecnología.</p></li>
+<li><p><strong>Mercados internacionales (EFA, EEM)</strong>: Diversificación geográfica para reducir riesgo país.</p></li>
+<li><p><strong>Renta fija (TLT, LQD)</strong>: Activos defensivos con correlación negativa a la renta variable.</p></li>
+<li><p><strong>Activos reales (GLD, VNQ)</strong>: Protección contra inflación y exposición al sector inmobiliario.</p></li>
+</ul>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>Su justificación aquí:</strong></p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="Parte-3:-Análisis-Exploratorio-de-Datos">
+<h2>Parte 3: Análisis Exploratorio de Datos<a class="headerlink" href="#Parte-3:-Análisis-Exploratorio-de-Datos" title="Link to this heading">#</a></h2>
+<section id="3.1-Cálculo-de-Rendimientos">
+<h3>3.1 Cálculo de Rendimientos<a class="headerlink" href="#3.1-Cálculo-de-Rendimientos" title="Link to this heading">#</a></h3>
+<p>Calculamos los rendimientos logarítmicos diarios. Los rendimientos logarítmicos son preferidos porque:</p>
+<ul class="simple">
+<li><p>Son aditivos en el tiempo</p></li>
+<li><p>Permiten una distribución más simétrica</p></li>
+<li><p>Facilitan el cálculo de rendimientos compuestos</p></li>
+</ul>
+</section>
+<section id="3.2-Análisis-de-Correlaciones">
+<h3>3.2 Análisis de Correlaciones<a class="headerlink" href="#3.2-Análisis-de-Correlaciones" title="Link to this heading">#</a></h3>
+<p>La matriz de correlación es fundamental para entender las relaciones entre activos:</p>
+<ul class="simple">
+<li><p><strong>Correlaciones altas (+)</strong>: Los activos se mueven juntos (poco beneficio de diversificación)</p></li>
+<li><p><strong>Correlaciones bajas o negativas</strong>: Excelente para diversificación</p></li>
+</ul>
+</section>
+<section id="3.3-Visualización-de-Precios-y-Rendimientos">
+<h3>3.3 Visualización de Precios y Rendimientos<a class="headerlink" href="#3.3-Visualización-de-Precios-y-Rendimientos" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-4:-Optimización-de-Markowitz-(Media-Varianza)">
+<h2>Parte 4: Optimización de Markowitz (Media-Varianza)<a class="headerlink" href="#Parte-4:-Optimización-de-Markowitz-(Media-Varianza)" title="Link to this heading">#</a></h2>
+<section id="4.1-Teoría-de-Markowitz">
+<h3>4.1 Teoría de Markowitz<a class="headerlink" href="#4.1-Teoría-de-Markowitz" title="Link to this heading">#</a></h3>
+<p>La optimización de <strong>Media-Varianza</strong> busca encontrar la combinación de activos que:</p>
+<ul class="simple">
+<li><p><strong>Maximiza el rendimiento</strong> para un nivel de riesgo dado, o</p></li>
+<li><p><strong>Minimiza el riesgo</strong> para un nivel de rendimiento dado</p></li>
+</ul>
+<section id="Problema-de-optimización:">
+<h4>Problema de optimización:<a class="headerlink" href="#Problema-de-optimización:" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\min_w \quad w^\top \Sigma w\]</div>
+<p>sujeto a:</p>
+<div class="math notranslate nohighlight">
+\[w^\top \mu = R_{objetivo}\]</div>
+<div class="math notranslate nohighlight">
+\[w^\top \mathbf{1} = 1\]</div>
+<div class="math notranslate nohighlight">
+\[w_i \geq 0 \quad \forall i\]</div>
+<p><strong>Donde:</strong></p>
+<p><span class="math notranslate nohighlight">\(w\)</span> = vector de pesos</p>
+<p><span class="math notranslate nohighlight">\(\Sigma\)</span> = matriz de covarianza</p>
+<p><span class="math notranslate nohighlight">\(\mu\)</span> = vector de rendimientos esperados</p>
+<p><span class="math notranslate nohighlight">\(R_{objetivo}\)</span> = rendimiento objetivo</p>
+</section>
+<section id="Portafolios-especiales:">
+<h4>Portafolios especiales:<a class="headerlink" href="#Portafolios-especiales:" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Portafolio de Mínima Varianza (GMV)</strong>: Menor riesgo posible</p></li>
+<li><p><strong>Portafolio Tangente (Máximo Sharpe)</strong>: Mayor ratio Sharpe</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># OPTIMIZACIÓN DE MARKOWITZ</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1">#TODO: Implementar la optimización de Markowitz utilizando PyPortfolioOpt</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="4.2-Portafolio-de-Mínima-Varianza-Global-(GMV)">
+<h3>4.2 Portafolio de Mínima Varianza Global (GMV)<a class="headerlink" href="#4.2-Portafolio-de-Mínima-Varianza-Global-(GMV)" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PORTAFOLIO DE MÍNIMA VARIANZA GLOBAL (GMV)</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1">#TODO: Calcular el portafolio de mínima varianza global utilizando PyPortfolioOpt</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.3-Portafolio-Tangente-(Máximo-Sharpe)">
+<h3>4.3 Portafolio Tangente (Máximo Sharpe)<a class="headerlink" href="#4.3-Portafolio-Tangente-(Máximo-Sharpe)" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PORTAFOLIO TANGENTE (MÁXIMO SHARPE)</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1">#TODO: Calcular el portafolio tangente (máximo Sharpe) utilizando PyPortfolioOpt</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.4-Construcción-de-la-Frontera-Eficiente">
+<h3>4.4 Construcción de la Frontera Eficiente<a class="headerlink" href="#4.4-Construcción-de-la-Frontera-Eficiente" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># CONSTRUCCIÓN DE LA FRONTERA EFICIENTE</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1">#TODO: Construir la frontera eficiente y graficarla utilizando PyPortfolioOpt</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-5:-Modelo-de-Black-Litterman">
+<h2>Parte 5: Modelo de Black-Litterman<a class="headerlink" href="#Parte-5:-Modelo-de-Black-Litterman" title="Link to this heading">#</a></h2>
+<section id="5.1-Teoría-de-Black-Litterman">
+<h3>5.1 Teoría de Black-Litterman<a class="headerlink" href="#5.1-Teoría-de-Black-Litterman" title="Link to this heading">#</a></h3>
+<p>El modelo de <strong>Black-Litterman (1992)</strong> mejora la optimización de Markowitz al:</p>
+<ol class="arabic simple">
+<li><p><strong>Partir del equilibrio de mercado</strong>: Usa las ponderaciones de capitalización como punto de partida neutral</p></li>
+<li><p><strong>Incorporar views del inversionista</strong>: Permite ajustar las expectativas de rendimiento de forma bayesiana</p></li>
+</ol>
+<section id="Componentes-del-modelo:">
+<h4>Componentes del modelo:<a class="headerlink" href="#Componentes-del-modelo:" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Componente</p></th>
+<th class="head"><p>Símbolo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rendimientos de equilibrio</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Pi\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\Pi = \delta \Sigma w_{mkt}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Escalar de incertidumbre</p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau\)</span></p></td>
+<td><p>Típicamente entre 0.01 y 0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>Matriz de views</p></td>
+<td><p><span class="math notranslate nohighlight">\(P\)</span></p></td>
+<td><p>Identifica activos en cada opinión</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vector de views</p></td>
+<td><p><span class="math notranslate nohighlight">\(Q\)</span></p></td>
+<td><p>Rendimientos esperados por el inversionista</p></td>
+</tr>
+<tr class="row-even"><td><p>Incertidumbre de views</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Omega\)</span></p></td>
+<td><p>Confianza en cada opinión</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="Fórmula-de-rendimientos-combinados:">
+<h4>Fórmula de rendimientos combinados:<a class="headerlink" href="#Fórmula-de-rendimientos-combinados:" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[E(R) = \left[(\tau \Sigma)^{-1} + P^\top \Omega^{-1} P\right]^{-1} \left[(\tau \Sigma)^{-1} \Pi + P^\top \Omega^{-1} Q\right]\]</div>
+</section>
+</section>
+<section id="5.2-Obtención-de-Ponderaciones-de-Mercado">
+<h3>5.2 Obtención de Ponderaciones de Mercado<a class="headerlink" href="#5.2-Obtención-de-Ponderaciones-de-Mercado" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># OBTENER CAPITALIZACIÓN DE MERCADO</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1">#TODO: Obtener la capitalización de mercado de cada activo utilizando yfinance</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="5.3-Definición-de-Views-(Opiniones-del-Inversionista)">
+<h3>5.3 Definición de Views (Opiniones del Inversionista)<a class="headerlink" href="#5.3-Definición-de-Views-(Opiniones-del-Inversionista)" title="Link to this heading">#</a></h3>
+<p><strong>INSTRUCCIONES PARA EL ESTUDIANTE:</strong></p>
+<p>Defina al menos 2-3 views (opiniones) sobre los activos de su portafolio. Cada view puede ser:</p>
+<ol class="arabic simple">
+<li><p><strong>View absoluta</strong>: «El activo X tendrá un rendimiento del Y%»</p>
+<ul class="simple">
+<li><p>Ejemplo: «SPY tendrá un rendimiento del 12% anual»</p></li>
+</ul>
+</li>
+<li><p><strong>View relativa</strong>: «El activo X superará al activo Y por Z%»</p>
+<ul class="simple">
+<li><p>Ejemplo: «QQQ superará a EFA por 5%»</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Justifique cada view</strong> basándose en análisis fundamental, técnico o macroeconómico.</p>
+<section id="Ejemplo-de-views-para-el-código:">
+<h4>Ejemplo de views para el código:<a class="headerlink" href="#Ejemplo-de-views-para-el-código:" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Views absolutas: diccionario {ticker: rendimiento_esperado}</span>
+<span class="n">viewdict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;QQQ&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>  <span class="c1"># Esperamos 15% de rendimiento en tecnología</span>
+    <span class="s2">&quot;GLD&quot;</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span>  <span class="c1"># Oro como refugio moderado</span>
+<span class="p">}</span>
+
+<span class="c1"># O views relativas usando la matriz P</span>
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># DEFINICIÓN DE VIEWS</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1"># TODO: Modifique los views según su análisis y justificación</span>
+<span class="c1"># TODO: Puede utilizar el código para automatizar la generación de views basados en análisis técnico o fundamental</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="5.4-Optimización-Black-Litterman">
+<h3>5.4 Optimización Black-Litterman<a class="headerlink" href="#5.4-Optimización-Black-Litterman" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># MODELO BLACK-LITTERMAN</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1"># TODO: Calcular rendimientos implícitos de equilibrio (prior)</span>
+
+
+<span class="c1"># TODO:Crear modelo Black-Litterman</span>
+
+
+<span class="c1"># TODO: Obtener rendimientos posteriores (combinados con views)</span>
+
+
+<span class="c1"># TODO: Optimizar portafolio con rendimientos BL</span>
+
+
+<span class="c1"># TODO: Recomendación: Guardar pesos para comparación</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-6:-Hierarchical-Risk-Parity-(HRP)">
+<h2>Parte 6: Hierarchical Risk Parity (HRP)<a class="headerlink" href="#Parte-6:-Hierarchical-Risk-Parity-(HRP)" title="Link to this heading">#</a></h2>
+<section id="6.1-Teoría-de-HRP">
+<h3>6.1 Teoría de HRP<a class="headerlink" href="#6.1-Teoría-de-HRP" title="Link to this heading">#</a></h3>
+<p>El algoritmo <strong>Hierarchical Risk Parity (HRP)</strong> de Marcos López de Prado (2016) evita la inversión de la matriz de covarianza mediante tres pasos:</p>
+<section id="Paso-1:-Clustering-Jerárquico">
+<h4>Paso 1: Clustering Jerárquico<a class="headerlink" href="#Paso-1:-Clustering-Jerárquico" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Transforma correlaciones en distancias: <span class="math notranslate nohighlight">\(d_{i,j} = \sqrt{\frac{1}{2}(1 - \rho_{i,j})}\)</span></p></li>
+<li><p>Agrupa activos similares usando linkage jerárquico</p></li>
+</ul>
+</section>
+<section id="Paso-2:-Quasi-Diagonalización">
+<h4>Paso 2: Quasi-Diagonalización<a class="headerlink" href="#Paso-2:-Quasi-Diagonalización" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Reordena la matriz de covarianza según la estructura del dendrograma</p></li>
+<li><p>Los activos similares quedan adyacentes</p></li>
+</ul>
+</section>
+<section id="Paso-3:-Bisección-Recursiva">
+<h4>Paso 3: Bisección Recursiva<a class="headerlink" href="#Paso-3:-Bisección-Recursiva" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Asigna pesos inversamente proporcionales a la varianza de cada cluster</p></li>
+<li><p>Divide recursivamente los clusters hasta llegar a activos individuales</p></li>
+</ul>
+</section>
+<section id="Ventajas-sobre-Markowitz:">
+<h4>Ventajas sobre Markowitz:<a class="headerlink" href="#Ventajas-sobre-Markowitz:" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>No requiere invertir</strong> la matriz de covarianza</p></li>
+<li><p><strong>Más estable</strong> ante errores de estimación</p></li>
+<li><p><strong>Diversificación intuitiva</strong> basada en estructura de correlaciones</p></li>
+</ul>
+</section>
+</section>
+<section id="6.2-Clustering-Jerárquico-y-Dendrograma">
+<h3>6.2 Clustering Jerárquico y Dendrograma<a class="headerlink" href="#6.2-Clustering-Jerárquico-y-Dendrograma" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># CLUSTERING JERÁRQUICO PARA HRP</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1"># TODO: Transformar correlación a distancia</span>
+
+<span class="c1"># TODO: Convertir a forma condensada para linkage</span>
+
+<span class="c1"># TODO: Realizar clustering jerárquico</span>
+
+<span class="c1"># TODO: Dendrograma</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="6.3-Optimización-HRP">
+<h3>6.3 Optimización HRP<a class="headerlink" href="#6.3-Optimización-HRP" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># OPTIMIZACIÓN HRP</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1">#TODO: Usar HRPOpt de PyPortfolioOpt</span>
+
+<span class="c1"># TODO: Calcular métricas del portafolio HRP</span>
+<br/><br/></pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Parte-7:-Evaluación-de-Riesgo---Value-at-Risk-(VaR)">
+<h2>Parte 7: Evaluación de Riesgo - Value at Risk (VaR)<a class="headerlink" href="#Parte-7:-Evaluación-de-Riesgo---Value-at-Risk-(VaR)" title="Link to this heading">#</a></h2>
+<section id="7.1-Concepto-de-Value-at-Risk">
+<h3>7.1 Concepto de Value at Risk<a class="headerlink" href="#7.1-Concepto-de-Value-at-Risk" title="Link to this heading">#</a></h3>
+<p>El <strong>Value at Risk (VaR)</strong> responde a la pregunta:</p>
+<blockquote>
+<div><p><em>«¿Cuál es la máxima pérdida esperada en un período dado, con un nivel de confianza determinado?»</em></p>
+</div></blockquote>
+<p>Por ejemplo, un <strong>VaR(95%) = 2%</strong> significa que existe un 95% de probabilidad de que la pérdida diaria no supere el 2%.</p>
+</section>
+<section id="Métodos-de-cálculo:">
+<h3>Métodos de cálculo:<a class="headerlink" href="#Métodos-de-cálculo:" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ventajas</p></th>
+<th class="head"><p>Desventajas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Paramétrico</strong></p></td>
+<td><p>Asume distribución normal</p></td>
+<td><p>Simple, rápido</p></td>
+<td><p>Subestima colas</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Histórico</strong></p></td>
+<td><p>Usa percentiles históricos</p></td>
+<td><p>No asume distribución</p></td>
+<td><p>Requiere datos</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Monte Carlo</strong></p></td>
+<td><p>Simula escenarios</p></td>
+<td><p>Flexible, captura no-linealidades</p></td>
+<td><p>Computacionalmente costoso</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="Fórmulas:">
+<h4>Fórmulas:<a class="headerlink" href="#Fórmulas:" title="Link to this heading">#</a></h4>
+<p><strong>VaR Paramétrico:</strong></p>
+<div class="math notranslate nohighlight">
+\[VaR_{p\%} = \mu - z_{p\%} \cdot \sigma\]</div>
+<p><strong>VaR Histórico:</strong></p>
+<div class="math notranslate nohighlight">
+\[VaR_{p\%} = \text{Percentil}_{(1-p)\%} \text{ de rendimientos históricos}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="7.2-Expected-Shortfall-(ES)-o-Conditional-Value-at-Risk-(CVaR)">
+<h3>7.2 Expected Shortfall (ES) o Conditional Value at Risk (CVaR)<a class="headerlink" href="#7.2-Expected-Shortfall-(ES)-o-Conditional-Value-at-Risk-(CVaR)" title="Link to this heading">#</a></h3>
+<p>El <strong>Expected Shortfall (ES)</strong>, también conocido como <strong>Conditional Value at Risk (CVaR)</strong>, es una medida de riesgo que responde a la pregunta:</p>
+<blockquote>
+<div><p><em>«Si ocurre una pérdida mayor al VaR, ¿cuál es la pérdida promedio esperada?»</em></p>
+</div></blockquote>
+<p>A diferencia del VaR, el ES captura el <strong>riesgo de cola</strong> y es considerada una medida de riesgo <strong>coherente</strong> que satisface las propiedades de:</p>
+<ul class="simple">
+<li><p>Monotonicidad</p></li>
+<li><p>Subaditividad</p></li>
+<li><p>Homogeneidad positiva</p></li>
+<li><p>Invarianza ante traslaciones</p></li>
+</ul>
+<section id="formulas-1">
+<span id="id1"></span><h4>Fórmulas:<a class="headerlink" href="#formulas-1" title="Link to this heading">#</a></h4>
+<p><strong>ES Paramétrico (asumiendo distribución normal):</strong></p>
+<div class="math notranslate nohighlight">
+\[ES_{p\%} = \mu + \sigma \cdot \frac{\phi(z_{p\%})}{1-p}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\phi(z)\)</span> es la función de densidad de probabilidad normal estándar.</p>
+<p><strong>ES Histórico:</strong></p>
+<div class="math notranslate nohighlight">
+\[ES_{p\%} = \frac{1}{n_{tail}} \sum_{r_i &lt; VaR_{p\%}} r_i\]</div>
+<p>Es decir, el promedio de todos los rendimientos que están por debajo del VaR.</p>
+</section>
+<section id="Comparación-VaR-vs-ES:">
+<h4>Comparación VaR vs ES:<a class="headerlink" href="#Comparación-VaR-vs-ES:" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Característica</p></th>
+<th class="head"><p>VaR</p></th>
+<th class="head"><p>ES (CVaR)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Interpretación</strong></p></td>
+<td><p>Umbral de pérdida máxima</p></td>
+<td><p>Pérdida promedio en cola</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Riesgo de cola</strong></p></td>
+<td><p>No captura</p></td>
+<td><p>Captura completamente</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Coherencia</strong></p></td>
+<td><p>No es coherente</p></td>
+<td><p>Es coherente</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Regulación</strong></p></td>
+<td><p>Basilea II</p></td>
+<td><p>Basilea III (preferido)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Optimización</strong></p></td>
+<td><p>No convexa</p></td>
+<td><p>Convexa</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="7.2-Cálculo-del-VaR-para-el-Portafolio-Óptimo">
+<h3>7.2 Cálculo del VaR para el Portafolio Óptimo<a class="headerlink" href="#7.2-Cálculo-del-VaR-para-el-Portafolio-Óptimo" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># CÁLCULO DE RENDIMIENTOS DEL PORTAFOLIO</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1"># TODO: Calcular rendimientos diarios del portafolio Markowitz</span>
+
+<span class="c1"># TODO: Estadísticas básicas (media y varainza anualizadas)</span>
+
+<span class="c1"># TODO: calcular todos los VaR para cada portafolio y compararlos</span>
+
+<span class="c1"># TODO: Calcular el C-VaR para cada portafolio y compararlos</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<p>Analice las diferencias encontradas y concluya cual es el valor de pérdida y como cambia dependiendo del portafolio y la técnica.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-8:-Métricas-de-Desempeño">
+<h2>Parte 8: Métricas de Desempeño<a class="headerlink" href="#Parte-8:-Métricas-de-Desempeño" title="Link to this heading">#</a></h2>
+<section id="8.1-Ratios-de-Evaluación">
+<h3>8.1 Ratios de Evaluación<a class="headerlink" href="#8.1-Ratios-de-Evaluación" title="Link to this heading">#</a></h3>
+<p>Evaluaremos los tres portafolios optimizados usando las siguientes métricas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Fórmula</p></th>
+<th class="head"><p>Interpretación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Sharpe</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_f}{\sigma_p}\)</span></p></td>
+<td><p>Rendimiento exceso por unidad de riesgo total</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sortino</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_f}{\sigma_{downside}}\)</span></p></td>
+<td><p>Rendimiento exceso por unidad de riesgo a la baja</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Treynor</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_f}{\beta_p}\)</span></p></td>
+<td><p>Rendimiento exceso por unidad de riesgo sistemático</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Información</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p - R_b}{\sigma(R_p - R_b)}\)</span></p></td>
+<td><p>Rendimiento activo por unidad de tracking error</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Calmar</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{R_p}{Max Drawdown}\)</span></p></td>
+<td><p>Rendimiento por unidad de máxima caída</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Máximo Drawdown</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\max_{t}(\frac{\text{Peak}_t - \text{Valle}_t}{\text{Peak}_t})\)</span></p></td>
+<td><p>Máxima pérdida desde un pico</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># CALCULAR MÉTRICAS PARA TODOS LOS PORTAFOLIOS</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1"># TODO: Calcular rendimientos de cada portafolio</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-9:-Comparación-de-Estrategias-y-Backtesting">
+<h2>Parte 9: Comparación de Estrategias y Backtesting<a class="headerlink" href="#Parte-9:-Comparación-de-Estrategias-y-Backtesting" title="Link to this heading">#</a></h2>
+<section id="9.1-Comparación-Visual-de-Portafolios">
+<h3>9.1 Comparación Visual de Portafolios<a class="headerlink" href="#9.1-Comparación-Visual-de-Portafolios" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># COMPARACIÓN VISUAL DE ASIGNACIONES</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># TODO: Crear gráficos de barras para comparar asignaciones de cada portafolio.</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="9.2-Tabla-Resumen-de-Estrategias">
+<h3>9.2 Tabla Resumen de Estrategias<a class="headerlink" href="#9.2-Tabla-Resumen-de-Estrategias" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># TABLA RESUMEN EJECUTIVA</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+
+<span class="c1"># TODO: Crear resumen ejecutivo</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-10:-Prospecto-del-Portafolio">
+<h2>Parte 10: Prospecto del Portafolio<a class="headerlink" href="#Parte-10:-Prospecto-del-Portafolio" title="Link to this heading">#</a></h2>
+<section id="10.1-Plantilla-de-Prospecto">
+<h3>10.1 Plantilla de Prospecto<a class="headerlink" href="#10.1-Plantilla-de-Prospecto" title="Link to this heading">#</a></h3>
+<p><strong>INSTRUCCIONES:</strong> Complete las siguientes secciones con sus hallazgos y recomendaciones.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="PROSPECTO-DE-INVERSIÓN">
+<h2>PROSPECTO DE INVERSIÓN<a class="headerlink" href="#PROSPECTO-DE-INVERSIÓN" title="Link to this heading">#</a></h2>
+<section id="Nombre-del-Fondo:-_______________________">
+<h3>Nombre del Fondo: _______________________<a class="headerlink" href="#Nombre-del-Fondo:-_______________________" title="Link to this heading">#</a></h3>
+</section>
+<section id="Fecha-de-Emisión:-_______________________">
+<h3>Fecha de Emisión: _______________________<a class="headerlink" href="#Fecha-de-Emisión:-_______________________" title="Link to this heading">#</a></h3>
+</section>
+<section id="Gestor/Analista:-_______________________">
+<h3>Gestor/Analista: _______________________<a class="headerlink" href="#Gestor/Analista:-_______________________" title="Link to this heading">#</a></h3>
+</section>
+<hr class="docutils" />
+<section id="1.-OBJETIVO-DE-INVERSIÓN">
+<h3>1. OBJETIVO DE INVERSIÓN<a class="headerlink" href="#1.-OBJETIVO-DE-INVERSIÓN" title="Link to this heading">#</a></h3>
+<p><em>Describa el objetivo del portafolio (crecimiento, ingreso, preservación de capital, etc.)</em></p>
+<blockquote>
+<div><p><strong>TODO:</strong> Complete esta sección</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="2.-ESTRATEGIA-DE-INVERSIÓN">
+<h3>2. ESTRATEGIA DE INVERSIÓN<a class="headerlink" href="#2.-ESTRATEGIA-DE-INVERSIÓN" title="Link to this heading">#</a></h3>
+<p><em>Describa la estrategia utilizada y justifique la elección del modelo de optimización.</em></p>
+<blockquote>
+<div><p><strong>TODO:</strong> Complete esta sección</p>
+<ul class="simple">
+<li><p>Modelo seleccionado: _______________________</p></li>
+<li><p>Justificación: _______________________</p></li>
+</ul>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="3.-UNIVERSO-DE-INVERSIÓN">
+<h3>3. UNIVERSO DE INVERSIÓN<a class="headerlink" href="#3.-UNIVERSO-DE-INVERSIÓN" title="Link to this heading">#</a></h3>
+<p><em>Describa los activos incluidos y la lógica de diversificación.</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Activo</p></th>
+<th class="head"><p>Clase</p></th>
+<th class="head"><p>Sector</p></th>
+<th class="head"><p>Peso Asignado</p></th>
+<th class="head"><p>Justificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="4.-PERFIL-DE-RIESGO">
+<h3>4. PERFIL DE RIESGO<a class="headerlink" href="#4.-PERFIL-DE-RIESGO" title="Link to this heading">#</a></h3>
+<p><em>Resuma las métricas de riesgo del portafolio.</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Valor</p></th>
+<th class="head"><p>Interpretación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Volatilidad Anual</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>VaR 95% (diario)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>VaR 99% (diario)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Máximo Drawdown</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Beta vs Benchmark</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="5.-RENDIMIENTO-ESPERADO">
+<h3>5. RENDIMIENTO ESPERADO<a class="headerlink" href="#5.-RENDIMIENTO-ESPERADO" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rendimiento Anual Esperado</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sharpe Ratio</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sortino Ratio</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="6.-ANÁLISIS-COMPARATIVO">
+<h3>6. ANÁLISIS COMPARATIVO<a class="headerlink" href="#6.-ANÁLISIS-COMPARATIVO" title="Link to this heading">#</a></h3>
+<p><em>Compare el portafolio propuesto con las alternativas analizadas.</em></p>
+<blockquote>
+<div><p><strong>Hallazgos principales:</strong></p>
+<ol class="arabic simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="7.-RECOMENDACIONES">
+<h3>7. RECOMENDACIONES<a class="headerlink" href="#7.-RECOMENDACIONES" title="Link to this heading">#</a></h3>
+<p><em>Basándose en su análisis, proporcione recomendaciones concretas.</em></p>
+<blockquote>
+<div><p><strong>Recomendación Final:</strong></p>
+<div class="line-block">
+<div class="line">[ ] Portafolio Markowitz [ ] Portafolio Black-Litterman</div>
+<div class="line">[ ] Portafolio HRP</div>
+</div>
+<p><strong>Justificación:</strong></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="8.-ADVERTENCIAS-DE-RIESGO">
+<h3>8. ADVERTENCIAS DE RIESGO<a class="headerlink" href="#8.-ADVERTENCIAS-DE-RIESGO" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Los rendimientos pasados no garantizan rendimientos futuros.</p></li>
+<li><p>El valor de las inversiones puede subir o bajar.</p></li>
+<li><p>El portafolio está sujeto a riesgo de mercado, riesgo de liquidez y riesgo de crédito.</p></li>
+<li><p>Las estimaciones de VaR se basan en supuestos que pueden no cumplirse en condiciones de mercado extremas.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="9.-CONCLUSIONES">
+<h3>9. CONCLUSIONES<a class="headerlink" href="#9.-CONCLUSIONES" title="Link to this heading">#</a></h3>
+<p><em>Resuma los hallazgos más importantes de su análisis.</em></p>
+<blockquote>
+<div><p><strong>TODO:</strong> Complete esta sección</p>
+</div></blockquote>
+</section>
+<section id="10.2-Asignación-Discreta-(Número-de-Acciones)">
+<h3>10.2 Asignación Discreta (Número de Acciones)<a class="headerlink" href="#10.2-Asignación-Discreta-(Número-de-Acciones)" title="Link to this heading">#</a></h3>
+<p>Para implementar el portafolio en la práctica, necesitamos convertir los pesos porcentuales en número de acciones a comprar.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># ASIGNACIÓN DISCRETA DE ACCIONES</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════════</span>
+<span class="c1">#importar DiscreteAllocation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypfopt.discrete_allocation</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiscreteAllocation</span>
+<span class="c1">#Capital inicicial</span>
+<span class="n">capital_inicial</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="c1"># Obtener precios más recientes</span>
+<span class="n">precios</span><span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span> <span class="c1"># TODO: Reemplazar con los precios de tickers reales</span>
+<span class="n">latest_prices</span> <span class="o">=</span> <span class="n">get_latest_prices</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;══════ ASIGNACIÓN DISCRETA CON CAPITAL: $</span><span class="si">{</span><span class="n">capital_inicial</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2"> ══════</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Asignación para Markowitz</span>
+<span class="n">da_mkw</span> <span class="o">=</span> <span class="n">DiscreteAllocation</span><span class="p">(</span><span class="n">w_markowitz</span><span class="p">,</span> <span class="n">latest_prices</span><span class="p">,</span> <span class="n">total_portfolio_value</span><span class="o">=</span><span class="n">capital_inicial</span><span class="p">)</span> <span class="c1">#TODO: Reemplazar w_markowitz con los pesos reales del portafolio Markowitz</span>
+
+<span class="n">allocation_mkw</span><span class="p">,</span> <span class="n">leftover_mkw</span> <span class="o">=</span> <span class="n">da_mkw</span><span class="o">.</span><span class="n">greedy_portfolio</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PORTAFOLIO MARKOWITZ:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">cantidad</span> <span class="ow">in</span> <span class="n">allocation_mkw</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">valor</span> <span class="o">=</span> <span class="n">cantidad</span> <span class="o">*</span> <span class="n">latest_prices</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cantidad</span><span class="si">}</span><span class="s2"> acciones ($</span><span class="si">{</span><span class="n">valor</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Efectivo restante: $</span><span class="si">{</span><span class="n">leftover_mkw</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Asignación para Black-Litterman</span>
+<span class="n">da_bl</span> <span class="o">=</span> <span class="n">DiscreteAllocation</span><span class="p">(</span><span class="n">w_bl</span><span class="p">,</span> <span class="n">latest_prices</span><span class="p">,</span> <span class="n">total_portfolio_value</span><span class="o">=</span><span class="n">capital_inicial</span><span class="p">)</span> <span class="c1">#TODO: reemplazar w_bl con los pesos reales del portafolio Black-Litterman</span>
+<span class="n">allocation_bl</span><span class="p">,</span> <span class="n">leftover_bl</span> <span class="o">=</span> <span class="n">da_bl</span><span class="o">.</span><span class="n">greedy_portfolio</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PORTAFOLIO BLACK-LITTERMAN:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">cantidad</span> <span class="ow">in</span> <span class="n">allocation_bl</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">valor</span> <span class="o">=</span> <span class="n">cantidad</span> <span class="o">*</span> <span class="n">latest_prices</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cantidad</span><span class="si">}</span><span class="s2"> acciones ($</span><span class="si">{</span><span class="n">valor</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Efectivo restante: $</span><span class="si">{</span><span class="n">leftover_bl</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Asignación para HRP</span>
+<span class="n">da_hrp</span> <span class="o">=</span> <span class="n">DiscreteAllocation</span><span class="p">(</span><span class="n">w_hrp</span><span class="p">,</span> <span class="n">latest_prices</span><span class="p">,</span> <span class="n">total_portfolio_value</span><span class="o">=</span><span class="n">capital_inicial</span><span class="p">)</span> <span class="c1">#TODO: reemplazar w_hrp con los pesos reales del portafolio HRP</span>
+<span class="n">allocation_hrp</span><span class="p">,</span> <span class="n">leftover_hrp</span> <span class="o">=</span> <span class="n">da_hrp</span><span class="o">.</span><span class="n">greedy_portfolio</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">PORTAFOLIO HRP:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">cantidad</span> <span class="ow">in</span> <span class="n">allocation_hrp</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">valor</span> <span class="o">=</span> <span class="n">cantidad</span> <span class="o">*</span> <span class="n">latest_prices</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cantidad</span><span class="si">}</span><span class="s2"> acciones ($</span><span class="si">{</span><span class="n">valor</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Efectivo restante: $</span><span class="si">{</span><span class="n">leftover_hrp</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Instrucciones-de-Entrega">
+<h2>Instrucciones de Entrega<a class="headerlink" href="#Instrucciones-de-Entrega" title="Link to this heading">#</a></h2>
+<section id="Checklist-Final">
+<h3>Checklist Final<a class="headerlink" href="#Checklist-Final" title="Link to this heading">#</a></h3>
+<p>Antes de entregar, verifique que ha completado todos los componentes:</p>
+<ul class="simple">
+<li><p>☐ <strong>Parte 2:</strong> Justificación de selección de activos</p></li>
+<li><p>☐ <strong>Parte 3:</strong> Análisis exploratorio completo con interpretación</p></li>
+<li><p>☐ <strong>Parte 4:</strong> Optimización de Markowitz con frontera eficiente</p></li>
+<li><p>☐ <strong>Parte 5:</strong> Modelo Black-Litterman con views justificadas</p></li>
+<li><p>☐ <strong>Parte 6:</strong> Implementación de HRP con análisis del dendrograma</p></li>
+<li><p>☐ <strong>Parte 7:</strong> Cálculo de VaR por los tres métodos</p></li>
+<li><p>☐ <strong>Parte 8:</strong> Métricas de desempeño calculadas e interpretadas</p></li>
+<li><p>☐ <strong>Parte 9:</strong> Comparación de estrategias con conclusiones</p></li>
+<li><p>☐ <strong>Parte 10:</strong> Prospecto del portafolio completado</p></li>
+</ul>
+</section>
+<section id="Formato-de-Entrega">
+<h3>Formato de Entrega<a class="headerlink" href="#Formato-de-Entrega" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Cuaderno Jupyter (.ipynb):</strong> Este notebook con todas las celdas ejecutadas</p></li>
+<li><p><strong>Resumen Ejecutivo (.pdf):</strong> Máximo 2 páginas con los hallazgos principales</p></li>
+<li><p><strong>Fecha límite:</strong> [9 de abril 2026]</p></li>
+<li><p><strong>Fecha de Exposición:</strong> [9 de abril de 2026]</p></li>
+</ol>
+</section>
+<section id="Criterios-de-Evaluación-Adicionales">
+<h3>Criterios de Evaluación Adicionales<a class="headerlink" href="#Criterios-de-Evaluación-Adicionales" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspecto</p></th>
+<th class="head"><p>Puntos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Código ejecutable sin errores</p></td>
+<td><p>✓/✗</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gráficos correctamente etiquetados</p></td>
+<td><p>✓/✗</p></td>
+</tr>
+<tr class="row-even"><td><p>Interpretaciones con sentido financiero</p></td>
+<td><p>✓/✗</p></td>
+</tr>
+<tr class="row-odd"><td><p>Justificaciones basadas en datos</p></td>
+<td><p>✓/✗</p></td>
+</tr>
+<tr class="row-even"><td><p>Formato profesional del prospecto</p></td>
+<td><p>✓/✗</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>¡Éxito en su trabajo final!</strong></p>
+<hr class="docutils" />
+<p><em>Curso de Optimización de Portafolios</em></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HRP.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Curso-de-Optimización-de-Portafolios">Curso de Optimización de Portafolios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Descripción-del-Taller">Descripción del Taller</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Requisitos-del-Trabajo">Requisitos del Trabajo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Rúbrica-de-Evaluación">Rúbrica de Evaluación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Niveles-de-Desempeño">Niveles de Desempeño</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-1:-Configuración-del-Entorno">Parte 1: Configuración del Entorno</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Importación-de-Librerías">1.1 Importación de Librerías</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-2:-Selección-de-Activos-y-Obtención-de-Datos">Parte 2: Selección de Activos y Obtención de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-Universo-de-Inversión">2.1 Universo de Inversión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-Justificación-de-la-Selección-de-Activos">2.2 Justificación de la Selección de Activos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-3:-Análisis-Exploratorio-de-Datos">Parte 3: Análisis Exploratorio de Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-Cálculo-de-Rendimientos">3.1 Cálculo de Rendimientos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Análisis-de-Correlaciones">3.2 Análisis de Correlaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Visualización-de-Precios-y-Rendimientos">3.3 Visualización de Precios y Rendimientos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-4:-Optimización-de-Markowitz-(Media-Varianza)">Parte 4: Optimización de Markowitz (Media-Varianza)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-Teoría-de-Markowitz">4.1 Teoría de Markowitz</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Problema-de-optimización:">Problema de optimización:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Portafolios-especiales:">Portafolios especiales:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Portafolio-de-Mínima-Varianza-Global-(GMV)">4.2 Portafolio de Mínima Varianza Global (GMV)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-Portafolio-Tangente-(Máximo-Sharpe)">4.3 Portafolio Tangente (Máximo Sharpe)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Construcción-de-la-Frontera-Eficiente">4.4 Construcción de la Frontera Eficiente</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-5:-Modelo-de-Black-Litterman">Parte 5: Modelo de Black-Litterman</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Teoría-de-Black-Litterman">5.1 Teoría de Black-Litterman</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Componentes-del-modelo:">Componentes del modelo:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Fórmula-de-rendimientos-combinados:">Fórmula de rendimientos combinados:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Obtención-de-Ponderaciones-de-Mercado">5.2 Obtención de Ponderaciones de Mercado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.3-Definición-de-Views-(Opiniones-del-Inversionista)">5.3 Definición de Views (Opiniones del Inversionista)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejemplo-de-views-para-el-código:">Ejemplo de views para el código:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.4-Optimización-Black-Litterman">5.4 Optimización Black-Litterman</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-6:-Hierarchical-Risk-Parity-(HRP)">Parte 6: Hierarchical Risk Parity (HRP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Teoría-de-HRP">6.1 Teoría de HRP</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1:-Clustering-Jerárquico">Paso 1: Clustering Jerárquico</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-2:-Quasi-Diagonalización">Paso 2: Quasi-Diagonalización</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-3:-Bisección-Recursiva">Paso 3: Bisección Recursiva</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Ventajas-sobre-Markowitz:">Ventajas sobre Markowitz:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2-Clustering-Jerárquico-y-Dendrograma">6.2 Clustering Jerárquico y Dendrograma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.3-Optimización-HRP">6.3 Optimización HRP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-7:-Evaluación-de-Riesgo---Value-at-Risk-(VaR)">Parte 7: Evaluación de Riesgo - Value at Risk (VaR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.1-Concepto-de-Value-at-Risk">7.1 Concepto de Value at Risk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Métodos-de-cálculo:">Métodos de cálculo:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Fórmulas:">Fórmulas:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.2-Expected-Shortfall-(ES)-o-Conditional-Value-at-Risk-(CVaR)">7.2 Expected Shortfall (ES) o Conditional Value at Risk (CVaR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas-1">Fórmulas:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Comparación-VaR-vs-ES:">Comparación VaR vs ES:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.2-Cálculo-del-VaR-para-el-Portafolio-Óptimo">7.2 Cálculo del VaR para el Portafolio Óptimo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-8:-Métricas-de-Desempeño">Parte 8: Métricas de Desempeño</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#8.1-Ratios-de-Evaluación">8.1 Ratios de Evaluación</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-9:-Comparación-de-Estrategias-y-Backtesting">Parte 9: Comparación de Estrategias y Backtesting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#9.1-Comparación-Visual-de-Portafolios">9.1 Comparación Visual de Portafolios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#9.2-Tabla-Resumen-de-Estrategias">9.2 Tabla Resumen de Estrategias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-10:-Prospecto-del-Portafolio">Parte 10: Prospecto del Portafolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#10.1-Plantilla-de-Prospecto">10.1 Plantilla de Prospecto</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#PROSPECTO-DE-INVERSIÓN">PROSPECTO DE INVERSIÓN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Nombre-del-Fondo:-_______________________">Nombre del Fondo: _______________________</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Fecha-de-Emisión:-_______________________">Fecha de Emisión: _______________________</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Gestor/Analista:-_______________________">Gestor/Analista: _______________________</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-OBJETIVO-DE-INVERSIÓN">1. OBJETIVO DE INVERSIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-ESTRATEGIA-DE-INVERSIÓN">2. ESTRATEGIA DE INVERSIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-UNIVERSO-DE-INVERSIÓN">3. UNIVERSO DE INVERSIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-PERFIL-DE-RIESGO">4. PERFIL DE RIESGO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-RENDIMIENTO-ESPERADO">5. RENDIMIENTO ESPERADO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-ANÁLISIS-COMPARATIVO">6. ANÁLISIS COMPARATIVO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-RECOMENDACIONES">7. RECOMENDACIONES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-ADVERTENCIAS-DE-RIESGO">8. ADVERTENCIAS DE RIESGO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#9.-CONCLUSIONES">9. CONCLUSIONES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#10.2-Asignación-Discreta-(Número-de-Acciones)">10.2 Asignación Discreta (Número de Acciones)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Instrucciones-de-Entrega">Instrucciones de Entrega</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Checklist-Final">Checklist Final</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Formato-de-Entrega">Formato de Entrega</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Criterios-de-Evaluación-Adicionales">Criterios de Evaluación Adicionales</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
