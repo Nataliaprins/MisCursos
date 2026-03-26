@@ -20,6 +20,7 @@ Descarga las condiciones del curso aquí: :download:`Generalidades del curso <0_
    9_modelo_black_litterman
    91_perspectivas
    HRP
+   11_ejemplo_riesgos_mercado
    Trabajo_final
    
 
