@@ -9,6 +9,7 @@ release = "0.1.0"
 # -- General configuration ---------------------------------------------------
 extensions = [
     "nbsphinx",
+    "myst_parser",
 ]
 
 # Permitir salidas HTML crudas de los notebooks (necesario para Plotly interactivo)

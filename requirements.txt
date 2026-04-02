@@ -1,6 +1,7 @@
 sphinx
 sphinx-book-theme
 nbsphinx
+myst-parser
 ipykernel
 ghp-import
 plotly
