@@ -7,4 +7,3 @@ Contenido del curso de Diseño Experimental.
    :maxdepth: 2
    :caption: Subtemas:
 
-   1_anova_intro_pca

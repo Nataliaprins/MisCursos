@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Análisis Multivariado &#8212; Portafolio de Cursos</title>
+    <title>&lt;no title&gt; &#8212; Portafolio de Cursos</title>
   
   
   
@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -42,12 +43,12 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/translations.js?v=f85f4cfb"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/analisis_multivariado/index';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/analisis_multivariado/crear_bd';</script>
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="1. Distancias y Análisis de Componentes Principales (PCA)" href="1_distancias_pca_multivariado.html" />
-    <link rel="prev" title="Gráficos Interactivos con Plotly" href="../introduccion_graficos/graficos_interactivos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -110,6 +111,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -160,8 +163,8 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
@@ -173,7 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">3. Análisis Multivariado</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
@@ -278,7 +281,7 @@
       
       
       
-      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/analisis_multivariado/index.rst" target="_blank"
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/analisis_multivariado/crear_bd.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/analisis_multivariado/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/analisis_multivariado/crear_bd.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +328,7 @@
       
       
       
-      <li><a href="../../_sources/analisis_datos/analisis_multivariado/index.rst" target="_blank"
+      <li><a href="../../_sources/analisis_datos/analisis_multivariado/crear_bd.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -335,7 +338,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -396,7 +399,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -407,11 +412,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3. Análisis Multivariado</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -421,51 +434,122 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="analisis-multivariado">
-<h1>3. Análisis Multivariado<a class="headerlink" href="#analisis-multivariado" title="Link to this heading">#</a></h1>
-<p>Contenido del tema de Análisis Multivariado.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Subtemas:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#Objetivos">Objetivos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#1.-Concepto-de-distancia">1. Concepto de distancia</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#2.-Distancia-Euclidiana-y-Manhattan">2. Distancia Euclidiana y Manhattan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#3.-Distancia-Mahalanobis">3. Distancia Mahalanobis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#4.-Otras-métricas:-Minkowski-y-Coseno">4. Otras métricas: Minkowski y Coseno</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#5.-Matriz-de-distancias">5. Matriz de distancias</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#6.-Fundamentos-del-Análisis-de-Componentes-Principales--PCA">6. Fundamentos del Análisis de Componentes Principales- PCA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_distancias_pca_multivariado.html#🧪-Taller-Práctico:-Distancias-y-PCA-con-Mall-Customers">🧪 Taller Práctico: Distancias y PCA con Mall Customers</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#Objetivos">Objetivos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#1.-Datos-de-trabajo">1. Datos de trabajo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#2.-Preprocesamiento:-estandarización">2. Preprocesamiento: estandarización</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#3.-K-Means">3. K-Means</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#4.-Clustering-Jerárquico">4. Clustering Jerárquico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#5.-Evaluación-de-la-calidad-del-agrupamiento">5. Evaluación de la calidad del agrupamiento</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#6.-Interpretación-y-uso-de-los-resultados">6. Interpretación y uso de los resultados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#7.-Caso-práctico-integrador:-clustering-jerárquico-con-distintos-enlaces">7. Caso práctico integrador: clustering jerárquico con distintos enlaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#8.-Resumen-comparativo">8. Resumen comparativo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_analisis_conglomerados.html#9.-Ejercicios-propuestos">9. Ejercicios propuestos</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#informacion-general">Información General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#descripcion-del-dataset">Descripción del Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#instrucciones-generales">Instrucciones Generales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#parte-1-exploracion-de-datos-con-pandas-25-puntos">Parte 1: Exploración de Datos con Pandas (25 puntos)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#parte-2-visualizacion-de-datos-35-puntos">Parte 2: Visualización de Datos (35 puntos)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#parte-3-analisis-de-componentes-principales-pca-40-puntos">Parte 3: Análisis de Componentes Principales - PCA (40 puntos)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_pca.html#ejercicio-bonus-biplot-10-puntos-extra">Ejercicio Bonus: Biplot (10 puntos extra)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="taller_pca.html#interprete-que-variables-apuntan-en-la-misma-direccion">Interprete: ¿Qué variables apuntan en la misma dirección?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="taller_pca.html#que-variables-son-opuestas-que-significa-esto">¿Qué variables son opuestas? ¿Qué significa esto?</a></li>
-</ul>
+  <div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
-</section>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Cargar base original</span>
+<span class="c1"># Asegúrate de tener el archivo &quot;base_kpis_empresa.csv&quot; en el mismo directorio</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;base_kpis_empresa.csv&quot;</span><span class="p">)</span>
+<span class="n">df_sucia</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Semilla para reproducibilidad</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Seleccionar aleatoriamente 10 columnas (KPI) para insertar valores faltantes</span>
+<span class="n">num_kpis</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_sucia</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="n">columnas_kpi</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_sucia</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_kpis</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columnas_kpi</span><span class="p">:</span>
+    <span class="c1"># Elegir aleatoriamente entre 1 y 5 valores faltantes por columna</span>
+    <span class="n">n_missing</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">idx_missing</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_sucia</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_missing</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">df_sucia</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_missing</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="n">nombres_kpis</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;OP_Ciclo_Produccion&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Tasa_Defectos&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Disponibilidad_Maq&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Costo_Unitario&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OP_Merma_Materia_Prima&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Cumplimiento_Plan&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Eficiencia_Energetica&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Rotacion_Inventario&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OP_Tiempo_Set_Up&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Productividad_HH&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Lead_Time_Prov&quot;</span><span class="p">,</span> <span class="s2">&quot;OP_Capacidad_Utilizada&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FIN_Margen_EBITDA&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_ROI&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Flujo_Caja_Libre&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Apalancamiento&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FIN_Dias_Cuentas_Cobrar&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Dias_Pago_Prov&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Costo_Capital_WACC&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Margen_Neto&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FIN_Ratio_Liquidez&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Variacion_Gastos_Adm&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Punto_Equilibrio&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_EBIT&quot;</span><span class="p">,</span> <span class="s2">&quot;FIN_Costo_Deuda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MKT_NPS&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_CAC&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_LTV&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Tasa_Churn&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Conversion_Lead&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Market_Share&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MKT_Ticket_Promedio&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Reclamaciones_QRS&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Reconocimiento_Marca&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Costo_Por_Click&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MKT_Frecuencia_Compra&quot;</span><span class="p">,</span> <span class="s2">&quot;MKT_Tasa_Recomendacion&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RH_Indice_Clima&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Tasa_Rotacion&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Ausentismo&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Horas_Capacitacion&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RH_Productividad_Empleado&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Satisfaccion_Beneficios&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Tiempo_Contratacion&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RH_Gasto_Nomina_Ventas&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Indice_Diversidad&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Promociones_Internas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RH_Evaluacion_Desempeno&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Accidentalidad_Laboral&quot;</span><span class="p">,</span> <span class="s2">&quot;RH_Antiguedad_Promedio&quot;</span>
+<span class="p">]</span>
+
+<span class="n">df_sucia</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">nombres_kpis</span>
+
+<span class="c1"># Guardar nueva base &quot;sucia&quot;</span>
+<span class="n">df_sucia</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;base_kpis_sucia.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Resumen rápido</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Archivo generado: base_kpis_sucia.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filas: </span><span class="si">{</span><span class="n">df_sucia</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, Columnas: </span><span class="si">{</span><span class="n">df_sucia</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nulos por columna:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sucia</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Archivo generado: base_kpis_sucia.csv
+Filas: 500, Columnas: 50
+Nulos por columna:
+OP_Ciclo_Produccion           0
+OP_Tasa_Defectos              0
+OP_Disponibilidad_Maq         0
+OP_Costo_Unitario             3
+OP_Merma_Materia_Prima        3
+OP_Cumplimiento_Plan          0
+OP_Eficiencia_Energetica      0
+OP_Rotacion_Inventario        0
+OP_Tiempo_Set_Up              0
+OP_Productividad_HH           1
+OP_Lead_Time_Prov             0
+OP_Capacidad_Utilizada        0
+FIN_Margen_EBITDA             0
+FIN_ROI                       0
+FIN_Flujo_Caja_Libre          0
+FIN_Apalancamiento            0
+FIN_Dias_Cuentas_Cobrar       0
+FIN_Dias_Pago_Prov            0
+FIN_Costo_Capital_WACC        0
+FIN_Margen_Neto               5
+FIN_Ratio_Liquidez            0
+FIN_Variacion_Gastos_Adm      0
+FIN_Punto_Equilibrio          0
+FIN_EBIT                      0
+FIN_Costo_Deuda               0
+MKT_NPS                       0
+MKT_CAC                       0
+MKT_LTV                       0
+MKT_Tasa_Churn                4
+MKT_Conversion_Lead           0
+MKT_Market_Share              0
+MKT_Ticket_Promedio           0
+MKT_Reclamaciones_QRS         4
+MKT_Reconocimiento_Marca      4
+MKT_Costo_Por_Click           0
+MKT_Frecuencia_Compra         0
+MKT_Tasa_Recomendacion        0
+RH_Indice_Clima               0
+RH_Tasa_Rotacion              0
+RH_Ausentismo                 1
+RH_Horas_Capacitacion         0
+RH_Productividad_Empleado     0
+RH_Satisfaccion_Beneficios    0
+RH_Tiempo_Contratacion        0
+RH_Gasto_Nomina_Ventas        1
+RH_Indice_Diversidad          0
+RH_Promociones_Internas       0
+RH_Evaluacion_Desempeno       0
+RH_Accidentalidad_Laboral     0
+RH_Antiguedad_Promedio        2
+dtype: int64
+</pre></div></div>
+</div>
 
 
                 </article>
@@ -478,30 +562,27 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../introduccion_graficos/graficos_interactivos.html"
-       title="página anterior">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Gráficos Interactivos con Plotly</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="1_distancias_pca_multivariado.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">1. Distancias y Análisis de Componentes Principales (PCA)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

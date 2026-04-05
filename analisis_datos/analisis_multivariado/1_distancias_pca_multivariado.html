@@ -184,8 +184,7 @@
 
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/1_anova_intro_pca.html">Análisis de Varianza (ANOVA) e Introducción al PCA</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a></li>
@@ -429,9 +428,31 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Distancia-Mahalanobis">3. Distancia Mahalanobis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Otras-métricas:-Minkowski-y-Coseno">4. Otras métricas: Minkowski y Coseno</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Matriz-de-distancias">5. Matriz de distancias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Fundamentos-de-PCA">6. Fundamentos de PCA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Caso-práctico-integrador">7. Caso práctico integrador</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Ejercicios-propuestos">8. Ejercicios propuestos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Fundamentos-del-Análisis-de-Componentes-Principales--PCA">6. Fundamentos del Análisis de Componentes Principales- PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1.-Definicón-del-Análisis-de-Componentes-Principales">6.1. Definicón del Análisis de Componentes Principales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1.1.-Explicación-de-varianza">6.1.1. Explicación de varianza</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2.-Pasos-para-hacer-un-correcto-PCA">6.2. Pasos para hacer un correcto PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1:-Selección-y-Preparación-de-Variables">Paso 1: Selección y Preparación de Variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-2:-Estandarización-de-los-Datos">Paso 2: Estandarización de los Datos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-3:-Cálculo-de-la-Matriz-de-Covarianza-(o-Correlación)">Paso 3: Cálculo de la Matriz de Covarianza (o Correlación)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-4:-Extracción-de-Autovalores-y-Autovectores">Paso 4: Extracción de Autovalores y Autovectores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-5:-Selección-del-Número-de-Componentes">Paso 5: Selección del Número de Componentes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-6:-Interpretación-de-Cargas-(Loadings)">Paso 6: Interpretación de Cargas (Loadings)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#🧪-Taller-Práctico:-Distancias-y-PCA-con-Mall-Customers">🧪 Taller Práctico: Distancias y PCA con Mall Customers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-—-Carga-y-Exploración-de-Datos">Ejercicio 1 — Carga y Exploración de Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-—-Cálculo-de-Distancias">Ejercicio 2 — Cálculo de Distancias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-3-—-Matriz-de-Distancias">Ejercicio 3 — Matriz de Distancias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-4-—-Estandarización-y-PCA">Ejercicio 4 — Estandarización y PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-5-—-Interpretación-de-Cargas-(Loadings)">Ejercicio 5 — Interpretación de Cargas (Loadings)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-6-(Reto)-—-Visualización-en-2D-con-PCA">Ejercicio 6 (Reto) — Visualización en 2D con PCA</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -456,7 +477,7 @@ document.write(`
 </ul>
 <p>Trabaja los ejemplos con la Base de datos: <a class="reference external" href="Mall_Customers.csv">Mall Customer Segmentation Data</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -487,7 +508,7 @@ document.write(`
 </ul>
 <p>La distancia de Mahalanobis usa la covarianza <span class="math notranslate nohighlight">\(S\)</span> para ajustar por escala y correlación entre variables.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataset sintético con 3 variables correlacionadas</span>
@@ -503,7 +524,7 @@ document.write(`
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -576,7 +597,7 @@ document.write(`
 <h2>2. Distancia Euclidiana y Manhattan<a class="headerlink" href="#2.-Distancia-Euclidiana-y-Manhattan" title="Link to this heading">#</a></h2>
 <p>Tomemos dos observaciones del dataset para comparar ambas métricas.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
@@ -593,7 +614,7 @@ document.write(`
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -608,7 +629,7 @@ dtype: float64
 <h2>3. Distancia Mahalanobis<a class="headerlink" href="#3.-Distancia-Mahalanobis" title="Link to this heading">#</a></h2>
 <p>A diferencia de Euclidiana/Manhattan, Mahalanobis considera la estructura de covarianza de los datos.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
@@ -621,7 +642,7 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -637,7 +658,7 @@ np.float64(1.9788473601222558)
 <li><p>Coseno mide diferencia angular, útil en datos de texto o embeddings.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dist_minkowski_q3</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;minkowski&#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -656,7 +677,7 @@ np.float64(1.9788473601222558)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -672,7 +693,7 @@ dtype: float64
 <h2>5. Matriz de distancias<a class="headerlink" href="#5.-Matriz-de-distancias" title="Link to this heading">#</a></h2>
 <p>Construimos una matriz de distancias Euclidianas para un subconjunto de observaciones.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -695,8 +716,8 @@ dtype: float64
 </div>
 </div>
 </section>
-<section id="6.-Fundamentos-de-PCA">
-<h2>6. Fundamentos de PCA<a class="headerlink" href="#6.-Fundamentos-de-PCA" title="Link to this heading">#</a></h2>
+<section id="6.-Fundamentos-del-Análisis-de-Componentes-Principales--PCA">
+<h2>6. Fundamentos del Análisis de Componentes Principales- PCA<a class="headerlink" href="#6.-Fundamentos-del-Análisis-de-Componentes-Principales--PCA" title="Link to this heading">#</a></h2>
 <p>El PCA busca nuevas variables (componentes principales) que:</p>
 <ol class="arabic simple">
 <li><p>Sean combinaciones lineales de las variables originales.</p></li>
@@ -705,33 +726,2770 @@ dtype: float64
 </ol>
 <p><strong>Idea clave:</strong> si pocas componentes explican gran parte de la varianza, podemos reducir dimensionalidad con mínima pérdida de información.</p>
 <p>Antes de PCA se recomienda estandarizar variables para evitar que una escala domine el análisis.</p>
+<section id="6.1.-Definicón-del-Análisis-de-Componentes-Principales">
+<h3>6.1. Definicón del Análisis de Componentes Principales<a class="headerlink" href="#6.1.-Definicón-del-Análisis-de-Componentes-Principales" title="Link to this heading">#</a></h3>
+<p>El Análisis de Componentes Principales (PCA) es una técnica de reducción de dimensionalidad que nos permite simplificar conjuntos de datos complejos (con muchas variables) manteniendo la mayor cantidad de información posible.</p>
+<p>Imagina que como administrador tienes 50 indicadores de desempeño (KPIs) de una empresa, el PCA es como un «resumen inteligente», la herramienta permite condensar en 2 o 3 «super-indicadores» (Componentes) que explican la salud del negocio porque se encuentran correlacionados.</p>
+<p>El PCA elimina esa redundancia creando nuevas variables llamadas Componentes Principales (CP).</p>
+<p>CP1: Captura la mayor variabilidad posible del negocio por ejemplo: «Tamaño de la Operación».</p>
+<p>CP2: Captura la siguiente mayor variabilidad que no fue explicada por el primero por ejemplo «Eficiencia de Margen».</p>
+<section id="6.1.1.-Explicación-de-varianza">
+<h4>6.1.1. Explicación de varianza<a class="headerlink" href="#6.1.1.-Explicación-de-varianza" title="Link to this heading">#</a></h4>
+<p>La varianza nos dice qué tan dispersos están nuestros datos con respecto al promedio.</p>
+<p>Imagina que eres el gerente de una cadena de pizzerías y analizas el tiempo de entrega de dos locales:</p>
+<p>Local A: Siempre entrega en 30 minutos (Promedio = 30).</p>
+<p>Local B: A veces entrega en 10 minutos y a veces en 50 minutos (Promedio = 30).</p>
+<p>Ambos tienen el mismo promedio, pero el Local B tiene una varianza mucho más alta. Para un administrador, el Local B es un problema: no puedes prometerle nada al cliente porque el proceso es inestable.</p>
+<p>Matemáticamente, la varianza <span class="math notranslate nohighlight">\(\sigma^2\)</span> para poblaciones o (<span class="math notranslate nohighlight">\(s^2\)</span> para muestras) es el promedio de los cuadrados de las desviaciones de cada dato respecto a su media.</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}\]</div>
+<p>Como la varianza está expresada en unidades al cuadrado (ej. «dólares al cuadrado»), es difícil de interpretar para un informe de gerencia. Por eso usamos la Desviación Estándar (<span class="math notranslate nohighlight">\(\sigma\)</span>):</p>
+<ul class="simple">
+<li><p>Varianza: Nos sirve para cálculos estadísticos profundos y modelos de regresión.</p></li>
+<li><p>Desviación Estándar: Es la raíz cuadrada de la varianza. Nos devuelve a las unidades originales (ej. «dólares»).</p></li>
+</ul>
+</section>
+</section>
+<section id="6.2.-Pasos-para-hacer-un-correcto-PCA">
+<h3>6.2. Pasos para hacer un correcto PCA<a class="headerlink" href="#6.2.-Pasos-para-hacer-un-correcto-PCA" title="Link to this heading">#</a></h3>
+<p>Para este ejemplo se usará la base de datos de los KPI’s de una empresa. <a class="reference external" href="base_kpis_sucia.csv">Descargue la BD aquí</a></p>
+<section id="Paso-1:-Selección-y-Preparación-de-Variables">
+<h4>Paso 1: Selección y Preparación de Variables<a class="headerlink" href="#Paso-1:-Selección-y-Preparación-de-Variables" title="Link to this heading">#</a></h4>
+<p>El PCA funciona mejor cuando las variables están correlacionadas. Si las variables no tienen nada que ver entre sí, el PCA no podrá resumirlas.</p>
+<p>Variables Numéricas: Asegúrate de que todas las variables sean cuantitativas.</p>
+<p>Limpieza: Elimina o imputa valores nulos, ya que el PCA es sensible a ellos.</p>
+<p>Detección de Outliers: Valores extremos pueden «torcer» la dirección de los componentes, dándote una visión sesgada.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">]</span>
-<span class="n">X_features</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X_std</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_features</span><span class="p">)</span>
-
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
-<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_std</span><span class="p">)</span>
-
-<span class="n">var_exp</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
-<span class="n">var_acum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">var_exp</span><span class="p">)</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;Componente&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_exp</span><span class="p">))],</span>
-    <span class="s1">&#39;Varianza explicada&#39;</span><span class="p">:</span> <span class="n">var_exp</span><span class="p">,</span>
-    <span class="s1">&#39;Varianza acumulada&#39;</span><span class="p">:</span> <span class="n">var_acum</span>
-<span class="p">})</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_kpis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;base_kpis_sucia.csv&quot;</span><span class="p">)</span>
+<span class="n">df_kpis</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 500 entries, 0 to 499
+Data columns (total 50 columns):
+ #   Column                      Non-Null Count  Dtype
+---  ------                      --------------  -----
+ 0   OP_Ciclo_Produccion         500 non-null    float64
+ 1   OP_Tasa_Defectos            500 non-null    float64
+ 2   OP_Disponibilidad_Maq       500 non-null    float64
+ 3   OP_Costo_Unitario           497 non-null    float64
+ 4   OP_Merma_Materia_Prima      497 non-null    float64
+ 5   OP_Cumplimiento_Plan        500 non-null    float64
+ 6   OP_Eficiencia_Energetica    500 non-null    float64
+ 7   OP_Rotacion_Inventario      500 non-null    float64
+ 8   OP_Tiempo_Set_Up            500 non-null    float64
+ 9   OP_Productividad_HH         499 non-null    float64
+ 10  OP_Lead_Time_Prov           500 non-null    float64
+ 11  OP_Capacidad_Utilizada      500 non-null    float64
+ 12  FIN_Margen_EBITDA           500 non-null    float64
+ 13  FIN_ROI                     500 non-null    float64
+ 14  FIN_Flujo_Caja_Libre        500 non-null    float64
+ 15  FIN_Apalancamiento          500 non-null    float64
+ 16  FIN_Dias_Cuentas_Cobrar     500 non-null    float64
+ 17  FIN_Dias_Pago_Prov          500 non-null    float64
+ 18  FIN_Costo_Capital_WACC      500 non-null    float64
+ 19  FIN_Margen_Neto             495 non-null    float64
+ 20  FIN_Ratio_Liquidez          500 non-null    float64
+ 21  FIN_Variacion_Gastos_Adm    500 non-null    float64
+ 22  FIN_Punto_Equilibrio        500 non-null    float64
+ 23  FIN_EBIT                    500 non-null    float64
+ 24  FIN_Costo_Deuda             500 non-null    float64
+ 25  MKT_NPS                     500 non-null    float64
+ 26  MKT_CAC                     500 non-null    float64
+ 27  MKT_LTV                     500 non-null    float64
+ 28  MKT_Tasa_Churn              496 non-null    float64
+ 29  MKT_Conversion_Lead         500 non-null    float64
+ 30  MKT_Market_Share            500 non-null    float64
+ 31  MKT_Ticket_Promedio         500 non-null    float64
+ 32  MKT_Reclamaciones_QRS       496 non-null    float64
+ 33  MKT_Reconocimiento_Marca    496 non-null    float64
+ 34  MKT_Costo_Por_Click         500 non-null    float64
+ 35  MKT_Frecuencia_Compra       500 non-null    float64
+ 36  MKT_Tasa_Recomendacion      500 non-null    float64
+ 37  RH_Indice_Clima             500 non-null    float64
+ 38  RH_Tasa_Rotacion            500 non-null    float64
+ 39  RH_Ausentismo               499 non-null    float64
+ 40  RH_Horas_Capacitacion       500 non-null    float64
+ 41  RH_Productividad_Empleado   500 non-null    float64
+ 42  RH_Satisfaccion_Beneficios  500 non-null    float64
+ 43  RH_Tiempo_Contratacion      500 non-null    float64
+ 44  RH_Gasto_Nomina_Ventas      499 non-null    float64
+ 45  RH_Indice_Diversidad        500 non-null    float64
+ 46  RH_Promociones_Internas     500 non-null    float64
+ 47  RH_Evaluacion_Desempeno     500 non-null    float64
+ 48  RH_Accidentalidad_Laboral   500 non-null    float64
+ 49  RH_Antiguedad_Promedio      498 non-null    float64
+dtypes: float64(50)
+memory usage: 195.4 KB
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resumen general de las variables del DataFrame</span>
+<span class="n">resumen_variables</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">resumen_variables</span><span class="p">[</span><span class="s2">&quot;tipo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">values</span>
+<span class="n">resumen_variables</span><span class="p">[</span><span class="s2">&quot;nulos&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Reordenar columnas para facilitar lectura</span>
+<span class="n">resumen_variables</span> <span class="o">=</span> <span class="n">resumen_variables</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;tipo&quot;</span><span class="p">,</span> <span class="s2">&quot;nulos&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;25%&quot;</span><span class="p">,</span> <span class="s2">&quot;50%&quot;</span><span class="p">,</span> <span class="s2">&quot;75%&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">resumen_variables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tipo</th>
+      <th>nulos</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>OP_Ciclo_Produccion</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.261701</td>
+      <td>15.154611</td>
+      <td>62.065924</td>
+      <td>90.297978</td>
+      <td>99.781628</td>
+      <td>109.741759</td>
+      <td>166.273254</td>
+    </tr>
+    <tr>
+      <th>OP_Tasa_Defectos</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.644993</td>
+      <td>15.282825</td>
+      <td>54.074770</td>
+      <td>90.404804</td>
+      <td>100.231065</td>
+      <td>110.789586</td>
+      <td>166.538856</td>
+    </tr>
+    <tr>
+      <th>OP_Disponibilidad_Maq</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.268510</td>
+      <td>15.815906</td>
+      <td>50.769239</td>
+      <td>90.162869</td>
+      <td>99.604762</td>
+      <td>111.247574</td>
+      <td>152.918326</td>
+    </tr>
+    <tr>
+      <th>OP_Costo_Unitario</th>
+      <td>float64</td>
+      <td>3</td>
+      <td>497.0</td>
+      <td>100.130990</td>
+      <td>15.311606</td>
+      <td>57.559901</td>
+      <td>89.674157</td>
+      <td>99.978779</td>
+      <td>110.748173</td>
+      <td>157.787429</td>
+    </tr>
+    <tr>
+      <th>OP_Merma_Materia_Prima</th>
+      <td>float64</td>
+      <td>3</td>
+      <td>497.0</td>
+      <td>100.160283</td>
+      <td>15.734809</td>
+      <td>55.857767</td>
+      <td>89.500112</td>
+      <td>99.509063</td>
+      <td>110.596431</td>
+      <td>165.608039</td>
+    </tr>
+    <tr>
+      <th>OP_Cumplimiento_Plan</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.009938</td>
+      <td>15.725900</td>
+      <td>46.857918</td>
+      <td>89.248208</td>
+      <td>99.259452</td>
+      <td>110.129978</td>
+      <td>160.047099</td>
+    </tr>
+    <tr>
+      <th>OP_Eficiencia_Energetica</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.008009</td>
+      <td>15.586936</td>
+      <td>47.315918</td>
+      <td>89.795801</td>
+      <td>99.872805</td>
+      <td>109.944298</td>
+      <td>157.988208</td>
+    </tr>
+    <tr>
+      <th>OP_Rotacion_Inventario</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.632401</td>
+      <td>15.277447</td>
+      <td>55.178564</td>
+      <td>89.514641</td>
+      <td>99.750395</td>
+      <td>110.025771</td>
+      <td>152.160703</td>
+    </tr>
+    <tr>
+      <th>OP_Tiempo_Set_Up</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.080003</td>
+      <td>15.603573</td>
+      <td>54.740713</td>
+      <td>89.992641</td>
+      <td>100.551869</td>
+      <td>109.998008</td>
+      <td>157.597258</td>
+    </tr>
+    <tr>
+      <th>OP_Productividad_HH</th>
+      <td>float64</td>
+      <td>1</td>
+      <td>499.0</td>
+      <td>99.926571</td>
+      <td>15.446723</td>
+      <td>52.743097</td>
+      <td>89.869578</td>
+      <td>99.469218</td>
+      <td>110.557312</td>
+      <td>158.102629</td>
+    </tr>
+    <tr>
+      <th>OP_Lead_Time_Prov</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.799490</td>
+      <td>15.840661</td>
+      <td>46.474360</td>
+      <td>89.066849</td>
+      <td>98.814419</td>
+      <td>109.875572</td>
+      <td>167.284647</td>
+    </tr>
+    <tr>
+      <th>OP_Capacidad_Utilizada</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.983553</td>
+      <td>15.576838</td>
+      <td>50.591802</td>
+      <td>88.676799</td>
+      <td>99.445079</td>
+      <td>110.453339</td>
+      <td>154.492229</td>
+    </tr>
+    <tr>
+      <th>FIN_Margen_EBITDA</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.562834</td>
+      <td>18.286449</td>
+      <td>48.670927</td>
+      <td>86.879097</td>
+      <td>100.210945</td>
+      <td>111.923401</td>
+      <td>153.559887</td>
+    </tr>
+    <tr>
+      <th>FIN_ROI</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.769352</td>
+      <td>17.810211</td>
+      <td>40.417811</td>
+      <td>87.306127</td>
+      <td>99.503509</td>
+      <td>111.676822</td>
+      <td>161.415429</td>
+    </tr>
+    <tr>
+      <th>FIN_Flujo_Caja_Libre</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.482024</td>
+      <td>17.637775</td>
+      <td>50.413528</td>
+      <td>86.139463</td>
+      <td>99.284518</td>
+      <td>111.148714</td>
+      <td>156.958073</td>
+    </tr>
+    <tr>
+      <th>FIN_Apalancamiento</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.836157</td>
+      <td>18.040558</td>
+      <td>48.985146</td>
+      <td>87.704275</td>
+      <td>99.257184</td>
+      <td>111.414465</td>
+      <td>157.182765</td>
+    </tr>
+    <tr>
+      <th>FIN_Dias_Cuentas_Cobrar</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.457822</td>
+      <td>17.993637</td>
+      <td>46.787696</td>
+      <td>87.038335</td>
+      <td>98.848426</td>
+      <td>111.630340</td>
+      <td>165.050074</td>
+    </tr>
+    <tr>
+      <th>FIN_Dias_Pago_Prov</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.374344</td>
+      <td>17.940963</td>
+      <td>53.677908</td>
+      <td>86.728986</td>
+      <td>99.033678</td>
+      <td>111.394048</td>
+      <td>160.262418</td>
+    </tr>
+    <tr>
+      <th>FIN_Costo_Capital_WACC</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.479533</td>
+      <td>17.510805</td>
+      <td>53.412757</td>
+      <td>87.225374</td>
+      <td>99.375414</td>
+      <td>110.071756</td>
+      <td>162.669616</td>
+    </tr>
+    <tr>
+      <th>FIN_Margen_Neto</th>
+      <td>float64</td>
+      <td>5</td>
+      <td>495.0</td>
+      <td>98.962104</td>
+      <td>17.749574</td>
+      <td>45.666095</td>
+      <td>86.667857</td>
+      <td>97.770543</td>
+      <td>111.617947</td>
+      <td>156.722521</td>
+    </tr>
+    <tr>
+      <th>FIN_Ratio_Liquidez</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.263219</td>
+      <td>17.890984</td>
+      <td>48.794474</td>
+      <td>86.753579</td>
+      <td>99.330963</td>
+      <td>110.978377</td>
+      <td>156.232397</td>
+    </tr>
+    <tr>
+      <th>FIN_Variacion_Gastos_Adm</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.582391</td>
+      <td>17.212530</td>
+      <td>52.204241</td>
+      <td>87.374688</td>
+      <td>99.943280</td>
+      <td>110.223774</td>
+      <td>169.185098</td>
+    </tr>
+    <tr>
+      <th>FIN_Punto_Equilibrio</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.819726</td>
+      <td>17.925328</td>
+      <td>56.084729</td>
+      <td>86.994752</td>
+      <td>98.858677</td>
+      <td>112.504234</td>
+      <td>170.553774</td>
+    </tr>
+    <tr>
+      <th>FIN_EBIT</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.344691</td>
+      <td>17.939886</td>
+      <td>54.085235</td>
+      <td>87.642694</td>
+      <td>98.933147</td>
+      <td>110.652485</td>
+      <td>162.223842</td>
+    </tr>
+    <tr>
+      <th>FIN_Costo_Deuda</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.093878</td>
+      <td>17.908197</td>
+      <td>49.491976</td>
+      <td>87.439050</td>
+      <td>99.895073</td>
+      <td>112.356389</td>
+      <td>154.277278</td>
+    </tr>
+    <tr>
+      <th>MKT_NPS</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.977078</td>
+      <td>18.874097</td>
+      <td>38.905300</td>
+      <td>87.872660</td>
+      <td>101.675726</td>
+      <td>113.840278</td>
+      <td>151.381370</td>
+    </tr>
+    <tr>
+      <th>MKT_CAC</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>101.303651</td>
+      <td>18.582300</td>
+      <td>38.517121</td>
+      <td>89.045996</td>
+      <td>101.559506</td>
+      <td>114.415925</td>
+      <td>155.761885</td>
+    </tr>
+    <tr>
+      <th>MKT_LTV</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.669776</td>
+      <td>17.807638</td>
+      <td>47.985468</td>
+      <td>87.658538</td>
+      <td>101.286354</td>
+      <td>113.648778</td>
+      <td>150.399134</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Churn</th>
+      <td>float64</td>
+      <td>4</td>
+      <td>496.0</td>
+      <td>100.883614</td>
+      <td>19.239619</td>
+      <td>40.421028</td>
+      <td>88.763679</td>
+      <td>100.698735</td>
+      <td>113.335452</td>
+      <td>160.886340</td>
+    </tr>
+    <tr>
+      <th>MKT_Conversion_Lead</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>101.039985</td>
+      <td>18.640182</td>
+      <td>37.250721</td>
+      <td>88.323922</td>
+      <td>100.909933</td>
+      <td>113.696206</td>
+      <td>154.626485</td>
+    </tr>
+    <tr>
+      <th>MKT_Market_Share</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>101.211540</td>
+      <td>18.610855</td>
+      <td>47.877887</td>
+      <td>89.065641</td>
+      <td>100.704429</td>
+      <td>112.959287</td>
+      <td>154.580877</td>
+    </tr>
+    <tr>
+      <th>MKT_Ticket_Promedio</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>101.037605</td>
+      <td>18.807119</td>
+      <td>47.503129</td>
+      <td>88.784027</td>
+      <td>101.568196</td>
+      <td>114.196614</td>
+      <td>145.446419</td>
+    </tr>
+    <tr>
+      <th>MKT_Reclamaciones_QRS</th>
+      <td>float64</td>
+      <td>4</td>
+      <td>496.0</td>
+      <td>101.256422</td>
+      <td>18.431191</td>
+      <td>50.778544</td>
+      <td>88.516942</td>
+      <td>101.573392</td>
+      <td>113.427659</td>
+      <td>151.783216</td>
+    </tr>
+    <tr>
+      <th>MKT_Reconocimiento_Marca</th>
+      <td>float64</td>
+      <td>4</td>
+      <td>496.0</td>
+      <td>101.260105</td>
+      <td>18.506041</td>
+      <td>38.823112</td>
+      <td>88.468942</td>
+      <td>102.161678</td>
+      <td>113.693289</td>
+      <td>158.418662</td>
+    </tr>
+    <tr>
+      <th>MKT_Costo_Por_Click</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.340577</td>
+      <td>18.368706</td>
+      <td>49.191489</td>
+      <td>87.917291</td>
+      <td>100.005985</td>
+      <td>113.033647</td>
+      <td>149.265088</td>
+    </tr>
+    <tr>
+      <th>MKT_Frecuencia_Compra</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>101.315420</td>
+      <td>18.759473</td>
+      <td>49.001853</td>
+      <td>88.924495</td>
+      <td>100.912683</td>
+      <td>114.267667</td>
+      <td>152.684049</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Recomendacion</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>100.979520</td>
+      <td>19.171747</td>
+      <td>47.098395</td>
+      <td>88.778824</td>
+      <td>100.145736</td>
+      <td>113.899256</td>
+      <td>148.978892</td>
+    </tr>
+    <tr>
+      <th>RH_Indice_Clima</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>98.935700</td>
+      <td>16.392879</td>
+      <td>52.482963</td>
+      <td>88.081493</td>
+      <td>98.795696</td>
+      <td>109.646409</td>
+      <td>142.337878</td>
+    </tr>
+    <tr>
+      <th>RH_Tasa_Rotacion</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.146991</td>
+      <td>16.865537</td>
+      <td>52.440818</td>
+      <td>87.254598</td>
+      <td>97.911502</td>
+      <td>110.141943</td>
+      <td>154.996700</td>
+    </tr>
+    <tr>
+      <th>RH_Ausentismo</th>
+      <td>float64</td>
+      <td>1</td>
+      <td>499.0</td>
+      <td>99.363173</td>
+      <td>16.485849</td>
+      <td>53.731998</td>
+      <td>87.755419</td>
+      <td>99.853547</td>
+      <td>110.559065</td>
+      <td>160.530921</td>
+    </tr>
+    <tr>
+      <th>RH_Horas_Capacitacion</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>98.123293</td>
+      <td>16.338336</td>
+      <td>47.705217</td>
+      <td>86.873432</td>
+      <td>98.020591</td>
+      <td>109.008849</td>
+      <td>154.959176</td>
+    </tr>
+    <tr>
+      <th>RH_Productividad_Empleado</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.184797</td>
+      <td>16.698558</td>
+      <td>49.185529</td>
+      <td>87.607125</td>
+      <td>99.360256</td>
+      <td>110.677674</td>
+      <td>152.218235</td>
+    </tr>
+    <tr>
+      <th>RH_Satisfaccion_Beneficios</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.192651</td>
+      <td>16.378018</td>
+      <td>47.339078</td>
+      <td>87.650287</td>
+      <td>99.789285</td>
+      <td>110.470814</td>
+      <td>158.060008</td>
+    </tr>
+    <tr>
+      <th>RH_Tiempo_Contratacion</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>98.691683</td>
+      <td>16.721621</td>
+      <td>52.345768</td>
+      <td>86.953564</td>
+      <td>98.040996</td>
+      <td>109.100047</td>
+      <td>155.586018</td>
+    </tr>
+    <tr>
+      <th>RH_Gasto_Nomina_Ventas</th>
+      <td>float64</td>
+      <td>1</td>
+      <td>499.0</td>
+      <td>98.883249</td>
+      <td>16.870858</td>
+      <td>43.642321</td>
+      <td>87.519570</td>
+      <td>98.994443</td>
+      <td>110.654381</td>
+      <td>150.477740</td>
+    </tr>
+    <tr>
+      <th>RH_Indice_Diversidad</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>98.824645</td>
+      <td>16.207556</td>
+      <td>53.362981</td>
+      <td>88.031146</td>
+      <td>98.282044</td>
+      <td>110.272981</td>
+      <td>156.618580</td>
+    </tr>
+    <tr>
+      <th>RH_Promociones_Internas</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>98.839573</td>
+      <td>16.708909</td>
+      <td>49.820087</td>
+      <td>87.609188</td>
+      <td>98.108074</td>
+      <td>110.363611</td>
+      <td>154.081769</td>
+    </tr>
+    <tr>
+      <th>RH_Evaluacion_Desempeno</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.328889</td>
+      <td>16.523754</td>
+      <td>48.507293</td>
+      <td>88.578780</td>
+      <td>99.030259</td>
+      <td>110.523435</td>
+      <td>157.177361</td>
+    </tr>
+    <tr>
+      <th>RH_Accidentalidad_Laboral</th>
+      <td>float64</td>
+      <td>0</td>
+      <td>500.0</td>
+      <td>99.501462</td>
+      <td>16.655951</td>
+      <td>51.265300</td>
+      <td>87.793611</td>
+      <td>98.326466</td>
+      <td>109.811705</td>
+      <td>147.521188</td>
+    </tr>
+    <tr>
+      <th>RH_Antiguedad_Promedio</th>
+      <td>float64</td>
+      <td>2</td>
+      <td>498.0</td>
+      <td>99.052892</td>
+      <td>16.340326</td>
+      <td>51.105630</td>
+      <td>88.045400</td>
+      <td>98.548334</td>
+      <td>110.115181</td>
+      <td>150.575191</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar solo variables numéricas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">columnas_numericas</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="c1"># Boxplot general para detectar puntos atípicos por variable</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_kpis</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">],</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#7FB3D5&quot;</span><span class="p">,</span> <span class="n">fliersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Detección de puntos atípicos (boxplot) - KPIs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variables&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Resumen de cantidad de atípicos por variable usando regla IQR</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+
+<span class="n">outliers_por_variable</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">((</span><span class="n">df_kpis</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">))</span> <span class="o">|</span>
+     <span class="p">(</span><span class="n">df_kpis</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)))</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top 10 variables con más puntos atípicos:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">outliers_por_variable</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;n_outliers&quot;</span><span class="p">))</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_17_0.png" src="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_17_0.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Top 10 variables con más puntos atípicos:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n_outliers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKT_Market_Share</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>OP_Eficiencia_Energetica</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>OP_Tiempo_Set_Up</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>FIN_EBIT</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>MKT_CAC</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Churn</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>OP_Cumplimiento_Plan</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>OP_Capacidad_Utilizada</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>FIN_ROI</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FIN_Ratio_Liquidez</th>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) Eliminar filas con datos faltantes en variables numéricas</span>
+<span class="c1">#df_kpis.info()</span>
+<span class="n">df_kpis_sin_nulos</span> <span class="o">=</span> <span class="n">df_kpis</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+
+<span class="c1"># 2) Eliminar outliers con regla IQR (1.5 * IQR) en variables numéricas</span>
+<span class="n">Q1_limpio</span> <span class="o">=</span> <span class="n">df_kpis_sin_nulos</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">Q3_limpio</span> <span class="o">=</span> <span class="n">df_kpis_sin_nulos</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">IQR_limpio</span> <span class="o">=</span> <span class="n">Q3_limpio</span> <span class="o">-</span> <span class="n">Q1_limpio</span>
+
+<span class="n">lim_inf</span> <span class="o">=</span> <span class="n">Q1_limpio</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR_limpio</span>
+<span class="n">lim_sup</span> <span class="o">=</span> <span class="n">Q3_limpio</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR_limpio</span>
+
+<span class="n">mascara_sin_outliers</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">df_kpis_sin_nulos</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lim_inf</span><span class="p">)</span> <span class="o">|</span>
+    <span class="p">(</span><span class="n">df_kpis_sin_nulos</span><span class="p">[</span><span class="n">columnas_numericas</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lim_sup</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_kpis_limpio</span> <span class="o">=</span> <span class="n">df_kpis_sin_nulos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mascara_sin_outliers</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forma original: </span><span class="si">{</span><span class="n">df_kpis</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sin nulos: </span><span class="si">{</span><span class="n">df_kpis_sin_nulos</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sin nulos y sin outliers: </span><span class="si">{</span><span class="n">df_kpis_limpio</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Si quieres reemplazar la base original:</span>
+<span class="n">df_kpis</span> <span class="o">=</span> <span class="n">df_kpis_limpio</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_kpis</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Forma original: (500, 50)
+Sin nulos: (472, 50)
+Sin nulos y sin outliers: (419, 50)
+&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 419 entries, 0 to 418
+Data columns (total 50 columns):
+ #   Column                      Non-Null Count  Dtype
+---  ------                      --------------  -----
+ 0   OP_Ciclo_Produccion         419 non-null    float64
+ 1   OP_Tasa_Defectos            419 non-null    float64
+ 2   OP_Disponibilidad_Maq       419 non-null    float64
+ 3   OP_Costo_Unitario           419 non-null    float64
+ 4   OP_Merma_Materia_Prima      419 non-null    float64
+ 5   OP_Cumplimiento_Plan        419 non-null    float64
+ 6   OP_Eficiencia_Energetica    419 non-null    float64
+ 7   OP_Rotacion_Inventario      419 non-null    float64
+ 8   OP_Tiempo_Set_Up            419 non-null    float64
+ 9   OP_Productividad_HH         419 non-null    float64
+ 10  OP_Lead_Time_Prov           419 non-null    float64
+ 11  OP_Capacidad_Utilizada      419 non-null    float64
+ 12  FIN_Margen_EBITDA           419 non-null    float64
+ 13  FIN_ROI                     419 non-null    float64
+ 14  FIN_Flujo_Caja_Libre        419 non-null    float64
+ 15  FIN_Apalancamiento          419 non-null    float64
+ 16  FIN_Dias_Cuentas_Cobrar     419 non-null    float64
+ 17  FIN_Dias_Pago_Prov          419 non-null    float64
+ 18  FIN_Costo_Capital_WACC      419 non-null    float64
+ 19  FIN_Margen_Neto             419 non-null    float64
+ 20  FIN_Ratio_Liquidez          419 non-null    float64
+ 21  FIN_Variacion_Gastos_Adm    419 non-null    float64
+ 22  FIN_Punto_Equilibrio        419 non-null    float64
+ 23  FIN_EBIT                    419 non-null    float64
+ 24  FIN_Costo_Deuda             419 non-null    float64
+ 25  MKT_NPS                     419 non-null    float64
+ 26  MKT_CAC                     419 non-null    float64
+ 27  MKT_LTV                     419 non-null    float64
+ 28  MKT_Tasa_Churn              419 non-null    float64
+ 29  MKT_Conversion_Lead         419 non-null    float64
+ 30  MKT_Market_Share            419 non-null    float64
+ 31  MKT_Ticket_Promedio         419 non-null    float64
+ 32  MKT_Reclamaciones_QRS       419 non-null    float64
+ 33  MKT_Reconocimiento_Marca    419 non-null    float64
+ 34  MKT_Costo_Por_Click         419 non-null    float64
+ 35  MKT_Frecuencia_Compra       419 non-null    float64
+ 36  MKT_Tasa_Recomendacion      419 non-null    float64
+ 37  RH_Indice_Clima             419 non-null    float64
+ 38  RH_Tasa_Rotacion            419 non-null    float64
+ 39  RH_Ausentismo               419 non-null    float64
+ 40  RH_Horas_Capacitacion       419 non-null    float64
+ 41  RH_Productividad_Empleado   419 non-null    float64
+ 42  RH_Satisfaccion_Beneficios  419 non-null    float64
+ 43  RH_Tiempo_Contratacion      419 non-null    float64
+ 44  RH_Gasto_Nomina_Ventas      419 non-null    float64
+ 45  RH_Indice_Diversidad        419 non-null    float64
+ 46  RH_Promociones_Internas     419 non-null    float64
+ 47  RH_Evaluacion_Desempeno     419 non-null    float64
+ 48  RH_Accidentalidad_Laboral   419 non-null    float64
+ 49  RH_Antiguedad_Promedio      419 non-null    float64
+dtypes: float64(50)
+memory usage: 163.8 KB
+</pre></div></div>
+</div>
+</section>
+<section id="Paso-2:-Estandarización-de-los-Datos">
+<h4>Paso 2: Estandarización de los Datos<a class="headerlink" href="#Paso-2:-Estandarización-de-los-Datos" title="Link to this heading">#</a></h4>
+<p>Este es el paso donde fallan la mayoría de los análisis. El PCA busca maximizar la varianza. Si tienes una variable «Ingresos» (en miles) y otra «Tasa de interés» (en decimales), el PCA creerá que el Ingreso es más importante solo porque sus números son más grandes.</p>
+<p><strong>Estandarizadores:</strong></p>
+<ul class="simple">
+<li><p><strong>Z-Score Standardization (la mas adecuada al contexto)</strong></p></li>
+</ul>
+<p>Debes centrar la media en 0 y la desviación estándar en 1 para todas las variables.</p>
+<p>Fórmula:</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x - \mu}{\sigma}\]</div>
+<p><img alt="normal_desvest" src="../../_images/normal_desvest.png" /></p>
+<ul class="simple">
+<li><p><strong>Min-Max Scaling (Normalización)</strong> En lugar de usar la desviación estándar, este método escala los datos en un rango fijo, generalmente de 0 a 1.</p></li>
+</ul>
+<p>Cómo funciona: Resta el valor mínimo y divide por el rango (Máximo - Mínimo).</p>
+<p>Cuándo usarlo: Útil si tienes KPIs que tienen límites estrictos (por ejemplo, una calificación de servicio de 1 a 5 o porcentajes de 0 a 100) y quieres preservar las distancias exactas dentro de ese rango.</p>
+<p>Riesgo: Es muy sensible a los outliers (valores atípicos). Si una tienda tuvo una venta accidentalmente gigante, comprimirá al resto de las tiendas en un rango muy pequeño (ej. de 0 a 0.01).</p>
+<ul class="simple">
+<li><p><strong>Robust Scaling (Para datos «sucios» o con Outliers)</strong></p></li>
+</ul>
+<p>En el mundo real de los negocios, los datos suelen tener errores o eventos extraordinarios (una huelga que detuvo la producción, una venta masiva única).</p>
+<p>Cómo funciona: Utiliza la mediana y el rango intercuartílico (IQR) en lugar de la media y la desviación estándar.</p>
+<p>Ventaja: La media y la desviación estándar se ven muy afectadas por valores extremos; la mediana no.</p>
+<p>Cuándo usarlo: Si en tu lista de 50 KPIs financieros tienes empresas o meses con valores extremadamente locos que no quieres que arruinen la estructura de tus componentes principales.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Estandarización de las variables (media = 0, desviación estándar = 1)</span>
+<span class="n">scaler_kpis</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="n">df_kpis_estandarizado</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">scaler_kpis</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_kpis_sin_nulos</span><span class="p">),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">df_kpis_sin_nulos</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">df_kpis_sin_nulos</span><span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_kpis_estandarizado</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Verificación rápida</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_kpis_estandarizado</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OP_Ciclo_Produccion</th>
+      <th>OP_Tasa_Defectos</th>
+      <th>OP_Disponibilidad_Maq</th>
+      <th>OP_Costo_Unitario</th>
+      <th>OP_Merma_Materia_Prima</th>
+      <th>OP_Cumplimiento_Plan</th>
+      <th>OP_Eficiencia_Energetica</th>
+      <th>OP_Rotacion_Inventario</th>
+      <th>OP_Tiempo_Set_Up</th>
+      <th>OP_Productividad_HH</th>
+      <th>...</th>
+      <th>RH_Horas_Capacitacion</th>
+      <th>RH_Productividad_Empleado</th>
+      <th>RH_Satisfaccion_Beneficios</th>
+      <th>RH_Tiempo_Contratacion</th>
+      <th>RH_Gasto_Nomina_Ventas</th>
+      <th>RH_Indice_Diversidad</th>
+      <th>RH_Promociones_Internas</th>
+      <th>RH_Evaluacion_Desempeno</th>
+      <th>RH_Accidentalidad_Laboral</th>
+      <th>RH_Antiguedad_Promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.798225</td>
+      <td>0.910056</td>
+      <td>0.707028</td>
+      <td>0.262288</td>
+      <td>0.654725</td>
+      <td>-0.132698</td>
+      <td>0.868778</td>
+      <td>0.237566</td>
+      <td>0.177651</td>
+      <td>0.353934</td>
+      <td>...</td>
+      <td>-0.049703</td>
+      <td>0.470749</td>
+      <td>1.185133</td>
+      <td>0.414667</td>
+      <td>0.146340</td>
+      <td>0.428992</td>
+      <td>0.459330</td>
+      <td>0.419575</td>
+      <td>0.311488</td>
+      <td>-0.370032</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.488942</td>
+      <td>0.127965</td>
+      <td>-0.322451</td>
+      <td>-0.186712</td>
+      <td>0.170137</td>
+      <td>-0.407372</td>
+      <td>-0.336771</td>
+      <td>-0.118196</td>
+      <td>-0.568935</td>
+      <td>-0.281988</td>
+      <td>...</td>
+      <td>0.344327</td>
+      <td>0.706297</td>
+      <td>0.444193</td>
+      <td>-0.035705</td>
+      <td>0.072897</td>
+      <td>0.409404</td>
+      <td>0.343438</td>
+      <td>0.943395</td>
+      <td>-0.125293</td>
+      <td>0.298852</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.170120</td>
+      <td>0.618602</td>
+      <td>0.343029</td>
+      <td>0.371961</td>
+      <td>0.510381</td>
+      <td>0.490997</td>
+      <td>0.647176</td>
+      <td>0.680154</td>
+      <td>0.121824</td>
+      <td>0.051861</td>
+      <td>...</td>
+      <td>-0.308083</td>
+      <td>-0.550806</td>
+      <td>-0.887424</td>
+      <td>-0.798340</td>
+      <td>-0.253528</td>
+      <td>-0.554489</td>
+      <td>-0.917567</td>
+      <td>-0.571199</td>
+      <td>-0.846302</td>
+      <td>-1.592142</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.709514</td>
+      <td>1.249445</td>
+      <td>1.438190</td>
+      <td>1.388209</td>
+      <td>1.264285</td>
+      <td>2.069292</td>
+      <td>1.501767</td>
+      <td>1.701900</td>
+      <td>1.623207</td>
+      <td>1.396808</td>
+      <td>...</td>
+      <td>0.689549</td>
+      <td>0.791832</td>
+      <td>0.948809</td>
+      <td>0.489906</td>
+      <td>1.262878</td>
+      <td>0.341605</td>
+      <td>0.605482</td>
+      <td>0.916795</td>
+      <td>0.626334</td>
+      <td>0.636121</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.466636</td>
+      <td>-0.040990</td>
+      <td>-0.292744</td>
+      <td>-0.852158</td>
+      <td>-0.582451</td>
+      <td>-0.045649</td>
+      <td>-0.389416</td>
+      <td>-0.656599</td>
+      <td>-0.292611</td>
+      <td>0.013384</td>
+      <td>...</td>
+      <td>-0.897628</td>
+      <td>-1.205851</td>
+      <td>-1.000609</td>
+      <td>-0.860321</td>
+      <td>-1.593861</td>
+      <td>-0.339533</td>
+      <td>-1.084320</td>
+      <td>-1.230415</td>
+      <td>-1.116795</td>
+      <td>-0.988663</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 50 columns</p>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OP_Ciclo_Produccion</th>
+      <th>OP_Tasa_Defectos</th>
+      <th>OP_Disponibilidad_Maq</th>
+      <th>OP_Costo_Unitario</th>
+      <th>OP_Merma_Materia_Prima</th>
+      <th>OP_Cumplimiento_Plan</th>
+      <th>OP_Eficiencia_Energetica</th>
+      <th>OP_Rotacion_Inventario</th>
+      <th>OP_Tiempo_Set_Up</th>
+      <th>OP_Productividad_HH</th>
+      <th>...</th>
+      <th>RH_Horas_Capacitacion</th>
+      <th>RH_Productividad_Empleado</th>
+      <th>RH_Satisfaccion_Beneficios</th>
+      <th>RH_Tiempo_Contratacion</th>
+      <th>RH_Gasto_Nomina_Ventas</th>
+      <th>RH_Indice_Diversidad</th>
+      <th>RH_Promociones_Internas</th>
+      <th>RH_Evaluacion_Desempeno</th>
+      <th>RH_Accidentalidad_Laboral</th>
+      <th>RH_Antiguedad_Promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>...</td>
+      <td>-0.0</td>
+      <td>-0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>-0.0</td>
+      <td>0.0</td>
+      <td>-0.0</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 50 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Paso-3:-Cálculo-de-la-Matriz-de-Covarianza-(o-Correlación)">
+<h4>Paso 3: Cálculo de la Matriz de Covarianza (o Correlación)<a class="headerlink" href="#Paso-3:-Cálculo-de-la-Matriz-de-Covarianza-(o-Correlación)" title="Link to this heading">#</a></h4>
+<p>El algoritmo analiza cómo se mueven las variables en conjunto.</p>
+<p>Si cuando sube el «Gasto en Publicidad» también sube el «Volumen de Ventas», el PCA identifica que estas dos pueden fusionarse en un solo componente (ej. «Impulso Comercial»).</p>
+<ol class="arabic simple">
+<li><p><strong>La Matriz de Covarianza:</strong> La covarianza mide la dirección de la relación lineal entre dos variables.</p></li>
+</ol>
+<p>¿Qué nos dice?:</p>
+<p>Positiva: Las dos variables suben o bajan juntas (ej. Ventas e Inventario).</p>
+<p>Negativa: Cuando una sube, la otra baja (ej. Precio y Demanda).</p>
+<p>Cero: No hay una relación lineal clara.</p>
+<p>El Problema: La covarianza depende de las unidades de medida. Si mides los ingresos en Pesos Colombianos, la covarianza será un número gigante; si los mides en Dólares, será un número pequeño. Esto hace que sea imposible comparar la «fuerza» de la relación entre diferentes pares de variables.</p>
+<p><img alt="licensed-image.jpeg" src="../../_images/licensed-image.jpeg" /></p>
+<ol class="arabic simple" start="2">
+<li><p><strong>La Matriz de Correlación:</strong></p></li>
+</ol>
+<p>La correlación es simplemente la covarianza estandarizada. Para obtenerla, dividimos la covarianza por el producto de las desviaciones estándar de las variables.</p>
+<p>El Rango: Siempre va de -1 a +1.</p>
+<p>+1: Relación positiva perfecta.</p>
+<p>-1: Relación negativa perfecta.</p>
+<p>0: Ausencia total de relación lineal.</p>
+<p><strong>La Ventaja:</strong> Es «adimensional». Puedes comparar la relación entre «Satisfacción del Cliente (1-5)» y «Ventas (Millones)» de forma directa. <strong>Diferencias Clave para la Toma de Decisiones:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Característica</p></th>
+<th class="head"><p>Matriz de Covarianza</p></th>
+<th class="head"><p>Matriz de Correlación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Unidades</p></td>
+<td><p>Mantiene las unidades originales (²).</p></td>
+<td><p>No tiene unidades (es un índice).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rango</p></td>
+<td><p>De −∞ a +∞.</p></td>
+<td><p>De −1 a +1.</p></td>
+</tr>
+<tr class="row-even"><td><p>Uso Principal</p></td>
+<td><p>Cálculos internos del PCA (identifica varianza).</p></td>
+<td><p>Entender la fuerza de la relación de un vistazo.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Interpretación</p></td>
+<td><p>Difícil (¿es 500 mucho o poco?).</p></td>
+<td><p>Fácil (0.85 es una relación muy fuerte).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>¿Por qué son vitales para el PCA?</strong> El PCA utiliza estas matrices como punto de partida:</p></li>
+</ol>
+<p>Identificar Redundancia: Si la matriz de correlación muestra un 0.95 entre «Gasto en Marketing Digital» y «Gasto en Redes Sociales», el PCA sabe que puede combinar esas dos variables en un solo componente sin perder casi nada de información.</p>
+<p>Eliminar Ruido: Las variables que tienen correlaciones cercanas a 0 con todas las demás suelen ser «ruido» o variables independientes que el PCA tratará de aislar.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matriz de covarianzas de la base estandarizada</span>
+<span class="n">matriz_covarianza</span> <span class="o">=</span> <span class="n">df_kpis_estandarizado</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimensión de la matriz de covarianzas:&quot;</span><span class="p">,</span> <span class="n">matriz_covarianza</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">matriz_covarianza</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Visualización</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">matriz_covarianza</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Matriz de covarianzas - KPIs estandarizados&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dimensión de la matriz de covarianzas: (50, 50)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OP_Ciclo_Produccion</th>
+      <th>OP_Tasa_Defectos</th>
+      <th>OP_Disponibilidad_Maq</th>
+      <th>OP_Costo_Unitario</th>
+      <th>OP_Merma_Materia_Prima</th>
+      <th>OP_Cumplimiento_Plan</th>
+      <th>OP_Eficiencia_Energetica</th>
+      <th>OP_Rotacion_Inventario</th>
+      <th>OP_Tiempo_Set_Up</th>
+      <th>OP_Productividad_HH</th>
+      <th>...</th>
+      <th>RH_Horas_Capacitacion</th>
+      <th>RH_Productividad_Empleado</th>
+      <th>RH_Satisfaccion_Beneficios</th>
+      <th>RH_Tiempo_Contratacion</th>
+      <th>RH_Gasto_Nomina_Ventas</th>
+      <th>RH_Indice_Diversidad</th>
+      <th>RH_Promociones_Internas</th>
+      <th>RH_Evaluacion_Desempeno</th>
+      <th>RH_Accidentalidad_Laboral</th>
+      <th>RH_Antiguedad_Promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>OP_Ciclo_Produccion</th>
+      <td>1.002</td>
+      <td>0.901</td>
+      <td>0.899</td>
+      <td>0.902</td>
+      <td>0.901</td>
+      <td>0.895</td>
+      <td>0.890</td>
+      <td>0.895</td>
+      <td>0.897</td>
+      <td>0.901</td>
+      <td>...</td>
+      <td>0.020</td>
+      <td>0.027</td>
+      <td>0.024</td>
+      <td>0.043</td>
+      <td>0.042</td>
+      <td>0.037</td>
+      <td>0.019</td>
+      <td>0.043</td>
+      <td>0.030</td>
+      <td>0.062</td>
+    </tr>
+    <tr>
+      <th>OP_Tasa_Defectos</th>
+      <td>0.901</td>
+      <td>1.002</td>
+      <td>0.897</td>
+      <td>0.891</td>
+      <td>0.897</td>
+      <td>0.883</td>
+      <td>0.882</td>
+      <td>0.885</td>
+      <td>0.897</td>
+      <td>0.902</td>
+      <td>...</td>
+      <td>0.003</td>
+      <td>0.022</td>
+      <td>0.013</td>
+      <td>0.038</td>
+      <td>0.031</td>
+      <td>0.032</td>
+      <td>0.016</td>
+      <td>0.018</td>
+      <td>0.028</td>
+      <td>0.047</td>
+    </tr>
+    <tr>
+      <th>OP_Disponibilidad_Maq</th>
+      <td>0.899</td>
+      <td>0.897</td>
+      <td>1.002</td>
+      <td>0.895</td>
+      <td>0.902</td>
+      <td>0.895</td>
+      <td>0.896</td>
+      <td>0.904</td>
+      <td>0.905</td>
+      <td>0.906</td>
+      <td>...</td>
+      <td>0.023</td>
+      <td>0.031</td>
+      <td>0.036</td>
+      <td>0.060</td>
+      <td>0.049</td>
+      <td>0.039</td>
+      <td>0.022</td>
+      <td>0.038</td>
+      <td>0.045</td>
+      <td>0.073</td>
+    </tr>
+    <tr>
+      <th>OP_Costo_Unitario</th>
+      <td>0.902</td>
+      <td>0.891</td>
+      <td>0.895</td>
+      <td>1.002</td>
+      <td>0.897</td>
+      <td>0.901</td>
+      <td>0.906</td>
+      <td>0.905</td>
+      <td>0.900</td>
+      <td>0.906</td>
+      <td>...</td>
+      <td>0.030</td>
+      <td>0.045</td>
+      <td>0.041</td>
+      <td>0.048</td>
+      <td>0.055</td>
+      <td>0.037</td>
+      <td>0.016</td>
+      <td>0.038</td>
+      <td>0.044</td>
+      <td>0.075</td>
+    </tr>
+    <tr>
+      <th>OP_Merma_Materia_Prima</th>
+      <td>0.901</td>
+      <td>0.897</td>
+      <td>0.902</td>
+      <td>0.897</td>
+      <td>1.002</td>
+      <td>0.888</td>
+      <td>0.895</td>
+      <td>0.888</td>
+      <td>0.900</td>
+      <td>0.894</td>
+      <td>...</td>
+      <td>0.034</td>
+      <td>0.044</td>
+      <td>0.025</td>
+      <td>0.055</td>
+      <td>0.041</td>
+      <td>0.035</td>
+      <td>0.023</td>
+      <td>0.042</td>
+      <td>0.051</td>
+      <td>0.076</td>
+    </tr>
+    <tr>
+      <th>OP_Cumplimiento_Plan</th>
+      <td>0.895</td>
+      <td>0.883</td>
+      <td>0.895</td>
+      <td>0.901</td>
+      <td>0.888</td>
+      <td>1.002</td>
+      <td>0.888</td>
+      <td>0.894</td>
+      <td>0.895</td>
+      <td>0.889</td>
+      <td>...</td>
+      <td>0.001</td>
+      <td>0.007</td>
+      <td>0.007</td>
+      <td>0.030</td>
+      <td>0.030</td>
+      <td>0.018</td>
+      <td>0.011</td>
+      <td>0.014</td>
+      <td>0.013</td>
+      <td>0.043</td>
+    </tr>
+    <tr>
+      <th>OP_Eficiencia_Energetica</th>
+      <td>0.890</td>
+      <td>0.882</td>
+      <td>0.896</td>
+      <td>0.906</td>
+      <td>0.895</td>
+      <td>0.888</td>
+      <td>1.002</td>
+      <td>0.904</td>
+      <td>0.899</td>
+      <td>0.895</td>
+      <td>...</td>
+      <td>0.020</td>
+      <td>0.041</td>
+      <td>0.047</td>
+      <td>0.048</td>
+      <td>0.055</td>
+      <td>0.031</td>
+      <td>0.011</td>
+      <td>0.036</td>
+      <td>0.036</td>
+      <td>0.069</td>
+    </tr>
+    <tr>
+      <th>OP_Rotacion_Inventario</th>
+      <td>0.895</td>
+      <td>0.885</td>
+      <td>0.904</td>
+      <td>0.905</td>
+      <td>0.888</td>
+      <td>0.894</td>
+      <td>0.904</td>
+      <td>1.002</td>
+      <td>0.895</td>
+      <td>0.897</td>
+      <td>...</td>
+      <td>0.027</td>
+      <td>0.037</td>
+      <td>0.036</td>
+      <td>0.060</td>
+      <td>0.063</td>
+      <td>0.043</td>
+      <td>0.031</td>
+      <td>0.032</td>
+      <td>0.045</td>
+      <td>0.077</td>
+    </tr>
+    <tr>
+      <th>OP_Tiempo_Set_Up</th>
+      <td>0.897</td>
+      <td>0.897</td>
+      <td>0.905</td>
+      <td>0.900</td>
+      <td>0.900</td>
+      <td>0.895</td>
+      <td>0.899</td>
+      <td>0.895</td>
+      <td>1.002</td>
+      <td>0.898</td>
+      <td>...</td>
+      <td>0.020</td>
+      <td>0.028</td>
+      <td>0.025</td>
+      <td>0.046</td>
+      <td>0.045</td>
+      <td>0.031</td>
+      <td>0.006</td>
+      <td>0.032</td>
+      <td>0.038</td>
+      <td>0.067</td>
+    </tr>
+    <tr>
+      <th>OP_Productividad_HH</th>
+      <td>0.901</td>
+      <td>0.902</td>
+      <td>0.906</td>
+      <td>0.906</td>
+      <td>0.894</td>
+      <td>0.889</td>
+      <td>0.895</td>
+      <td>0.897</td>
+      <td>0.898</td>
+      <td>1.002</td>
+      <td>...</td>
+      <td>0.004</td>
+      <td>0.042</td>
+      <td>0.032</td>
+      <td>0.051</td>
+      <td>0.030</td>
+      <td>0.023</td>
+      <td>0.015</td>
+      <td>0.019</td>
+      <td>0.031</td>
+      <td>0.063</td>
+    </tr>
+    <tr>
+      <th>OP_Lead_Time_Prov</th>
+      <td>0.895</td>
+      <td>0.897</td>
+      <td>0.898</td>
+      <td>0.901</td>
+      <td>0.891</td>
+      <td>0.888</td>
+      <td>0.907</td>
+      <td>0.896</td>
+      <td>0.886</td>
+      <td>0.897</td>
+      <td>...</td>
+      <td>-0.003</td>
+      <td>0.013</td>
+      <td>0.013</td>
+      <td>0.025</td>
+      <td>0.010</td>
+      <td>0.016</td>
+      <td>0.001</td>
+      <td>0.022</td>
+      <td>0.013</td>
+      <td>0.051</td>
+    </tr>
+    <tr>
+      <th>OP_Capacidad_Utilizada</th>
+      <td>0.897</td>
+      <td>0.891</td>
+      <td>0.904</td>
+      <td>0.898</td>
+      <td>0.889</td>
+      <td>0.889</td>
+      <td>0.884</td>
+      <td>0.891</td>
+      <td>0.898</td>
+      <td>0.897</td>
+      <td>...</td>
+      <td>-0.001</td>
+      <td>0.013</td>
+      <td>0.012</td>
+      <td>0.029</td>
+      <td>0.027</td>
+      <td>0.019</td>
+      <td>-0.001</td>
+      <td>0.011</td>
+      <td>0.030</td>
+      <td>0.048</td>
+    </tr>
+    <tr>
+      <th>FIN_Margen_EBITDA</th>
+      <td>0.006</td>
+      <td>0.039</td>
+      <td>0.044</td>
+      <td>0.007</td>
+      <td>0.006</td>
+      <td>-0.000</td>
+      <td>0.035</td>
+      <td>0.038</td>
+      <td>0.035</td>
+      <td>0.032</td>
+      <td>...</td>
+      <td>-0.041</td>
+      <td>-0.035</td>
+      <td>-0.058</td>
+      <td>-0.003</td>
+      <td>-0.055</td>
+      <td>-0.051</td>
+      <td>-0.039</td>
+      <td>-0.053</td>
+      <td>-0.018</td>
+      <td>-0.022</td>
+    </tr>
+    <tr>
+      <th>FIN_ROI</th>
+      <td>-0.056</td>
+      <td>-0.024</td>
+      <td>-0.012</td>
+      <td>-0.055</td>
+      <td>-0.066</td>
+      <td>-0.059</td>
+      <td>-0.017</td>
+      <td>-0.034</td>
+      <td>-0.025</td>
+      <td>-0.030</td>
+      <td>...</td>
+      <td>-0.009</td>
+      <td>-0.008</td>
+      <td>-0.021</td>
+      <td>0.024</td>
+      <td>-0.054</td>
+      <td>-0.043</td>
+      <td>-0.032</td>
+      <td>-0.010</td>
+      <td>0.015</td>
+      <td>-0.017</td>
+    </tr>
+    <tr>
+      <th>FIN_Flujo_Caja_Libre</th>
+      <td>-0.057</td>
+      <td>-0.018</td>
+      <td>-0.029</td>
+      <td>-0.049</td>
+      <td>-0.058</td>
+      <td>-0.048</td>
+      <td>-0.017</td>
+      <td>-0.032</td>
+      <td>-0.021</td>
+      <td>-0.036</td>
+      <td>...</td>
+      <td>0.046</td>
+      <td>0.038</td>
+      <td>0.025</td>
+      <td>0.066</td>
+      <td>0.002</td>
+      <td>0.020</td>
+      <td>0.024</td>
+      <td>0.026</td>
+      <td>0.044</td>
+      <td>0.035</td>
+    </tr>
+    <tr>
+      <th>FIN_Apalancamiento</th>
+      <td>-0.053</td>
+      <td>-0.033</td>
+      <td>-0.031</td>
+      <td>-0.046</td>
+      <td>-0.049</td>
+      <td>-0.051</td>
+      <td>-0.018</td>
+      <td>-0.022</td>
+      <td>-0.024</td>
+      <td>-0.026</td>
+      <td>...</td>
+      <td>0.014</td>
+      <td>0.020</td>
+      <td>-0.004</td>
+      <td>0.037</td>
+      <td>-0.016</td>
+      <td>-0.005</td>
+      <td>0.007</td>
+      <td>0.018</td>
+      <td>0.048</td>
+      <td>0.026</td>
+    </tr>
+    <tr>
+      <th>FIN_Dias_Cuentas_Cobrar</th>
+      <td>-0.037</td>
+      <td>0.000</td>
+      <td>0.010</td>
+      <td>-0.026</td>
+      <td>-0.021</td>
+      <td>-0.031</td>
+      <td>0.004</td>
+      <td>0.007</td>
+      <td>0.014</td>
+      <td>-0.006</td>
+      <td>...</td>
+      <td>-0.001</td>
+      <td>0.013</td>
+      <td>-0.008</td>
+      <td>0.035</td>
+      <td>-0.025</td>
+      <td>-0.016</td>
+      <td>-0.002</td>
+      <td>0.005</td>
+      <td>0.021</td>
+      <td>0.022</td>
+    </tr>
+    <tr>
+      <th>FIN_Dias_Pago_Prov</th>
+      <td>-0.052</td>
+      <td>-0.035</td>
+      <td>-0.026</td>
+      <td>-0.045</td>
+      <td>-0.055</td>
+      <td>-0.063</td>
+      <td>-0.036</td>
+      <td>-0.027</td>
+      <td>-0.028</td>
+      <td>-0.045</td>
+      <td>...</td>
+      <td>-0.005</td>
+      <td>-0.001</td>
+      <td>-0.032</td>
+      <td>0.027</td>
+      <td>-0.044</td>
+      <td>-0.040</td>
+      <td>-0.022</td>
+      <td>-0.004</td>
+      <td>0.025</td>
+      <td>-0.003</td>
+    </tr>
+    <tr>
+      <th>FIN_Costo_Capital_WACC</th>
+      <td>-0.032</td>
+      <td>-0.014</td>
+      <td>-0.007</td>
+      <td>-0.028</td>
+      <td>-0.039</td>
+      <td>-0.032</td>
+      <td>-0.005</td>
+      <td>-0.023</td>
+      <td>-0.002</td>
+      <td>-0.015</td>
+      <td>...</td>
+      <td>-0.001</td>
+      <td>0.008</td>
+      <td>-0.008</td>
+      <td>0.039</td>
+      <td>-0.023</td>
+      <td>-0.012</td>
+      <td>-0.015</td>
+      <td>0.002</td>
+      <td>0.033</td>
+      <td>0.022</td>
+    </tr>
+    <tr>
+      <th>FIN_Margen_Neto</th>
+      <td>-0.060</td>
+      <td>-0.037</td>
+      <td>-0.030</td>
+      <td>-0.062</td>
+      <td>-0.068</td>
+      <td>-0.059</td>
+      <td>-0.026</td>
+      <td>-0.033</td>
+      <td>-0.019</td>
+      <td>-0.042</td>
+      <td>...</td>
+      <td>-0.004</td>
+      <td>-0.007</td>
+      <td>-0.027</td>
+      <td>0.015</td>
+      <td>-0.038</td>
+      <td>-0.030</td>
+      <td>-0.001</td>
+      <td>-0.011</td>
+      <td>-0.010</td>
+      <td>0.011</td>
+    </tr>
+    <tr>
+      <th>FIN_Ratio_Liquidez</th>
+      <td>-0.037</td>
+      <td>-0.001</td>
+      <td>0.003</td>
+      <td>-0.027</td>
+      <td>-0.032</td>
+      <td>-0.030</td>
+      <td>0.002</td>
+      <td>-0.015</td>
+      <td>0.022</td>
+      <td>-0.013</td>
+      <td>...</td>
+      <td>0.002</td>
+      <td>0.013</td>
+      <td>-0.026</td>
+      <td>0.026</td>
+      <td>-0.036</td>
+      <td>-0.034</td>
+      <td>-0.015</td>
+      <td>-0.006</td>
+      <td>0.019</td>
+      <td>0.011</td>
+    </tr>
+    <tr>
+      <th>FIN_Variacion_Gastos_Adm</th>
+      <td>-0.010</td>
+      <td>0.002</td>
+      <td>0.012</td>
+      <td>-0.015</td>
+      <td>-0.002</td>
+      <td>-0.005</td>
+      <td>0.037</td>
+      <td>0.011</td>
+      <td>0.017</td>
+      <td>0.020</td>
+      <td>...</td>
+      <td>-0.009</td>
+      <td>0.010</td>
+      <td>-0.030</td>
+      <td>0.018</td>
+      <td>-0.044</td>
+      <td>-0.024</td>
+      <td>-0.003</td>
+      <td>-0.015</td>
+      <td>-0.010</td>
+      <td>-0.002</td>
+    </tr>
+    <tr>
+      <th>FIN_Punto_Equilibrio</th>
+      <td>-0.066</td>
+      <td>-0.033</td>
+      <td>-0.031</td>
+      <td>-0.068</td>
+      <td>-0.060</td>
+      <td>-0.062</td>
+      <td>-0.015</td>
+      <td>-0.042</td>
+      <td>-0.017</td>
+      <td>-0.040</td>
+      <td>...</td>
+      <td>-0.015</td>
+      <td>-0.010</td>
+      <td>-0.031</td>
+      <td>0.008</td>
+      <td>-0.045</td>
+      <td>-0.033</td>
+      <td>-0.024</td>
+      <td>-0.016</td>
+      <td>-0.000</td>
+      <td>-0.018</td>
+    </tr>
+    <tr>
+      <th>FIN_EBIT</th>
+      <td>-0.031</td>
+      <td>0.005</td>
+      <td>0.012</td>
+      <td>-0.032</td>
+      <td>-0.020</td>
+      <td>-0.022</td>
+      <td>0.008</td>
+      <td>0.005</td>
+      <td>0.004</td>
+      <td>0.005</td>
+      <td>...</td>
+      <td>-0.001</td>
+      <td>0.017</td>
+      <td>-0.019</td>
+      <td>0.028</td>
+      <td>-0.031</td>
+      <td>-0.012</td>
+      <td>-0.004</td>
+      <td>-0.006</td>
+      <td>0.031</td>
+      <td>0.015</td>
+    </tr>
+    <tr>
+      <th>FIN_Costo_Deuda</th>
+      <td>-0.033</td>
+      <td>-0.003</td>
+      <td>-0.007</td>
+      <td>-0.021</td>
+      <td>-0.030</td>
+      <td>-0.042</td>
+      <td>0.008</td>
+      <td>-0.016</td>
+      <td>-0.000</td>
+      <td>0.002</td>
+      <td>...</td>
+      <td>-0.002</td>
+      <td>-0.026</td>
+      <td>-0.026</td>
+      <td>0.011</td>
+      <td>-0.044</td>
+      <td>-0.032</td>
+      <td>-0.022</td>
+      <td>-0.017</td>
+      <td>-0.006</td>
+      <td>-0.006</td>
+    </tr>
+    <tr>
+      <th>MKT_NPS</th>
+      <td>-0.015</td>
+      <td>-0.026</td>
+      <td>-0.008</td>
+      <td>-0.021</td>
+      <td>-0.015</td>
+      <td>-0.026</td>
+      <td>-0.024</td>
+      <td>0.020</td>
+      <td>-0.014</td>
+      <td>-0.020</td>
+      <td>...</td>
+      <td>0.003</td>
+      <td>-0.010</td>
+      <td>0.025</td>
+      <td>-0.006</td>
+      <td>0.012</td>
+      <td>0.039</td>
+      <td>-0.029</td>
+      <td>0.019</td>
+      <td>0.030</td>
+      <td>0.021</td>
+    </tr>
+    <tr>
+      <th>MKT_CAC</th>
+      <td>-0.014</td>
+      <td>-0.024</td>
+      <td>-0.015</td>
+      <td>-0.011</td>
+      <td>-0.008</td>
+      <td>-0.019</td>
+      <td>-0.023</td>
+      <td>0.003</td>
+      <td>-0.003</td>
+      <td>-0.023</td>
+      <td>...</td>
+      <td>-0.042</td>
+      <td>-0.048</td>
+      <td>-0.040</td>
+      <td>-0.040</td>
+      <td>-0.035</td>
+      <td>-0.018</td>
+      <td>-0.072</td>
+      <td>-0.026</td>
+      <td>-0.015</td>
+      <td>-0.042</td>
+    </tr>
+    <tr>
+      <th>MKT_LTV</th>
+      <td>-0.025</td>
+      <td>-0.041</td>
+      <td>-0.034</td>
+      <td>-0.039</td>
+      <td>-0.028</td>
+      <td>-0.048</td>
+      <td>-0.031</td>
+      <td>-0.021</td>
+      <td>-0.046</td>
+      <td>-0.036</td>
+      <td>...</td>
+      <td>-0.051</td>
+      <td>-0.051</td>
+      <td>-0.041</td>
+      <td>-0.049</td>
+      <td>-0.039</td>
+      <td>-0.046</td>
+      <td>-0.068</td>
+      <td>-0.043</td>
+      <td>0.005</td>
+      <td>-0.030</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Churn</th>
+      <td>-0.006</td>
+      <td>-0.020</td>
+      <td>-0.016</td>
+      <td>-0.017</td>
+      <td>-0.008</td>
+      <td>-0.021</td>
+      <td>-0.008</td>
+      <td>0.009</td>
+      <td>-0.016</td>
+      <td>-0.014</td>
+      <td>...</td>
+      <td>0.033</td>
+      <td>0.029</td>
+      <td>0.040</td>
+      <td>0.030</td>
+      <td>0.026</td>
+      <td>0.038</td>
+      <td>0.006</td>
+      <td>0.060</td>
+      <td>0.063</td>
+      <td>0.030</td>
+    </tr>
+    <tr>
+      <th>MKT_Conversion_Lead</th>
+      <td>-0.027</td>
+      <td>-0.039</td>
+      <td>-0.024</td>
+      <td>-0.027</td>
+      <td>-0.022</td>
+      <td>-0.021</td>
+      <td>-0.049</td>
+      <td>0.006</td>
+      <td>-0.033</td>
+      <td>-0.024</td>
+      <td>...</td>
+      <td>0.027</td>
+      <td>0.003</td>
+      <td>0.031</td>
+      <td>0.039</td>
+      <td>0.014</td>
+      <td>0.042</td>
+      <td>-0.010</td>
+      <td>0.031</td>
+      <td>0.064</td>
+      <td>0.030</td>
+    </tr>
+    <tr>
+      <th>MKT_Market_Share</th>
+      <td>-0.034</td>
+      <td>-0.047</td>
+      <td>-0.045</td>
+      <td>-0.050</td>
+      <td>-0.035</td>
+      <td>-0.072</td>
+      <td>-0.056</td>
+      <td>-0.021</td>
+      <td>-0.042</td>
+      <td>-0.053</td>
+      <td>...</td>
+      <td>-0.004</td>
+      <td>-0.029</td>
+      <td>-0.009</td>
+      <td>-0.005</td>
+      <td>0.005</td>
+      <td>-0.004</td>
+      <td>-0.034</td>
+      <td>-0.009</td>
+      <td>0.011</td>
+      <td>0.018</td>
+    </tr>
+    <tr>
+      <th>MKT_Ticket_Promedio</th>
+      <td>0.030</td>
+      <td>0.008</td>
+      <td>0.024</td>
+      <td>0.025</td>
+      <td>0.036</td>
+      <td>0.022</td>
+      <td>0.032</td>
+      <td>0.050</td>
+      <td>0.031</td>
+      <td>0.020</td>
+      <td>...</td>
+      <td>-0.000</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>-0.004</td>
+      <td>0.011</td>
+      <td>0.037</td>
+      <td>-0.035</td>
+      <td>0.012</td>
+      <td>0.039</td>
+      <td>0.021</td>
+    </tr>
+    <tr>
+      <th>MKT_Reclamaciones_QRS</th>
+      <td>0.008</td>
+      <td>-0.012</td>
+      <td>0.007</td>
+      <td>0.002</td>
+      <td>0.026</td>
+      <td>-0.007</td>
+      <td>-0.002</td>
+      <td>0.034</td>
+      <td>0.013</td>
+      <td>0.005</td>
+      <td>...</td>
+      <td>0.004</td>
+      <td>-0.022</td>
+      <td>-0.012</td>
+      <td>-0.005</td>
+      <td>-0.005</td>
+      <td>0.018</td>
+      <td>-0.035</td>
+      <td>0.005</td>
+      <td>0.028</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <th>MKT_Reconocimiento_Marca</th>
+      <td>-0.008</td>
+      <td>-0.028</td>
+      <td>-0.023</td>
+      <td>-0.017</td>
+      <td>-0.010</td>
+      <td>-0.037</td>
+      <td>-0.016</td>
+      <td>0.002</td>
+      <td>-0.004</td>
+      <td>-0.034</td>
+      <td>...</td>
+      <td>0.031</td>
+      <td>0.005</td>
+      <td>0.017</td>
+      <td>0.012</td>
+      <td>0.020</td>
+      <td>0.048</td>
+      <td>-0.022</td>
+      <td>0.038</td>
+      <td>0.050</td>
+      <td>0.053</td>
+    </tr>
+    <tr>
+      <th>MKT_Costo_Por_Click</th>
+      <td>0.030</td>
+      <td>0.013</td>
+      <td>0.031</td>
+      <td>0.037</td>
+      <td>0.041</td>
+      <td>-0.004</td>
+      <td>0.027</td>
+      <td>0.057</td>
+      <td>0.023</td>
+      <td>0.031</td>
+      <td>...</td>
+      <td>0.006</td>
+      <td>-0.021</td>
+      <td>-0.002</td>
+      <td>-0.013</td>
+      <td>-0.014</td>
+      <td>-0.005</td>
+      <td>-0.043</td>
+      <td>-0.002</td>
+      <td>0.018</td>
+      <td>0.021</td>
+    </tr>
+    <tr>
+      <th>MKT_Frecuencia_Compra</th>
+      <td>-0.036</td>
+      <td>-0.041</td>
+      <td>-0.028</td>
+      <td>-0.037</td>
+      <td>-0.033</td>
+      <td>-0.048</td>
+      <td>-0.047</td>
+      <td>-0.002</td>
+      <td>-0.021</td>
+      <td>-0.041</td>
+      <td>...</td>
+      <td>0.019</td>
+      <td>0.004</td>
+      <td>0.011</td>
+      <td>0.002</td>
+      <td>-0.000</td>
+      <td>0.020</td>
+      <td>-0.005</td>
+      <td>0.026</td>
+      <td>0.056</td>
+      <td>0.027</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Recomendacion</th>
+      <td>-0.012</td>
+      <td>-0.030</td>
+      <td>-0.020</td>
+      <td>-0.006</td>
+      <td>-0.009</td>
+      <td>-0.027</td>
+      <td>-0.029</td>
+      <td>0.004</td>
+      <td>-0.015</td>
+      <td>-0.042</td>
+      <td>...</td>
+      <td>0.004</td>
+      <td>-0.023</td>
+      <td>-0.018</td>
+      <td>-0.015</td>
+      <td>-0.011</td>
+      <td>-0.016</td>
+      <td>-0.042</td>
+      <td>-0.003</td>
+      <td>0.014</td>
+      <td>-0.011</td>
+    </tr>
+    <tr>
+      <th>RH_Indice_Clima</th>
+      <td>0.052</td>
+      <td>0.045</td>
+      <td>0.062</td>
+      <td>0.062</td>
+      <td>0.058</td>
+      <td>0.034</td>
+      <td>0.063</td>
+      <td>0.059</td>
+      <td>0.050</td>
+      <td>0.052</td>
+      <td>...</td>
+      <td>0.877</td>
+      <td>0.860</td>
+      <td>0.858</td>
+      <td>0.883</td>
+      <td>0.879</td>
+      <td>0.873</td>
+      <td>0.878</td>
+      <td>0.863</td>
+      <td>0.875</td>
+      <td>0.871</td>
+    </tr>
+    <tr>
+      <th>RH_Tasa_Rotacion</th>
+      <td>0.036</td>
+      <td>0.030</td>
+      <td>0.034</td>
+      <td>0.042</td>
+      <td>0.038</td>
+      <td>0.014</td>
+      <td>0.050</td>
+      <td>0.043</td>
+      <td>0.035</td>
+      <td>0.025</td>
+      <td>...</td>
+      <td>0.866</td>
+      <td>0.873</td>
+      <td>0.872</td>
+      <td>0.889</td>
+      <td>0.874</td>
+      <td>0.882</td>
+      <td>0.872</td>
+      <td>0.870</td>
+      <td>0.873</td>
+      <td>0.866</td>
+    </tr>
+    <tr>
+      <th>RH_Ausentismo</th>
+      <td>0.033</td>
+      <td>0.031</td>
+      <td>0.052</td>
+      <td>0.043</td>
+      <td>0.048</td>
+      <td>0.023</td>
+      <td>0.044</td>
+      <td>0.047</td>
+      <td>0.034</td>
+      <td>0.029</td>
+      <td>...</td>
+      <td>0.884</td>
+      <td>0.870</td>
+      <td>0.876</td>
+      <td>0.891</td>
+      <td>0.891</td>
+      <td>0.878</td>
+      <td>0.887</td>
+      <td>0.877</td>
+      <td>0.870</td>
+      <td>0.877</td>
+    </tr>
+    <tr>
+      <th>RH_Horas_Capacitacion</th>
+      <td>0.020</td>
+      <td>0.003</td>
+      <td>0.023</td>
+      <td>0.030</td>
+      <td>0.034</td>
+      <td>0.001</td>
+      <td>0.020</td>
+      <td>0.027</td>
+      <td>0.020</td>
+      <td>0.004</td>
+      <td>...</td>
+      <td>1.002</td>
+      <td>0.860</td>
+      <td>0.861</td>
+      <td>0.887</td>
+      <td>0.879</td>
+      <td>0.876</td>
+      <td>0.877</td>
+      <td>0.865</td>
+      <td>0.877</td>
+      <td>0.872</td>
+    </tr>
+    <tr>
+      <th>RH_Productividad_Empleado</th>
+      <td>0.027</td>
+      <td>0.022</td>
+      <td>0.031</td>
+      <td>0.045</td>
+      <td>0.044</td>
+      <td>0.007</td>
+      <td>0.041</td>
+      <td>0.037</td>
+      <td>0.028</td>
+      <td>0.042</td>
+      <td>...</td>
+      <td>0.860</td>
+      <td>1.002</td>
+      <td>0.865</td>
+      <td>0.889</td>
+      <td>0.865</td>
+      <td>0.866</td>
+      <td>0.874</td>
+      <td>0.875</td>
+      <td>0.866</td>
+      <td>0.865</td>
+    </tr>
+    <tr>
+      <th>RH_Satisfaccion_Beneficios</th>
+      <td>0.024</td>
+      <td>0.013</td>
+      <td>0.036</td>
+      <td>0.041</td>
+      <td>0.025</td>
+      <td>0.007</td>
+      <td>0.047</td>
+      <td>0.036</td>
+      <td>0.025</td>
+      <td>0.032</td>
+      <td>...</td>
+      <td>0.861</td>
+      <td>0.865</td>
+      <td>1.002</td>
+      <td>0.871</td>
+      <td>0.872</td>
+      <td>0.867</td>
+      <td>0.867</td>
+      <td>0.863</td>
+      <td>0.858</td>
+      <td>0.855</td>
+    </tr>
+    <tr>
+      <th>RH_Tiempo_Contratacion</th>
+      <td>0.043</td>
+      <td>0.038</td>
+      <td>0.060</td>
+      <td>0.048</td>
+      <td>0.055</td>
+      <td>0.030</td>
+      <td>0.048</td>
+      <td>0.060</td>
+      <td>0.046</td>
+      <td>0.051</td>
+      <td>...</td>
+      <td>0.887</td>
+      <td>0.889</td>
+      <td>0.871</td>
+      <td>1.002</td>
+      <td>0.896</td>
+      <td>0.888</td>
+      <td>0.886</td>
+      <td>0.880</td>
+      <td>0.895</td>
+      <td>0.878</td>
+    </tr>
+    <tr>
+      <th>RH_Gasto_Nomina_Ventas</th>
+      <td>0.042</td>
+      <td>0.031</td>
+      <td>0.049</td>
+      <td>0.055</td>
+      <td>0.041</td>
+      <td>0.030</td>
+      <td>0.055</td>
+      <td>0.063</td>
+      <td>0.045</td>
+      <td>0.030</td>
+      <td>...</td>
+      <td>0.879</td>
+      <td>0.865</td>
+      <td>0.872</td>
+      <td>0.896</td>
+      <td>1.002</td>
+      <td>0.896</td>
+      <td>0.899</td>
+      <td>0.874</td>
+      <td>0.882</td>
+      <td>0.879</td>
+    </tr>
+    <tr>
+      <th>RH_Indice_Diversidad</th>
+      <td>0.037</td>
+      <td>0.032</td>
+      <td>0.039</td>
+      <td>0.037</td>
+      <td>0.035</td>
+      <td>0.018</td>
+      <td>0.031</td>
+      <td>0.043</td>
+      <td>0.031</td>
+      <td>0.023</td>
+      <td>...</td>
+      <td>0.876</td>
+      <td>0.866</td>
+      <td>0.867</td>
+      <td>0.888</td>
+      <td>0.896</td>
+      <td>1.002</td>
+      <td>0.880</td>
+      <td>0.877</td>
+      <td>0.872</td>
+      <td>0.869</td>
+    </tr>
+    <tr>
+      <th>RH_Promociones_Internas</th>
+      <td>0.019</td>
+      <td>0.016</td>
+      <td>0.022</td>
+      <td>0.016</td>
+      <td>0.023</td>
+      <td>0.011</td>
+      <td>0.011</td>
+      <td>0.031</td>
+      <td>0.006</td>
+      <td>0.015</td>
+      <td>...</td>
+      <td>0.877</td>
+      <td>0.874</td>
+      <td>0.867</td>
+      <td>0.886</td>
+      <td>0.899</td>
+      <td>0.880</td>
+      <td>1.002</td>
+      <td>0.862</td>
+      <td>0.878</td>
+      <td>0.867</td>
+    </tr>
+    <tr>
+      <th>RH_Evaluacion_Desempeno</th>
+      <td>0.043</td>
+      <td>0.018</td>
+      <td>0.038</td>
+      <td>0.038</td>
+      <td>0.042</td>
+      <td>0.014</td>
+      <td>0.036</td>
+      <td>0.032</td>
+      <td>0.032</td>
+      <td>0.019</td>
+      <td>...</td>
+      <td>0.865</td>
+      <td>0.875</td>
+      <td>0.863</td>
+      <td>0.880</td>
+      <td>0.874</td>
+      <td>0.877</td>
+      <td>0.862</td>
+      <td>1.002</td>
+      <td>0.869</td>
+      <td>0.864</td>
+    </tr>
+    <tr>
+      <th>RH_Accidentalidad_Laboral</th>
+      <td>0.030</td>
+      <td>0.028</td>
+      <td>0.045</td>
+      <td>0.044</td>
+      <td>0.051</td>
+      <td>0.013</td>
+      <td>0.036</td>
+      <td>0.045</td>
+      <td>0.038</td>
+      <td>0.031</td>
+      <td>...</td>
+      <td>0.877</td>
+      <td>0.866</td>
+      <td>0.858</td>
+      <td>0.895</td>
+      <td>0.882</td>
+      <td>0.872</td>
+      <td>0.878</td>
+      <td>0.869</td>
+      <td>1.002</td>
+      <td>0.862</td>
+    </tr>
+    <tr>
+      <th>RH_Antiguedad_Promedio</th>
+      <td>0.062</td>
+      <td>0.047</td>
+      <td>0.073</td>
+      <td>0.075</td>
+      <td>0.076</td>
+      <td>0.043</td>
+      <td>0.069</td>
+      <td>0.077</td>
+      <td>0.067</td>
+      <td>0.063</td>
+      <td>...</td>
+      <td>0.872</td>
+      <td>0.865</td>
+      <td>0.855</td>
+      <td>0.878</td>
+      <td>0.879</td>
+      <td>0.869</td>
+      <td>0.867</td>
+      <td>0.864</td>
+      <td>0.862</td>
+      <td>1.002</td>
+    </tr>
+  </tbody>
+</table>
+<p>50 rows × 50 columns</p>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_22_2.png" src="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_22_2.png" />
+</div>
+</div>
+</section>
+<section id="Paso-4:-Extracción-de-Autovalores-y-Autovectores">
+<h4>Paso 4: Extracción de Autovalores y Autovectores<a class="headerlink" href="#Paso-4:-Extracción-de-Autovalores-y-Autovectores" title="Link to this heading">#</a></h4>
+<p>Aquí es donde ocurre la «magia» matemática:</p>
+<p>Autovectores (Principal Components): Son las nuevas direcciones (ejes). El PC1 es la dirección que captura la mayor cantidad de dispersión de los datos.</p>
+<p>Autovalores (Eigenvalues): Representan la «cantidad» de varianza que retiene cada componente. Un autovalor alto significa que ese componente es muy informativo.</p>
+<p>En nuestro ejemplo ilustativo <strong>si el PCA es una máquina de simplificar, los autovectores son las direcciones en las que se mueve el negocio y los autovalores son la fuerza o importancia de cada dirección.</strong></p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p><strong>El Concepto de «Eje»</strong></p></li>
+</ol>
+</li>
+</ul>
+<p>Imagina que tienes una nube de puntos que representa la relación entre Ventas y Gasto en Publicidad. Generalmente, verás una forma alargada (como un balón de fútbol americano).</p>
+<ul class="simple">
+<li><p><strong>El Autovector:</strong> Es la flecha que atraviesa el balón por su parte más larga. Nos indica la «dirección» principal de los datos.</p></li>
+<li><p><strong>El Autovalor:</strong> Es un número que nos dice qué tan largo es ese balón en esa dirección. Si el número es grande, esa dirección explica mucha información (varianza).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>¿Qué es un Autovector? (La Dirección):</strong></p></li>
+</ol>
+<p>En el contexto de tus 50 KPIs, un autovector es una combinación lineal de las variables originales.</p>
+<p>Matemáticamente, un autovector <span class="math notranslate nohighlight">\(v\)</span> de una matriz <span class="math notranslate nohighlight">\(A\)</span> cumple que:</p>
+<div class="math notranslate nohighlight">
+\[A \cdot v = \lambda \cdot v\]</div>
+<p>Al multiplicar la matriz de datos por el autovector, la dirección no cambia, solo se estira o encoge.</p>
+<p>El primer autovector (<span class="math notranslate nohighlight">\(PC_1\)</span>) será la dirección que capture la mayor variabilidad de la empresa. Si este autovector tiene pesos altos en KPIs de Finanzas, significa que la mayor diferencia entre tu unidades es de origen financiero.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>¿Qué es un Autovalor? (La Importancia):</strong></p></li>
+</ol>
+<p>Cada autovector tiene un autovalor asociado (<span class="math notranslate nohighlight">\(\lambda\)</span>). En el PCA, el autovalor representa la cantidad de varianza capturada por ese componente.Suma de Autovalores: La suma de todos los autovalores es igual a la varianza total de los datos originales.Cálculo de Importancia: Para saber cuánto explica el Componente 1, dividimos su autovalor por la suma total:</p>
+<div class="math notranslate nohighlight">
+\[\% \text{Varianza Explicada} = \frac{\lambda_i}{\sum \lambda} \times 100\]</div>
+<p>Ejemplo Real: Si el autovalor del Componente 1 es 15 y la suma de todos los autovalores de los 50 KPIs es 50, entonces el primer componente explica el 30% de todo lo que sucede en la empresa.</p>
+<p><img alt="autovalor_autovector.jpeg" src="../../_images/autovalor_autovector.jpeg" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extracción de autovalores y autovectores de la matriz de covarianzas</span>
+<span class="n">autovalores</span><span class="p">,</span> <span class="n">autovectores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">matriz_covarianza</span><span class="p">)</span>
+
+<span class="c1"># Ordenar en orden descendente</span>
+<span class="n">orden</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">autovalores</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">autovalores_ordenados</span> <span class="o">=</span> <span class="n">autovalores</span><span class="p">[</span><span class="n">orden</span><span class="p">]</span>
+<span class="n">autovectores_ordenados</span> <span class="o">=</span> <span class="n">autovectores</span><span class="p">[:,</span> <span class="n">orden</span><span class="p">]</span>
+
+<span class="c1"># Crear DataFrame para visualizar los autovalores</span>
+<span class="n">df_autovalores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Componente&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">autovalores_ordenados</span><span class="p">))],</span>
+    <span class="s1">&#39;Autovalor&#39;</span><span class="p">:</span> <span class="n">autovalores_ordenados</span><span class="p">,</span>
+    <span class="s1">&#39;Varianza_Explicada_%&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">autovalores_ordenados</span> <span class="o">/</span> <span class="n">autovalores_ordenados</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s1">&#39;Varianza_Acumulada_%&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">((</span><span class="n">autovalores_ordenados</span> <span class="o">/</span> <span class="n">autovalores_ordenados</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_autovalores</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+
+<span class="c1"># Visualización: Scree Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Gráfico 1: Varianza explicada por componente</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Componente&#39;</span><span class="p">][:</span><span class="mi">15</span><span class="p">],</span> <span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Varianza_Explicada_%&#39;</span><span class="p">][:</span><span class="mi">15</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Componente Principal&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Varianza Explicada (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scree Plot: Varianza Explicada por Componente&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -753,98 +3511,351 @@ dtype: float64
     <tr style="text-align: right;">
       <th></th>
       <th>Componente</th>
-      <th>Varianza explicada</th>
-      <th>Varianza acumulada</th>
+      <th>Autovalor</th>
+      <th>Varianza_Explicada_%</th>
+      <th>Varianza_Acumulada_%</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>PC1</td>
-      <td>0.604607</td>
-      <td>0.604607</td>
+      <td>11.759578</td>
+      <td>23.469328</td>
+      <td>23.469328</td>
     </tr>
     <tr>
       <th>1</th>
       <td>PC2</td>
-      <td>0.352627</td>
-      <td>0.957234</td>
+      <td>10.833103</td>
+      <td>21.620304</td>
+      <td>45.089632</td>
     </tr>
     <tr>
       <th>2</th>
       <td>PC3</td>
-      <td>0.042766</td>
-      <td>1.000000</td>
+      <td>10.451976</td>
+      <td>20.859663</td>
+      <td>65.949295</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PC4</td>
+      <td>8.812230</td>
+      <td>17.587120</td>
+      <td>83.536416</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PC5</td>
+      <td>0.377182</td>
+      <td>0.752765</td>
+      <td>84.289181</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>PC6</td>
+      <td>0.369973</td>
+      <td>0.738378</td>
+      <td>85.027559</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PC7</td>
+      <td>0.351726</td>
+      <td>0.701961</td>
+      <td>85.729520</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>PC8</td>
+      <td>0.335104</td>
+      <td>0.668788</td>
+      <td>86.398308</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>PC9</td>
+      <td>0.326007</td>
+      <td>0.650632</td>
+      <td>87.048940</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>PC10</td>
+      <td>0.321398</td>
+      <td>0.641434</td>
+      <td>87.690374</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>PC11</td>
+      <td>0.305301</td>
+      <td>0.609309</td>
+      <td>88.299683</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>PC12</td>
+      <td>0.299940</td>
+      <td>0.598608</td>
+      <td>88.898291</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>PC13</td>
+      <td>0.279195</td>
+      <td>0.557208</td>
+      <td>89.455499</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>PC14</td>
+      <td>0.267284</td>
+      <td>0.533436</td>
+      <td>89.988935</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>PC15</td>
+      <td>0.252557</td>
+      <td>0.504044</td>
+      <td>90.492979</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_26_1.png" src="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_26_1.png" />
+</div>
+</div>
+</section>
+<section id="Paso-5:-Selección-del-Número-de-Componentes">
+<h4>Paso 5: Selección del Número de Componentes<a class="headerlink" href="#Paso-5:-Selección-del-Número-de-Componentes" title="Link to this heading">#</a></h4>
+<p>No queremos pasar de 50 variables a 50 componentes (no estaríamos resumiendo nada). Usamos dos criterios:Criterio de Kaiser: Mantener solo componentes con autovalores <span class="math notranslate nohighlight">\(&gt; 1\)</span>.Gráfico de Sedimentación (Scree Plot): Buscamos el «punto de codo» donde la varianza explicada deja de caer drásticamente.Varianza Acumulada: Normalmente se busca retener entre el 70% y el 90% de la varianza total.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_acum</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">var_acum</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;95% varianza&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_acum</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Número de componentes&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Varianza acumulada explicada&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Selección de número de componentes en PCA&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico 2: Varianza acumulada</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Forzar el codo en el PC4 (índice 3)</span>
+<span class="n">codo_idx</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">var_acum</span> <span class="o">=</span> <span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Varianza_Acumulada_%&#39;</span><span class="p">][:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Componente&#39;</span><span class="p">][:</span><span class="mi">15</span><span class="p">],</span> <span class="n">var_acum</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Varianza acumulada&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;80% Varianza&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;90% Varianza&#39;</span><span class="p">)</span>
+
+<span class="c1"># Marcar el codo en PC4</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Componente&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">codo_idx</span><span class="p">],</span> <span class="n">var_acum</span><span class="p">[</span><span class="n">codo_idx</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Codo (PC4)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Codo: </span><span class="si">{</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s2">&quot;Componente&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">codo_idx</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Componente&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">codo_idx</span><span class="p">],</span> <span class="n">var_acum</span><span class="p">[</span><span class="n">codo_idx</span><span class="p">]),</span>
+            <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Componente Principal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Varianza Acumulada (%)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Varianza Acumulada Explicada&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Algunos insights:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de componentes para explicar 80% de varianza: </span><span class="si">{</span><span class="p">(</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Varianza_Acumulada_%&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de componentes para explicar 90% de varianza: </span><span class="si">{</span><span class="p">(</span><span class="n">df_autovalores</span><span class="p">[</span><span class="s1">&#39;Varianza_Acumulada_%&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_28_0.png" src="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_28_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_14_0.png" src="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_14_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proyección en dos componentes para visualización</span>
-<span class="n">pca_2</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">X_2d</span> <span class="o">=</span> <span class="n">pca_2</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_std</span><span class="p">)</span>
+<div class="highlight"><pre>
 
-<span class="n">df_pca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_2d</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
-<span class="n">df_pca</span><span class="p">[</span><span class="s1">&#39;grupo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;grupo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_pca</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PC2&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;grupo&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Observaciones proyectadas en PC1 y PC2&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+Algunos insights:
+Número de componentes para explicar 80% de varianza: 4
+Número de componentes para explicar 90% de varianza: 15
+</pre></div></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_15_0.png" src="../../_images/analisis_datos_analisis_multivariado_1_distancias_pca_multivariado_15_0.png" />
-</div>
-</div>
+</section>
+<section id="Paso-6:-Interpretación-de-Cargas-(Loadings)">
+<h4>Paso 6: Interpretación de Cargas (Loadings)<a class="headerlink" href="#Paso-6:-Interpretación-de-Cargas-(Loadings)" title="Link to this heading">#</a></h4>
+<p>Este es el paso final para el modelador. Debes mirar qué variables originales «pesan» más en cada componente.</p>
+<p>Ejemplo: Si el PC1 tiene pesos altos en «Ventas», «Nuevos Clientes» y «Market Share», puedes bautizar al PC1 como «Crecimiento de Mercado».</p>
+<p><strong>¿que pasó en nuestro ejemplo?</strong></p>
+<p>Para interpretar las cargas de los cuatro primeros componentes principales (PCA), debes observar los pesos (coeficientes) de cada variable original en cada componente. Estos valores indican qué tanto contribuye cada variable a cada componente:</p>
+<p>Un valor alto (positivo o negativo) significa que la variable tiene mucha influencia en ese componente. Si varias variables de un mismo grupo (por ejemplo, KPIs de operaciones) tienen cargas altas en un componente, ese componente resume la información de ese grupo.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargas (loadings): contribución de variables originales a cada componente</span>
-<span class="n">loadings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-    <span class="n">index</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">))]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resumen de las cargas (loadings) de los 4 primeros componentes principales</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># DataFrame de cargas: filas=variables, columnas=componentes</span>
+<span class="n">cargas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">autovectores_ordenados</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">df_kpis_estandarizado</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
 <span class="p">)</span>
-<span class="n">loadings</span>
+
+<span class="c1"># Mostrar las 5 variables con mayor valor absoluto en cada componente</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Variables más importantes en </span><span class="si">{</span><span class="n">pc</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">cargas</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<br/><br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Variables más importantes en PC1:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+RH_Gasto_Nomina_Ventas    0.243377
+RH_Ausentismo             0.241616
+RH_Indice_Clima           0.241593
+RH_Tiempo_Contratacion    0.241309
+RH_Antiguedad_Promedio    0.240834
+Name: PC1, dtype: float64
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Variables más importantes en PC2:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OP_Capacidad_Utilizada    0.184284
+OP_Cumplimiento_Plan      0.183812
+OP_Ciclo_Produccion       0.182073
+FIN_Apalancamiento        0.180900
+OP_Costo_Unitario         0.180506
+Name: PC2, dtype: float64
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Variables más importantes en PC3:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+FIN_Margen_EBITDA           0.220646
+FIN_Dias_Cuentas_Cobrar     0.213710
+FIN_Variacion_Gastos_Adm    0.213141
+FIN_Costo_Deuda             0.212876
+FIN_Ratio_Liquidez          0.212770
+Name: PC3, dtype: float64
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Variables más importantes en PC4:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MKT_Tasa_Recomendacion    0.289080
+MKT_Frecuencia_Compra     0.289069
+MKT_NPS                   0.288739
+MKT_Costo_Por_Click       0.288609
+MKT_Market_Share          0.288258
+Name: PC4, dtype: float64
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interpretación de los 4 primeros componentes principales</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">top_vars</span> <span class="o">=</span> <span class="n">cargas</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">pc</span><span class="si">}</span><span class="s2">: Las variables con mayor peso son: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top_vars</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Esto sugiere que </span><span class="si">{</span><span class="n">pc</span><span class="si">}</span><span class="s2"> resume principalmente la variabilidad de estas variables.&quot;</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+PC1: Las variables con mayor peso son: RH_Gasto_Nomina_Ventas, RH_Ausentismo, RH_Indice_Clima, RH_Tiempo_Contratacion, RH_Antiguedad_Promedio.
+Esto sugiere que PC1 resume principalmente la variabilidad de estas variables.
+
+PC2: Las variables con mayor peso son: OP_Capacidad_Utilizada, OP_Cumplimiento_Plan, OP_Ciclo_Produccion, FIN_Apalancamiento, OP_Costo_Unitario.
+Esto sugiere que PC2 resume principalmente la variabilidad de estas variables.
+
+PC3: Las variables con mayor peso son: FIN_Margen_EBITDA, FIN_Dias_Cuentas_Cobrar, FIN_Variacion_Gastos_Adm, FIN_Costo_Deuda, FIN_Ratio_Liquidez.
+Esto sugiere que PC3 resume principalmente la variabilidad de estas variables.
+
+PC4: Las variables con mayor peso son: MKT_Tasa_Recomendacion, MKT_Frecuencia_Compra, MKT_NPS, MKT_Costo_Por_Click, MKT_Market_Share.
+Esto sugiere que PC4 resume principalmente la variabilidad de estas variables.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si quieres ver todas las cargas:</span>
+<span class="n">display</span><span class="p">(</span><span class="n">cargas</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -868,161 +3879,637 @@ dtype: float64
       <th>PC1</th>
       <th>PC2</th>
       <th>PC3</th>
+      <th>PC4</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>x1</th>
-      <td>0.699374</td>
-      <td>-0.225509</td>
-      <td>-0.678249</td>
+      <th>OP_Ciclo_Produccion</th>
+      <td>0.136941</td>
+      <td>-0.182073</td>
+      <td>0.175845</td>
+      <td>0.023511</td>
     </tr>
     <tr>
-      <th>x2</th>
-      <td>0.711985</td>
-      <td>0.136316</td>
-      <td>0.688837</td>
+      <th>OP_Tasa_Defectos</th>
+      <td>0.132431</td>
+      <td>-0.177091</td>
+      <td>0.183221</td>
+      <td>0.017768</td>
     </tr>
     <tr>
-      <th>x3</th>
-      <td>0.062883</td>
-      <td>0.964657</td>
-      <td>-0.255895</td>
+      <th>OP_Disponibilidad_Maq</th>
+      <td>0.137347</td>
+      <td>-0.174586</td>
+      <td>0.184728</td>
+      <td>0.022067</td>
+    </tr>
+    <tr>
+      <th>OP_Costo_Unitario</th>
+      <td>0.139253</td>
+      <td>-0.180506</td>
+      <td>0.177007</td>
+      <td>0.021790</td>
+    </tr>
+    <tr>
+      <th>OP_Merma_Materia_Prima</th>
+      <td>0.138650</td>
+      <td>-0.179879</td>
+      <td>0.175299</td>
+      <td>0.024795</td>
+    </tr>
+    <tr>
+      <th>OP_Cumplimiento_Plan</th>
+      <td>0.131625</td>
+      <td>-0.183812</td>
+      <td>0.176286</td>
+      <td>0.017079</td>
+    </tr>
+    <tr>
+      <th>OP_Eficiencia_Energetica</th>
+      <td>0.136203</td>
+      <td>-0.173125</td>
+      <td>0.184968</td>
+      <td>0.019472</td>
+    </tr>
+    <tr>
+      <th>OP_Rotacion_Inventario</th>
+      <td>0.137986</td>
+      <td>-0.174256</td>
+      <td>0.181433</td>
+      <td>0.031583</td>
+    </tr>
+    <tr>
+      <th>OP_Tiempo_Set_Up</th>
+      <td>0.134592</td>
+      <td>-0.174514</td>
+      <td>0.185480</td>
+      <td>0.022860</td>
+    </tr>
+    <tr>
+      <th>OP_Productividad_HH</th>
+      <td>0.134570</td>
+      <td>-0.177835</td>
+      <td>0.183142</td>
+      <td>0.019636</td>
+    </tr>
+    <tr>
+      <th>OP_Lead_Time_Prov</th>
+      <td>0.129867</td>
+      <td>-0.177758</td>
+      <td>0.184866</td>
+      <td>0.027283</td>
+    </tr>
+    <tr>
+      <th>OP_Capacidad_Utilizada</th>
+      <td>0.132088</td>
+      <td>-0.184284</td>
+      <td>0.176278</td>
+      <td>0.020852</td>
+    </tr>
+    <tr>
+      <th>FIN_Margen_EBITDA</th>
+      <td>-0.055609</td>
+      <td>0.157395</td>
+      <td>0.220646</td>
+      <td>0.000517</td>
+    </tr>
+    <tr>
+      <th>FIN_ROI</th>
+      <td>-0.058155</td>
+      <td>0.172842</td>
+      <td>0.206207</td>
+      <td>0.000990</td>
+    </tr>
+    <tr>
+      <th>FIN_Flujo_Caja_Libre</th>
+      <td>-0.044995</td>
+      <td>0.179453</td>
+      <td>0.199859</td>
+      <td>0.013068</td>
+    </tr>
+    <tr>
+      <th>FIN_Apalancamiento</th>
+      <td>-0.051144</td>
+      <td>0.180900</td>
+      <td>0.208232</td>
+      <td>0.007092</td>
+    </tr>
+    <tr>
+      <th>FIN_Dias_Cuentas_Cobrar</th>
+      <td>-0.049878</td>
+      <td>0.172551</td>
+      <td>0.213710</td>
+      <td>-0.004432</td>
+    </tr>
+    <tr>
+      <th>FIN_Dias_Pago_Prov</th>
+      <td>-0.058398</td>
+      <td>0.175775</td>
+      <td>0.207464</td>
+      <td>-0.010219</td>
+    </tr>
+    <tr>
+      <th>FIN_Costo_Capital_WACC</th>
+      <td>-0.050634</td>
+      <td>0.174673</td>
+      <td>0.210578</td>
+      <td>0.009153</td>
+    </tr>
+    <tr>
+      <th>FIN_Margen_Neto</th>
+      <td>-0.057701</td>
+      <td>0.176225</td>
+      <td>0.207161</td>
+      <td>-0.016338</td>
+    </tr>
+    <tr>
+      <th>FIN_Ratio_Liquidez</th>
+      <td>-0.052705</td>
+      <td>0.171950</td>
+      <td>0.212770</td>
+      <td>-0.003576</td>
+    </tr>
+    <tr>
+      <th>FIN_Variacion_Gastos_Adm</th>
+      <td>-0.049878</td>
+      <td>0.162550</td>
+      <td>0.213141</td>
+      <td>-0.011678</td>
+    </tr>
+    <tr>
+      <th>FIN_Punto_Equilibrio</th>
+      <td>-0.060312</td>
+      <td>0.176732</td>
+      <td>0.208245</td>
+      <td>-0.000483</td>
+    </tr>
+    <tr>
+      <th>FIN_EBIT</th>
+      <td>-0.049959</td>
+      <td>0.171710</td>
+      <td>0.212270</td>
+      <td>0.008614</td>
+    </tr>
+    <tr>
+      <th>FIN_Costo_Deuda</th>
+      <td>-0.056084</td>
+      <td>0.169770</td>
+      <td>0.212876</td>
+      <td>-0.000294</td>
+    </tr>
+    <tr>
+      <th>MKT_NPS</th>
+      <td>0.002288</td>
+      <td>0.022780</td>
+      <td>-0.015450</td>
+      <td>0.288739</td>
+    </tr>
+    <tr>
+      <th>MKT_CAC</th>
+      <td>-0.010538</td>
+      <td>0.014368</td>
+      <td>-0.014110</td>
+      <td>0.286455</td>
+    </tr>
+    <tr>
+      <th>MKT_LTV</th>
+      <td>-0.014498</td>
+      <td>0.017274</td>
+      <td>-0.018683</td>
+      <td>0.285425</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Churn</th>
+      <td>0.011114</td>
+      <td>0.019509</td>
+      <td>-0.025622</td>
+      <td>0.287943</td>
+    </tr>
+    <tr>
+      <th>MKT_Conversion_Lead</th>
+      <td>0.003980</td>
+      <td>0.032511</td>
+      <td>-0.013706</td>
+      <td>0.286128</td>
+    </tr>
+    <tr>
+      <th>MKT_Market_Share</th>
+      <td>-0.006538</td>
+      <td>0.023251</td>
+      <td>-0.024798</td>
+      <td>0.288258</td>
+    </tr>
+    <tr>
+      <th>MKT_Ticket_Promedio</th>
+      <td>0.008085</td>
+      <td>0.012623</td>
+      <td>-0.009100</td>
+      <td>0.288201</td>
+    </tr>
+    <tr>
+      <th>MKT_Reclamaciones_QRS</th>
+      <td>0.001540</td>
+      <td>0.016568</td>
+      <td>-0.009701</td>
+      <td>0.284818</td>
+    </tr>
+    <tr>
+      <th>MKT_Reconocimiento_Marca</th>
+      <td>0.005005</td>
+      <td>0.027824</td>
+      <td>-0.013909</td>
+      <td>0.284679</td>
+    </tr>
+    <tr>
+      <th>MKT_Costo_Por_Click</th>
+      <td>0.002671</td>
+      <td>0.013560</td>
+      <td>-0.001619</td>
+      <td>0.288609</td>
+    </tr>
+    <tr>
+      <th>MKT_Frecuencia_Compra</th>
+      <td>-0.000400</td>
+      <td>0.030418</td>
+      <td>-0.016752</td>
+      <td>0.289069</td>
+    </tr>
+    <tr>
+      <th>MKT_Tasa_Recomendacion</th>
+      <td>-0.001864</td>
+      <td>0.011728</td>
+      <td>-0.025574</td>
+      <td>0.289080</td>
+    </tr>
+    <tr>
+      <th>RH_Indice_Clima</th>
+      <td>0.241593</td>
+      <td>0.124308</td>
+      <td>-0.049101</td>
+      <td>-0.006103</td>
+    </tr>
+    <tr>
+      <th>RH_Tasa_Rotacion</th>
+      <td>0.237969</td>
+      <td>0.134351</td>
+      <td>-0.045258</td>
+      <td>-0.003615</td>
+    </tr>
+    <tr>
+      <th>RH_Ausentismo</th>
+      <td>0.241616</td>
+      <td>0.128029</td>
+      <td>-0.053378</td>
+      <td>-0.007321</td>
+    </tr>
+    <tr>
+      <th>RH_Horas_Capacitacion</th>
+      <td>0.235790</td>
+      <td>0.136509</td>
+      <td>-0.049523</td>
+      <td>-0.014138</td>
+    </tr>
+    <tr>
+      <th>RH_Productividad_Empleado</th>
+      <td>0.236415</td>
+      <td>0.133569</td>
+      <td>-0.044703</td>
+      <td>-0.019996</td>
+    </tr>
+    <tr>
+      <th>RH_Satisfaccion_Beneficios</th>
+      <td>0.236471</td>
+      <td>0.129217</td>
+      <td>-0.051606</td>
+      <td>-0.013560</td>
+    </tr>
+    <tr>
+      <th>RH_Tiempo_Contratacion</th>
+      <td>0.241309</td>
+      <td>0.138077</td>
+      <td>-0.036660</td>
+      <td>-0.016176</td>
+    </tr>
+    <tr>
+      <th>RH_Gasto_Nomina_Ventas</th>
+      <td>0.243377</td>
+      <td>0.125807</td>
+      <td>-0.053338</td>
+      <td>-0.014966</td>
+    </tr>
+    <tr>
+      <th>RH_Indice_Diversidad</th>
+      <td>0.240165</td>
+      <td>0.129603</td>
+      <td>-0.052471</td>
+      <td>-0.009632</td>
+    </tr>
+    <tr>
+      <th>RH_Promociones_Internas</th>
+      <td>0.237139</td>
+      <td>0.134409</td>
+      <td>-0.051753</td>
+      <td>-0.028109</td>
+    </tr>
+    <tr>
+      <th>RH_Evaluacion_Desempeno</th>
+      <td>0.237163</td>
+      <td>0.132443</td>
+      <td>-0.047750</td>
+      <td>-0.011073</td>
+    </tr>
+    <tr>
+      <th>RH_Accidentalidad_Laboral</th>
+      <td>0.237294</td>
+      <td>0.136856</td>
+      <td>-0.041583</td>
+      <td>-0.002495</td>
+    </tr>
+    <tr>
+      <th>RH_Antiguedad_Promedio</th>
+      <td>0.240834</td>
+      <td>0.128118</td>
+      <td>-0.037319</td>
+      <td>-0.008931</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
 </section>
-<section id="7.-Caso-práctico-integrador">
-<h2>7. Caso práctico integrador<a class="headerlink" href="#7.-Caso-práctico-integrador" title="Link to this heading">#</a></h2>
-<p>Se propone analizar qué observaciones están más alejadas del centro en el espacio original usando Mahalanobis, y luego verificar su posición en el plano de PCA (PC1-PC2).</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</section>
+</section>
+<hr class="docutils" />
+<section id="🧪-Taller-Práctico:-Distancias-y-PCA-con-Mall-Customers">
+<h2>🧪 Taller Práctico: Distancias y PCA con Mall Customers<a class="headerlink" href="#🧪-Taller-Práctico:-Distancias-y-PCA-con-Mall-Customers" title="Link to this heading">#</a></h2>
+<p><strong>Objetivo:</strong> Aplicar los conceptos de distancia y PCA vistos en clase usando la base de datos de clientes de un centro comercial.</p>
+<div class="line-block">
+<div class="line"><strong>Base de datos:</strong> <code class="docutils literal notranslate"><span class="pre">Mall_Customers.csv</span></code></div>
+<div class="line">Contiene información de 200 clientes con las variables:</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CustomerID</span></code>: identificador del cliente</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Genre</span></code>: género (Male/Female)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Age</span></code>: edad</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Annual</span> <span class="pre">Income</span> <span class="pre">(k$)</span></code>: ingreso anual en miles de dólares</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Spending</span> <span class="pre">Score</span> <span class="pre">(1-100)</span></code>: índice de gasto asignado por el mall</p></li>
+</ul>
+<hr class="docutils" />
+<section id="Ejercicio-1-—-Carga-y-Exploración-de-Datos">
+<h3>Ejercicio 1 — Carga y Exploración de Datos<a class="headerlink" href="#Ejercicio-1-—-Carga-y-Exploración-de-Datos" title="Link to this heading">#</a></h3>
+<p>Carga la base de datos y realiza un análisis exploratorio básico:</p>
+<ul class="simple">
+<li><p>Muestra las primeras filas.</p></li>
+<li><p>Verifica tipos de datos y valores nulos.</p></li>
+<li><p>Describe estadísticamente las variables numéricas.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centro</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">dist_centro_maha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mahalanobis</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">centro</span><span class="p">,</span> <span class="n">S_inv</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">X</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 1: Carga y exploración</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
-<span class="n">df_resultado</span> <span class="o">=</span> <span class="n">df_pca</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df_resultado</span><span class="p">[</span><span class="s1">&#39;dist_mahalanobis_centro&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_centro_maha</span>
-<span class="n">df_resultado</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;dist_mahalanobis_centro&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<span class="c1"># Carga la base de datos</span>
+<span class="n">df_mall</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Mall_Customers.csv&quot;</span><span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="c1"># Tu código aquí:</span>
+<span class="c1"># 1. Muestra las primeras 5 filas</span>
+<span class="c1"># display(df_mall.head())</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PC1</th>
-      <th>PC2</th>
-      <th>grupo</th>
-      <th>dist_mahalanobis_centro</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>22</th>
-      <td>-0.738791</td>
-      <td>-3.783895</td>
-      <td>A</td>
-      <td>3.774776</td>
-    </tr>
-    <tr>
-      <th>89</th>
-      <td>2.492145</td>
-      <td>2.184761</td>
-      <td>A</td>
-      <td>3.750648</td>
-    </tr>
-    <tr>
-      <th>100</th>
-      <td>-0.847885</td>
-      <td>0.551331</td>
-      <td>B</td>
-      <td>3.114545</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>-3.272599</td>
-      <td>1.764996</td>
-      <td>B</td>
-      <td>2.976370</td>
-    </tr>
-    <tr>
-      <th>113</th>
-      <td>3.066098</td>
-      <td>-1.023319</td>
-      <td>A</td>
-      <td>2.932443</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>0.054496</td>
-      <td>1.343152</td>
-      <td>A</td>
-      <td>2.830628</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>2.610941</td>
-      <td>1.566708</td>
-      <td>A</td>
-      <td>2.799412</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>-1.350868</td>
-      <td>2.648043</td>
-      <td>B</td>
-      <td>2.753185</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.541093</td>
-      <td>-0.232756</td>
-      <td>A</td>
-      <td>2.751436</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>1.662306</td>
-      <td>-0.217339</td>
-      <td>A</td>
-      <td>2.656922</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="c1"># 2. Verifica tipos y nulos</span>
+<span class="c1"># df_mall.info()</span>
+
+<span class="c1"># 3. Descripción estadística</span>
+<span class="c1"># display(df_mall.describe())</span>
+<br/></pre></div>
+</div>
 </div>
 </section>
-<section id="8.-Ejercicios-propuestos">
-<h2>8. Ejercicios propuestos<a class="headerlink" href="#8.-Ejercicios-propuestos" title="Link to this heading">#</a></h2>
+<section id="Ejercicio-2-—-Cálculo-de-Distancias">
+<h3>Ejercicio 2 — Cálculo de Distancias<a class="headerlink" href="#Ejercicio-2-—-Cálculo-de-Distancias" title="Link to this heading">#</a></h3>
+<p>Usando las variables numéricas <code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">Annual</span> <span class="pre">Income</span> <span class="pre">(k$)</span></code> y <code class="docutils literal notranslate"><span class="pre">Spending</span> <span class="pre">Score</span> <span class="pre">(1-100)</span></code>:</p>
 <ol class="arabic simple">
-<li><p>Repite el análisis de distancias usando datos estandarizados y compara resultados.</p></li>
-<li><p>Cambia la métrica de la matriz de distancias (Manhattan y Coseno) y comenta diferencias.</p></li>
-<li><p>Encuentra el número mínimo de componentes que explica al menos 90% de varianza.</p></li>
-<li><p>Interpreta qué variable aporta más a PC1 según la tabla de cargas.</p></li>
+<li><p>Selecciona los clientes 0 y 1 como vectores <strong>a</strong> y <strong>b</strong>.</p></li>
+<li><p>Calcula la distancia <strong>Euclidiana</strong> y <strong>Manhattan</strong> entre ellos.</p></li>
+<li><p>Calcula la distancia <strong>Mahalanobis</strong> usando la matriz de covarianza del dataset completo.</p></li>
+<li><p>¿Por qué la distancia Mahalanobis puede dar un resultado diferente a la Euclidiana? Explica con tus palabras.</p></li>
 </ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 2: Cálculo de distancias</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean</span><span class="p">,</span> <span class="n">cityblock</span><span class="p">,</span> <span class="n">mahalanobis</span>
+
+<span class="c1"># Variables numéricas de interés</span>
+<span class="n">vars_num</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Annual Income (k$)&#39;</span><span class="p">,</span> <span class="s1">&#39;Spending Score (1-100)&#39;</span><span class="p">]</span>
+<span class="n">X_mall</span> <span class="o">=</span> <span class="n">df_mall</span><span class="p">[</span><span class="n">vars_num</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vectores de los primeros dos clientes</span>
+<span class="n">a_mall</span> <span class="o">=</span> <span class="n">X_mall</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b_mall</span> <span class="o">=</span> <span class="n">X_mall</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Tu código aquí:</span>
+<span class="c1"># 1. Distancia Euclidiana</span>
+<span class="c1"># dist_euc = euclidean(a_mall, b_mall)</span>
+<span class="c1"># print(f&quot;Euclidiana: {dist_euc:.2f}&quot;)</span>
+
+<span class="c1"># 2. Distancia Manhattan</span>
+<span class="c1"># dist_man = cityblock(a_mall, b_mall)</span>
+<span class="c1"># print(f&quot;Manhattan: {dist_man:.2f}&quot;)</span>
+
+<span class="c1"># 3. Distancia Mahalanobis</span>
+<span class="c1"># S_mall = np.cov(X_mall, rowvar=False)</span>
+<span class="c1"># S_inv_mall = np.linalg.inv(S_mall)</span>
+<span class="c1"># dist_mah = mahalanobis(a_mall, b_mall, S_inv_mall)</span>
+<span class="c1"># print(f&quot;Mahalanobis: {dist_mah:.2f}&quot;)</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="Ejercicio-3-—-Matriz-de-Distancias">
+<h3>Ejercicio 3 — Matriz de Distancias<a class="headerlink" href="#Ejercicio-3-—-Matriz-de-Distancias" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Construye una <strong>matriz de distancias Euclidianas</strong> para los primeros 20 clientes.</p></li>
+<li><p>Visualízala como un mapa de calor.</p></li>
+<li><p>¿Qué par de clientes es el más similar? ¿Y el más diferente?</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Pista:</strong> Usa <code class="docutils literal notranslate"><span class="pre">pdist</span></code> y <code class="docutils literal notranslate"><span class="pre">squareform</span></code> de <code class="docutils literal notranslate"><span class="pre">scipy.spatial.distance</span></code>.</p>
+</div></blockquote>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 3: Matriz de distancias</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">pdist</span><span class="p">,</span> <span class="n">squareform</span>
+
+<span class="c1"># Tu código aquí:</span>
+<span class="c1"># 1. Selecciona los primeros 20 clientes</span>
+<span class="c1"># subset_mall = X_mall[:20]</span>
+
+<span class="c1"># 2. Construye la matriz de distancias</span>
+<span class="c1"># mat_dist_mall = squareform(pdist(subset_mall, metric=&#39;euclidean&#39;))</span>
+
+<span class="c1"># 3. Visualiza con heatmap</span>
+<span class="c1"># plt.figure(figsize=(10, 8))</span>
+<span class="c1"># sns.heatmap(mat_dist_mall, cmap=&#39;YlOrRd&#39;,</span>
+<span class="c1">#             xticklabels=range(1, 21), yticklabels=range(1, 21))</span>
+<span class="c1"># plt.title(&quot;Matriz de distancias Euclidianas (20 clientes)&quot;)</span>
+<span class="c1"># plt.show()</span>
+
+<span class="c1"># 4. Par más similar y más diferente</span>
+<span class="c1"># np.fill_diagonal(mat_dist_mall, np.nan)</span>
+<span class="c1"># idx_min = np.unravel_index(np.nanargmin(mat_dist_mall), mat_dist_mall.shape)</span>
+<span class="c1"># idx_max = np.unravel_index(np.nanargmax(mat_dist_mall), mat_dist_mall.shape)</span>
+<span class="c1"># print(f&quot;Par más similar: clientes {idx_min[0]+1} y {idx_min[1]+1}&quot;)</span>
+<span class="c1"># print(f&quot;Par más diferente: clientes {idx_max[0]+1} y {idx_max[1]+1}&quot;)</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="Ejercicio-4-—-Estandarización-y-PCA">
+<h3>Ejercicio 4 — Estandarización y PCA<a class="headerlink" href="#Ejercicio-4-—-Estandarización-y-PCA" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Selecciona las variables numéricas <code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">Annual</span> <span class="pre">Income</span> <span class="pre">(k$)</span></code> y <code class="docutils literal notranslate"><span class="pre">Spending</span> <span class="pre">Score</span> <span class="pre">(1-100)</span></code>.</p></li>
+<li><p>Estandariza los datos con <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>.</p></li>
+<li><p>Aplica PCA con todos los componentes posibles.</p></li>
+<li><p>Genera el <strong>Scree Plot</strong> (varianza explicada por componente).</p></li>
+<li><p>¿Cuántos componentes conservarías? Justifica usando el criterio de Kaiser o el gráfico de codo.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 4: Estandarización y PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="c1"># Tu código aquí:</span>
+<span class="c1"># 1. Estandarizar</span>
+<span class="c1"># scaler_mall = StandardScaler()</span>
+<span class="c1"># X_mall_std = scaler_mall.fit_transform(df_mall[vars_num])</span>
+
+<span class="c1"># 2. Aplicar PCA</span>
+<span class="c1"># pca_mall = PCA()</span>
+<span class="c1"># pca_mall.fit(X_mall_std)</span>
+
+<span class="c1"># 3. Varianza explicada</span>
+<span class="c1"># varianza_exp = pca_mall.explained_variance_ratio_ * 100</span>
+<span class="c1"># varianza_acum = np.cumsum(varianza_exp)</span>
+
+<span class="c1"># 4. Scree Plot</span>
+<span class="c1"># fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))</span>
+<span class="c1"># ax1.bar([f&#39;PC{i+1}&#39; for i in range(len(varianza_exp))], varianza_exp, color=&#39;steelblue&#39;)</span>
+<span class="c1"># ax1.set_title(&#39;Varianza Explicada por Componente&#39;)</span>
+<span class="c1"># ax1.set_ylabel(&#39;%&#39;)</span>
+<span class="c1"># ax2.plot([f&#39;PC{i+1}&#39; for i in range(len(varianza_acum))], varianza_acum, marker=&#39;o&#39;, color=&#39;darkred&#39;)</span>
+<span class="c1"># ax2.axhline(y=80, color=&#39;green&#39;, linestyle=&#39;--&#39;, label=&#39;80%&#39;)</span>
+<span class="c1"># ax2.axhline(y=90, color=&#39;orange&#39;, linestyle=&#39;--&#39;, label=&#39;90%&#39;)</span>
+<span class="c1"># ax2.set_title(&#39;Varianza Acumulada&#39;)</span>
+<span class="c1"># ax2.legend()</span>
+<span class="c1"># plt.tight_layout()</span>
+<span class="c1"># plt.show()</span>
+
+<span class="c1"># 5. Criterio de Kaiser (autovalores &gt; 1)</span>
+<span class="c1"># autoval_mall = pca_mall.explained_variance_</span>
+<span class="c1"># n_kaiser = (autoval_mall &gt; 1).sum()</span>
+<span class="c1"># print(f&quot;Componentes con autovalor &gt; 1 (criterio de Kaiser): {n_kaiser}&quot;)</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="Ejercicio-5-—-Interpretación-de-Cargas-(Loadings)">
+<h3>Ejercicio 5 — Interpretación de Cargas (Loadings)<a class="headerlink" href="#Ejercicio-5-—-Interpretación-de-Cargas-(Loadings)" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Obtén la matriz de <strong>cargas</strong> (loadings) del PCA.</p></li>
+<li><p>¿Qué variable tiene mayor peso en el primer componente (PC1)?</p></li>
+<li><p>¿Qué variable tiene mayor peso en el segundo componente (PC2)?</p></li>
+<li><p>Intenta ponerle un nombre descriptivo a cada componente según las variables que más pesan en él.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Ejemplo:</strong> Si <code class="docutils literal notranslate"><span class="pre">Annual</span> <span class="pre">Income</span></code> y <code class="docutils literal notranslate"><span class="pre">Spending</span> <span class="pre">Score</span></code> tienen pesos altos en PC1, podrías llamarlo <em>«Perfil de Consumo»</em>.</p>
+</div></blockquote>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 5: Cargas del PCA</span>
+<span class="c1"># Tu código aquí:</span>
+
+<span class="c1"># 1. DataFrame de cargas</span>
+<span class="c1"># cargas_mall = pd.DataFrame(</span>
+<span class="c1">#     pca_mall.components_.T,</span>
+<span class="c1">#     index=vars_num,</span>
+<span class="c1">#     columns=[f&#39;PC{i+1}&#39; for i in range(len(vars_num))]</span>
+<span class="c1"># )</span>
+<span class="c1"># display(cargas_mall.round(3))</span>
+
+<span class="c1"># 2. Variable con mayor peso en PC1 y PC2</span>
+<span class="c1"># print(&quot;\nVariable con mayor peso en PC1:&quot;, cargas_mall[&#39;PC1&#39;].abs().idxmax())</span>
+<span class="c1"># print(&quot;Variable con mayor peso en PC2:&quot;, cargas_mall[&#39;PC2&#39;].abs().idxmax())</span>
+
+<span class="c1"># 3. Heatmap de cargas</span>
+<span class="c1"># plt.figure(figsize=(7, 4))</span>
+<span class="c1"># sns.heatmap(cargas_mall, annot=True, cmap=&#39;coolwarm&#39;, center=0, fmt=&#39;.2f&#39;)</span>
+<span class="c1"># plt.title(&#39;Cargas (Loadings) del PCA - Mall Customers&#39;)</span>
+<span class="c1"># plt.show()</span>
+
+<span class="c1"># 4. Escribe aquí tus nombres para cada componente:</span>
+<span class="c1"># PC1 = &quot;...&quot;</span>
+<span class="c1"># PC2 = &quot;...&quot;</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="Ejercicio-6-(Reto)-—-Visualización-en-2D-con-PCA">
+<h3>Ejercicio 6 (Reto) — Visualización en 2D con PCA<a class="headerlink" href="#Ejercicio-6-(Reto)-—-Visualización-en-2D-con-PCA" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Transforma los datos originales al espacio de los dos primeros componentes principales.</p></li>
+<li><p>Genera un <strong>gráfico de dispersión</strong> (scatter plot) usando PC1 en el eje X y PC2 en el eje Y.</p></li>
+<li><p>Colorea los puntos según el género (<code class="docutils literal notranslate"><span class="pre">Genre</span></code>) del cliente.</p></li>
+<li><p>¿Se observan grupos o patrones visuales? Descríbelos brevemente.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Reflexión:</strong> ¿Qué ventaja tiene visualizar los datos en el espacio PCA en lugar del espacio original?</p>
+</div></blockquote>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio 6 (Reto): Visualización 2D con PCA</span>
+<span class="c1"># Tu código aquí:</span>
+
+<span class="c1"># 1. Transformar datos al espacio PCA (2 componentes)</span>
+<span class="c1"># X_pca2 = pca_mall.transform(X_mall_std)[:, :2]</span>
+<span class="c1"># df_pca2 = pd.DataFrame(X_pca2, columns=[&#39;PC1&#39;, &#39;PC2&#39;])</span>
+<span class="c1"># df_pca2[&#39;Genre&#39;] = df_mall[&#39;Genre&#39;].values</span>
+
+<span class="c1"># 2. Scatter plot coloreado por género</span>
+<span class="c1"># colores = {&#39;Male&#39;: &#39;steelblue&#39;, &#39;Female&#39;: &#39;tomato&#39;}</span>
+<span class="c1"># fig, ax = plt.subplots(figsize=(8, 6))</span>
+<span class="c1"># for genero, grupo in df_pca2.groupby(&#39;Genre&#39;):</span>
+<span class="c1">#     ax.scatter(grupo[&#39;PC1&#39;], grupo[&#39;PC2&#39;],</span>
+<span class="c1">#                label=genero, color=colores[genero], alpha=0.7, edgecolors=&#39;k&#39;, s=60)</span>
+<span class="c1"># ax.set_xlabel(f&#39;PC1 ({varianza_exp[0]:.1f}% varianza)&#39;)</span>
+<span class="c1"># ax.set_ylabel(f&#39;PC2 ({varianza_exp[1]:.1f}% varianza)&#39;)</span>
+<span class="c1"># ax.set_title(&#39;Clientes Mall en espacio PCA (2 componentes)&#39;)</span>
+<span class="c1"># ax.legend(title=&#39;Género&#39;)</span>
+<span class="c1"># ax.grid(alpha=0.3)</span>
+<span class="c1"># plt.tight_layout()</span>
+<span class="c1"># plt.show()</span>
+
+<span class="c1"># 3. Escribe aquí tu reflexión:</span>
+<span class="c1"># &quot;Los patrones observados son...&quot;</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1077,9 +4564,31 @@ dtype: float64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Distancia-Mahalanobis">3. Distancia Mahalanobis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Otras-métricas:-Minkowski-y-Coseno">4. Otras métricas: Minkowski y Coseno</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Matriz-de-distancias">5. Matriz de distancias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Fundamentos-de-PCA">6. Fundamentos de PCA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Caso-práctico-integrador">7. Caso práctico integrador</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Ejercicios-propuestos">8. Ejercicios propuestos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Fundamentos-del-Análisis-de-Componentes-Principales--PCA">6. Fundamentos del Análisis de Componentes Principales- PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1.-Definicón-del-Análisis-de-Componentes-Principales">6.1. Definicón del Análisis de Componentes Principales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1.1.-Explicación-de-varianza">6.1.1. Explicación de varianza</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2.-Pasos-para-hacer-un-correcto-PCA">6.2. Pasos para hacer un correcto PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-1:-Selección-y-Preparación-de-Variables">Paso 1: Selección y Preparación de Variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-2:-Estandarización-de-los-Datos">Paso 2: Estandarización de los Datos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-3:-Cálculo-de-la-Matriz-de-Covarianza-(o-Correlación)">Paso 3: Cálculo de la Matriz de Covarianza (o Correlación)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-4:-Extracción-de-Autovalores-y-Autovectores">Paso 4: Extracción de Autovalores y Autovectores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-5:-Selección-del-Número-de-Componentes">Paso 5: Selección del Número de Componentes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-6:-Interpretación-de-Cargas-(Loadings)">Paso 6: Interpretación de Cargas (Loadings)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#🧪-Taller-Práctico:-Distancias-y-PCA-con-Mall-Customers">🧪 Taller Práctico: Distancias y PCA con Mall Customers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-—-Carga-y-Exploración-de-Datos">Ejercicio 1 — Carga y Exploración de Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-—-Cálculo-de-Distancias">Ejercicio 2 — Cálculo de Distancias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-3-—-Matriz-de-Distancias">Ejercicio 3 — Matriz de Distancias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-4-—-Estandarización-y-PCA">Ejercicio 4 — Estandarización y PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-5-—-Interpretación-de-Cargas-(Loadings)">Ejercicio 5 — Interpretación de Cargas (Loadings)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-6-(Reto)-—-Visualización-en-2D-con-PCA">Ejercicio 6 (Reto) — Visualización en 2D con PCA</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
