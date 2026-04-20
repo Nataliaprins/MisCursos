@@ -9,5 +9,6 @@ Contenido del tema de Análisis Multivariado.
 
    1_distancias_pca_multivariado
    2_analisis_conglomerados
+   3_cluster jerarquico
    taller_pca
    
