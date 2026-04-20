@@ -16,7 +16,7 @@ extensions = [
 nbsphinx_allow_raw_html = True
 
 templates_path = ["_templates"]
-exclude_patterns = ["Thumbs.db", ".DS_Store"]
+exclude_patterns = ["Thumbs.db", ".DS_Store", "estadistica_ii/**"]
 
 language = "es"
 

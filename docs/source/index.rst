@@ -19,5 +19,5 @@ Email: natalia.acevedop@udea.edu.co
    :caption: Contenido:
 
    analisis_datos/index
-   estadistica_ii/index
+  
    portafolios_inversion/index
