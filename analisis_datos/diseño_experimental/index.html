@@ -46,7 +46,7 @@
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="5. Modelos de Regresión" href="../modelos_regresion/index.html" />
+    <link rel="next" title="Diseño de Experimentos" href="1_dise%C3%B1o%20experimental.html" />
     <link rel="prev" title="Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos" href="../analisis_multivariado/taller_pca.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -176,13 +176,23 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/3_cluster%20jerarquico.html">Taller: Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
 
 
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">4. Diseño Experimental</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">4. Diseño Experimental</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a></li>
@@ -423,6 +433,59 @@ document.write(`
 <h1>4. Diseño Experimental<a class="headerlink" href="#diseno-experimental" title="Link to this heading">#</a></h1>
 <p>Contenido del curso de Diseño Experimental.</p>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Subtemas:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#Contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#Librerías-necesarias">Librerías necesarias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#1.-Planeación-de-un-Diseño-de-Experimentos">1. Planeación de un Diseño de Experimentos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#1.1-Conceptos-Básicos-de-Diseño-Experimental">1.1 Conceptos Básicos de Diseño Experimental</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#1.2-Identificación-de-Variables">1.2 Identificación de Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#1.3-Estrategias-de-Aleatorización-y-Control">1.3 Estrategias de Aleatorización y Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#2.-Diseño-Completamente-Aleatorizado-(DCA)">2. Diseño Completamente Aleatorizado (DCA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#2.1-Fundamentos-del-Diseño-Completamente-Aleatorizado">2.1 Fundamentos del Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#2.2-Análisis-de-Varianza-(ANOVA)">2.2 Análisis de Varianza (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#2.3-Verificación-de-Supuestos-e-Interpretación-de-Resultados">2.3 Verificación de Supuestos e Interpretación de Resultados</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#3.-Comparaciones-Múltiples">3. Comparaciones Múltiples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#3.1-El-Problema-de-Comparaciones-Múltiples">3.1 El Problema de Comparaciones Múltiples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#3.2-Métodos-de-Comparaciones-Múltiples">3.2 Métodos de Comparaciones Múltiples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#3.3-Visualización-e-Interpretación-de-Resultados">3.3 Visualización e Interpretación de Resultados</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html#Resumen-del-Tema">Resumen del Tema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#Contenido">Contenido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#Librerías-necesarias">Librerías necesarias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#1.-Elección-del-Tamaño-de-la-Muestra">1. Elección del Tamaño de la Muestra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#1.1-¿Por-qué-es-importante-el-tamaño-de-muestra?">1.1 ¿Por qué es importante el tamaño de muestra?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#1.2-Requerimientos-calcular-el-tamaño-de-muestra">1.2 Requerimientos calcular el tamaño de muestra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#1.3-Consideraciones-Prácticas-y-Teóricas">1.3 Consideraciones Prácticas y Teóricas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#2.-Validación-de-los-Supuestos-del-Modelo">2. Validación de los Supuestos del Modelo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#2.1-Datos-de-trabajo">2.1 Datos de trabajo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#2.2-Verificación-de-Independencia">2.2 Verificación de Independencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#2.3-Verificación-de-Varianza-Constante-(Homocedasticidad)">2.3 Verificación de Varianza Constante (Homocedasticidad)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#2.4-Verificación-de-Normalidad-de-Residuos">2.4 Verificación de Normalidad de Residuos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#3.-Diseño-de-Bloques-Completamente-Aleatorizados-(DBCA)">3. Diseño de Bloques Completamente Aleatorizados (DBCA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#3.1-Motivación-y-Concepto-de-Bloqueo">3.1 Motivación y Concepto de Bloqueo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#3.2-Modelo-Estadístico-y-Tabla-ANOVA">3.2 Modelo Estadístico y Tabla ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#3.3-Aplicación:-Experimento-de-Fertilizantes-con-Bloques">3.3 Aplicación: Experimento de Fertilizantes con Bloques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#3.4-Ganancia-de-Eficiencia-del-Bloqueo">3.4 Ganancia de Eficiencia del Bloqueo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html#Resumen-del-Taller">Resumen del Taller</a></li>
+</ul>
 </div>
 </section>
 
@@ -447,11 +510,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../modelos_regresion/index.html"
+       href="1_dise%C3%B1o%20experimental.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">5. Modelos de Regresión</p>
+        <p class="prev-next-title">Diseño de Experimentos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
