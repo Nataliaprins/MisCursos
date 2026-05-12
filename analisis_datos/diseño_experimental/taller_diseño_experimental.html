@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taller: Diseño Completamente Aleatorizado &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/diseño_experimental/taller_diseño_experimental';</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="5. Modelos de Regresión" href="../modelos_regresion/index.html" />
+    <link rel="prev" title="Diseño de Experimentos (Parte II)" href="2_dise%C3%B1o_experimentos_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">4. Diseño Experimental</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Taller: Diseño Completamente Aleatorizado</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/diseño_experimental/taller_diseño_experimental.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/diseño_experimental/taller_diseño_experimental.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/analisis_datos/diseño_experimental/taller_diseño_experimental.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Taller: Diseño Completamente Aleatorizado</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Contexto-empresarial">Contexto empresarial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Objetivos-del-taller">Objetivos del taller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Librerías-y-carga-de-datos">Librerías y carga de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-1-—-Planeación-del-experimento">Parte 1 — Planeación del experimento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-1.1">Pregunta 1.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-1.2">Pregunta 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-1.3">Pregunta 1.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-2-—-Análisis-exploratorio-de-datos">Parte 2 — Análisis exploratorio de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-2.1">Pregunta 2.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-2.2">Pregunta 2.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-2.3">Pregunta 2.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-3-—-Verificación-de-supuestos-del-ANOVA">Parte 3 — Verificación de supuestos del ANOVA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-3.1-—-Normalidad">Pregunta 3.1 — Normalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-3.2-—-Homogeneidad-de-varianzas">Pregunta 3.2 — Homogeneidad de varianzas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-3.3">Pregunta 3.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-4-—-Análisis-de-Varianza-(ANOVA)">Parte 4 — Análisis de Varianza (ANOVA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-4.1">Pregunta 4.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-4.2">Pregunta 4.2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-5-—-Comparaciones-múltiples">Parte 5 — Comparaciones múltiples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.1-—-Inflación-del-error-de-Tipo-I">Pregunta 5.1 — Inflación del error de Tipo I</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.2-—-Prueba-de-Tukey-HSD">Pregunta 5.2 — Prueba de Tukey HSD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.3-—-Interpretación-de-Tukey">Pregunta 5.3 — Interpretación de Tukey</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.4-—-Visualización-de-comparaciones-múltiples">Pregunta 5.4 — Visualización de comparaciones múltiples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-6-—-Reflexión-crítica-y-recomendaciones">Parte 6 — Reflexión crítica y recomendaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-6.1-—-Limitaciones-del-DCA">Pregunta 6.1 — Limitaciones del DCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-6.2-—-Recomendación-empresarial">Pregunta 6.2 — Recomendación empresarial</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Taller:-Diseño-Completamente-Aleatorizado">
+<h1>Taller: Diseño Completamente Aleatorizado<a class="headerlink" href="#Taller:-Diseño-Completamente-Aleatorizado" title="Link to this heading">#</a></h1>
+<p><strong>Tema:</strong> Diseño Completamente Aleatorizado (DCA), ANOVA y Comparaciones Múltiples</p>
+<hr class="docutils" />
+<section id="Contexto-empresarial">
+<h2>Contexto empresarial<a class="headerlink" href="#Contexto-empresarial" title="Link to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">Una empresa de retail desea <strong>identificar cuál estrategia de marketing genera mayores ventas</strong>.</div>
+<div class="line">Para ello diseñó un experimento en el que se asignaron aleatoriamente cuatro estrategias a un conjunto de clientes y se registraron las ventas generadas (en miles de pesos).</div>
+</div>
+<p>Las estrategias evaluadas son:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tratamiento</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Email Marketing</p></td>
+<td><p>Envío de correos personalizados con ofertas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Publicidad Redes</p></td>
+<td><p>Pauta paga en redes sociales</p></td>
+</tr>
+<tr class="row-even"><td><p>Influencers</p></td>
+<td><p>Colaboración con creadores de contenido</p></td>
+</tr>
+<tr class="row-odd"><td><p>Descuentos</p></td>
+<td><p>Cupones y promociones directas</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>Nota:</strong> Si bien la empresa reconoce que las ciudades pueden tener comportamientos de consumo diferentes, en este experimento se asumió que las unidades experimentales son homogéneas. Al final del taller reflexionarás sobre si esta suposición es adecuada.</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>Descarga la base de datos del estudio:</strong> <a class="reference external" href="diseno_bloques_aleatorizados.csv">BD_Marketing</a></p>
+</section>
+<section id="Objetivos-del-taller">
+<h2>Objetivos del taller<a class="headerlink" href="#Objetivos-del-taller" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Identificar correctamente los elementos del diseño experimental.</p></li>
+<li><p>Realizar un análisis exploratorio de los datos.</p></li>
+<li><p>Verificar los supuestos del modelo ANOVA.</p></li>
+<li><p>Aplicar e interpretar el ANOVA de una vía.</p></li>
+<li><p>Aplicar comparaciones múltiples para identificar qué estrategia es superior.</p></li>
+<li><p>Formular recomendaciones empresariales basadas en los resultados.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Librerías-y-carga-de-datos">
+<h2>Librerías y carga de datos<a class="headerlink" href="#Librerías-y-carga-de-datos" title="Link to this heading">#</a></h2>
+<p>Ejecuta la siguiente celda para importar las librerías necesarias y cargar la base de datos. Asegúrate de que la ruta al archivo sea la correcta.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.anova</span><span class="w"> </span><span class="kn">import</span> <span class="n">anova_lm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.multicomp</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_tukeyhsd</span><span class="p">,</span> <span class="n">MultiComparison</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+
+<span class="c1"># Carga de datos</span>
+<span class="c1"># df = pd.read_csv(&#39;diseno_completamente_aleatorizado.csv&#39;)</span>
+<span class="c1"># print(f&#39;Filas: {df.shape[0]}  |  Columnas: {df.shape[1]}&#39;)</span>
+<span class="c1"># df.head(10)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Parte-1-—-Planeación-del-experimento">
+<h2>Parte 1 — Planeación del experimento<a class="headerlink" href="#Parte-1-—-Planeación-del-experimento" title="Link to this heading">#</a></h2>
+<section id="Pregunta-1.1">
+<h3>Pregunta 1.1<a class="headerlink" href="#Pregunta-1.1" title="Link to this heading">#</a></h3>
+<p>Identifica cada uno de los elementos del diseño experimental a partir del contexto empresarial descrito. Completa la siguiente tabla en una celda Markdown:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Elemento</p></th>
+<th class="head"><p>Tu respuesta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Objetivo del experimento</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Variable independiente (factor)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Niveles del factor</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Variable dependiente (respuesta)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Unidad experimental</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Número de réplicas por tratamiento</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Tipo de diseño utilizado</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="Pregunta-1.2">
+<h3>Pregunta 1.2<a class="headerlink" href="#Pregunta-1.2" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Escribe formalmente las hipótesis estadísticas que se van a contrastar en este experimento.</div>
+<div class="line">Usa la notación matemática apropiada e indica qué significa cada símbolo en el contexto del problema.</div>
+</div>
+<p><strong>✏️ Escribe tu respuesta aquí:</strong></p>
+<div class="math notranslate nohighlight">
+\[H_0:\]</div>
+<div class="math notranslate nohighlight">
+\[H_1:\]</div>
+<p>Donde:</p>
+</section>
+<section id="Pregunta-1.3">
+<h3>Pregunta 1.3<a class="headerlink" href="#Pregunta-1.3" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">¿Por qué es importante la aleatorización en este experimento?</div>
+<div class="line">Menciona al menos dos fuentes de variación que podrían introducir sesgo si los tratamientos no se asignan aleatoriamente a los clientes.</div>
+</div>
+<p><strong>✏️ Escribe tu respuesta aquí:</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-2-—-Análisis-exploratorio-de-datos">
+<h2>Parte 2 — Análisis exploratorio de datos<a class="headerlink" href="#Parte-2-—-Análisis-exploratorio-de-datos" title="Link to this heading">#</a></h2>
+<section id="Pregunta-2.1">
+<h3>Pregunta 2.1<a class="headerlink" href="#Pregunta-2.1" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Calcula las estadísticas descriptivas (n, media, desviación estándar, mínimo y máximo) de las ventas para <strong>cada estrategia de marketing</strong>.</div>
+<div class="line">A partir de los resultados, ¿qué estrategia parece generar mayores ventas en promedio?</div>
+</div>
+<p><strong>✏️ Interpretación:</strong> <em>(escribe tu análisis aquí)</em></p>
+</section>
+<section id="Pregunta-2.2">
+<h3>Pregunta 2.2<a class="headerlink" href="#Pregunta-2.2" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Genera un <strong>boxplot</strong> que muestre la distribución de las ventas para cada estrategia de marketing.</div>
+<div class="line">Superpón los puntos individuales al gráfico (strip plot).</div>
+<div class="line">Asegúrate de incluir título, etiquetas de ejes y una leyenda o paleta de colores diferenciada.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>✏️ Interpretación:</strong> <em>(escribe tu análisis aquí)</em></div>
+<div class="line">¿Observas diferencias visibles entre los grupos? ¿Algún grupo presenta mayor dispersión o valores atípicos?</div>
+</div>
+</section>
+<section id="Pregunta-2.3">
+<h3>Pregunta 2.3<a class="headerlink" href="#Pregunta-2.3" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Genera un gráfico de barras con las <strong>ventas promedio por estrategia</strong> e incluye barras de error que representen la desviación estándar.</div>
+<div class="line">¿Las diferencias visuales entre promedios son suficientes para concluir que existe una estrategia superior? Justifica.</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-3-—-Verificación-de-supuestos-del-ANOVA">
+<h2>Parte 3 — Verificación de supuestos del ANOVA<a class="headerlink" href="#Parte-3-—-Verificación-de-supuestos-del-ANOVA" title="Link to this heading">#</a></h2>
+<p>Antes de aplicar el ANOVA es necesario verificar que los datos cumplen los supuestos del modelo:</p>
+<ol class="arabic simple">
+<li><p><strong>Normalidad</strong> de los residuos</p></li>
+<li><p><strong>Homogeneidad de varianzas</strong> entre grupos</p></li>
+<li><p><strong>Independencia</strong> de las observaciones (garantizada por el diseño)</p></li>
+</ol>
+<section id="Pregunta-3.1-—-Normalidad">
+<h3>Pregunta 3.1 — Normalidad<a class="headerlink" href="#Pregunta-3.1-—-Normalidad" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Ajusta el modelo lineal (<code class="docutils literal notranslate"><span class="pre">ols</span></code>) y obtén los residuos.</div>
+<div class="line">Genera los siguientes gráficos diagnósticos:</div>
+</div>
+<ul class="simple">
+<li><p>Histograma de residuos</p></li>
+<li><p>Q-Q plot</p></li>
+</ul>
+<p>Aplica la <strong>prueba de Shapiro-Wilk</strong> e interpreta el resultado a un nivel de significancia del 5%.</p>
+<p><strong>✏️ Interpretación:</strong></p>
+<ul class="simple">
+<li><p>Estadístico W = , p-valor =</p></li>
+<li><p>Conclusión sobre el supuesto de normalidad:</p></li>
+</ul>
+</section>
+<section id="Pregunta-3.2-—-Homogeneidad-de-varianzas">
+<h3>Pregunta 3.2 — Homogeneidad de varianzas<a class="headerlink" href="#Pregunta-3.2-—-Homogeneidad-de-varianzas" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Aplica la <strong>prueba de Levene</strong> para evaluar si las varianzas de ventas son iguales entre las cuatro estrategias.</div>
+<div class="line">Complementa el análisis con un gráfico de <strong>residuos vs. valores ajustados</strong>.</div>
+</div>
+<p><strong>✏️ Interpretación:</strong></p>
+<ul class="simple">
+<li><p>Estadístico Levene = , p-valor =</p></li>
+<li><p>Conclusión sobre el supuesto de homogeneidad de varianzas:</p></li>
+</ul>
+</section>
+<section id="Pregunta-3.3">
+<h3>Pregunta 3.3<a class="headerlink" href="#Pregunta-3.3" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Con base en los resultados de las pruebas de supuestos, ¿es válido aplicar el ANOVA paramétrico en este caso?</div>
+<div class="line">¿Qué alternativa no paramétrica podrías usar si los supuestos no se cumplen?</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-4-—-Análisis-de-Varianza-(ANOVA)">
+<h2>Parte 4 — Análisis de Varianza (ANOVA)<a class="headerlink" href="#Parte-4-—-Análisis-de-Varianza-(ANOVA)" title="Link to this heading">#</a></h2>
+<section id="Pregunta-4.1">
+<h3>Pregunta 4.1<a class="headerlink" href="#Pregunta-4.1" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Obtén la <strong>tabla ANOVA</strong> del modelo ajustado e identifica cada uno de sus componentes.</div>
+<div class="line">Completa la siguiente tabla con los valores calculados:</div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fuente</p></th>
+<th class="head"><p>GL</p></th>
+<th class="head"><p>SS</p></th>
+<th class="head"><p>MS</p></th>
+<th class="head"><p>F calculado</p></th>
+<th class="head"><p>p-valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tratamiento</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Error</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>✏️ Completa la tabla ANOVA anterior con los valores obtenidos:</strong></p>
+</section>
+<section id="Pregunta-4.2">
+<h3>Pregunta 4.2<a class="headerlink" href="#Pregunta-4.2" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Interpreta el resultado del ANOVA con un nivel de significancia α = 0.05.</div>
+<div class="line">Responde:</div>
+</div>
+<ol class="arabic simple">
+<li><p>¿Cuál es la conclusión estadística respecto a las hipótesis planteadas en 1.2?</p></li>
+<li><p>¿Qué porcentaje de la variabilidad total en las ventas es explicado por la estrategia de marketing? (Calcula e interpreta el R²)</p></li>
+<li><p>¿El ANOVA permite saber <em>cuál</em> estrategia es la mejor? ¿Por qué?</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-5-—-Comparaciones-múltiples">
+<h2>Parte 5 — Comparaciones múltiples<a class="headerlink" href="#Parte-5-—-Comparaciones-múltiples" title="Link to this heading">#</a></h2>
+<section id="Pregunta-5.1-—-Inflación-del-error-de-Tipo-I">
+<h3>Pregunta 5.1 — Inflación del error de Tipo I<a class="headerlink" href="#Pregunta-5.1-—-Inflación-del-error-de-Tipo-I" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Si quisieras comparar las 4 estrategias usando pruebas t individuales (sin corrección), ¿cuántas comparaciones necesitarías realizar?</div>
+<div class="line">Calcula la <strong>tasa de error familiar (FWER)</strong> para ese número de comparaciones con α = 0.05.</div>
+<div class="line">¿Por qué este enfoque es problemático?</div>
+</div>
+</section>
+<section id="Pregunta-5.2-—-Prueba-de-Tukey-HSD">
+<h3>Pregunta 5.2 — Prueba de Tukey HSD<a class="headerlink" href="#Pregunta-5.2-—-Prueba-de-Tukey-HSD" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Aplica la <strong>prueba de Tukey HSD</strong> (α = 0.05) para comparar todas las estrategias de marketing entre sí.</div>
+<div class="line">Presenta la tabla de resultados completa.</div>
+</div>
+</section>
+<section id="Pregunta-5.3-—-Interpretación-de-Tukey">
+<h3>Pregunta 5.3 — Interpretación de Tukey<a class="headerlink" href="#Pregunta-5.3-—-Interpretación-de-Tukey" title="Link to this heading">#</a></h3>
+<p>A partir de los resultados de Tukey, responde:</p>
+<ol class="arabic simple">
+<li><p>¿Qué pares de estrategias presentan diferencias estadísticamente significativas?</p></li>
+<li><p>¿Cuál es la estrategia que genera ventas significativamente mayores respecto a las demás?</p></li>
+<li><p>¿Existe algún par de estrategias que <strong>no</strong> presente diferencia significativa? ¿Qué implica esto para la empresa?</p></li>
+</ol>
+</section>
+<section id="Pregunta-5.4-—-Visualización-de-comparaciones-múltiples">
+<h3>Pregunta 5.4 — Visualización de comparaciones múltiples<a class="headerlink" href="#Pregunta-5.4-—-Visualización-de-comparaciones-múltiples" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">Genera el gráfico de intervalos de confianza de la prueba de Tukey.</div>
+<div class="line">¿Cómo se lee este gráfico? ¿Qué indica cuando los intervalos de confianza de dos estrategias no se solapan?</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Parte-6-—-Reflexión-crítica-y-recomendaciones">
+<h2>Parte 6 — Reflexión crítica y recomendaciones<a class="headerlink" href="#Parte-6-—-Reflexión-crítica-y-recomendaciones" title="Link to this heading">#</a></h2>
+<section id="Pregunta-6.1-—-Limitaciones-del-DCA">
+<h3>Pregunta 6.1 — Limitaciones del DCA<a class="headerlink" href="#Pregunta-6.1-—-Limitaciones-del-DCA" title="Link to this heading">#</a></h3>
+<div class="line-block">
+<div class="line">El contexto indica que <strong>las ciudades tienen comportamientos de consumo diferentes</strong>.</div>
+<div class="line">Sin embargo, el diseño utilizado es un DCA que no controla este efecto.</div>
+</div>
+<ol class="arabic simple">
+<li><p>¿Qué problema estadístico puede generar ignorar el efecto ciudad en el análisis?</p></li>
+<li><p>¿Qué tipo de diseño experimental sería más adecuado si se quiere controlar el efecto de las ciudades? Explica brevemente su estructura.</p></li>
+<li><p>¿Cómo cambiaría el modelo estadístico si incorporas la ciudad como factor de bloqueo?</p></li>
+</ol>
+</section>
+<section id="Pregunta-6.2-—-Recomendación-empresarial">
+<h3>Pregunta 6.2 — Recomendación empresarial<a class="headerlink" href="#Pregunta-6.2-—-Recomendación-empresarial" title="Link to this heading">#</a></h3>
+<p>Con base en todos los resultados obtenidos (análisis exploratorio, ANOVA y comparaciones múltiples), redacta un <strong>párrafo de recomendación</strong> dirigido a la gerencia de marketing de la empresa.</p>
+<p>Tu recomendación debe:</p>
+<ul class="simple">
+<li><p>Indicar qué estrategia se recomienda adoptar y por qué.</p></li>
+<li><p>Mencionar las limitaciones del análisis realizado.</p></li>
+<li><p>Sugerir al menos un paso adicional que la empresa debería considerar antes de tomar la decisión final.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_dise%C3%B1o_experimentos_2.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Diseño de Experimentos (Parte II)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../modelos_regresion/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">5. Modelos de Regresión</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Contexto-empresarial">Contexto empresarial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Objetivos-del-taller">Objetivos del taller</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Librerías-y-carga-de-datos">Librerías y carga de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-1-—-Planeación-del-experimento">Parte 1 — Planeación del experimento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-1.1">Pregunta 1.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-1.2">Pregunta 1.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-1.3">Pregunta 1.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-2-—-Análisis-exploratorio-de-datos">Parte 2 — Análisis exploratorio de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-2.1">Pregunta 2.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-2.2">Pregunta 2.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-2.3">Pregunta 2.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-3-—-Verificación-de-supuestos-del-ANOVA">Parte 3 — Verificación de supuestos del ANOVA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-3.1-—-Normalidad">Pregunta 3.1 — Normalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-3.2-—-Homogeneidad-de-varianzas">Pregunta 3.2 — Homogeneidad de varianzas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-3.3">Pregunta 3.3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-4-—-Análisis-de-Varianza-(ANOVA)">Parte 4 — Análisis de Varianza (ANOVA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-4.1">Pregunta 4.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-4.2">Pregunta 4.2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-5-—-Comparaciones-múltiples">Parte 5 — Comparaciones múltiples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.1-—-Inflación-del-error-de-Tipo-I">Pregunta 5.1 — Inflación del error de Tipo I</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.2-—-Prueba-de-Tukey-HSD">Pregunta 5.2 — Prueba de Tukey HSD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.3-—-Interpretación-de-Tukey">Pregunta 5.3 — Interpretación de Tukey</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-5.4-—-Visualización-de-comparaciones-múltiples">Pregunta 5.4 — Visualización de comparaciones múltiples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Parte-6-—-Reflexión-crítica-y-recomendaciones">Parte 6 — Reflexión crítica y recomendaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-6.1-—-Limitaciones-del-DCA">Pregunta 6.1 — Limitaciones del DCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Pregunta-6.2-—-Recomendación-empresarial">Pregunta 6.2 — Recomendación empresarial</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
