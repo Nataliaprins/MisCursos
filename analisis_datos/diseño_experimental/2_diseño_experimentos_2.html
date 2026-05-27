@@ -542,7 +542,7 @@ document.write(`
 <section id="Librerías-necesarias">
 <h2>Librerías necesarias<a class="headerlink" href="#Librerías-necesarias" title="Link to this heading">#</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -649,7 +649,7 @@ Librerías cargadas correctamente ✓
 </table>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -707,7 +707,7 @@ Total de observaciones requeridas: N = 64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -809,7 +809,7 @@ Total de observaciones requeridas: N = 64
 <section id="Tabla-de-sensibilidad:-n-vs.-potencia-para-múltiples-niveles">
 <h3>Tabla de sensibilidad: n vs. potencia para múltiples niveles<a class="headerlink" href="#Tabla-de-sensibilidad:-n-vs.-potencia-para-múltiples-niveles" title="Link to this heading">#</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -916,7 +916,7 @@ Nota: para este experimento (f ≈ 0.99), se recomienda n = 16 réplicas/trat.
 <h2>2.1 Datos de trabajo<a class="headerlink" href="#2.1-Datos-de-trabajo" title="Link to this heading">#</a></h2>
 <p>Utilizamos el experimento de fertilizantes del Taller I, pero con el tamaño de muestra calculado ($n = $ <code class="docutils literal notranslate"><span class="pre">n_necesario</span></code>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -994,7 +994,7 @@ Fertilizante D  16  402.43  29.55
 </table>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1093,7 +1093,7 @@ Estadístico Durbin-Watson: DW = 2.1142
 <div><p>Si <span class="math notranslate nohighlight">\(p &lt; 0.05\)</span> → evidencia de heterocedasticidad → considerar transformación de la respuesta (log, raíz cuadrada) o usar ANOVA de Welch.</p>
 </div></blockquote>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1232,7 +1232,7 @@ Levene (mediana)       1.7024   0.1761       OK ✓
 </table>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1311,7 +1311,7 @@ el supuesto de normalidad se considera satisfecho.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1539,7 +1539,7 @@ el supuesto de normalidad se considera satisfecho.
 </div>
 <p>La finca actúa como <strong>factor de bloqueo</strong>: reconocemos que el suelo varía entre fincas, pero no nos interesa comparar fincas, sino aislar esa variabilidad para estimar mejor el efecto del fertilizante.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1561,7 +1561,7 @@ el supuesto de normalidad se considera satisfecho.
 <span class="n">mu</span>  <span class="o">=</span> <span class="mi">420</span>
 
 <span class="c1"># Efectos de bloque (diferencias de fertilidad entre fincas)</span>
-<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="o">+</span><span class="mi">30</span><span class="p">,</span> <span class="o">+</span><span class="mi">50</span><span class="p">])</span>  <span class="c1"># suma ≈ 0 (centrado)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="o">+</span><span class="mi">30</span><span class="p">,</span> <span class="o">+</span><span class="mi">50</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># suma ≈ 0 (centrado)</span>
 <span class="n">beta</span> <span class="o">-=</span> <span class="n">beta</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="n">registros_dbca</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1592,20 +1592,22 @@ el supuesto de normalidad se considera satisfecho.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">UFuncTypeError</span>                            Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 21</span>
-<span class="ansi-green-fg">     19</span> <span style="color: rgb(95,135,135)"># Efectos de bloque (diferencias de fertilidad entre fincas)</span>
-<span class="ansi-green-fg">     20</span> beta = np.array([-<span class="ansi-green-fg">40</span>, -<span class="ansi-green-fg">10</span>, +<span class="ansi-green-fg">10</span>, +<span class="ansi-green-fg">30</span>, +<span class="ansi-green-fg">50</span>])  <span style="color: rgb(95,135,135)"># suma ≈ 0 (centrado)</span>
-<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">21</span> <span class="ansi-yellow-bg">beta</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">-</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">beta</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mean</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">     23</span> registros_dbca = []
-<span class="ansi-green-fg">     24</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> j, finca <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">enumerate</span>(fincas):
+Datos del DBCA – Rendimiento (kg/ha):
 
-<span class="ansi-red-fg">UFuncTypeError</span>: Cannot cast ufunc &#39;subtract&#39; output from dtype(&#39;float64&#39;) to dtype(&#39;int64&#39;) with casting rule &#39;same_kind&#39;
+Tratamiento  Fert. A  Fert. B  Fert. C  Fert. D  Media_bloque
+Bloque
+Finca 1       350.96   389.78   452.84   346.87        385.11
+Finca 2       396.91   387.78   457.88   397.31        409.97
+Finca 3       424.56   441.75   469.74   449.47        446.38
+Finca 4       454.22   448.22   515.84   433.04        462.83
+Finca 5       445.25   487.14   496.49   463.28        473.04
+Media_trat    414.38   430.93   478.56   417.99        435.47
+
+Media general: 435.47 kg/ha
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1641,8 +1643,24 @@ el supuesto de normalidad se considera satisfecho.
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_dise%C3%B1o_experimental_2_dise%C3%B1o_experimentos_2_21_0.png" src="../../_images/analisis_datos_dise%C3%B1o_experimental_2_dise%C3%B1o_experimentos_2_21_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Nota: las líneas de perfil casi paralelas sugieren que no hay interacción
+entre tratamientos y bloques, validando el supuesto de aditividad del DBCA.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1674,6 +1692,27 @@ el supuesto de normalidad se considera satisfecho.
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+=================================================================
+       TABLA ANOVA – Diseño de Bloques Completamente Aleatorizado
+=================================================================
+                   GL          SS         MS        F  p-valor
+Tratamiento       3.0  13136.7483  4378.9161  13.5652   0.0004
+Bloque            4.0  21860.9214  5465.2303  16.9304   0.0001
+Error (Residuo)  12.0   3873.6665   322.8055      NaN      NaN
+=================================================================
+
+Tratamiento : F = 13.5652,  p = 0.0004 → SIGNIFICATIVO
+Bloque      : F = 16.9304,  p = 0.0001 → SIGNIFICATIVO (bloqueo útil)
+
+R² del modelo con bloques: 0.9003
+  El modelo explica el 90.0% de la variabilidad total.
+</pre></div></div>
+</div>
 </section>
 </section>
 <section id="3.4-Ganancia-de-Eficiencia-del-Bloqueo">
@@ -1683,8 +1722,8 @@ el supuesto de normalidad se considera satisfecho.
 <div class="math notranslate nohighlight">
 \[ER = \frac{MS_{E,\text{DCA}}}{MS_{E,\text{DBCA}}}\]</div>
 <p>Un <span class="math notranslate nohighlight">\(ER &gt; 1\)</span> indica que el DBCA necesita <strong>menos réplicas</strong> que el DCA para alcanzar la misma precisión.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1694,7 +1733,7 @@ el supuesto de normalidad se considera satisfecho.
 <span class="n">modelo_dca_comp</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Rendimiento ~ C(Tratamiento)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_dbca</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="n">tabla_dca_comp</span>  <span class="o">=</span> <span class="n">anova_lm</span><span class="p">(</span><span class="n">modelo_dca_comp</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">MS_E_dca</span>  <span class="o">=</span> <span class="n">tabla_dca_comp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;MS&#39;</span><span class="p">]</span>
+<span class="n">MS_E_dca</span>  <span class="o">=</span> <span class="n">tabla_dca_comp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;mean_sq&#39;</span><span class="p">]</span>
 <span class="n">MS_E_dbca</span> <span class="o">=</span> <span class="n">tabla_dbca</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Error (Residuo)&#39;</span><span class="p">,</span> <span class="s1">&#39;MS&#39;</span><span class="p">]</span>
 <span class="n">ER</span> <span class="o">=</span> <span class="n">MS_E_dca</span> <span class="o">/</span> <span class="n">MS_E_dbca</span>
 
@@ -1713,8 +1752,25 @@ el supuesto de normalidad se considera satisfecho.
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Comparación de la varianza residual:
+
+  MS_E  (DCA, bloques ignorados):      1608.4117
+  MS_E  (DBCA, bloques incluidos):      322.8055
+
+  Eficiencia Relativa (ER) = 4.98
+
+  → El DBCA es 4.98x más eficiente que el DCA.
+    Para lograr la misma precisión, el DCA necesitaría ≈ 80 réplicas/trat.
+    El DBCA lo logra con solo 5 réplicas (bloques).
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1749,8 +1805,36 @@ el supuesto de normalidad se considera satisfecho.
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+=================================================================
+   COMPARACIONES MÚLTIPLES (Tukey HSD) – DBCA  (α = 0.05)
+=================================================================
+   Multiple Comparison of Means - Tukey HSD, FWER=0.05
+=========================================================
+ group1  group2 meandiff p-adj    lower    upper   reject
+---------------------------------------------------------
+Fert. A Fert. B   16.554 0.9131  -56.0147  89.1227  False
+Fert. A Fert. C   64.178 0.0928   -8.3907 136.7467  False
+Fert. A Fert. D    3.614 0.9989  -68.9547  76.1827  False
+Fert. B Fert. C   47.624 0.2759  -24.9447 120.1927  False
+Fert. B Fert. D   -12.94 0.9555  -85.5087  59.6287  False
+Fert. C Fert. D  -60.564 0.1198 -133.1327  12.0047  False
+---------------------------------------------------------
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_dise%C3%B1o_experimental_2_dise%C3%B1o_experimentos_2_25_1.png" src="../../_images/analisis_datos_dise%C3%B1o_experimental_2_dise%C3%B1o_experimentos_2_25_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------</span>
@@ -1795,6 +1879,22 @@ el supuesto de normalidad se considera satisfecho.
       <span class="s2">&quot;→ Varianzas iguales ✓&quot;</span> <span class="k">if</span> <span class="n">p_lev_d</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;→ ⚠&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_dise%C3%B1o_experimental_2_dise%C3%B1o_experimentos_2_26_0.png" src="../../_images/analisis_datos_dise%C3%B1o_experimental_2_dise%C3%B1o_experimentos_2_26_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shapiro-Wilk : W = 0.9430,  p = 0.2732 → Normal ✓
+Levene       : W = 0.4726,  p = 0.7056 → Varianzas iguales ✓
+</pre></div></div>
 </div>
 </section>
 </section>

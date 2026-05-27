@@ -10,4 +10,6 @@ Contenido del curso de Diseño Experimental.
    1_diseño experimental
    2_diseño_experimentos_2
    taller_diseño_experimental
+   taller_BCA
+
 
