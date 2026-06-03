@@ -196,10 +196,26 @@
 
 
 
+
 <li class="toctree-l3"><a class="reference internal" href="taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../modelos_regresion/index.html">5. Modelos de Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modelos_regresion/regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelos_regresion/regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelos_regresion/regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
 </ul>
 </details></li>
@@ -491,6 +507,26 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen-del-Taller">Resumen del Taller</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#🧪-PARCIAL-–-Diseño-de-Experimentos">🧪 PARCIAL – Diseño de Experimentos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#CASO-DE-ESTUDIO-—-Evaluación-de-Fertilizantes-en-Cultivos-de-Trigo">CASO DE ESTUDIO — Evaluación de Fertilizantes en Cultivos de Trigo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-1-–-Rendimiento-promedio-(kg/ha)-por-fertilizante-y-finca">Tabla 1 – Rendimiento promedio (kg/ha) por fertilizante y finca</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-2-–-ANOVA-del-DBCA">Tabla 2 – ANOVA del DBCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-3-–-Prueba-de-Tukey-HSD-post-hoc-(α-=-0.05)">Tabla 3 – Prueba de Tukey HSD post-hoc (α = 0.05)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-4-–-Validación-de-supuestos-del-modelo">Tabla 4 – Validación de supuestos del modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-5-–-Análisis-de-potencia-y-comparación-DCA-vs.-DBCA">Tabla 5 – Análisis de potencia y comparación DCA vs. DBCA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SECCIÓN-A-–-Selección-Múltiple-(única-respuesta-correcta)">SECCIÓN A – Selección Múltiple (única respuesta correcta)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-interpretativas-(basadas-en-el-caso-de-estudio)">Preguntas interpretativas (basadas en el caso de estudio)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-teóricas">Preguntas teóricas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Cuadro-de-respuestas-–-Sección-A">Cuadro de respuestas – Sección A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SECCIÓN-B-–-Falso-/-Verdadero">SECCIÓN B – Falso / Verdadero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Cuadro-de-respuestas-–-Sección-B">Cuadro de respuestas – Sección B</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Clave-de-respuestas-(uso-exclusivo-del-docente)">Clave de respuestas (uso exclusivo del docente)</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -1969,6 +2005,903 @@ Levene       : W = 0.4726,  p = 0.7056 → Varianzas iguales ✓
 <div><p><strong>Principio de parsimonia:</strong> usa el diseño más simple que controle adecuadamente la variabilidad. El DBCA es preferible al DCA cuando la variabilidad entre bloques es grande; de lo contrario, el bloqueo no necesario solo <em>reduce</em> los grados de libertad del error.</p>
 </div></blockquote>
 </section>
+<section id="🧪-PARCIAL-–-Diseño-de-Experimentos">
+<h1>🧪 PARCIAL – Diseño de Experimentos<a class="headerlink" href="#🧪-PARCIAL-–-Diseño-de-Experimentos" title="Link to this heading">#</a></h1>
+<p><strong>Fecha:</strong> ____________ <strong>Nombre:</strong> _________________________________ <strong>Código:</strong> __________</p>
+<blockquote>
+<div><p><strong>Instrucciones generales</strong></p>
+<ul class="simple">
+<li><p>Duración: 120 minutos. Consulta de apuntes: <strong>no permitida</strong>.</p></li>
+<li><p>Sección A: 20 preguntas de selección múltiple con única respuesta (2.5 puntos c/u = 50 pts).</p></li>
+<li><p>Sección B: 10 preguntas de Falso / Verdadero (5 puntos c/u = 50 pts). Justifique brevemente cada respuesta.</p></li>
+<li><p>Las respuestas deben basarse <strong>exclusivamente</strong> en los resultados del caso de estudio presentado.</p></li>
+</ul>
+</div></blockquote>
+<hr class="docutils" />
+<section id="CASO-DE-ESTUDIO-—-Evaluación-de-Fertilizantes-en-Cultivos-de-Trigo">
+<h2>CASO DE ESTUDIO — Evaluación de Fertilizantes en Cultivos de Trigo<a class="headerlink" href="#CASO-DE-ESTUDIO-—-Evaluación-de-Fertilizantes-en-Cultivos-de-Trigo" title="Link to this heading">#</a></h2>
+<p>Una empresa agroindustrial desea determinar cuál de cuatro tipos de fertilizante (A, B, C, D) produce el mayor rendimiento en cultivos de trigo (kg/ha). Dado que las parcelas disponibles se distribuyen en <strong>cinco fincas</strong> con condiciones de suelo heterogéneas, el experimento se diseñó como un <strong>Diseño de Bloques Completamente Aleatorizados (DBCA)</strong>: en cada finca se aplicaron los cuatro fertilizantes en parcelas de condiciones comparables, y la asignación dentro de cada finca fue aleatoria.</p>
+<section id="Tabla-1-–-Rendimiento-promedio-(kg/ha)-por-fertilizante-y-finca">
+<h3>Tabla 1 – Rendimiento promedio (kg/ha) por fertilizante y finca<a class="headerlink" href="#Tabla-1-–-Rendimiento-promedio-(kg/ha)-por-fertilizante-y-finca" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Finca</p></th>
+<th class="head"><p>Fert. A</p></th>
+<th class="head"><p>Fert. B</p></th>
+<th class="head"><p>Fert. C</p></th>
+<th class="head"><p>Fert. D</p></th>
+<th class="head"><p>Media finca</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Finca 1</p></td>
+<td><p>365</p></td>
+<td><p>407</p></td>
+<td><p>439</p></td>
+<td><p>389</p></td>
+<td><p>400.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Finca 2</p></td>
+<td><p>388</p></td>
+<td><p>425</p></td>
+<td><p>467</p></td>
+<td><p>408</p></td>
+<td><p>422.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Finca 3</p></td>
+<td><p>401</p></td>
+<td><p>441</p></td>
+<td><p>480</p></td>
+<td><p>421</p></td>
+<td><p>435.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Finca 4</p></td>
+<td><p>415</p></td>
+<td><p>455</p></td>
+<td><p>494</p></td>
+<td><p>432</p></td>
+<td><p>449.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Finca 5</p></td>
+<td><p>431</p></td>
+<td><p>472</p></td>
+<td><p>510</p></td>
+<td><p>450</p></td>
+<td><p>465.8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Media tratamiento</strong></p></td>
+<td><p><strong>400.0</strong></p></td>
+<td><p><strong>440.0</strong></p></td>
+<td><p><strong>478.0</strong></p></td>
+<td><p><strong>420.0</strong></p></td>
+<td><p><strong>434.5</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Tabla-2-–-ANOVA-del-DBCA">
+<h3>Tabla 2 – ANOVA del DBCA<a class="headerlink" href="#Tabla-2-–-ANOVA-del-DBCA" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fuente de variación</p></th>
+<th class="head"><p>GL</p></th>
+<th class="head"><p>SS</p></th>
+<th class="head"><p>MS</p></th>
+<th class="head"><p>F</p></th>
+<th class="head"><p>p-valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fertilizante (Trat.)</p></td>
+<td><p>3</p></td>
+<td><p>28 940</p></td>
+<td><p>9 646.7</p></td>
+<td><p>28.44</p></td>
+<td><p><strong>&lt; 0.0001</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finca (Bloque)</p></td>
+<td><p>4</p></td>
+<td><p>15 680</p></td>
+<td><p>3 920.0</p></td>
+<td><p>11.56</p></td>
+<td><p><strong>0.0005</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Error</p></td>
+<td><p>12</p></td>
+<td><p>4 070</p></td>
+<td><p>339.2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Total</strong></p></td>
+<td><p><strong>19</strong></p></td>
+<td><p><strong>48 690</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R² del modelo = 0.916</strong></p>
+</section>
+<hr class="docutils" />
+<section id="Tabla-3-–-Prueba-de-Tukey-HSD-post-hoc-(α-=-0.05)">
+<h3>Tabla 3 – Prueba de Tukey HSD post-hoc (α = 0.05)<a class="headerlink" href="#Tabla-3-–-Prueba-de-Tukey-HSD-post-hoc-(α-=-0.05)" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Par</p></th>
+<th class="head"><p>Diferencia de medias</p></th>
+<th class="head"><p>p-adj</p></th>
+<th class="head"><p>IC 95 % inferior</p></th>
+<th class="head"><p>IC 95 % superior</p></th>
+<th class="head"><p>¿Rechaza H₀?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A vs B</p></td>
+<td><p>−40.0</p></td>
+<td><p>0.0142</p></td>
+<td><p>−68.3</p></td>
+<td><p>−11.7</p></td>
+<td><p><strong>Sí</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>A vs C</p></td>
+<td><p>−78.0</p></td>
+<td><p>&lt; 0.0001</p></td>
+<td><p>−106.3</p></td>
+<td><p>−49.7</p></td>
+<td><p><strong>Sí</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>A vs D</p></td>
+<td><p>−20.0</p></td>
+<td><p>0.2651</p></td>
+<td><p>−48.3</p></td>
+<td><p>8.3</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>B vs C</p></td>
+<td><p>−38.0</p></td>
+<td><p>0.0193</p></td>
+<td><p>−66.3</p></td>
+<td><p>−9.7</p></td>
+<td><p><strong>Sí</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>B vs D</p></td>
+<td><p>+20.0</p></td>
+<td><p>0.2651</p></td>
+<td><p>−8.3</p></td>
+<td><p>48.3</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>C vs D</p></td>
+<td><p>+58.0</p></td>
+<td><p>&lt; 0.0001</p></td>
+<td><p>+29.7</p></td>
+<td><p>86.3</p></td>
+<td><p><strong>Sí</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Tabla-4-–-Validación-de-supuestos-del-modelo">
+<h3>Tabla 4 – Validación de supuestos del modelo<a class="headerlink" href="#Tabla-4-–-Validación-de-supuestos-del-modelo" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Supuesto</p></th>
+<th class="head"><p>Prueba</p></th>
+<th class="head"><p>Estadístico</p></th>
+<th class="head"><p>p-valor</p></th>
+<th class="head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Normalidad de residuos</p></td>
+<td><p>Shapiro-Wilk</p></td>
+<td><p>W = 0.9714</p></td>
+<td><p>0.827</p></td>
+<td><p>Normal ✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Homogeneidad de varianzas</p></td>
+<td><p>Levene (mediana)</p></td>
+<td><p>W = 1.182</p></td>
+<td><p>0.361</p></td>
+<td><p>Varianzas iguales ✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Independencia</p></td>
+<td><p>Durbin-Watson</p></td>
+<td><p>DW = 1.98</p></td>
+<td><p>—</p></td>
+<td><p>Sin autocorrelación ✓</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Tabla-5-–-Análisis-de-potencia-y-comparación-DCA-vs.-DBCA">
+<h3>Tabla 5 – Análisis de potencia y comparación DCA vs. DBCA<a class="headerlink" href="#Tabla-5-–-Análisis-de-potencia-y-comparación-DCA-vs.-DBCA" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Valor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Número de tratamientos (k)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tamaño del efecto de Cohen (f)</p></td>
+<td><p><strong>0.712</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>α utilizado</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>Potencia alcanzada con b = 5 bloques</p></td>
+<td><p><strong>0.93</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>n mínimo para potencia = 0.80</p></td>
+<td><p>4 réplicas/trat.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MS_E – DCA (bloques ignorados)</p></td>
+<td><p>1 251.8</p></td>
+</tr>
+<tr class="row-even"><td><p>MS_E – DBCA (bloques incluidos)</p></td>
+<td><p>339.2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Eficiencia Relativa (ER)</strong></p></td>
+<td><p><strong>3.69</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="SECCIÓN-A-–-Selección-Múltiple-(única-respuesta-correcta)">
+<h2>SECCIÓN A – Selección Múltiple (única respuesta correcta)<a class="headerlink" href="#SECCIÓN-A-–-Selección-Múltiple-(única-respuesta-correcta)" title="Link to this heading">#</a></h2>
+<p><em>Marque con una</em> <strong>X</strong> <em>la letra de la respuesta correcta en el cuadro de respuestas al final.</em></p>
+<hr class="docutils" />
+<section id="Preguntas-interpretativas-(basadas-en-el-caso-de-estudio)">
+<h3>Preguntas interpretativas (basadas en el caso de estudio)<a class="headerlink" href="#Preguntas-interpretativas-(basadas-en-el-caso-de-estudio)" title="Link to this heading">#</a></h3>
+<p><strong>1.</strong> Con base en la Tabla 2, ¿qué decisión estadística se toma respecto a la hipótesis nula de igualdad de medias entre fertilizantes (α = 0.05)?</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>No se rechaza H₀ porque el F-observado es mayor que el p-valor.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p><strong>Se rechaza H₀: existe evidencia de que al menos dos fertilizantes producen rendimientos medios diferentes.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>No se rechaza H₀ porque p-valor &gt; 0.05.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>No puede concluirse porque el factor Bloque también resultó significativo.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>2.</strong> De acuerdo con la Tabla 3 (Tukey HSD), ¿qué fertilizante debería recomendar la empresa si su único criterio es <strong>maximizar el rendimiento</strong> con diferencias estadísticamente comprobadas?</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Fertilizante B, porque supera a todos en magnitud de diferencia.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>Fertilizante D, porque presenta la menor variabilidad entre fincas.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>Fertilizante C, porque tiene la mayor media (478 kg/ha) y difiere significativamente de A, B y D.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>Cualquier fertilizante sirve, pues todos tienen diferencias no significativas entre sí.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>3.</strong> El R² = 0.916 del modelo DBCA significa que:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>El 91.6 % de la variabilidad del rendimiento es explicado únicamente por el tipo de fertilizante.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>El 8.4 % de los errores del modelo se deben a las fincas.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>El modelo (fertilizantes + fincas) explica el 91.6 % de la variabilidad total del rendimiento.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>El experimento tiene una probabilidad de error del 8.4 % en la prueba Tukey.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>4.</strong> La significancia del factor Bloque (Finca) con p = 0.0005 (Tabla 2) indica principalmente que:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Las fincas deben incorporarse como un segundo factor de tratamiento de interés.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>El modelo está mal especificado porque los bloques no deberían ser significativos.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>Los resultados de Tukey no son confiables por efecto de los bloques.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p><strong>El bloqueo fue útil: las fincas introdujeron variabilidad significativa que fue correctamente aislada del error experimental.</strong></p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>5.</strong> La Eficiencia Relativa ER = 3.69 (Tabla 5) implica que:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>El DBCA encontró 3.69 veces más diferencias significativas que el DCA.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p><strong>Para lograr la misma precisión que el DBCA, el DCA necesitaría aproximadamente 3.69 veces más réplicas por tratamiento.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>El DBCA incurre en 3.69 veces más errores de Tipo I que el DCA.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>El DBCA requiere 3.69 veces más bloques que tratamientos.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>6.</strong> Del análisis Tukey (Tabla 3), ¿cuál de los siguientes pares <strong>NO</strong> muestra diferencia estadísticamente significativa (α = 0.05)?</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Fertilizante A vs. Fertilizante C.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>Fertilizante B vs. Fertilizante C.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>Fertilizante A vs. Fertilizante D.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>Fertilizante A vs. Fertilizante B.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>7.</strong> El MS_E = 339.2 de la Tabla 2 es la mejor estimación de:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>La variabilidad entre tratamientos.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>La variabilidad entre fincas.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>La variabilidad total del experimento.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p><strong>La varianza del error experimental (σ²), es decir, la variabilidad no explicada por tratamientos ni bloques.</strong></p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>8.</strong> Observe que en la Tabla 1, los perfiles de rendimiento entre fincas se desplazan hacia arriba de manera casi uniforme conforme avanza la finca del 1 al 5. Esto sugiere:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Que existe una interacción fuerte entre fertilizante y finca, invalidando el DBCA.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p><strong>Que el modelo aditivo del DBCA es apropiado: el efecto de la finca es un desplazamiento constante sobre todos los tratamientos.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>Que el Fertilizante C es significativamente diferente solo en la Finca 5.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>Que los supuestos de homocedasticidad están siendo violados.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>9.</strong> Si el investigador hubiera analizado el mismo conjunto de datos con un DCA (ignorando las fincas), ¿qué efecto tendría esto sobre el MS_E?</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>El MS_E disminuiría porque habría menos fuentes de variación en el modelo.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>El MS_E no cambiaría porque la varianza total siempre es constante.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>El MS_E aumentaría (de 339.2 a 1 251.8), absorbiendo la variabilidad de las fincas, lo que reduciría la potencia de la prueba F.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>El MS_E aumentaría, pero la decisión sobre H₀ de tratamientos no cambiaría.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>10.</strong> Según el análisis de potencia (Tabla 5), el experimento con b = 5 bloques alcanza una potencia de 0.93. Esto significa que:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Hay un 93 % de probabilidad de cometer un error de Tipo I.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p><strong>Si en realidad existen diferencias entre fertilizantes del tamaño observado (f = 0.712), el experimento tiene un 93 % de probabilidad de detectarlas.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>El 7 % restante de los datos proviene de fincas no controladas.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>El p-valor esperado es 1 − 0.93 = 0.07.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>11.</strong> El intervalo de confianza del 95 % para la diferencia A vs. B es [−68.3 ; −11.7] (Tabla 3). La interpretación correcta es:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>No existe diferencia significativa porque el intervalo contiene el cero.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>El Fertilizante A supera al B entre 11.7 y 68.3 kg/ha con un 95 % de confianza.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>El Fertilizante B supera al A entre 11.7 y 68.3 kg/ha con un 95 % de confianza, evidencia de diferencia real.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>El intervalo indica que la diferencia puede ser cero, por lo que no se rechaza H₀.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>12.</strong> La variabilidad entre fincas (SS_Bloques = 15 680) representa aproximadamente ____ % de la variabilidad total (SS_Total = 48 690):</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>5.9 %</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>8.4 %</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>32.2 %</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>59.4 %</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>13.</strong> Con base en la Tabla 4, el estadístico Durbin-Watson = 1.98 permite concluir que:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Existe autocorrelación positiva significativa en los residuos.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>El orden de ejecución de las corridas afectó los resultados.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>Los residuos tienen heterocedasticidad moderada.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p><strong>No hay evidencia de autocorrelación; el supuesto de independencia se considera satisfecho.</strong></p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>14.</strong> Si al verificar los supuestos del DBCA el investigador obtuviera Levene con p = 0.018 &lt; 0.05, la acción más apropiada sería:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Aumentar el tamaño de muestra y repetir el ANOVA sin corrección.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>Eliminar los datos atípicos de las fincas más variables.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>Considerar una transformación de la variable respuesta (p. ej., logarítmica o raíz cuadrada) o usar un ANOVA de Welch.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>Reportar los resultados como válidos porque el ANOVA es siempre robusto a la heterocedasticidad.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>15.</strong> El tamaño del efecto f = 0.712 (Tabla 5) se clasifica, según la escala de Cohen, como:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Efecto pequeño (f &lt; 0.10).</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>Efecto mediano (f ≈ 0.25).</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>Efecto entre mediano y grande.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p><strong>Efecto grande (f &gt; 0.40), indicando que las diferencias entre fertilizantes son sustanciales en relación con la variabilidad del proceso.</strong></p></li>
+</ol>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Preguntas-teóricas">
+<h3>Preguntas teóricas<a class="headerlink" href="#Preguntas-teóricas" title="Link to this heading">#</a></h3>
+<p><strong>16.</strong> En el modelo estadístico del DBCA, <span class="math notranslate nohighlight">\(y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}\)</span>, el término <span class="math notranslate nohighlight">\(\beta_j\)</span> representa:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>El efecto del tratamiento <span class="math notranslate nohighlight">\(i\)</span> sobre la respuesta.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>El error aleatorio de la observación.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>El efecto del bloque :math:`j`, que captura la variabilidad debida a la fuente de heterogeneidad conocida.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>La media general del experimento.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>17.</strong> Si se aplican pruebas t individuales a los <span class="math notranslate nohighlight">\(\binom{4}{2} = 6\)</span> pares posibles con α = 0.05 cada una, la tasa de error familiar (FWER) es aproximadamente:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>0.05</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>0.13</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>0.265</strong>, porque FWER = 1 − (1 − 0.05)⁶ ≈ 0.265.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>0.30</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>18.</strong> ¿Cuál es la principal distinción entre una <strong>réplica verdadera</strong> y una <strong>pseudoréplica</strong> en el diseño de experimentos?</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Una réplica verdadera es costosa; una pseudoréplica es más económica y estadísticamente equivalente.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>La pseudoréplica aumenta los grados de libertad del error de forma legítima.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>Una réplica verdadera es una ejecución independiente del tratamiento en una unidad experimental diferente; la pseudoréplica es medir varias veces la misma unidad, lo que no aporta información adicional independiente.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>Solo las pseudoréplicas están permitidas en diseños con bloques.</p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>19.</strong> En un análisis de potencia para ANOVA de una vía, si el investigador reduce el nivel de significancia de α = 0.05 a α = 0.01 manteniendo el mismo n y efecto, ¿qué ocurre con la potencia?</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>La potencia aumenta porque el umbral de rechazo es más estricto.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>La potencia no cambia porque depende únicamente del tamaño del efecto.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p>La potencia aumenta porque el error de Tipo II disminuye.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p><strong>La potencia disminuye porque al ser más exigente con el umbral de rechazo (mayor valor crítico de F), es más difícil detectar diferencias reales.</strong></p></li>
+</ol>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>20.</strong> El método de comparaciones múltiples de <strong>Bonferroni</strong> ajusta el nivel de significancia dividiendo α entre el número de comparaciones (<span class="math notranslate nohighlight">\(\alpha^* = \alpha / m\)</span>). En comparación con Tukey HSD, Bonferroni es:</p>
+<ul class="simple">
+<li><ol class="loweralpha simple">
+<li><p>Más potente (menos conservador), por lo que siempre se prefiere.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="2">
+<li><p>Equivalente a Tukey HSD cuando las muestras son balanceadas.</p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="3">
+<li><p><strong>Más conservador (mayor probabilidad de Error de Tipo II), pero más flexible porque no requiere diseños balanceados ni presupone comparación de todos los pares.</strong></p></li>
+</ol>
+</li>
+<li><ol class="loweralpha simple" start="4">
+<li><p>Menos conservador que Holm-Bonferroni en todos los casos.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="Cuadro-de-respuestas-–-Sección-A">
+<h2>Cuadro de respuestas – Sección A<a class="headerlink" href="#Cuadro-de-respuestas-–-Sección-A" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="SECCIÓN-B-–-Falso-/-Verdadero">
+<h2>SECCIÓN B – Falso / Verdadero<a class="headerlink" href="#SECCIÓN-B-–-Falso-/-Verdadero" title="Link to this heading">#</a></h2>
+<p><em>Escriba</em> <strong>V</strong> <em>(Verdadero) o</em> <strong>F</strong> <em>(Falso) y justifique brevemente su respuesta en el espacio asignado.</em></p>
+<hr class="docutils" />
+<p><strong>21.</strong> En el DBCA, si el factor Bloque <strong>no</strong> resulta significativo (p &gt; 0.05), el bloqueo fue innecesario y solo reduce los grados de libertad disponibles para estimar el error experimental.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Verdadero</strong><em>. Si los bloques no son significativos, la variabilidad entre bloques era despreciable; incluirlos solo consume :math:`(b-1)` grados de libertad del error, reduciendo la potencia de la prueba F sobre tratamientos. En ese caso, hubiera sido preferible un DCA.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>22.</strong> Según los resultados de la Tabla 3 (Tukey HSD), el Fertilizante C difiere significativamente de <strong>todos</strong> los demás fertilizantes (A, B y D) a α = 0.05.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Verdadero</strong><em>. La Tabla 3 muestra que los pares A vs. C (p &lt; 0.0001), B vs. C (p = 0.0193) y C vs. D (p &lt; 0.0001) rechazan H₀. Por tanto, C es significativamente diferente de A, B y D.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>23.</strong> Un estadístico de Durbin-Watson (DW) cercano a 2 indica la presencia de autocorrelación positiva severa en los residuos del modelo.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Falso</strong><em>. DW ≈ 2 indica</em> <strong>ausencia</strong> <em>de autocorrelación. La autocorrelación positiva severa se detecta con DW &lt; 1.5; la negativa, con DW &gt; 2.5.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>24.</strong> El DBCA exige que cada bloque reciba <strong>todos</strong> los tratamientos exactamente una vez, y que la asignación de tratamientos dentro de cada bloque sea aleatoria.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Verdadero</strong><em>. Esta es la definición esencial del DBCA: balance completo dentro de cada bloque y aleatorización restringida dentro de cada uno.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>25.</strong> El R² = 0.916 reportado en el caso de estudio indica que el <strong>91.6 % de la variabilidad del rendimiento es explicada exclusivamente por el tipo de fertilizante</strong>.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Falso</strong><em>. El R² = 0.916 corresponde al modelo completo que incluye</em> <strong>tanto el efecto de fertilizante como el efecto de finca (bloque)</strong><em>. Atribuirlo solo al fertilizante sería incorrecto.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>26.</strong> Las pruebas de Shapiro-Wilk y Levene para validar los supuestos del ANOVA deben aplicarse sobre los <strong>datos brutos de cada tratamiento</strong>, no sobre los residuos del modelo ajustado.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Falso</strong><em>. Los supuestos del modelo (normalidad, homocedasticidad) se verifican sobre los</em> <strong>residuos</strong> <em>:math:`e_{ij} = y_{ij} - hat{y}_{ij}`, no directamente sobre los datos crudos, pues los residuos representan la parte no explicada del modelo.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>27.</strong> Si el resultado de la prueba de Levene fuera p = 0.012 &lt; 0.05 (heterocedasticidad), una posible acción correctiva es aplicar el <strong>ANOVA de Welch</strong> o transformar la variable respuesta (p. ej., transformación logarítmica).</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Verdadero</strong><em>. Ante heterocedasticidad, el ANOVA de Welch no asume varianzas iguales y es más robusto. Las transformaciones (log, raíz cuadrada, arcoseno) estabilizan la varianza cuando la variabilidad crece con la media.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>28.</strong> En el análisis de potencia, mantener constante el tamaño del efecto f y el número de tratamientos k, pero <strong>reducir</strong> el nivel de significancia de α = 0.05 a α = 0.01, aumenta la potencia estadística del experimento.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Falso</strong><em>. Reducir α hace la región de rechazo más pequeña (umbral crítico F más alto), por lo que es más difícil rechazar H₀ aunque sea falsa. Esto</em> <strong>disminuye</strong> <em>la potencia (1 − β), incrementando el riesgo de Error de Tipo II.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>29.</strong> El método de Holm-Bonferroni es, en general, <strong>menos conservador</strong> que el Bonferroni clásico, lo que significa que tiene mayor potencia para detectar diferencias reales cuando existe más de una comparación significativa.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Verdadero</strong><em>. Holm-Bonferroni aplica un ajuste secuencial decreciente de α, siendo menos restrictivo que dividir siempre por m. Controla la misma FWER pero con mayor potencia que Bonferroni clásico.)</em></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>30.</strong> Si en el experimento del caso de estudio los perfiles de rendimiento por finca (gráfico de interacción) mostraran <strong>líneas que se cruzan</strong> en lugar de ser paralelas, esto indicaría una <strong>interacción entre fertilizante y finca</strong>, lo cual <strong>violaría el supuesto de aditividad del DBCA</strong> y requeriría un modelo más complejo.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Respuesta:</strong> ___</div>
+<div class="line"><strong>Justificación:</strong> ______________________________________________________________________</div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p><em>(Clave:</em> <strong>Verdadero</strong><em>. El modelo del DBCA :math:`y_{ij} = mu + tau_i + beta_j + varepsilon_{ij}` es</em> <strong>aditivo</strong><em>: asume que el efecto del fertilizante es el mismo en todas las fincas. Si las líneas se cruzan (interacción), el efecto del fertilizante depende de la finca, invalidando el modelo aditivo. En ese caso habría que ajustar un modelo con término de interacción.)</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="Cuadro-de-respuestas-–-Sección-B">
+<h2>Cuadro de respuestas – Sección B<a class="headerlink" href="#Cuadro-de-respuestas-–-Sección-B" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pregunta</p></th>
+<th class="head"><p>V / F</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>21</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Clave-de-respuestas-(uso-exclusivo-del-docente)">
+<h2>Clave de respuestas (uso exclusivo del docente)<a class="headerlink" href="#Clave-de-respuestas-(uso-exclusivo-del-docente)" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sección A</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 – b</p></td>
+<td><p>2 – c</p></td>
+<td><p>3 – c</p></td>
+<td><p>4 – d</p></td>
+<td><p>5 – b</p></td>
+</tr>
+<tr class="row-odd"><td><p>6 – c</p></td>
+<td><p>7 – d</p></td>
+<td><p>8 – b</p></td>
+<td><p>9 – c</p></td>
+<td><p>10 – b</p></td>
+</tr>
+<tr class="row-even"><td><p>11 – c</p></td>
+<td><p>12 – c</p></td>
+<td><p>13 – d</p></td>
+<td><p>14 – c</p></td>
+<td><p>15 – d</p></td>
+</tr>
+<tr class="row-odd"><td><p>16 – c</p></td>
+<td><p>17 – c</p></td>
+<td><p>18 – c</p></td>
+<td><p>19 – d</p></td>
+<td><p>20 – c</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sección B</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>21 – V</p></td>
+<td><p>22 – V</p></td>
+</tr>
+<tr class="row-odd"><td><p>23 – F</p></td>
+<td><p>24 – V</p></td>
+</tr>
+<tr class="row-even"><td><p>25 – F</p></td>
+<td><p>26 – F</p></td>
+</tr>
+<tr class="row-odd"><td><p>27 – V</p></td>
+<td><p>28 – F</p></td>
+</tr>
+<tr class="row-even"><td><p>29 – V</p></td>
+<td><p>30 – V</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
 
 
                 </article>
@@ -2075,6 +3008,26 @@ Levene       : W = 0.4726,  p = 0.7056 → Varianzas iguales ✓
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Resumen-del-Taller">Resumen del Taller</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#🧪-PARCIAL-–-Diseño-de-Experimentos">🧪 PARCIAL – Diseño de Experimentos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#CASO-DE-ESTUDIO-—-Evaluación-de-Fertilizantes-en-Cultivos-de-Trigo">CASO DE ESTUDIO — Evaluación de Fertilizantes en Cultivos de Trigo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-1-–-Rendimiento-promedio-(kg/ha)-por-fertilizante-y-finca">Tabla 1 – Rendimiento promedio (kg/ha) por fertilizante y finca</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-2-–-ANOVA-del-DBCA">Tabla 2 – ANOVA del DBCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-3-–-Prueba-de-Tukey-HSD-post-hoc-(α-=-0.05)">Tabla 3 – Prueba de Tukey HSD post-hoc (α = 0.05)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-4-–-Validación-de-supuestos-del-modelo">Tabla 4 – Validación de supuestos del modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tabla-5-–-Análisis-de-potencia-y-comparación-DCA-vs.-DBCA">Tabla 5 – Análisis de potencia y comparación DCA vs. DBCA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SECCIÓN-A-–-Selección-Múltiple-(única-respuesta-correcta)">SECCIÓN A – Selección Múltiple (única respuesta correcta)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-interpretativas-(basadas-en-el-caso-de-estudio)">Preguntas interpretativas (basadas en el caso de estudio)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-teóricas">Preguntas teóricas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Cuadro-de-respuestas-–-Sección-A">Cuadro de respuestas – Sección A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#SECCIÓN-B-–-Falso-/-Verdadero">SECCIÓN B – Falso / Verdadero</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Cuadro-de-respuestas-–-Sección-B">Cuadro de respuestas – Sección B</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Clave-de-respuestas-(uso-exclusivo-del-docente)">Clave de respuestas (uso exclusivo del docente)</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

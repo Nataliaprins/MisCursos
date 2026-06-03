@@ -3,4 +3,11 @@
 
 Contenido del curso de Modelos de Regresión.
 
-Este apartado está en preparación.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Subtemas:
+
+   regresion_lineal_simple
+   regresion_lineal_multiple
+   regresion_polinomica

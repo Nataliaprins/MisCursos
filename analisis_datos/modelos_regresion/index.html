@@ -46,8 +46,8 @@
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="6. Análisis de Series de Tiempo" href="../series_temporales/index.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../dise%C3%B1o_experimental/taller_BCA.html" />
+    <link rel="next" title="Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos" href="regresion_lineal_simple.html" />
+    <link rel="prev" title="Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)" href="../dise%C3%B1o_experimental/taller_BCA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -193,10 +193,26 @@
 
 
 
+
 <li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
 </ul>
 </details></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5. Modelos de Regresión</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">5. Modelos de Regresión</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
 </ul>
 </details></li>
@@ -433,7 +449,56 @@ document.write(`
   <section id="modelos-de-regresion">
 <h1>5. Modelos de Regresión<a class="headerlink" href="#modelos-de-regresion" title="Link to this heading">#</a></h1>
 <p>Contenido del curso de Modelos de Regresión.</p>
-<p>Este apartado está en preparación.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Subtemas:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#1.-El-Modelo-de-Regresión-Lineal-Simple">1. El Modelo de Regresión Lineal Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#2.-Ejemplo-Práctico:-Datos-de-Estudio-y-Calificación">2. Ejemplo Práctico: Datos de Estudio y Calificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#3.-Estimación-por-Mínimos-Cuadrados-Ordinarios-(MCO)">3. Estimación por Mínimos Cuadrados Ordinarios (MCO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#4.-Los-Supuestos-del-Modelo-de-Regresión-Lineal-Simple">4. Los Supuestos del Modelo de Regresión Lineal Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#5.-Panel-de-Diagnóstico-Completo">5. Panel de Diagnóstico Completo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#6.-Resumen-de-los-Resultados-del-Diagnóstico">6. Resumen de los Resultados del Diagnóstico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#7.-Conclusiones">7. Conclusiones</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="regresion_lineal_multiple.html">Regresión Lineal Múltiple</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#Objetivos">Objetivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#1.-El-Modelo-de-Regresión-Lineal-Múltiple">1. El Modelo de Regresión Lineal Múltiple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#2.-Supuestos-del-Modelo">2. Supuestos del Modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#3.-Mínimos-Cuadrados-Ordinarios-(MCO)">3. Mínimos Cuadrados Ordinarios (MCO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#4.-Propiedades-del-Estimador-MCO">4. Propiedades del Estimador MCO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#5.-Estimación-de-Máxima-Verosimilitud-(MV)">5. Estimación de Máxima Verosimilitud (MV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#6.-Análisis-de-Varianza-(ANOVA)">6. Análisis de Varianza (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#7.-Bondad-de-Ajuste">7. Bondad de Ajuste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#8.-Pruebas-de-Hipótesis-Asociadas-a-la-Regresión">8. Pruebas de Hipótesis Asociadas a la Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#Resumen-y-Mapa-Conceptual">Resumen y Mapa Conceptual</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#Contenido">Contenido</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="regresion_polinomica.html#PARTE-1-—-Modelos-Polinómicos">PARTE 1 — Modelos Polinómicos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.1-Definición-y-Formulación-Matemática">1.1 Definición y Formulación Matemática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.2-Ejemplo-Práctico-—-Consumo-de-Combustible-vs.-Velocidad">1.2 Ejemplo Práctico — Consumo de Combustible vs. Velocidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.3-Ajuste-del-Modelo-Polinómico-con-MCO">1.3 Ajuste del Modelo Polinómico con MCO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.4-Interpretación-de-los-Coeficientes">1.4 Interpretación de los Coeficientes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.5-Selección-del-Grado-del-Polinomio:-Underfitting-vs.-Overfitting">1.5 Selección del Grado del Polinomio: Underfitting vs. Overfitting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="regresion_polinomica.html#PARTE-2-—-Modelos-Logarítmicos">PARTE 2 — Modelos Logarítmicos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.1-Definición-y-Tipos-de-Transformaciones">2.1 Definición y Tipos de Transformaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.2-Ejemplo-1-—-Modelo-Log-Lin:-Crecimiento-Salarial">2.2 Ejemplo 1 — Modelo Log-Lin: Crecimiento Salarial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.3-Ejemplo-2-—-Modelo-Log-Log:-Elasticidad-Precio-Demanda">2.3 Ejemplo 2 — Modelo Log-Log: Elasticidad Precio-Demanda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.4-Ejemplo-3-—-Modelo-Lin-Log:-Rendimiento-de-Cultivos">2.4 Ejemplo 3 — Modelo Lin-Log: Rendimiento de Cultivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#3.-Comparación-de-los-Cuatro-Modelos-con-un-Mismo-Dataset">3. Comparación de los Cuatro Modelos con un Mismo Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#4.-Guía-de-Selección-del-Modelo">4. Guía de Selección del Modelo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#5.-Resumen-Final">5. Resumen Final</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -453,15 +518,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</p>
       </div>
     </a>
     <a class="right-next"
-       href="../series_temporales/index.html"
+       href="regresion_lineal_simple.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">6. Análisis de Series de Tiempo</p>
+        <p class="prev-next-title">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

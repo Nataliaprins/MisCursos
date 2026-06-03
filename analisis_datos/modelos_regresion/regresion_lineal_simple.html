@@ -1,0 +1,1805 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/modelos_regresion/regresion_lineal_simple';</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Regresión Lineal Múltiple" href="regresion_lineal_multiple.html" />
+    <link rel="prev" title="5. Modelos de Regresión" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">5. Modelos de Regresión</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/modelos_regresion/regresion_lineal_simple.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/modelos_regresion/regresion_lineal_simple.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/analisis_datos/modelos_regresion/regresion_lineal_simple.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-El-Modelo-de-Regresión-Lineal-Simple">1. El Modelo de Regresión Lineal Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interpretación-geométrica">Interpretación geométrica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#La-recta-de-regresión-poblacional-vs.-muestral">La recta de regresión poblacional vs. muestral</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Ejemplo-Práctico:-Datos-de-Estudio-y-Calificación">2. Ejemplo Práctico: Datos de Estudio y Calificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Estimación-por-Mínimos-Cuadrados-Ordinarios-(MCO)">3. Estimación por Mínimos Cuadrados Ordinarios (MCO)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Principio">Principio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Fórmulas-cerradas">Fórmulas cerradas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Estimación-de-la-varianza-del-error">Estimación de la varianza del error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Los-Supuestos-del-Modelo-de-Regresión-Lineal-Simple">4. Los Supuestos del Modelo de Regresión Lineal Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-1-—-Linealidad">Supuesto 1 — Linealidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-2-—-Independencia-de-los-errores">Supuesto 2 — Independencia de los errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-3-—-Homocedasticidad-(varianza-constante)">Supuesto 3 — Homocedasticidad (varianza constante)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-4-—-Normalidad-de-los-errores">Supuesto 4 — Normalidad de los errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-5-—-Ausencia-de-observaciones-influyentes">Supuesto 5 — Ausencia de observaciones influyentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Distancia-de-Cook">Distancia de Cook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Panel-de-Diagnóstico-Completo">5. Panel de Diagnóstico Completo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Resumen-de-los-Resultados-del-Diagnóstico">6. Resumen de los Resultados del Diagnóstico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Conclusiones">7. Conclusiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interpretación-del-modelo-ajustado">Interpretación del modelo ajustado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Checklist-final-antes-de-interpretar-un-modelo-de-regresión">Checklist final antes de interpretar un modelo de regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Guía-de-acciones-correctivas">Guía de acciones correctivas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Regresión-Lineal-Simple:-Modelo,-Estimación-y-Verificación-de-Supuestos">
+<h1>Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos<a class="headerlink" href="#Regresión-Lineal-Simple:-Modelo,-Estimación-y-Verificación-de-Supuestos" title="Link to this heading">#</a></h1>
+<p>La <strong>regresión lineal simple</strong> es uno de los modelos estadísticos más fundamentales y ampliamente utilizados. Permite modelar la relación entre una variable dependiente <span class="math notranslate nohighlight">\(Y\)</span> y una sola variable independiente <span class="math notranslate nohighlight">\(X\)</span>, asumiendo que dicha relación es lineal.</p>
+<p>En este cuaderno estudiaremos:</p>
+<ol class="arabic simple">
+<li><p>El modelo de regresión lineal simple y su formulación matemática</p></li>
+<li><p>La estimación de parámetros por Mínimos Cuadrados Ordinarios (MCO)</p></li>
+<li><p>Los <strong>5 supuestos clásicos</strong> que deben comprobarse</p></li>
+<li><p>Cómo <strong>verificar cada supuesto</strong> con pruebas estadísticas y gráficos diagnósticos</p></li>
+</ol>
+<hr class="docutils" />
+<blockquote>
+<div><p><strong>Nota</strong>: La validez de las inferencias (pruebas de hipótesis, intervalos de confianza) depende del cumplimiento de los supuestos. Verificarlos siempre es una buena práctica.</p>
+</div></blockquote>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación de librerías</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.gridspec</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gridspec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.diagnostic</span><span class="w"> </span><span class="kn">import</span> <span class="n">het_breuschpagan</span><span class="p">,</span> <span class="n">het_white</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">durbin_watson</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.gofplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProbPlot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">shapiro</span><span class="p">,</span> <span class="n">kstest</span>
+
+<span class="c1"># Configuración de gráficos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Librerías cargadas correctamente ✓&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Librerías cargadas correctamente ✓
+</pre></div></div>
+</div>
+<section id="1.-El-Modelo-de-Regresión-Lineal-Simple">
+<h2>1. El Modelo de Regresión Lineal Simple<a class="headerlink" href="#1.-El-Modelo-de-Regresión-Lineal-Simple" title="Link to this heading">#</a></h2>
+<p>El modelo de regresión lineal simple postula que la variable dependiente <span class="math notranslate nohighlight">\(Y\)</span> se relaciona con la variable independiente <span class="math notranslate nohighlight">\(X\)</span> mediante:</p>
+<div class="math notranslate nohighlight">
+\[Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i, \quad i = 1, 2, \ldots, n\]</div>
+<p>Donde:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Símbolo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(Y_i\)</span></p></td>
+<td><p>Valor observado de la variable dependiente para la observación <span class="math notranslate nohighlight">\(i\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(X_i\)</span></p></td>
+<td><p>Valor observado de la variable independiente para la observación <span class="math notranslate nohighlight">\(i\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\beta_0\)</span></p></td>
+<td><p><strong>Intercepto</strong>: valor esperado de <span class="math notranslate nohighlight">\(Y\)</span> cuando <span class="math notranslate nohighlight">\(X = 0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\beta_1\)</span></p></td>
+<td><p><strong>Pendiente</strong>: cambio esperado en <span class="math notranslate nohighlight">\(Y\)</span> por cada unidad de aumento en <span class="math notranslate nohighlight">\(X\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\varepsilon_i\)</span></p></td>
+<td><p><strong>Error aleatorio</strong> o perturbación estocástica de la observación <span class="math notranslate nohighlight">\(i\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="Interpretación-geométrica">
+<h3>Interpretación geométrica<a class="headerlink" href="#Interpretación-geométrica" title="Link to this heading">#</a></h3>
+<p>La recta de regresión <span class="math notranslate nohighlight">\(\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X\)</span> es la línea que «mejor se ajusta» a la nube de puntos <span class="math notranslate nohighlight">\((X_i, Y_i)\)</span>.</p>
+<ul class="simple">
+<li><p>El <strong>residuo</strong> de cada observación es: <span class="math notranslate nohighlight">\(e_i = Y_i - \hat{Y}_i\)</span></p></li>
+<li><p>El error <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> es la desviación real (no observable) del punto respecto a la recta poblacional</p></li>
+<li><p>El residuo <span class="math notranslate nohighlight">\(e_i\)</span> es el estimador observable de <span class="math notranslate nohighlight">\(\varepsilon_i\)</span></p></li>
+</ul>
+</section>
+<section id="La-recta-de-regresión-poblacional-vs.-muestral">
+<h3>La recta de regresión poblacional vs. muestral<a class="headerlink" href="#La-recta-de-regresión-poblacional-vs.-muestral" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\underbrace{E[Y|X] = \beta_0 + \beta_1 X}_{\text{Recta poblacional (desconocida)}} \quad \longleftrightarrow \quad \underbrace{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}_{\text{Recta muestral (estimada)}}\]</div>
+</section>
+</section>
+<section id="2.-Ejemplo-Práctico:-Datos-de-Estudio-y-Calificación">
+<h2>2. Ejemplo Práctico: Datos de Estudio y Calificación<a class="headerlink" href="#2.-Ejemplo-Práctico:-Datos-de-Estudio-y-Calificación" title="Link to this heading">#</a></h2>
+<p>Para ilustrar el modelo, usaremos un conjunto de datos simulado que relaciona:</p>
+<ul class="simple">
+<li><p><strong>:math:`X`</strong>: Horas de estudio por semana</p></li>
+<li><p><strong>:math:`Y`</strong>: Calificación en el examen (sobre 100)</p></li>
+</ul>
+<blockquote>
+<div><p>Los datos se generan con una relación lineal verdadera <span class="math notranslate nohighlight">\(Y = 40 + 5X + \varepsilon\)</span>, donde <span class="math notranslate nohighlight">\(\varepsilon \sim N(0, 5^2)\)</span>.</p>
+</div></blockquote>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generación del conjunto de datos</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="c1"># Variable independiente: horas de estudio (entre 1 y 12)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Parámetros poblacionales verdaderos</span>
+<span class="n">beta_0_real</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">beta_1_real</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">sigma_real</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Variable dependiente con error normal</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma_real</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">beta_0_real</span> <span class="o">+</span> <span class="n">beta_1_real</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">epsilon</span>
+
+<span class="c1"># DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">:</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;calificacion&#39;</span><span class="p">:</span> <span class="n">Y</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tamaño muestral: n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Estadísticas descriptivas:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tamaño muestral: n = 80
+
+Estadísticas descriptivas:
+       horas_estudio  calificacion
+count          80.00         80.00
+mean            6.12         70.58
+std             3.36         18.14
+min             1.06         37.55
+25%             3.03         55.95
+50%             5.80         69.85
+75%             9.16         85.96
+max            11.86        108.02
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diagrama de dispersión de los datos</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;calificacion&#39;</span><span class="p">],</span>
+           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observaciones&#39;</span><span class="p">)</span>
+
+<span class="c1"># Recta poblacional verdadera</span>
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">beta_0_real</span> <span class="o">+</span> <span class="n">beta_1_real</span> <span class="o">*</span> <span class="n">x_range</span><span class="p">,</span>
+        <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Recta poblacional: $Y = </span><span class="si">{</span><span class="n">beta_0_real</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">beta_1_real</span><span class="si">}</span><span class="s1">X$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Horas de estudio por semana&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Calificación en el examen&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Relación entre horas de estudio y calificación&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_5_0.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_5_0.png" />
+</div>
+</div>
+</section>
+<section id="3.-Estimación-por-Mínimos-Cuadrados-Ordinarios-(MCO)">
+<h2>3. Estimación por Mínimos Cuadrados Ordinarios (MCO)<a class="headerlink" href="#3.-Estimación-por-Mínimos-Cuadrados-Ordinarios-(MCO)" title="Link to this heading">#</a></h2>
+<section id="Principio">
+<h3>Principio<a class="headerlink" href="#Principio" title="Link to this heading">#</a></h3>
+<p>MCO busca los estimadores <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> y <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span> que <strong>minimizan la suma de cuadrados de los residuos</strong> (SCE):</p>
+<div class="math notranslate nohighlight">
+\[\text{SCE} = \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i)^2\]</div>
+</section>
+<section id="Fórmulas-cerradas">
+<h3>Fórmulas cerradas<a class="headerlink" href="#Fórmulas-cerradas" title="Link to this heading">#</a></h3>
+<p>Derivando la SCE e igualando a cero se obtienen las <strong>ecuaciones normales</strong>, cuya solución es:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n}(X_i - \bar{X})^2} = \frac{S_{XY}}{S_{XX}}\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}\]</div>
+</section>
+<section id="Estimación-de-la-varianza-del-error">
+<h3>Estimación de la varianza del error<a class="headerlink" href="#Estimación-de-la-varianza-del-error" title="Link to this heading">#</a></h3>
+<p>La varianza del error <span class="math notranslate nohighlight">\(\sigma^2 = \text{Var}(\varepsilon_i)\)</span> se estima con el <strong>cuadrado medio del error</strong> (CME):</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma}^2 = s^2 = \frac{\text{SCE}}{n - 2} = \frac{\sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2}{n-2}\]</div>
+<p>Se divide entre <span class="math notranslate nohighlight">\(n-2\)</span> porque se estiman <strong>2 parámetros</strong> (<span class="math notranslate nohighlight">\(\beta_0\)</span> y <span class="math notranslate nohighlight">\(\beta_1\)</span>), perdiendo 2 grados de libertad.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── Estimación manual de MCO ──────────────────────────────────────────────</span>
+<span class="n">X_arr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">Y_arr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;calificacion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">X_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_arr</span><span class="p">)</span>
+<span class="n">Y_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y_arr</span><span class="p">)</span>
+
+<span class="n">Sxx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">X_arr</span> <span class="o">-</span> <span class="n">X_mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Sxy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">X_arr</span> <span class="o">-</span> <span class="n">X_mean</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_arr</span> <span class="o">-</span> <span class="n">Y_mean</span><span class="p">))</span>
+
+<span class="n">beta1_hat</span> <span class="o">=</span> <span class="n">Sxy</span> <span class="o">/</span> <span class="n">Sxx</span>
+<span class="n">beta0_hat</span> <span class="o">=</span> <span class="n">Y_mean</span> <span class="o">-</span> <span class="n">beta1_hat</span> <span class="o">*</span> <span class="n">X_mean</span>
+
+<span class="n">Y_hat</span> <span class="o">=</span> <span class="n">beta0_hat</span> <span class="o">+</span> <span class="n">beta1_hat</span> <span class="o">*</span> <span class="n">X_arr</span>
+<span class="n">residuos</span> <span class="o">=</span> <span class="n">Y_arr</span> <span class="o">-</span> <span class="n">Y_hat</span>
+
+<span class="n">SCE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuos</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">SCE</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># varianza estimada del error</span>
+<span class="n">s</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>      <span class="c1"># desviación estándar del error (error estándar de la regresión)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">45</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Estimación MCO (cálculo manual)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">45</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  β̂₀ (intercepto) = </span><span class="si">{</span><span class="n">beta0_hat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  β̂₁ (pendiente)  = </span><span class="si">{</span><span class="n">beta1_hat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  s² (var. error)  = </span><span class="si">{</span><span class="n">s2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  s  (err. estándar) = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">45</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  Valores reales: β₀=</span><span class="si">{</span><span class="n">beta_0_real</span><span class="si">}</span><span class="s2">, β₁=</span><span class="si">{</span><span class="n">beta_1_real</span><span class="si">}</span><span class="s2">, σ=</span><span class="si">{</span><span class="n">sigma_real</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+=============================================
+  Estimación MCO (cálculo manual)
+=============================================
+  β̂₀ (intercepto) = 38.7013
+  β̂₁ (pendiente)  = 5.2043
+  s² (var. error)  = 23.0418
+  s  (err. estándar) = 4.8002
+=============================================
+
+  Valores reales: β₀=40, β₁=5, σ=5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── Estimación con statsmodels (reporte completo) ─────────────────────────</span>
+<span class="n">X_sm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">])</span>   <span class="c1"># agrega columna de unos para β₀</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;calificacion&#39;</span><span class="p">],</span> <span class="n">X_sm</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Guardamos resultados para los diagnósticos posteriores</span>
+<span class="n">fitted</span>   <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">residuos</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">resid</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:           calificacion   R-squared:                       0.931
+Model:                            OLS   Adj. R-squared:                  0.930
+Method:                 Least Squares   F-statistic:                     1050.
+Date:                Thu, 28 May 2026   Prob (F-statistic):           5.26e-47
+Time:                        10:27:26   Log-Likelihood:                -237.99
+No. Observations:                  80   AIC:                             480.0
+Df Residuals:                      78   BIC:                             484.8
+Df Model:                           1
+Covariance Type:            nonrobust
+=================================================================================
+                    coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const            38.7013      1.121     34.537      0.000      36.470      40.932
+horas_estudio     5.2043      0.161     32.404      0.000       4.885       5.524
+==============================================================================
+Omnibus:                        0.244   Durbin-Watson:                   2.295
+Prob(Omnibus):                  0.885   Jarque-Bera (JB):                0.063
+Skew:                           0.067   Prob(JB):                        0.969
+Kurtosis:                       3.034   Cond. No.                         14.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── Visualización de la recta ajustada ────────────────────────────────────</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;calificacion&#39;</span><span class="p">],</span>
+           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Datos observados&#39;</span><span class="p">)</span>
+
+<span class="n">b0</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;const&#39;</span><span class="p">]</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">]</span>
+
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">x_plot</span><span class="p">,</span>
+        <span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Recta ajustada: $</span><span class="se">\\</span><span class="s1">hat</span><span class="se">{{</span><span class="s1">Y</span><span class="se">}}</span><span class="s1"> = </span><span class="si">{</span><span class="n">b0</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b1</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">X$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Residuos (líneas verticales desde punto a recta)</span>
+<span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">yhi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;calificacion&#39;</span><span class="p">],</span> <span class="n">fitted</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xi</span><span class="p">,</span> <span class="n">xi</span><span class="p">],</span> <span class="p">[</span><span class="n">yi</span><span class="p">,</span> <span class="n">yhi</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Horas de estudio por semana&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Calificación en el examen&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Recta de regresión ajustada y residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_9_0.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_9_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="4.-Los-Supuestos-del-Modelo-de-Regresión-Lineal-Simple">
+<h2>4. Los Supuestos del Modelo de Regresión Lineal Simple<a class="headerlink" href="#4.-Los-Supuestos-del-Modelo-de-Regresión-Lineal-Simple" title="Link to this heading">#</a></h2>
+<p>Para que los estimadores MCO sean válidos —tanto en términos de eficiencia como de inferencia— deben cumplirse los siguientes supuestos sobre el término de error <span class="math notranslate nohighlight">\(\varepsilon_i\)</span>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Supuesto</p></th>
+<th class="head"><p>Notación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>S1</strong></p></td>
+<td><p><strong>Linealidad</strong> del modelo en los parámetros</p></td>
+<td><p><span class="math notranslate nohighlight">\(E[\varepsilon_i] = 0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>S2</strong></p></td>
+<td><p><strong>Independencia</strong> de los errores</p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{Cov}(\varepsilon_i, \varepsilon_j) = 0, \; i \neq j\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>S3</strong></p></td>
+<td><p><strong>Homocedasticidad</strong> (varianza constante)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\text{Var}(\varepsilon_i) = \sigma^2\)</span> (constante)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>S4</strong></p></td>
+<td><p><strong>Normalidad</strong> de los errores</p></td>
+<td><p><span class="math notranslate nohighlight">\(\varepsilon_i \sim N(0, \sigma^2)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>S5</strong></p></td>
+<td><p><strong>Ausencia de observaciones influyentes</strong></p></td>
+<td><p>No hay outliers que distorsionen la estimación</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Los supuestos S1–S3 son necesarios para el <strong>Teorema de Gauss-Markov</strong> (MCO = MELI: Mejor Estimador Lineal Insesgado).</div>
+<div class="line">El supuesto S4 (normalidad) es adicional y necesario para realizar <strong>inferencia estadística</strong> (pruebas <span class="math notranslate nohighlight">\(t\)</span> e <span class="math notranslate nohighlight">\(F\)</span>, intervalos de confianza).</div>
+</div>
+</div></blockquote>
+<hr class="docutils" />
+<p>A continuación verificaremos cada supuesto con <strong>gráficos diagnósticos</strong> y <strong>pruebas estadísticas</strong> formales.</p>
+<section id="Supuesto-1-—-Linealidad">
+<h3>Supuesto 1 — Linealidad<a class="headerlink" href="#Supuesto-1-—-Linealidad" title="Link to this heading">#</a></h3>
+<p><strong>Enunciado</strong>: La relación entre <span class="math notranslate nohighlight">\(X\)</span> e <span class="math notranslate nohighlight">\(Y\)</span> es <strong>lineal en los parámetros</strong>, es decir, <span class="math notranslate nohighlight">\(E[Y|X] = \beta_0 + \beta_1 X\)</span>.</p>
+<p><strong>¿Qué implica?</strong> Los residuos deben distribuirse aleatoriamente alrededor de cero, sin ningún patrón sistemático en función de los valores ajustados.</p>
+<p><strong>Cómo verificarlo:</strong></p>
+<ul class="simple">
+<li><p><strong>Gráfico de residuos vs. valores ajustados</strong> (<span class="math notranslate nohighlight">\(e_i\)</span> vs. <span class="math notranslate nohighlight">\(\hat{Y}_i\)</span>): si hay linealidad, los residuos deben estar dispersos aleatoriamente alrededor de la línea <span class="math notranslate nohighlight">\(e=0\)</span>, sin formas curvilíneas.</p></li>
+<li><p><strong>Gráfico de dispersión</strong> (<span class="math notranslate nohighlight">\(Y\)</span> vs. <span class="math notranslate nohighlight">\(X\)</span>): inspección visual directa.</p></li>
+</ul>
+<p><strong>Señales de no linealidad:</strong></p>
+<ul class="simple">
+<li><p>Forma de «U» o arco en el gráfico de residuos</p></li>
+<li><p>Tendencias sistemáticas crecientes o decrecientes en los residuos</p></li>
+</ul>
+<p><strong>Solución si se viola:</strong> Transformaciones de las variables (ej. <span class="math notranslate nohighlight">\(\ln(X)\)</span>, <span class="math notranslate nohighlight">\(X^2\)</span>), o modelos no lineales.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── S1: Verificación de Linealidad ────────────────────────────────────────</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">b0</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;const&#39;</span><span class="p">]</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">]</span>
+
+<span class="c1"># Gráfico 1: residuos vs. valores ajustados</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fitted</span><span class="p">,</span> <span class="n">residuos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="c1"># Línea suavizada (LOWESS)</span>
+<span class="n">lowess_fit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">lowess</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">fitted</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lowess_fit</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lowess_fit</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOWESS&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores ajustados ($</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{Y}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos ($e_i$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Residuos vs. Valores Ajustados&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Gráfico 2: Y vs. X con recta ajustada</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;calificacion&#39;</span><span class="p">],</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">x_plot</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Horas de estudio&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Calificación&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dispersión: $Y$ vs. $X$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Diagnóstico S1: Linealidad&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Interpretación: La curva LOWESS debe seguir aproximadamente la línea y=0.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Si la curva es aproximadamente horizontal, el supuesto de linealidad se cumple.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_12_0.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_12_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+✓ Interpretación: La curva LOWESS debe seguir aproximadamente la línea y=0.
+  Si la curva es aproximadamente horizontal, el supuesto de linealidad se cumple.
+</pre></div></div>
+</div>
+</section>
+<section id="Supuesto-2-—-Independencia-de-los-errores">
+<h3>Supuesto 2 — Independencia de los errores<a class="headerlink" href="#Supuesto-2-—-Independencia-de-los-errores" title="Link to this heading">#</a></h3>
+<p><strong>Enunciado</strong>: Los errores son <strong>no correlacionados</strong> entre sí:</p>
+<div class="math notranslate nohighlight">
+\[\text{Cov}(\varepsilon_i, \varepsilon_j) = 0, \quad \forall \; i \neq j\]</div>
+<p><strong>¿Qué implica?</strong> El error de una observación no debe depender del error de otra. Esto es crucial especialmente cuando los datos tienen una estructura <strong>temporal o espacial</strong> (series de tiempo, datos georreferenciados).</p>
+<p><strong>Cómo verificarlo:</strong></p>
+<ul class="simple">
+<li><p><strong>Gráfico de residuos vs. orden de observación</strong>: si los residuos forman patrones ondulantes, hay autocorrelación.</p></li>
+<li><p><strong>Prueba de Durbin-Watson</strong>: contrasta <span class="math notranslate nohighlight">\(H_0\)</span>: no hay autocorrelación de primer orden.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[DW = \frac{\sum_{i=2}^{n}(e_i - e_{i-1})^2}{\sum_{i=1}^{n} e_i^2}\]</div>
+<p><strong>Valores de referencia del estadístico DW:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rango</p></th>
+<th class="head"><p>Interpretación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(DW \approx 2\)</span></p></td>
+<td><p>No hay autocorrelación → supuesto OK ✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(DW &lt; 1.5\)</span></p></td>
+<td><p>Autocorrelación positiva → problema ✗</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(DW &gt; 2.5\)</span></p></td>
+<td><p>Autocorrelación negativa → problema ✗</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Solución si se viola:</strong> Modelos con errores correlacionados (ARIMA, GLS), o incluir variables rezagadas.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── S2: Verificación de Independencia (Durbin-Watson) ─────────────────────</span>
+<span class="n">dw_stat</span> <span class="o">=</span> <span class="n">durbin_watson</span><span class="p">(</span><span class="n">residuos</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Gráfico 1: residuos vs. orden de observación</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">residuos</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span>
+             <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Orden de observación&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos ($e_i$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Residuos vs. Orden de Observación&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># Gráfico 2: autocorrelación de residuos (ACF manual)</span>
+<span class="n">lags</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">acf_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">residuos</span><span class="p">[:</span><span class="o">-</span><span class="n">k</span><span class="p">],</span> <span class="n">residuos</span><span class="p">[</span><span class="n">k</span><span class="p">:])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">lags</span><span class="p">]</span>
+<span class="n">IC</span> <span class="o">=</span> <span class="mf">1.96</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>   <span class="c1"># intervalo de confianza aproximado al 95%</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">lags</span><span class="p">,</span> <span class="n">acf_vals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">IC</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IC 95%&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">IC</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>   <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Rezago&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Autocorrelación&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Función de Autocorrelación (ACF) de Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Diagnóstico S2: Independencia de Errores&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estadístico Durbin-Watson: DW = </span><span class="si">{</span><span class="n">dw_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="mf">1.5</span> <span class="o">&lt;=</span> <span class="n">dw_stat</span> <span class="o">&lt;=</span> <span class="mf">2.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Resultado: DW ≈ 2 → No se detecta autocorrelación. Supuesto CUMPLIDO.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✗ Resultado: DW fuera del rango [1.5, 2.5] → Posible autocorrelación.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_14_0.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_14_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estadístico Durbin-Watson: DW = 2.2948
+✓ Resultado: DW ≈ 2 → No se detecta autocorrelación. Supuesto CUMPLIDO.
+</pre></div></div>
+</div>
+</section>
+<section id="Supuesto-3-—-Homocedasticidad-(varianza-constante)">
+<h3>Supuesto 3 — Homocedasticidad (varianza constante)<a class="headerlink" href="#Supuesto-3-—-Homocedasticidad-(varianza-constante)" title="Link to this heading">#</a></h3>
+<p><strong>Enunciado</strong>: La varianza del error es <strong>constante</strong> para todas las observaciones:</p>
+<div class="math notranslate nohighlight">
+\[\text{Var}(\varepsilon_i) = \sigma^2 \quad \forall \; i\]</div>
+<p>Si la varianza cambia con <span class="math notranslate nohighlight">\(X\)</span> o con <span class="math notranslate nohighlight">\(\hat{Y}\)</span>, se dice que hay <strong>heterocedasticidad</strong>.</p>
+<p><strong>¿Qué implica?</strong> La heterocedasticidad no sesga los estimadores, pero los hace <strong>ineficientes</strong> y los errores estándar quedan mal calculados, invalidando las pruebas de hipótesis.</p>
+<p><strong>Cómo verificarlo:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Gráfico Scale-Location</strong></p></td>
+<td><p>Raíz de |residuos estandarizados| vs. <span class="math notranslate nohighlight">\(\hat{Y}\)</span>. Debe ser una banda horizontal</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Gráfico residuos vs. :math:`hat{Y}`</strong></p></td>
+<td><p>La dispersión debe ser uniforme en todo el rango</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Prueba de Breusch-Pagan</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(H_0\)</span>: homocedasticidad. <span class="math notranslate nohighlight">\(p &gt; 0.05\)</span> → no se rechaza → OK</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Prueba de White</strong></p></td>
+<td><p>Similar a BP, más general. No requiere especificar la forma de la heterocedasticidad</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Estadístico de Breusch-Pagan:</strong> Regresión auxiliar de <span class="math notranslate nohighlight">\(e_i^2\)</span> sobre <span class="math notranslate nohighlight">\(X_i\)</span>. El estadístico <span class="math notranslate nohighlight">\(BP = nR^2_{aux} \sim \chi^2_{(k)}\)</span> donde <span class="math notranslate nohighlight">\(k\)</span> es el número de regresores.</p>
+<p><strong>Solución si se viola:</strong> Errores estándar robustos (HC), transformación de <span class="math notranslate nohighlight">\(Y\)</span> (ej. <span class="math notranslate nohighlight">\(\ln Y\)</span>), o Mínimos Cuadrados Ponderados (MCP).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── S3: Verificación de Homocedasticidad ─────────────────────────────────</span>
+<span class="c1"># Residuos estandarizados</span>
+<span class="n">influence</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
+<span class="n">resid_std</span> <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">resid_studentized_internal</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Gráfico 1: Scale-Location (√|residuos estandarizados| vs. ajustados)</span>
+<span class="n">sqrt_abs_resid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">resid_std</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fitted</span><span class="p">,</span> <span class="n">sqrt_abs_resid</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">lowess_sl</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">lowess</span><span class="p">(</span><span class="n">sqrt_abs_resid</span><span class="p">,</span> <span class="n">fitted</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lowess_sl</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lowess_sl</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;LOWESS&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores ajustados ($</span><span class="se">\\</span><span class="s1">hat</span><span class="si">{Y}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">sqrt{|e_i^{estand.}|}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scale-Location&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Gráfico 2: residuos vs. X (para ver si la varianza cambia con X)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;horas_estudio&#39;</span><span class="p">],</span> <span class="n">residuos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Horas de estudio ($X$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos ($e_i$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Residuos vs. Variable Independiente&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Diagnóstico S3: Homocedasticidad&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Prueba de Breusch-Pagan</span>
+<span class="n">bp_stat</span><span class="p">,</span> <span class="n">bp_pvalue</span><span class="p">,</span> <span class="n">bp_f</span><span class="p">,</span> <span class="n">bp_f_pvalue</span> <span class="o">=</span> <span class="n">het_breuschpagan</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">X_sm</span><span class="p">)</span>
+
+<span class="c1"># Prueba de White</span>
+<span class="n">white_stat</span><span class="p">,</span> <span class="n">white_pvalue</span><span class="p">,</span> <span class="n">white_f</span><span class="p">,</span> <span class="n">white_f_pvalue</span> <span class="o">=</span> <span class="n">het_white</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">X_sm</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Prueba de Breusch-Pagan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Estadístico LM : </span><span class="si">{</span><span class="n">bp_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  p-valor        : </span><span class="si">{</span><span class="n">bp_pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">resultado_bp</span> <span class="o">=</span> <span class="s2">&quot;✓ No se rechaza H₀ → Homocedasticidad&quot;</span> <span class="k">if</span> <span class="n">bp_pvalue</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;✗ Se rechaza H₀ → Heterocedasticidad&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Conclusión     : </span><span class="si">{</span><span class="n">resultado_bp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Prueba de White&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Estadístico LM : </span><span class="si">{</span><span class="n">white_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  p-valor        : </span><span class="si">{</span><span class="n">white_pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">resultado_w</span> <span class="o">=</span> <span class="s2">&quot;✓ No se rechaza H₀ → Homocedasticidad&quot;</span> <span class="k">if</span> <span class="n">white_pvalue</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;✗ Se rechaza H₀ → Heterocedasticidad&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Conclusión     : </span><span class="si">{</span><span class="n">resultado_w</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_16_0.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_16_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+====================================================
+  Prueba de Breusch-Pagan
+====================================================
+  Estadístico LM : 0.0126
+  p-valor        : 0.9105
+  Conclusión     : ✓ No se rechaza H₀ → Homocedasticidad
+
+====================================================
+  Prueba de White
+====================================================
+  Estadístico LM : 0.7348
+  p-valor        : 0.6925
+  Conclusión     : ✓ No se rechaza H₀ → Homocedasticidad
+</pre></div></div>
+</div>
+</section>
+<section id="Supuesto-4-—-Normalidad-de-los-errores">
+<h3>Supuesto 4 — Normalidad de los errores<a class="headerlink" href="#Supuesto-4-—-Normalidad-de-los-errores" title="Link to this heading">#</a></h3>
+<p><strong>Enunciado</strong>: Los errores siguen una distribución normal con media cero y varianza constante:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon_i \sim N(0, \sigma^2)\]</div>
+<p><strong>¿Qué implica?</strong> Este supuesto es necesario para que las estadísticas <span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(F\)</span> usadas en las pruebas de hipótesis tengan sus distribuciones exactas. Para muestras grandes (<span class="math notranslate nohighlight">\(n &gt; 30\)</span>), el Teorema Central del Límite atenúa su importancia.</p>
+<p><strong>Cómo verificarlo:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Qué busca</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Histograma de residuos</strong></p></td>
+<td><p>Forma aproximadamente de campana</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Gráfico Q-Q Normal</strong></p></td>
+<td><p>Los puntos deben alinearse sobre la diagonal <span class="math notranslate nohighlight">\(y = x\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Prueba de Shapiro-Wilk</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(H_0\)</span>: los residuos son normales. <span class="math notranslate nohighlight">\(p &gt; 0.05\)</span> → no se rechaza → OK (recomendada para <span class="math notranslate nohighlight">\(n &lt; 50\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Prueba de Kolmogorov-Smirnov</strong></p></td>
+<td><p>Similar a Shapiro-Wilk, más apropiada para muestras grandes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Señales de no normalidad:</strong></p>
+<ul class="simple">
+<li><p>Colas pesadas o ligeras en el Q-Q plot (puntos se alejan de la diagonal en los extremos)</p></li>
+<li><p>Asimetría marcada en el histograma</p></li>
+</ul>
+<p><strong>Solución si se viola:</strong> Transformación Box-Cox de <span class="math notranslate nohighlight">\(Y\)</span>, o métodos no paramétricos.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── S4: Verificación de Normalidad de los Residuos ────────────────────────</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Gráfico 1: Histograma de residuos</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Curva normal superpuesta</span>
+<span class="n">mu_res</span><span class="p">,</span> <span class="n">std_res</span> <span class="o">=</span> <span class="n">residuos</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">residuos</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">x_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mu_res</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">std_res</span><span class="p">,</span> <span class="n">mu_res</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">std_res</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_norm</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_norm</span><span class="p">,</span> <span class="n">mu_res</span><span class="p">,</span> <span class="n">std_res</span><span class="p">),</span>
+             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal teórica&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histograma de Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Gráfico 2: Q-Q Plot</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">ProbPlot</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">qq</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># línea de referencia</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gráfico Q-Q Normal&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cuantiles teóricos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cuantiles de la muestra&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+<span class="c1"># Gráfico 3: Boxplot de residuos</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">),</span>
+                <span class="n">medianprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplot de Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Diagnóstico S4: Normalidad de los Errores&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Pruebas formales</span>
+<span class="n">sw_stat</span><span class="p">,</span> <span class="n">sw_pvalue</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">residuos</span><span class="p">)</span>
+<span class="n">ks_stat</span><span class="p">,</span> <span class="n">ks_pvalue</span> <span class="o">=</span> <span class="n">kstest</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">residuos</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">residuos</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Prueba de Shapiro-Wilk&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Estadístico W  : </span><span class="si">{</span><span class="n">sw_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  p-valor        : </span><span class="si">{</span><span class="n">sw_pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">res_sw</span> <span class="o">=</span> <span class="s2">&quot;✓ No se rechaza H₀ → Normalidad&quot;</span> <span class="k">if</span> <span class="n">sw_pvalue</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;✗ Se rechaza H₀ → No normalidad&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Conclusión     : </span><span class="si">{</span><span class="n">res_sw</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Prueba de Kolmogorov-Smirnov&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Estadístico D  : </span><span class="si">{</span><span class="n">ks_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  p-valor        : </span><span class="si">{</span><span class="n">ks_pvalue</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">res_ks</span> <span class="o">=</span> <span class="s2">&quot;✓ No se rechaza H₀ → Normalidad&quot;</span> <span class="k">if</span> <span class="n">ks_pvalue</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;✗ Se rechaza H₀ → No normalidad&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Conclusión     : </span><span class="si">{</span><span class="n">res_ks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/nataliaacevedo/MisCursos/venv/lib/python3.11/site-packages/statsmodels/graphics/gofplots.py:1041: UserWarning: color is redundantly defined by the &#39;color&#39; keyword argument and the fmt string &#34;b&#34; (-&gt; color=(0.2823529411764706, 0.47058823529411764, 0.8156862745098039, 1)). The keyword argument will take precedence.
+  ax.plot(x, y, fmt, **plot_style)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_18_1.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_18_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+====================================================
+  Prueba de Shapiro-Wilk
+====================================================
+  Estadístico W  : 0.9918
+  p-valor        : 0.8939
+  Conclusión     : ✓ No se rechaza H₀ → Normalidad
+
+====================================================
+  Prueba de Kolmogorov-Smirnov
+====================================================
+  Estadístico D  : 0.0506
+  p-valor        : 0.9801
+  Conclusión     : ✓ No se rechaza H₀ → Normalidad
+</pre></div></div>
+</div>
+</section>
+<section id="Supuesto-5-—-Ausencia-de-observaciones-influyentes">
+<h3>Supuesto 5 — Ausencia de observaciones influyentes<a class="headerlink" href="#Supuesto-5-—-Ausencia-de-observaciones-influyentes" title="Link to this heading">#</a></h3>
+<p><strong>Enunciado</strong>: No existen observaciones que, por su posición extrema, distorsionen significativamente los estimadores MCO.</p>
+<p><strong>Tipos de observaciones problemáticas:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Definición</p></th>
+<th class="head"><p>Medida</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Outlier</strong></p></td>
+<td><p>Valor atípico en <span class="math notranslate nohighlight">\(Y\)</span> (residuo grande)</p></td>
+<td><p>Residuo estandarizado <span class="math notranslate nohighlight">\(\|e_i^*\| &gt; 2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Punto de influencia</strong> (leverage)</p></td>
+<td><p>Valor atípico en <span class="math notranslate nohighlight">\(X\)</span> (posición extrema)</p></td>
+<td><p><span class="math notranslate nohighlight">\(h_{ii} &gt; 2(k+1)/n\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Observación influyente</strong></p></td>
+<td><p>Distorsiona los estimadores al eliminarse</p></td>
+<td><p>Distancia de Cook <span class="math notranslate nohighlight">\(D_i &gt; 4/n\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="Distancia-de-Cook">
+<h4>Distancia de Cook<a class="headerlink" href="#Distancia-de-Cook" title="Link to this heading">#</a></h4>
+<p>Mide cuánto cambiarían los estimadores si se elimina la observación <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[D_i = \frac{(\hat{\boldsymbol{\beta}} - \hat{\boldsymbol{\beta}}_{(-i)})^T (X^TX)(\hat{\boldsymbol{\beta}} - \hat{\boldsymbol{\beta}}_{(-i)})}{(k+1)s^2}\]</div>
+<p>Una aproximación práctica es:</p>
+<div class="math notranslate nohighlight">
+\[D_i \approx \frac{e_i^{*2}}{k+1} \cdot \frac{h_{ii}}{1 - h_{ii}}\]</div>
+<p><strong>Regla de decisión:</strong> <span class="math notranslate nohighlight">\(D_i &gt; 4/n\)</span> o <span class="math notranslate nohighlight">\(D_i &gt; 1\)</span> → observación potencialmente influyente.</p>
+<p><strong>Leverage (apalancamiento)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[h_{ii} = \frac{1}{n} + \frac{(X_i - \bar{X})^2}{\sum_{j=1}^{n}(X_j - \bar{X})^2}\]</div>
+<p>Valores altos de <span class="math notranslate nohighlight">\(h_{ii}\)</span> indican que la observación <span class="math notranslate nohighlight">\(i\)</span> tiene un valor de <span class="math notranslate nohighlight">\(X\)</span> muy alejado de la media.</p>
+<p><strong>Solución si hay influyentes:</strong> Investigar si son errores de captura, o ejecutar la regresión con y sin ellos para comparar resultados.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── S5: Verificación de Observaciones Influyentes ─────────────────────────</span>
+<span class="n">influence</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
+<span class="n">cooks_d</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">cooks_distance</span>
+<span class="n">leverage</span>   <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">hat_matrix_diag</span>
+<span class="n">resid_ext</span>  <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">resid_studentized_external</span>   <span class="c1"># residuos estudentizados externos</span>
+
+<span class="n">umbral_cook</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">n</span>
+<span class="n">umbral_lev</span>  <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">n</span>   <span class="c1"># 2*(k+1)/n con k=1</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Gráfico 1: Distancia de Cook</span>
+<span class="n">markerline</span><span class="p">,</span> <span class="n">stemlines</span><span class="p">,</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span>
+    <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">cooks_d</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">markerline</span><span class="o">.</span><span class="n">set_markersize</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">umbral_cook</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Umbral = 4/n = </span><span class="si">{</span><span class="n">umbral_cook</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># Etiquetar influyentes</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">cooks_d</span> <span class="o">&gt;</span> <span class="n">umbral_cook</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cooks_d</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Índice de observación&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Distancia de Cook $D_i$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distancia de Cook&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Gráfico 2: Leverage vs. residuos estandarizados</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">leverage</span><span class="p">,</span> <span class="n">resid_ext</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">umbral_lev</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Umbral leverage = </span><span class="si">{</span><span class="n">umbral_lev</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;|$e^*$| = 2&#39;</span><span class="p">)</span>
+<span class="c1"># Etiquetar puntos en esquinas problemáticas</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">leverage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">umbral_lev</span> <span class="ow">or</span> <span class="nb">abs</span><span class="p">(</span><span class="n">resid_ext</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">leverage</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">resid_ext</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Leverage ($h_</span><span class="si">{ii}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos estudentizados externos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Leverage vs. Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Gráfico 3: Gráfico de influencia (Cook vs. leverage)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">leverage</span><span class="p">,</span> <span class="n">cooks_d</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">umbral_cook</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cook &gt; 4/n&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">umbral_lev</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Leverage &gt; 2(k+1)/n&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Leverage ($h_</span><span class="si">{ii}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Distancia de Cook $D_i$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Influencia: Cook vs. Leverage&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Diagnóstico S5: Observaciones Influyentes&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Resumen numérico</span>
+<span class="n">n_cooks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cooks_d</span> <span class="o">&gt;</span> <span class="n">umbral_cook</span><span class="p">)</span>
+<span class="n">n_lev</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">leverage</span> <span class="o">&gt;</span> <span class="n">umbral_lev</span><span class="p">)</span>
+<span class="n">n_outl</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">resid_ext</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Umbral Distancia de Cook (4/n = </span><span class="si">{</span><span class="n">umbral_cook</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">n_cooks</span><span class="si">}</span><span class="s2"> observaciones superan el umbral&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Umbral de Leverage   (2(k+1)/n = </span><span class="si">{</span><span class="n">umbral_lev</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">n_lev</span><span class="si">}</span><span class="s2"> observaciones superan el umbral&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outliers (|residuo estudentizado| &gt; 2)           : </span><span class="si">{</span><span class="n">n_outl</span><span class="si">}</span><span class="s2"> observaciones&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">n_cooks</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_outl</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✓ No se detectan observaciones influyentes problemáticas. Supuesto CUMPLIDO.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">⚠ Revisar las observaciones señaladas. Investigar si son errores de captura.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_20_0.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_20_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Umbral Distancia de Cook (4/n = 0.0500): 6 observaciones superan el umbral
+Umbral de Leverage   (2(k+1)/n = 0.0500): 0 observaciones superan el umbral
+Outliers (|residuo estudentizado| &gt; 2)           : 4 observaciones
+
+⚠ Revisar las observaciones señaladas. Investigar si son errores de captura.
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="5.-Panel-de-Diagnóstico-Completo">
+<h2>5. Panel de Diagnóstico Completo<a class="headerlink" href="#5.-Panel-de-Diagnóstico-Completo" title="Link to this heading">#</a></h2>
+<p>Una práctica recomendada es visualizar los cuatro gráficos diagnósticos clásicos en un solo panel, de forma análoga a <code class="docutils literal notranslate"><span class="pre">plot(lm_model)</span></code> en R.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── Panel diagnóstico completo (4 gráficos clásicos) ─────────────────────</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.35</span><span class="p">)</span>
+
+<span class="n">influence</span>    <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
+<span class="n">resid_std</span>    <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">resid_studentized_internal</span>
+<span class="n">resid_ext</span>    <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">resid_studentized_external</span>
+<span class="n">cooks_d</span><span class="p">,</span> <span class="n">_</span>   <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">cooks_distance</span>
+<span class="n">leverage</span>     <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">hat_matrix_diag</span>
+<span class="n">sqrt_abs_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">resid_std</span><span class="p">))</span>
+
+<span class="c1"># ─── 1. Residuos vs. Ajustados (Linealidad) ───────────────────────────────</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fitted</span><span class="p">,</span> <span class="n">residuos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">lowess</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">fitted</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Etiquetar los 3 residuos más extremos</span>
+<span class="n">top3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">residuos</span><span class="p">))[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top3</span><span class="p">:</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">fitted</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">residuos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores ajustados&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;1. Residuos vs. Ajustados</span><span class="se">\n</span><span class="s1">(Linealidad)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># ─── 2. Q-Q Normal (Normalidad) ───────────────────────────────────────────</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">ProbPlot</span><span class="p">(</span><span class="n">resid_std</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.8</span><span class="p">)</span>
+<span class="n">top3_qq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">resid_std</span><span class="p">))[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+<span class="n">q_theor</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">q_samp</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">resid_std</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top3_qq</span><span class="p">:</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">resid_std</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">resid_std</span><span class="p">[</span><span class="n">i</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                 <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cuantiles teóricos&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cuantiles de la muestra&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2. Q-Q Normal</span><span class="se">\n</span><span class="s1">(Normalidad)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># ─── 3. Scale-Location (Homocedasticidad) ─────────────────────────────────</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fitted</span><span class="p">,</span> <span class="n">sqrt_abs_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">lw3</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">lowess</span><span class="p">(</span><span class="n">sqrt_abs_std</span><span class="p">,</span> <span class="n">fitted</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw3</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">lw3</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores ajustados&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">sqrt{|e_i^{estand.}|}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;3. Scale-Location</span><span class="se">\n</span><span class="s1">(Homocedasticidad)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># ─── 4. Residuos vs. Leverage (Influencia) ────────────────────────────────</span>
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">leverage</span><span class="p">,</span> <span class="n">resid_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Curvas de Cook</span>
+<span class="n">x_lev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">leverage</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">leverage</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]:</span>
+    <span class="n">cook_line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_lev</span><span class="p">)</span> <span class="o">/</span> <span class="n">x_lev</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_lev</span><span class="p">,</span> <span class="n">cook_line</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_lev</span><span class="p">,</span> <span class="o">-</span><span class="n">cook_line</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">top_inf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">cooks_d</span><span class="p">)[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_inf</span><span class="p">:</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">leverage</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">resid_std</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Leverage ($h_</span><span class="si">{ii}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos estandarizados&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;4. Residuos vs. Leverage</span><span class="se">\n</span><span class="s1">(Observaciones influyentes)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Panel Diagnóstico Completo — Regresión Lineal Simple&#39;</span><span class="p">,</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/nataliaacevedo/MisCursos/venv/lib/python3.11/site-packages/statsmodels/graphics/gofplots.py:1041: UserWarning: color is redundantly defined by the &#39;color&#39; keyword argument and the fmt string &#34;b&#34; (-&gt; color=(0.2823529411764706, 0.47058823529411764, 0.8156862745098039, 1)). The keyword argument will take precedence.
+  ax.plot(x, y, fmt, **plot_style)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_22_1.png" src="../../_images/analisis_datos_modelos_regresion_regresion_lineal_simple_22_1.png" />
+</div>
+</div>
+</section>
+<section id="6.-Resumen-de-los-Resultados-del-Diagnóstico">
+<h2>6. Resumen de los Resultados del Diagnóstico<a class="headerlink" href="#6.-Resumen-de-los-Resultados-del-Diagnóstico" title="Link to this heading">#</a></h2>
+<p>La siguiente tabla consolida todos los resultados de las verificaciones realizadas:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ── Tabla resumen del diagnóstico de supuestos ────────────────────────────</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">durbin_watson</span>
+
+<span class="n">dw</span> <span class="o">=</span> <span class="n">durbin_watson</span><span class="p">(</span><span class="n">residuos</span><span class="p">)</span>
+<span class="n">bp_s</span><span class="p">,</span> <span class="n">bp_p</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">het_breuschpagan</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">X_sm</span><span class="p">)</span>
+<span class="n">wh_s</span><span class="p">,</span> <span class="n">wh_p</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">het_white</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">X_sm</span><span class="p">)</span>
+<span class="n">sw_s</span><span class="p">,</span> <span class="n">sw_p</span>       <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">residuos</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">estado</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">umbral</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">invertir</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retorna &#39;✓ OK&#39; si p &gt; umbral (no se rechaza H0).&quot;&quot;&quot;</span>
+    <span class="n">cumple</span> <span class="o">=</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">umbral</span>
+    <span class="k">if</span> <span class="n">invertir</span><span class="p">:</span>
+        <span class="n">cumple</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">cumple</span>
+    <span class="k">return</span> <span class="s2">&quot;✓ CUMPLIDO&quot;</span> <span class="k">if</span> <span class="n">cumple</span> <span class="k">else</span> <span class="s2">&quot;✗ VIOLADO&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dw_estado</span><span class="p">(</span><span class="n">dw_val</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;✓ CUMPLIDO&quot;</span> <span class="k">if</span> <span class="mf">1.5</span> <span class="o">&lt;=</span> <span class="n">dw_val</span> <span class="o">&lt;=</span> <span class="mf">2.5</span> <span class="k">else</span> <span class="s2">&quot;✗ VIOLADO&quot;</span>
+
+<span class="n">resumen</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Supuesto&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;S1 — Linealidad&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S2 — Independencia&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S3 — Homocedasticidad (Breusch-Pagan)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S3 — Homocedasticidad (White)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S4 — Normalidad (Shapiro-Wilk)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;S5 — No influyentes (Cook &gt; 4/n)&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;Prueba / Criterio&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;Gráfico residuos vs. ajustados (LOWESS)&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;Durbin-Watson = </span><span class="si">{</span><span class="n">dw</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;Estadístico LM = </span><span class="si">{</span><span class="n">bp_s</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;Estadístico LM = </span><span class="si">{</span><span class="n">wh_s</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;Estadístico W  = </span><span class="si">{</span><span class="n">sw_s</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;Observaciones con D_i &gt; </span><span class="si">{</span><span class="n">umbral_cook</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">n_cooks</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;p-valor&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;—&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;—&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bp_p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">wh_p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sw_p</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;—&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;Resultado&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;✓ CUMPLIDO (visual)&#39;</span><span class="p">,</span>
+        <span class="n">dw_estado</span><span class="p">(</span><span class="n">dw</span><span class="p">),</span>
+        <span class="n">estado</span><span class="p">(</span><span class="n">bp_p</span><span class="p">),</span>
+        <span class="n">estado</span><span class="p">(</span><span class="n">wh_p</span><span class="p">),</span>
+        <span class="n">estado</span><span class="p">(</span><span class="n">sw_p</span><span class="p">),</span>
+        <span class="s2">&quot;✓ CUMPLIDO&quot;</span> <span class="k">if</span> <span class="n">n_cooks</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;⚠ </span><span class="si">{</span><span class="n">n_cooks</span><span class="si">}</span><span class="s2"> obs. influyentes&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">resumen</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                             Supuesto                       Prueba / Criterio p-valor            Resultado
+                      S1 — Linealidad Gráfico residuos vs. ajustados (LOWESS)       —  ✓ CUMPLIDO (visual)
+                   S2 — Independencia                  Durbin-Watson = 2.2948       —           ✓ CUMPLIDO
+S3 — Homocedasticidad (Breusch-Pagan)                 Estadístico LM = 0.0126  0.9105           ✓ CUMPLIDO
+        S3 — Homocedasticidad (White)                 Estadístico LM = 0.7348  0.6925           ✓ CUMPLIDO
+       S4 — Normalidad (Shapiro-Wilk)                 Estadístico W  = 0.9918  0.8939           ✓ CUMPLIDO
+     S5 — No influyentes (Cook &gt; 4/n)        Observaciones con D_i &gt; 0.050: 6       — ⚠ 6 obs. influyentes
+</pre></div></div>
+</div>
+</section>
+<section id="7.-Conclusiones">
+<h2>7. Conclusiones<a class="headerlink" href="#7.-Conclusiones" title="Link to this heading">#</a></h2>
+<section id="Interpretación-del-modelo-ajustado">
+<h3>Interpretación del modelo ajustado<a class="headerlink" href="#Interpretación-del-modelo-ajustado" title="Link to this heading">#</a></h3>
+<p>Con los datos del ejemplo:</p>
+<div class="math notranslate nohighlight">
+\[\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X = \hat{\beta}_0 + \hat{\beta}_1 \cdot \text{horas\_estudio}\]</div>
+<ul class="simple">
+<li><p><strong>:math:`hat{beta}_0`</strong>: Calificación esperada cuando un estudiante estudia 0 horas (valor teórico del intercepto).</p></li>
+<li><p><strong>:math:`hat{beta}_1`</strong>: Por cada hora adicional de estudio por semana, la calificación esperada <strong>aumenta en :math:`hat{beta}_1` puntos</strong>.</p></li>
+</ul>
+</section>
+<section id="Checklist-final-antes-de-interpretar-un-modelo-de-regresión">
+<h3>Checklist final antes de interpretar un modelo de regresión<a class="headerlink" href="#Checklist-final-antes-de-interpretar-un-modelo-de-regresión" title="Link to this heading">#</a></h3>
+<p>Antes de reportar resultados, verifica sistemáticamente:</p>
+<ul class="simple">
+<li><p>☐ <strong>S1 - Linealidad</strong>: Gráfico de residuos vs. ajustados sin patron sistemático</p></li>
+<li><p>☐ <strong>S2 - Independencia</strong>: Durbin-Watson entre 1.5 y 2.5</p></li>
+<li><p>☐ <strong>S3 - Homocedasticidad</strong>: Breusch-Pagan y/o White con <span class="math notranslate nohighlight">\(p &gt; 0.05\)</span></p></li>
+<li><p>☐ <strong>S4 - Normalidad</strong>: Shapiro-Wilk con <span class="math notranslate nohighlight">\(p &gt; 0.05\)</span>; Q-Q plot sin desviaciones graves</p></li>
+<li><p>☐ <strong>S5 - Sin influyentes</strong>: Distancia de Cook <span class="math notranslate nohighlight">\(&lt; 4/n\)</span> para todas las observaciones</p></li>
+</ul>
+</section>
+<section id="Guía-de-acciones-correctivas">
+<h3>Guía de acciones correctivas<a class="headerlink" href="#Guía-de-acciones-correctivas" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Supuesto violado</p></th>
+<th class="head"><p>Acción recomendada</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>No linealidad</strong></p></td>
+<td><p>Transformar <span class="math notranslate nohighlight">\(X\)</span> (ln, cuadrada), agregar términos polinómicos</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Autocorrelación</strong></p></td>
+<td><p>GLS, ARIMA, variables rezagadas</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Heterocedasticidad</strong></p></td>
+<td><p>Errores robustos HC, MCP, transformar <span class="math notranslate nohighlight">\(Y\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>No normalidad</strong></p></td>
+<td><p>Transformación Box-Cox de <span class="math notranslate nohighlight">\(Y\)</span>, métodos no paramétricos</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Observaciones influyentes</strong></p></td>
+<td><p>Investigar causa, ejecutar con/sin la obs., regresión robusta</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<blockquote>
+<div><p><strong>Nota importante</strong>: En la práctica, los supuestos raramente se cumplen perfectamente. El objetivo es verificar que no existen <strong>violaciones graves</strong> que invaliden las inferencias. Para muestras grandes (<span class="math notranslate nohighlight">\(n &gt; 50\)</span>), la normalidad tiene menor importancia gracias al TCL.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">5. Modelos de Regresión</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="regresion_lineal_multiple.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Regresión Lineal Múltiple</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-El-Modelo-de-Regresión-Lineal-Simple">1. El Modelo de Regresión Lineal Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interpretación-geométrica">Interpretación geométrica</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#La-recta-de-regresión-poblacional-vs.-muestral">La recta de regresión poblacional vs. muestral</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Ejemplo-Práctico:-Datos-de-Estudio-y-Calificación">2. Ejemplo Práctico: Datos de Estudio y Calificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Estimación-por-Mínimos-Cuadrados-Ordinarios-(MCO)">3. Estimación por Mínimos Cuadrados Ordinarios (MCO)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Principio">Principio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Fórmulas-cerradas">Fórmulas cerradas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Estimación-de-la-varianza-del-error">Estimación de la varianza del error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Los-Supuestos-del-Modelo-de-Regresión-Lineal-Simple">4. Los Supuestos del Modelo de Regresión Lineal Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-1-—-Linealidad">Supuesto 1 — Linealidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-2-—-Independencia-de-los-errores">Supuesto 2 — Independencia de los errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-3-—-Homocedasticidad-(varianza-constante)">Supuesto 3 — Homocedasticidad (varianza constante)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-4-—-Normalidad-de-los-errores">Supuesto 4 — Normalidad de los errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Supuesto-5-—-Ausencia-de-observaciones-influyentes">Supuesto 5 — Ausencia de observaciones influyentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Distancia-de-Cook">Distancia de Cook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Panel-de-Diagnóstico-Completo">5. Panel de Diagnóstico Completo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Resumen-de-los-Resultados-del-Diagnóstico">6. Resumen de los Resultados del Diagnóstico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Conclusiones">7. Conclusiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interpretación-del-modelo-ajustado">Interpretación del modelo ajustado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Checklist-final-antes-de-interpretar-un-modelo-de-regresión">Checklist final antes de interpretar un modelo de regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Guía-de-acciones-correctivas">Guía de acciones correctivas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
