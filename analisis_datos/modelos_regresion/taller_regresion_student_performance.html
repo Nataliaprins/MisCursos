@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Modelos de Regresión &#8212; Portafolio de Cursos</title>
+    <title>Taller: Regresión Lineal con Student Performance &#8212; Portafolio de Cursos</title>
   
   
   
@@ -42,12 +42,14 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/translations.js?v=f85f4cfb"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/modelos_regresion/index';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/modelos_regresion/taller_regresion_student_performance';</script>
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos" href="regresion_lineal_simple.html" />
-    <link rel="prev" title="Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)" href="../dise%C3%B1o_experimental/taller_BCA.html" />
+    <link rel="next" title="6. Análisis de Series de Tiempo" href="../series_temporales/index.html" />
+    <link rel="prev" title="Modelos Polinómicos y Logarítmicos" href="regresion_polinomica.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -205,13 +207,13 @@
 
 </ul>
 </details></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">5. Modelos de Regresión</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">5. Modelos de Regresión</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
 
 
-<li class="toctree-l3"><a class="reference internal" href="taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Taller: Regresión Lineal con Student Performance</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
@@ -304,7 +306,7 @@
       
       
       
-      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/modelos_regresion/index.rst" target="_blank"
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/modelos_regresion/taller_regresion_student_performance.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/modelos_regresion/index.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/modelos_regresion/taller_regresion_student_performance.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +353,7 @@
       
       
       
-      <li><a href="../../_sources/analisis_datos/modelos_regresion/index.rst" target="_blank"
+      <li><a href="../../_sources/analisis_datos/modelos_regresion/taller_regresion_student_performance.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +363,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -422,7 +424,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -433,11 +437,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5. Modelos de Regresión</h1>
+    <h1>Taller: Regresión Lineal con Student Performance</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-direccionadoras-para-el-desarrollo-del-ejercicio">Preguntas direccionadoras para el desarrollo del ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Rúbrica-de-evaluación-—-Taller:-Regresión-Lineal-con-Student-Performance">Rúbrica de evaluación — Taller: Regresión Lineal con <em>Student Performance</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Criterios-transversales-de-descuento">Criterios transversales de descuento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Escala-sugerida-de-desempeño-final">Escala sugerida de desempeño final</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -447,64 +464,241 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="modelos-de-regresion">
-<h1>5. Modelos de Regresión<a class="headerlink" href="#modelos-de-regresion" title="Link to this heading">#</a></h1>
-<p>Contenido del curso de Modelos de Regresión.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Subtemas:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#1.-El-Modelo-de-Regresión-Lineal-Simple">1. El Modelo de Regresión Lineal Simple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#2.-Ejemplo-Práctico:-Datos-de-Estudio-y-Calificación">2. Ejemplo Práctico: Datos de Estudio y Calificación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#3.-Estimación-por-Mínimos-Cuadrados-Ordinarios-(MCO)">3. Estimación por Mínimos Cuadrados Ordinarios (MCO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#4.-Los-Supuestos-del-Modelo-de-Regresión-Lineal-Simple">4. Los Supuestos del Modelo de Regresión Lineal Simple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#5.-Panel-de-Diagnóstico-Completo">5. Panel de Diagnóstico Completo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#6.-Resumen-de-los-Resultados-del-Diagnóstico">6. Resumen de los Resultados del Diagnóstico</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_simple.html#7.-Conclusiones">7. Conclusiones</a></li>
+  <section id="Taller:-Regresión-Lineal-con-Student-Performance">
+<h1>Taller: Regresión Lineal con Student Performance<a class="headerlink" href="#Taller:-Regresión-Lineal-con-Student-Performance" title="Link to this heading">#</a></h1>
+<p>Este taller está diseñado para estudiantes de pregrado y cubre:</p>
+<ol class="arabic simple">
+<li><p>Regresión lineal simple.</p></li>
+<li><p>Regresión lineal múltiple.</p></li>
+<li><p>Comprobación de supuestos de los modelos.</p></li>
+</ol>
+<p>Base de datos: <a class="reference external" href="Student_Performance.csv">Rendimiento estudiantil</a></p>
+<p><strong>Caso de estudio:</strong> Analítica académica para mejorar el desempeño estudiantil</p>
+<p>Contexto pedagógico:</p>
+<ol class="arabic simple">
+<li><p><strong>Consideraciones para el desarrollo del taller</strong></p></li>
+</ol>
+<p>Este taller busca que los estudiantes apliquen los conceptos vistos en clase en un contexto cercano al trabajo real de un modelador de datos. Es posible que algunas preguntas involucren temas que no han sido abordados directamente en el curso; en esos casos, se espera que el estudiante investigue de manera autónoma utilizando fuentes confiables. El propósito es ampliar el espectro temático del curso, fortalecer las habilidades de aprendizaje independiente y desarrollar la capacidad de enfrentar
+problemas reales donde es necesario complementar continuamente los conocimientos adquiridos en clase. Tome el conjunto de datos Student Performance y realice la construcción, interpretación y validación de modelos predictivos con regresión lineal simple y múltiple, basándose en las preguntas direccionadoras.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Contexto del caso</strong></p></li>
+</ol>
+<p>La Universidad Horizonte enfrenta una preocupación creciente: el rendimiento académico promedio del primer año ha mostrado alta variabilidad entre cohortes y facultades. La Vicerrectoría Académica ha creado un equipo de analítica educativa para identificar qué factores están asociados con el desempeño final de los estudiantes y diseñar intervenciones tempranas. Para iniciar el proyecto, el equipo dispone de un conjunto de datos históricos que incluye variables relacionadas con:</p>
+<ul class="simple">
+<li><p>Horas de estudio semanales.</p></li>
+<li><p>Asistencia a clases.</p></li>
+<li><p>Promedios o calificaciones previas.</p></li>
+<li><p>Participación en actividades académicas.</p></li>
+<li><p>Acceso a tutorías.</p></li>
+<li><p>Características demográficas básicas (cuando existan en el conjunto de datos).</p></li>
+<li><p>La variable objetivo: calificación final o indicador de desempeño académico.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="regresion_lineal_multiple.html">Regresión Lineal Múltiple</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#Objetivos">Objetivos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#1.-El-Modelo-de-Regresión-Lineal-Múltiple">1. El Modelo de Regresión Lineal Múltiple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#2.-Supuestos-del-Modelo">2. Supuestos del Modelo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#3.-Mínimos-Cuadrados-Ordinarios-(MCO)">3. Mínimos Cuadrados Ordinarios (MCO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#4.-Propiedades-del-Estimador-MCO">4. Propiedades del Estimador MCO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#5.-Estimación-de-Máxima-Verosimilitud-(MV)">5. Estimación de Máxima Verosimilitud (MV)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#6.-Análisis-de-Varianza-(ANOVA)">6. Análisis de Varianza (ANOVA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#7.-Bondad-de-Ajuste">7. Bondad de Ajuste</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#8.-Pruebas-de-Hipótesis-Asociadas-a-la-Regresión">8. Pruebas de Hipótesis Asociadas a la Regresión</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_lineal_multiple.html#Resumen-y-Mapa-Conceptual">Resumen y Mapa Conceptual</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#Contenido">Contenido</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="regresion_polinomica.html#PARTE-1-—-Modelos-Polinómicos">PARTE 1 — Modelos Polinómicos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.1-Definición-y-Formulación-Matemática">1.1 Definición y Formulación Matemática</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.2-Ejemplo-Práctico-—-Consumo-de-Combustible-vs.-Velocidad">1.2 Ejemplo Práctico — Consumo de Combustible vs. Velocidad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.3-Ajuste-del-Modelo-Polinómico-con-MCO">1.3 Ajuste del Modelo Polinómico con MCO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.4-Interpretación-de-los-Coeficientes">1.4 Interpretación de los Coeficientes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#1.5-Selección-del-Grado-del-Polinomio:-Underfitting-vs.-Overfitting">1.5 Selección del Grado del Polinomio: Underfitting vs. Overfitting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="regresion_polinomica.html#PARTE-2-—-Modelos-Logarítmicos">PARTE 2 — Modelos Logarítmicos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.1-Definición-y-Tipos-de-Transformaciones">2.1 Definición y Tipos de Transformaciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.2-Ejemplo-1-—-Modelo-Log-Lin:-Crecimiento-Salarial">2.2 Ejemplo 1 — Modelo Log-Lin: Crecimiento Salarial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.3-Ejemplo-2-—-Modelo-Log-Log:-Elasticidad-Precio-Demanda">2.3 Ejemplo 2 — Modelo Log-Log: Elasticidad Precio-Demanda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#2.4-Ejemplo-3-—-Modelo-Lin-Log:-Rendimiento-de-Cultivos">2.4 Ejemplo 3 — Modelo Lin-Log: Rendimiento de Cultivos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#3.-Comparación-de-los-Cuatro-Modelos-con-un-Mismo-Dataset">3. Comparación de los Cuatro Modelos con un Mismo Dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#4.-Guía-de-Selección-del-Modelo">4. Guía de Selección del Modelo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regresion_polinomica.html#5.-Resumen-Final">5. Resumen Final</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="taller_regresion_student_performance.html#Preguntas-direccionadoras-para-el-desarrollo-del-ejercicio">Preguntas direccionadoras para el desarrollo del ejercicio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taller_regresion_student_performance.html#Rúbrica-de-evaluación-—-Taller:-Regresión-Lineal-con-Student-Performance">Rúbrica de evaluación — Taller: Regresión Lineal con <em>Student Performance</em></a></li>
-</ul>
-</li>
-</ul>
+<p>Usted forma parte del equipo de analítica educativa y debe desarrollar un modelo de regresión lineal que ayude a explicar y predecir el desempeño académico final.</p>
+<section id="Preguntas-direccionadoras-para-el-desarrollo-del-ejercicio">
+<h2>Preguntas direccionadoras para el desarrollo del ejercicio<a class="headerlink" href="#Preguntas-direccionadoras-para-el-desarrollo-del-ejercicio" title="Link to this heading">#</a></h2>
+<ol class="upperalpha simple">
+<li><p>Comprensión del problema y de los datos</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>¿Cuál es exactamente la variable objetivo que se desea explicar o predecir?</p></li>
+<li><p>¿Qué significado práctico tiene una diferencia de 1 punto en la variable objetivo?</p></li>
+<li><p>¿Qué variables podrían tener una relación asociativa con el desempeño académico?</p></li>
+<li><p>¿Existen variables que puedan actuar como confusoras (por ejemplo, rendimiento previo y horas de estudio)?</p></li>
+<li><p>¿Qué unidades tienen las variables numéricas (horas, porcentaje de asistencia, puntajes, etc.)?</p></li>
+</ol>
+<ol class="upperalpha simple" start="2">
+<li><p>Calidad y preparación de los datos</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>¿Hay valores faltantes? ¿Cómo deberían tratarse?</p></li>
+<li><p>¿Existen observaciones atípicas o errores de captura?</p></li>
+<li><p>¿Es necesario transformar alguna variable (logaritmos, estandarización, escalamiento)?</p></li>
+<li><p>¿Cómo se codificarán las variables categóricas si están presentes?</p></li>
+<li><p>¿La distribución de la variable objetivo sugiere problemas importantes para una regresión lineal?</p></li>
+</ol>
+<ol class="upperalpha simple" start="3">
+<li><p>Exploración inicial</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>¿Qué variables muestran mayor correlación con el desempeño final?</p></li>
+<li><p>¿Las relaciones observadas parecen lineales o podrían ser no lineales?</p></li>
+<li><p>¿Hay evidencia visual de heterocedasticidad o de segmentos claramente distintos de estudiantes?</p></li>
+<li><p>¿Qué variables parecen redundantes entre sí?</p></li>
+</ol>
+<ol class="upperalpha simple" start="4">
+<li><p>Construcción del modelo</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>¿Cuál será el modelo base (por ejemplo, una sola variable explicativa)? Implemente un modelo de regresión lineal simple.</p></li>
+<li><p>¿Qué criterio se usará para incorporar variables adicionales: teoría, significancia estadística, desempeño predictivo o combinación de criterios? Implemente un modelo de regresión lineal multiple.</p></li>
+<li><p>¿Existen problemas de multicolinealidad? ¿Cómo se detectarán?</p></li>
+</ol>
+<ol class="upperalpha simple" start="5">
+<li><p>Evaluación del modelo</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>¿Qué métricas se utilizarán para evaluar el ajuste (R², R² ajustado)?</p></li>
+<li><p>¿Qué indican los residuos sobre los supuestos de la regresión lineal?</p></li>
+<li><p>¿Hay observaciones influyentes que alteren de manera importante los coeficientes?</p></li>
+</ol>
+<ol class="upperalpha simple" start="6">
+<li><p>Interpretación para la toma de decisiones</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>¿Cómo se interpreta cada coeficiente relevante de las regresiones en lenguaje no técnico?</p></li>
+<li><p>¿Qué variables muestran la asociación más fuerte con el desempeño final?</p></li>
+<li><p>¿Qué resultados son estadísticamente significativos y cuáles no?</p></li>
+</ol>
+<p>La solución del taller debe desarrollarse íntegramente en lenguaje python. Como evidencia del trabajo realizado, deberá entregar el Notebook (puede compartir el cuaderno de colab) con el código completamente documentado y ejecutable, así como un informe técnico en PDF en el que se presenten, interpreten y discutan los resultados obtenidos. El informe debe incluir las conclusiones y recomendaciones derivadas del análisis realizado.</p>
+<p><strong>El informe del taller debe incluir, como mínimo:</strong></p>
+<ol class="arabic simple">
+<li><p>Descripción del problema y de la variable objetivo.</p></li>
+<li><p>Resumen de limpieza y preparación de datos.</p></li>
+<li><p>Análisis exploratorio (tablas y visualizaciones relevantes).</p></li>
+<li><p>Modelo(s) de regresión estimados.</p></li>
+<li><p>Tabla de coeficientes e interpretación contextualizada.</p></li>
+<li><p>Evaluación del desempeño predictivo en entrenamiento y prueba.</p></li>
+<li><p>Diagnóstico de residuos y discusión de supuestos.</p></li>
+<li><p>Conclusiones ejecutivas (3–5 hallazgos clave).</p></li>
+<li><p>Recomendaciones de intervención académica sustentadas por el análisis.</p></li>
+</ol>
+</section>
+<section id="Rúbrica-de-evaluación-—-Taller:-Regresión-Lineal-con-Student-Performance">
+<h2>Rúbrica de evaluación — Taller: Regresión Lineal con <em>Student Performance</em><a class="headerlink" href="#Rúbrica-de-evaluación-—-Taller:-Regresión-Lineal-con-Student-Performance" title="Link to this heading">#</a></h2>
+<p><strong>Puntaje total: 100 puntos</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterio</p></th>
+<th class="head"><p>Peso</p></th>
+<th class="head"><p>Excelente (100%)</p></th>
+<th class="head"><p>Bueno (80%)</p></th>
+<th class="head"><p>Básico (60%)</p></th>
+<th class="head"><p>Insuficiente (0-40%)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Comprensión del problema y variable objetivo</p></li>
+</ol>
+</td>
+<td><p>10%</p></td>
+<td><p>Define con precisión el problema, la variable objetivo y su significado
+práctico en contexto académico.</p></td>
+<td><p>Define el problema y la variable objetivo con leves omisiones de contexto.</p></td>
+<td><p>Definición parcial o ambigua del problema/objetivo.</p></td>
+<td><p>No define claramente el problema ni la variable objetivo.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Limpieza y preparación de datos</p></li>
+</ol>
+</td>
+<td><p>15%</p></td>
+<td><p>Identifica y trata correctamente faltantes, atípicos y
+codificación/transformaciones con justificación.</p></td>
+<td><p>Realiza limpieza adecuada con justificación parcial.</p></td>
+<td><p>Limpieza incompleta o con decisiones poco justificadas.</p></td>
+<td><p>No hay limpieza adecuada o presenta errores graves de preparación.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Análisis exploratorio (EDA)</p></li>
+</ol>
+</td>
+<td><p>15%</p></td>
+<td><p>Incluye visualizaciones y tablas relevantes; interpreta relaciones,
+correlaciones y posibles confusores.</p></td>
+<td><p>Presenta EDA suficiente con interpretación general correcta.</p></td>
+<td><p>EDA limitado o con interpretaciones débiles.</p></td>
+<td><p>EDA ausente o incorrecto.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>Modelo de regresión lineal simple</p></li>
+</ol>
+</td>
+<td><p>10%</p></td>
+<td><p>Implementa correctamente, interpreta coeficientes y evalúa ajuste básico.</p></td>
+<td><p>Implementación correcta con interpretación parcial.</p></td>
+<td><p>Implementación con fallas menores o poca interpretación.</p></td>
+<td><p>Modelo mal implementado o no presentado.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="5">
+<li><p>Modelo de regresión lineal múltiple</p></li>
+</ol>
+</td>
+<td><p>15%</p></td>
+<td><p>Selección de variables bien sustentada (teoría/estadística/desempeño);
+interpretación clara.</p></td>
+<td><p>Modelo adecuado con sustento parcial en selección de variables.</p></td>
+<td><p>Modelo incompleto o selección débilmente justificada.</p></td>
+<td><p>No implementa modelo múltiple o presenta errores conceptuales graves.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="6">
+<li><p>Evaluación de desempeño (train/test)</p></li>
+</ol>
+</td>
+<td><p>10%</p></td>
+<td><p>Reporta y compara métricas (R², R² ajustado y/o error) en entrenamiento y
+prueba con análisis crítico.</p></td>
+<td><p>Reporta métricas clave con comparación básica.</p></td>
+<td><p>Métricas incompletas o sin discusión suficiente.</p></td>
+<td><p>No evalúa desempeño o lo hace incorrectamente.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="7">
+<li><p>Diagnóstico de supuestos y residuos</p></li>
+</ol>
+</td>
+<td><p>10%</p></td>
+<td><p>Verifica supuestos (linealidad, homocedasticidad, normalidad,
+independencia, influencia) con evidencia gráfica/estadística.</p></td>
+<td><p>Revisa la mayoría de supuestos con evidencia parcial.</p></td>
+<td><p>Revisión limitada de supuestos o interpretación débil.</p></td>
+<td><p>No hay diagnóstico o es incorrecto.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="8">
+<li><p>Interpretación y conclusiones ejecutivas</p></li>
+</ol>
+</td>
+<td><p>10%</p></td>
+<td><p>Traduce resultados a lenguaje no técnico, extrae hallazgos accionables y
+distingue significancia estadística/práctica.</p></td>
+<td><p>Buenas conclusiones con recomendaciones generales.</p></td>
+<td><p>Conclusiones descriptivas, poco accionables.</p></td>
+<td><p>Conclusiones ausentes, inconsistentes o no sustentadas.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="9">
+<li><p>Calidad del notebook y del informe PDF</p></li>
+</ol>
+</td>
+<td><p>5%</p></td>
+<td><p>Código reproducible, bien documentado; informe claro, estructurado y
+completo.</p></td>
+<td><p>Presentación ordenada con detalles menores por mejorar.</p></td>
+<td><p>Documentación limitada o estructura poco clara.</p></td>
+<td><p>Entrega desorganizada, difícil de reproducir o incompleta.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<hr class="docutils" />
+<section id="Criterios-transversales-de-descuento">
+<h3>Criterios transversales de descuento<a class="headerlink" href="#Criterios-transversales-de-descuento" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Reproducibilidad deficiente</strong> (celdas con error, resultados no replicables): hasta <strong>-10 puntos</strong>.</p></li>
+<li><p><strong>Falta de interpretación contextual</strong> (solo salida técnica sin análisis): hasta <strong>-10 puntos</strong>.</p></li>
+<li><p><strong>Ausencia de justificación metodológica</strong> en decisiones clave: hasta <strong>-10 puntos</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Escala-sugerida-de-desempeño-final">
+<h3>Escala sugerida de desempeño final<a class="headerlink" href="#Escala-sugerida-de-desempeño-final" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>90-100</strong>: Sobresaliente</p></li>
+<li><p><strong>80-89</strong>: Alto</p></li>
+<li><p><strong>70-79</strong>: Aceptable</p></li>
+<li><p><strong>60-69</strong>: En desarrollo</p></li>
+<li><p><strong>&lt; 60</strong>: Insuficiente</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 
@@ -519,20 +713,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../dise%C3%B1o_experimental/taller_BCA.html"
+       href="regresion_polinomica.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</p>
+        <p class="prev-next-title">Modelos Polinómicos y Logarítmicos</p>
       </div>
     </a>
     <a class="right-next"
-       href="regresion_lineal_simple.html"
+       href="../series_temporales/index.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</p>
+        <p class="prev-next-title">6. Análisis de Series de Tiempo</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -542,6 +736,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-direccionadoras-para-el-desarrollo-del-ejercicio">Preguntas direccionadoras para el desarrollo del ejercicio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Rúbrica-de-evaluación-—-Taller:-Regresión-Lineal-con-Student-Performance">Rúbrica de evaluación — Taller: Regresión Lineal con <em>Student Performance</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Criterios-transversales-de-descuento">Criterios transversales de descuento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Escala-sugerida-de-desempeño-final">Escala sugerida de desempeño final</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
