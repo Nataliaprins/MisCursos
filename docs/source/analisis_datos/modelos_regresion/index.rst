@@ -11,3 +11,4 @@ Contenido del curso de Modelos de Regresión.
    regresion_lineal_simple
    regresion_lineal_multiple
    regresion_polinomica
+   taller_regresion_student_performance
