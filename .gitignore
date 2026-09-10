@@ -4,3 +4,7 @@ venv/
 
 # Sphinx build output
 docs/build/
+
+# Datos generados al ejecutar los notebooks (ver flujos_trabajo.ipynb)
+docs/source/**/data/raw/
+docs/source/**/data/processed/

@@ -21,3 +21,6 @@ Email: natalia.acevedop@udea.edu.co
    analisis_datos/index
   
    portafolios_inversion/index
+
+   analitica_financiera/index
+   
