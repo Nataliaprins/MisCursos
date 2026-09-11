@@ -1,0 +1,1670 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Examen Final - Modelos de Regresion &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analisis_datos/modelos_regresion/examen_final';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">5. Modelos de Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../analitica_financiera/index.html">CIENCIA DE DATOS FINANCIERA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica_financiera/introducci%C3%B3n.html">3. Ciencia de Datos Financiera: Ingeniería, <em>Feature Engineering</em> y Construcción de Variables</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analisis_datos/modelos_regresion/examen_final.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalisis_datos/modelos_regresion/examen_final.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/analisis_datos/modelos_regresion/examen_final.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tema">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Tema" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Claro"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Oscuro"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="Sistema"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>Sistema</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Claro</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Oscuro</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Examen Final - Modelos de Regresion</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Examen Final - Modelos de Regresion</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Curso:-Administracion-de-Empresas">Curso: Administracion de Empresas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Instrucciones-generales">Instrucciones generales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Distribucion">Distribucion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Seccion-A.-Seleccion-multiple-(20-preguntas)">Seccion A. Seleccion multiple (20 preguntas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-1-a-10-(Teoricas-con-caso-aplicado)">Preguntas 1 a 10 (Teoricas con caso aplicado)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-11-a-20-(Practicas)">Preguntas 11 a 20 (Practicas)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Seccion-B.-Falso-/-Verdadero-(10-preguntas)">Seccion B. Falso / Verdadero (10 preguntas)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Examen-Final---Modelos-de-Regresion-(Tema-B)">Examen Final - Modelos de Regresion (Tema B)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Curso: Administracion de Empresas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Instrucciones generales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Distribucion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-B---Seccion-A.-Seleccion-multiple-(20-preguntas)">Tema B - Seccion A. Seleccion multiple (20 preguntas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Preguntas 1 a 10 (Teoricas con caso aplicado)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Preguntas 11 a 20 (Practicas)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-B---Seccion-B.-Falso-/-Verdadero-(10-preguntas)">Tema B - Seccion B. Falso / Verdadero (10 preguntas)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Clave-de-respuestas-(Docente)">Clave de respuestas (Docente)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-A">Tema A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-B">Tema B</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Examen-Final---Modelos-de-Regresion">
+<h1>Examen Final - Modelos de Regresion<a class="headerlink" href="#Examen-Final---Modelos-de-Regresion" title="Link to this heading">#</a></h1>
+<section id="Curso:-Administracion-de-Empresas">
+<h2>Curso: Administracion de Empresas<a class="headerlink" href="#Curso:-Administracion-de-Empresas" title="Link to this heading">#</a></h2>
+<section id="Instrucciones-generales">
+<h3>Instrucciones generales<a class="headerlink" href="#Instrucciones-generales" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Tiempo sugerido: 120 minutos.</p></li>
+<li><p>Valor total: 100 puntos.</p></li>
+<li><p>No se permite el uso de IA durante el examen.</p></li>
+<li><p>Lea cada caso antes de responder.</p></li>
+<li><p>En las preguntas de seleccion multiple marque solo una opcion.</p></li>
+<li><p>En las preguntas de falso/verdadero indique V o F y justifique brevemente.</p></li>
+</ul>
+</section>
+<section id="Distribucion">
+<h3>Distribucion<a class="headerlink" href="#Distribucion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Seccion A: 20 preguntas de seleccion multiple.</p></li>
+<li><p>Seccion B: 10 preguntas de falso/verdadero.</p></li>
+</ul>
+</section>
+</section>
+<section id="Seccion-A.-Seleccion-multiple-(20-preguntas)">
+<h2>Seccion A. Seleccion multiple (20 preguntas)<a class="headerlink" href="#Seccion-A.-Seleccion-multiple-(20-preguntas)" title="Link to this heading">#</a></h2>
+<section id="Preguntas-1-a-10-(Teoricas-con-caso-aplicado)">
+<h3>Preguntas 1 a 10 (Teoricas con caso aplicado)<a class="headerlink" href="#Preguntas-1-a-10-(Teoricas-con-caso-aplicado)" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Caso:</strong> Una cadena de supermercados quiere explicar las ventas mensuales segun precio promedio, inversion en publicidad y trafico de clientes. La gerencia pide un modelo interpretable para apoyar decisiones.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>K-means</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Regresion lineal multiple</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Arbol de clasificacion</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Analisis factorial</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una empresa de seguros modela siniestros esperados por cliente y sospecha que el efecto de la edad cambia segun el tipo de plan.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Eliminar la variable edad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Incluir un termino de interaccion edad x tipo de plan</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Usar solo correlaciones</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Estandarizar y detener el analisis</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Un banco estima mora crediticia (en porcentaje) y observa que la varianza de los errores aumenta para clientes de mayor ingreso.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>No hacer nada, siempre es normal</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Revisar heterocedasticidad y considerar errores robustos o transformaciones</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Eliminar ingresos del modelo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Cambiar la variable dependiente por una cualitativa sin justificacion</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una empresa de retail desea saber si una promocion tuvo impacto en ventas controlando por estacionalidad y precio.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Regresion con variable dummy de promocion</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Regresion sin intercepto ni control</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Solo grafico de barras</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Promedio simple antes y despues sin controles</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> En una empresa B2B, el director comercial pregunta por que el coeficiente de publicidad no fue significativo (p &gt; 0.05).</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Significa que publicidad no tiene ningun efecto en todos los contextos</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Significa que con esta muestra y este modelo no hay evidencia estadistica suficiente</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Significa que el modelo esta perfecto</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Significa que el R2 siempre debe ser 1</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una firma de logistica estima costos operativos y reporta R2 muy alto, pero el equipo detecta residuos con patrones.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Un R2 alto garantiza validez completa</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Deben revisarse supuestos y diagnosticos de residuos</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Se debe eliminar el intercepto</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El analisis termina con R2</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una empresa exportadora incluye tipo de cambio y precio internacional del commodity en el mismo modelo; la correlacion entre ambas es muy alta.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Posible multicolinealidad que afecta precision de coeficientes</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Error de digitacion unicamente</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Evidencia de causalidad definitiva</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Prueba de normalidad directa</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una app de delivery quiere modelar tiempo de entrega y sospecha observaciones atipicas por dias de lluvia extrema.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Ignorar outliers siempre</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Evaluar leverage, distancia de Cook e impacto en coeficientes</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Reemplazar todos los datos extremos por el promedio</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Eliminar aleatoriamente 20% de la muestra</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una empresa de manufactura necesita predecir demanda para planificar compras del siguiente trimestre.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Priorizar solo interpretacion y no evaluar error predictivo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Evaluar metricas como MAE o RMSE en datos de validacion</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Usar cualquier modelo sin separar entrenamiento y prueba</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Usar el modelo con menor numero de variables siempre</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una compania mide satisfaccion (1 a 10) y desea explicar su variacion por tiempo de espera, calidad percibida y canal.</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Regresion lineal con variables numericas y dummies para canal</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Solo tabla dinamica</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Prueba t para cada variable por separado y sin modelo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Arbol de decision sin validar</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="Preguntas-11-a-20-(Practicas)">
+<h3>Preguntas 11 a 20 (Practicas)<a class="headerlink" href="#Preguntas-11-a-20-(Practicas)" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="11">
+<li><p>En un modelo: <span class="math notranslate nohighlight">\(\hat{Y} = 120 - 3X_1 + 0.8X_2\)</span>, si <span class="math notranslate nohighlight">\(X_1\)</span> aumenta en 1 unidad y <span class="math notranslate nohighlight">\(X_2\)</span> permanece constante, la prediccion de <span class="math notranslate nohighlight">\(Y\)</span>:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Aumenta en 3</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Disminuye en 3</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>No cambia</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Aumenta en 0.8</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="12">
+<li><p>En una regresion, el intervalo de confianza al 95% para <span class="math notranslate nohighlight">\(\beta_1\)</span> es [0.2, 1.1]. Esto implica que:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p><span class="math notranslate nohighlight">\(\beta_1\)</span> es no significativo al 5%</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(\beta_1\)</span> es significativo al 5%</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>El modelo no sirve</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El error estandar es cero</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="13">
+<li><p>Se estimo un modelo con 4 predictores y 100 observaciones. Si se agregan variables irrelevantes, es mas probable que:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>El R2 ajustado baje o no mejore</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>El R2 siempre baje</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>El R2 ajustado siempre suba</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El error residual desaparezca</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="14">
+<li><p>Una empresa obtiene VIF de 12 para una variable explicativa. La interpretacion mas adecuada es:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>No hay problema</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Posible multicolinealidad alta</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Error de heterocedasticidad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Normalidad perfecta</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="15">
+<li><p>Si en un test de Breusch-Pagan se obtiene p-valor = 0.01, al 5% se concluye:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>No hay heterocedasticidad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Hay evidencia de heterocedasticidad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Hay autocorrelacion negativa</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El modelo no tiene intercepto</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="16">
+<li><p>En un modelo de ventas, la variable dummy «campana_digital» toma 1 si hubo campana y 0 si no. Su coeficiente estimado fue 18.</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Con campana, ventas esperadas suben 18 unidades, ceteris paribus</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Ventas bajan 18 unidades con campana</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>La dummy no se interpreta</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El intercepto desaparece</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="17">
+<li><p>Si el estadistico Durbin-Watson es cercano a 2, normalmente sugiere:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Fuerte autocorrelacion positiva</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Ausencia aproximada de autocorrelacion de primer orden</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Multicolinealidad severa</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Sobreajuste garantizado</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="18">
+<li><p>Dos modelos de pronostico se evaluan en test: Modelo A (RMSE=9.5), Modelo B (RMSE=7.8). Para prediccion puntual:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Conviene A por ser mas simple</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Conviene B por menor error</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Son equivalentes</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>No se puede comparar RMSE</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="19">
+<li><p>En una regresion log-lineal: <span class="math notranslate nohighlight">\(\ln(Y)=\beta_0+\beta_1 X\)</span>, con <span class="math notranslate nohighlight">\(\beta_1=0.04\)</span>, un aumento de 1 unidad en <span class="math notranslate nohighlight">\(X\)</span> implica aproximadamente:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Disminucion de 4% en <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Aumento de 4% en <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Aumento de 0.04 unidades en <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Ningun cambio en <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="20">
+<li><p>Si al revisar residuos vs ajustados se observa forma de abanico, la accion inicial mas apropiada es:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Confirmar posible heterocedasticidad y probar correcciones</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Aceptar modelo sin cambios</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Borrar la mitad de los datos</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Cambiar a clasificacion automaticamente</p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+<section id="Seccion-B.-Falso-/-Verdadero-(10-preguntas)">
+<h2>Seccion B. Falso / Verdadero (10 preguntas)<a class="headerlink" href="#Seccion-B.-Falso-/-Verdadero-(10-preguntas)" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="21">
+<li><p>En regresion lineal, un coeficiente significativo estadisticamente prueba causalidad por si solo.</p></li>
+<li><p>El supuesto de no multicolinealidad perfecta implica que ninguna variable explicativa puede escribirse como combinacion lineal exacta de otras.</p></li>
+<li><p>Si el p-valor del test F global es menor a 0.05, al menos un coeficiente distinto del intercepto aporta explicacion en el modelo.</p></li>
+<li><p>Un R2 alto siempre garantiza buena capacidad de pronostico fuera de muestra.</p></li>
+<li><p>La presencia de heterocedasticidad puede volver ineficientes los errores estandar clasicos y afectar inferencia.</p></li>
+<li><p>En una regresion multiple, el coeficiente de una variable se interpreta manteniendo constantes las demas variables del modelo.</p></li>
+<li><p>El uso de variables dummy permite incorporar factores cualitativos, como region o tipo de cliente, en un modelo lineal.</p></li>
+<li><p>El sobreajuste ocurre cuando un modelo capta ruido de entrenamiento y puede rendir peor en datos nuevos.</p></li>
+<li><p>Si los residuos muestran patron sistematico frente a los valores ajustados, puede haber especificacion incorrecta del modelo.</p></li>
+<li><p>En evaluacion predictiva, comparar MAE o RMSE en un conjunto de prueba ayuda a seleccionar mejor modelo para pronostico.</p></li>
+</ol>
+</section>
+</section>
+<section id="Examen-Final---Modelos-de-Regresion-(Tema-B)">
+<h1>Examen Final - Modelos de Regresion (Tema B)<a class="headerlink" href="#Examen-Final---Modelos-de-Regresion-(Tema-B)" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Curso: Administracion de Empresas<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Instrucciones generales<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Tiempo sugerido: 120 minutos.</p></li>
+<li><p>Valor total: 100 puntos.</p></li>
+<li><p>Responda solo este Tema B.</p></li>
+<li><p>En seleccion multiple marque solo una opcion.</p></li>
+<li><p>En falso/verdadero indique V o F y justifique brevemente.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Distribucion<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Seccion A: 20 preguntas de seleccion multiple.</p></li>
+<li><p>Seccion B: 10 preguntas de falso/verdadero.</p></li>
+</ul>
+</section>
+</section>
+<section id="Tema-B---Seccion-A.-Seleccion-multiple-(20-preguntas)">
+<h2>Tema B - Seccion A. Seleccion multiple (20 preguntas)<a class="headerlink" href="#Tema-B---Seccion-A.-Seleccion-multiple-(20-preguntas)" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h3>Preguntas 1 a 10 (Teoricas con caso aplicado)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Caso:</strong> Una empresa de telecomunicaciones quiere explicar la facturacion mensual por cliente usando consumo de datos, antiguedad y tipo de plan.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Regresion lineal multiple</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Analisis de conglomerados</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Prueba chi-cuadrado</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Metodo Delphi</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una cadena hotelera desea evaluar el efecto de «temporada alta» sobre tarifa promedio, controlando por ocupacion y ciudad.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Incluir dummy de temporada alta</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Eliminar variable ciudad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Usar solo media historica</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Aplicar analisis discriminante</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una empresa industrial modela costo unitario y detecta que la dispersion de errores crece cuando aumenta el volumen producido.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Ignorar el patron</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Evaluar heterocedasticidad y usar ajustes robustos</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Forzar R2 a subir</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Convertir todo a variable binaria</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Un ecommerce quiere saber si «envio gratis» afecta el ticket promedio, controlando por categoria y canal.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Regresion con dummy de envio gratis</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Comparar solo maximos</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Eliminar datos de promociones</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Analizar solo una semana al azar</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> En un modelo de productividad, el coeficiente de capacitacion tiene p-valor 0.18.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Se confirma efecto causal definitivo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>No hay evidencia estadistica suficiente al 5% con este modelo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>La variable debe duplicarse</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El modelo queda invalidado automaticamente</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una firma de consumo masivo obtiene R2 de 0.91, pero residuos con curvatura frente a valores ajustados.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>R2 alto basta para aceptar modelo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Puede faltar forma funcional y deben revisarse supuestos</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Eliminar intercepto corrige siempre</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Debe usarse solo correlacion simple</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> En una empresa agroexportadora, «precio internacional» y «tipo de cambio» muestran alta correlacion en el modelo.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Posible multicolinealidad y menor precision en coeficientes</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Prueba de causalidad garantizada</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Evidencia de normalidad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Problema de autocorrelacion exclusivamente</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una startup SaaS detecta clientes corporativos extremos con alto gasto y posible influencia en el ajuste.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Revisar leverage y distancia de Cook</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Ignorar porque son clientes premium</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Reemplazar extremos por cero</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Ajustar modelo sin variable dependiente</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una distribuidora planea pronosticar ventas semanales para inventario.</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Elegir modelo por mayor R2 en entrenamiento solamente</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Validar con conjunto de prueba y metricas de error</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Seleccionar el modelo con mas variables siempre</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Evitar evaluacion cuantitativa</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Caso:</strong> Una clinica privada quiere explicar ingresos por paciente usando edad, tipo de seguro y dias de estancia.</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Regresion lineal con dummies para tipo de seguro</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Tabla de frecuencias sin modelar</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Prueba z de una muestra</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Solo analisis cualitativo</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h3>Preguntas 11 a 20 (Practicas)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="11">
+<li><p>En el modelo: <span class="math notranslate nohighlight">\(\hat{Y}=50+2.5X_1-1.2X_2\)</span>, si <span class="math notranslate nohighlight">\(X_2\)</span> sube en 1 unidad y lo demas constante, <span class="math notranslate nohighlight">\(Y\)</span> esperado:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Sube 1.2</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Baja 1.2</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>No cambia</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Sube 2.5</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="12">
+<li><p>El intervalo al 95% para un coeficiente es [-0.8, -0.1]. La conclusion correcta es:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>No significativo al 5%</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Significativo al 5% y efecto negativo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Error estandar nulo</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>R2 igual a 1</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="13">
+<li><p>Si se agregan predictores sin aporte real, normalmente:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>R2 ajustado puede disminuir</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>R2 ajustado siempre aumenta</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>MAE se vuelve cero automaticamente</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El intercepto desaparece</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="14">
+<li><p>Un VIF de 9.8 para una variable sugiere:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Posible colinealidad elevada a vigilar</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Heterocedasticidad confirmada</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Autocorrelacion negativa</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Modelo perfecto</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="15">
+<li><p>En prueba de normalidad de residuos, p-valor &lt; 0.05 indica:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>No se rechaza normalidad</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Se rechaza normalidad bajo ese test</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>El modelo ya no predice</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>El R2 se vuelve invalido</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="16">
+<li><p>Dummy «sucursal_centro» = 1 si cliente compra en centro, 0 en otras zonas. Coeficiente = -6.</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Comprar en centro reduce en 6 unidades la respuesta esperada, ceteris paribus</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Aumenta en 6 unidades</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>No tiene interpretacion</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Obliga a quitar intercepto</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="17">
+<li><p>Un estadistico Durbin-Watson cercano a 1 suele asociarse con:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Ausencia total de autocorrelacion</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Posible autocorrelacion positiva</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Multicolinealidad extrema</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Homocedasticidad perfecta</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="18">
+<li><p>Comparando modelos en test: Modelo C (MAE=5.4) y Modelo D (MAE=6.1).</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Conviene D</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Conviene C</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Son iguales</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>MAE no sirve para comparar</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="19">
+<li><p>En modelo semilog: <span class="math notranslate nohighlight">\(\ln(Y)=\beta_0+\beta_1X\)</span>, con <span class="math notranslate nohighlight">\(\beta_1=-0.03\)</span>, subir 1 unidad en <span class="math notranslate nohighlight">\(X\)</span> implica aproximadamente:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Aumento de 3% en Y</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Disminucion de 3% en Y</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Disminucion de 0.03 unidades en Y</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Ningun cambio esperado</p></li>
+</ol>
+</li>
+</ul>
+<ol class="arabic simple" start="20">
+<li><p>Si el grafico residuos vs ajustados muestra curva sistematica, una primera accion valida es:</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Probar terminos no lineales o transformaciones</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>Mantener modelo sin diagnostico adicional</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>Eliminar datos al azar</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="4">
+<li><p>Cambiar a clasificacion sin criterio</p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+<section id="Tema-B---Seccion-B.-Falso-/-Verdadero-(10-preguntas)">
+<h2>Tema B - Seccion B. Falso / Verdadero (10 preguntas)<a class="headerlink" href="#Tema-B---Seccion-B.-Falso-/-Verdadero-(10-preguntas)" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="21">
+<li><p>Un coeficiente con p-valor menor a 0.05 implica necesariamente que la relacion es causal.</p></li>
+<li><p>En regresion multiple, ceteris paribus significa mantener constantes las otras variables explicativas.</p></li>
+<li><p>Un test F global significativo sugiere que al menos un predictor explica variacion en la variable dependiente.</p></li>
+<li><p>Un R2 alto en entrenamiento puede coexistir con mal desempeno en datos nuevos.</p></li>
+<li><p>La multicolinealidad alta puede inflar errores estandar y dificultar detectar significancia individual.</p></li>
+<li><p>Variables dummy permiten representar categorias como canal de venta, ciudad o segmento.</p></li>
+<li><p>Si los residuos tienen varianza no constante, los errores estandar clasicos pueden ser poco confiables.</p></li>
+<li><p>El sobreajuste generalmente mejora la generalizacion fuera de muestra.</p></li>
+<li><p>Revisar residuos es parte clave de la validacion de un modelo de regresion.</p></li>
+<li><p>MAE y RMSE son metricas utiles para comparar desempeno predictivo de modelos.</p></li>
+</ol>
+</section>
+<section id="Clave-de-respuestas-(Docente)">
+<h2>Clave de respuestas (Docente)<a class="headerlink" href="#Clave-de-respuestas-(Docente)" title="Link to this heading">#</a></h2>
+<section id="Tema-A">
+<h3>Tema A<a class="headerlink" href="#Tema-A" title="Link to this heading">#</a></h3>
+<p><strong>Seleccion multiple (1-20):</strong></p>
+<ol class="arabic simple">
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+</ol>
+<p><strong>Falso / Verdadero (21-30):</strong></p>
+<ol class="arabic simple" start="21">
+<li><p>F</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>F</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+</ol>
+</section>
+<section id="Tema-B">
+<h3>Tema B<a class="headerlink" href="#Tema-B" title="Link to this heading">#</a></h3>
+<p><strong>Seleccion multiple (1-20):</strong></p>
+<ol class="arabic simple">
+<li><p>A</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>B</p></li>
+<li><p>A</p></li>
+</ol>
+<p><strong>Falso / Verdadero (21-30):</strong></p>
+<ol class="arabic simple" start="21">
+<li><p>F</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+<li><p>F</p></li>
+<li><p>V</p></li>
+<li><p>V</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Examen Final - Modelos de Regresion</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Curso:-Administracion-de-Empresas">Curso: Administracion de Empresas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Instrucciones-generales">Instrucciones generales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Distribucion">Distribucion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Seccion-A.-Seleccion-multiple-(20-preguntas)">Seccion A. Seleccion multiple (20 preguntas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-1-a-10-(Teoricas-con-caso-aplicado)">Preguntas 1 a 10 (Teoricas con caso aplicado)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Preguntas-11-a-20-(Practicas)">Preguntas 11 a 20 (Practicas)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Seccion-B.-Falso-/-Verdadero-(10-preguntas)">Seccion B. Falso / Verdadero (10 preguntas)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Examen-Final---Modelos-de-Regresion-(Tema-B)">Examen Final - Modelos de Regresion (Tema B)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Curso: Administracion de Empresas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Instrucciones generales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Distribucion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-B---Seccion-A.-Seleccion-multiple-(20-preguntas)">Tema B - Seccion A. Seleccion multiple (20 preguntas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Preguntas 1 a 10 (Teoricas con caso aplicado)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Preguntas 11 a 20 (Practicas)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-B---Seccion-B.-Falso-/-Verdadero-(10-preguntas)">Tema B - Seccion B. Falso / Verdadero (10 preguntas)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Clave-de-respuestas-(Docente)">Clave de respuestas (Docente)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-A">Tema A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Tema-B">Tema B</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
