@@ -13,4 +13,9 @@ seaborn
 statsmodels
 yfinance
 tensorflow
+pytest
+black
+ruff
+mlflow
+python-dotenv
 
