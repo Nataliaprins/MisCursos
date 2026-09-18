@@ -11,4 +11,6 @@ pandas
 matplotlib
 seaborn
 statsmodels
+yfinance
+tensorflow
 

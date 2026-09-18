@@ -24,4 +24,6 @@ Contenido del curso:
    /analisis_datos/introduccion_python/index
    /analisis_datos/introduccion_graficos/index
    introducción
+   redes_neuronales_series_tiempo
+   ruta_aprendizaje_sugerida
    
