@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>DataOps para Proyectos de Datos Financieros &#8212; Portafolio de Cursos</title>
+    <title>5. DataOps para Proyectos de Datos Financieros &#8212; Portafolio de Cursos</title>
   
   
   
@@ -290,7 +290,7 @@
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="introducci%C3%B3n.html">3. Ciencia de Datos Financiera: Ingeniería, <em>Feature Engineering</em> y Construcción de Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="redes_neuronales_series_tiempo.html">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">DataOps para Proyectos de Datos Financieros</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5. DataOps para Proyectos de Datos Financieros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
 </ul>
 </details></li>
@@ -500,7 +500,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>DataOps para Proyectos de Datos Financieros</h1>
+    <h1>5. DataOps para Proyectos de Datos Financieros</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -527,7 +527,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Alternativas:-conda-y-uv-(mención-breve)">2.4 Alternativas: <code class="docutils literal notranslate"><span class="pre">conda</span></code> y <code class="docutils literal notranslate"><span class="pre">uv</span></code> (mención breve)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-3-(3-h)-—-Git-local">Bloque 3 (3 h) — Git local</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-3:-Git-local">Bloque 3: Git local</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-¿Qué-es-el-control-de-versiones?">3.1 ¿Qué es el control de versiones?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-.gitignore:-lo-que-Git-nunca-debe-guardar">3.2 <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: lo que Git nunca debe guardar</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Mensajes-de-commit-útiles">3.3 Mensajes de commit útiles</a></li>
@@ -570,8 +570,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="DataOps-para-Proyectos-de-Datos-Financieros">
-<h1>DataOps para Proyectos de Datos Financieros<a class="headerlink" href="#DataOps-para-Proyectos-de-Datos-Financieros" title="Link to this heading">#</a></h1>
+  <section id="5.-DataOps-para-Proyectos-de-Datos-Financieros">
+<h1>5. DataOps para Proyectos de Datos Financieros<a class="headerlink" href="#5.-DataOps-para-Proyectos-de-Datos-Financieros" title="Link to this heading">#</a></h1>
 <p>Hasta ahora, hemos trabajado con notebooks de forma aislada: cada uno se ejecuta de principio a fin y produce un análisis o un modelo.</p>
 <p>Para que se convierta en algo que otras personas puedan <strong>reproducir, auditar, revisar y poner en producción</strong>, hace falta un conjunto de prácticas de ingeniería que se conoce como <strong>DataOps</strong>: la aplicación de principios de desarrollo de software (control de versiones, entornos reproducibles, pruebas automatizadas, integración continua) al trabajo con datos y modelos.</p>
 <p>En finanzas esto no es opcional: un modelo de riesgo crediticio o una estrategia de <em>trading</em> que no se pueda reproducir exactamente meses después es, en la práctica, no auditable y los reguladores, los comités de riesgo y los propios equipos internos exigen esa trazabilidad.</p>
@@ -934,8 +934,8 @@ urllib3==2.8.0
 <p><strong>Ejercicio 2:</strong> crea un ambiente virtual para un proyecto nuevo, actívalo en tu terminal, instala <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, genera su <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> y ábrelo para confirmar que aparece la versión instalada.</p>
 </section>
 </section>
-<section id="Bloque-3-(3-h)-—-Git-local">
-<h2>Bloque 3 (3 h) — Git local<a class="headerlink" href="#Bloque-3-(3-h)-—-Git-local" title="Link to this heading">#</a></h2>
+<section id="Bloque-3:-Git-local">
+<h2>Bloque 3: Git local<a class="headerlink" href="#Bloque-3:-Git-local" title="Link to this heading">#</a></h2>
 <section id="3.1-¿Qué-es-el-control-de-versiones?">
 <h3>3.1 ¿Qué es el control de versiones?<a class="headerlink" href="#3.1-¿Qué-es-el-control-de-versiones?" title="Link to this heading">#</a></h3>
 <p>Git guarda el historial completo de los cambios de un proyecto: quién cambió qué, cuándo y por qué. A diferencia de guardar copias como <code class="docutils literal notranslate"><span class="pre">analisis_v1.py</span></code>, <code class="docutils literal notranslate"><span class="pre">analisis_v2_final.py</span></code>, <code class="docutils literal notranslate"><span class="pre">analisis_v2_final_DEFINITIVO.py</span></code> (todos hemos hecho esto), Git guarda <strong>un solo archivo</strong> con <strong>todo su historial</strong> navegable.</p>
@@ -2274,7 +2274,7 @@ jobs:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Alternativas:-conda-y-uv-(mención-breve)">2.4 Alternativas: <code class="docutils literal notranslate"><span class="pre">conda</span></code> y <code class="docutils literal notranslate"><span class="pre">uv</span></code> (mención breve)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-3-(3-h)-—-Git-local">Bloque 3 (3 h) — Git local</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-3:-Git-local">Bloque 3: Git local</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-¿Qué-es-el-control-de-versiones?">3.1 ¿Qué es el control de versiones?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-.gitignore:-lo-que-Git-nunca-debe-guardar">3.2 <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: lo que Git nunca debe guardar</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Mensajes-de-commit-útiles">3.3 Mensajes de commit útiles</a></li>
