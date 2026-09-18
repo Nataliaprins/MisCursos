@@ -1,0 +1,2363 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataOps para Proyectos de Datos Financieros &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analitica_financiera/dataops_proyectos_financieros';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Apéndice: Ruta de Aprendizaje Sugerida" href="ruta_aprendizaje_sugerida.html" />
+    <link rel="prev" title="4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras" href="redes_neuronales_series_tiempo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">5. Modelos de Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">CIENCIA DE DATOS FINANCIERA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="introducci%C3%B3n.html">3. Ciencia de Datos Financiera: Ingeniería, <em>Feature Engineering</em> y Construcción de Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redes_neuronales_series_tiempo.html">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DataOps para Proyectos de Datos Financieros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analitica_financiera/dataops_proyectos_financieros.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalitica_financiera/dataops_proyectos_financieros.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analitica_financiera/dataops_proyectos_financieros.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tema">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Tema" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Claro"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Oscuro"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="Sistema"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>Sistema</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Claro</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Oscuro</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DataOps para Proyectos de Datos Financieros</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-1-(3-h)-—-Entorno-local">Bloque 1 (3 h) — Entorno local</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?">1.1 Python y VS Code: ¿por qué no solo Colab?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-a-paso:-instalar-Python-y-VS-Code">Paso a paso: instalar Python y VS Code</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.2-La-terminal:-tu-primera-herramienta-de-trabajo">1.2 La terminal: tu primera herramienta de trabajo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.3-Extensiones-esenciales-de-VS-Code">1.3 Extensiones esenciales de VS Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.4-Notebooks-(.ipynb)-vs.-scripts-(.py):-¿cuándo-usar-cada-uno?">1.4 Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) vs. scripts (<code class="docutils literal notranslate"><span class="pre">.py</span></code>): ¿cuándo usar cada uno?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-2:-Ambientes-virtuales-y-dependencias">Bloque 2: Ambientes virtuales y dependencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-¿Por-qué-aislar-dependencias?">2.1 ¿Por qué aislar dependencias?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-venv:-crear,-activar-y-seleccionar-el-intérprete">2.2 <code class="docutils literal notranslate"><span class="pre">venv</span></code>: crear, activar y seleccionar el intérprete</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-pip:-instalar-y-congelar-dependencias">2.3 <code class="docutils literal notranslate"><span class="pre">pip</span></code>: instalar y congelar dependencias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Alternativas:-conda-y-uv-(mención-breve)">2.4 Alternativas: <code class="docutils literal notranslate"><span class="pre">conda</span></code> y <code class="docutils literal notranslate"><span class="pre">uv</span></code> (mención breve)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-3-(3-h)-—-Git-local">Bloque 3 (3 h) — Git local</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-¿Qué-es-el-control-de-versiones?">3.1 ¿Qué es el control de versiones?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-.gitignore:-lo-que-Git-nunca-debe-guardar">3.2 <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: lo que Git nunca debe guardar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Mensajes-de-commit-útiles">3.3 Mensajes de commit útiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.4-Deshacer-cambios:-restore-y-revert">3.4 Deshacer cambios: <code class="docutils literal notranslate"><span class="pre">restore</span></code> y <code class="docutils literal notranslate"><span class="pre">revert</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.5-Antes-del-Bloque-4:-crea-tu-cuenta-de-GitHub-(con-GitHub-Education)">3.5 Antes del Bloque 4: crea tu cuenta de GitHub (con GitHub Education)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-4:-GitHub-y-colaboración">Bloque 4: GitHub y colaboración</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-De-local-a-remoto:-GitHub">4.1 De local a remoto: GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Ramas,-Pull-Requests-y-revisión-de-código">4.2 Ramas, Pull Requests y revisión de código</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-README,-licencia-y-tu-perfil-de-GitHub-como-portafolio">4.3 README, licencia y tu perfil de GitHub como portafolio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Resolver-un-conflicto-de-merge">4.4 Resolver un conflicto de <em>merge</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-5:-Estructura-de-proyecto-y-buenas-prácticas">Bloque 5: Estructura de proyecto y buenas prácticas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Estructura-estándar-de-un-proyecto-de-datos">5.1 Estructura estándar de un proyecto de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-De-notebook-a-src/:-convertir-código-en-funciones">5.2 De notebook a <code class="docutils literal notranslate"><span class="pre">src/</span></code>: convertir código en funciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.3-Variables-de-entorno-y-.env">5.3 Variables de entorno y <code class="docutils literal notranslate"><span class="pre">.env</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.4-Formateo-con-black-y-linting-con-ruff">5.4 Formateo con <code class="docutils literal notranslate"><span class="pre">black</span></code> y <em>linting</em> con <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.5-Un-test-mínimo-con-pytest">5.5 Un test mínimo con <code class="docutils literal notranslate"><span class="pre">pytest</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-6:-Panorama-MLOps-y-cierre">Bloque 6: Panorama MLOps y cierre</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-El-ciclo-de-vida-de-un-modelo">6.1 El ciclo de vida de un modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2-MLflow:-registro-de-experimentos">6.2 MLflow: registro de experimentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.3-DVC:-versionado-de-datos">6.3 DVC: versionado de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.4-Docker:-reproducibilidad-más-allá-de-Python">6.4 Docker: reproducibilidad más allá de Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.5-GitHub-Actions:-pruebas-automáticas-en-cada-cambio">6.5 GitHub Actions: pruebas automáticas en cada cambio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.6-Cierre:-tu-entregable-final">6.6 Cierre: tu entregable final</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="DataOps-para-Proyectos-de-Datos-Financieros">
+<h1>DataOps para Proyectos de Datos Financieros<a class="headerlink" href="#DataOps-para-Proyectos-de-Datos-Financieros" title="Link to this heading">#</a></h1>
+<p>Hasta ahora, hemos trabajado con notebooks de forma aislada: cada uno se ejecuta de principio a fin y produce un análisis o un modelo.</p>
+<p>Para que se convierta en algo que otras personas puedan <strong>reproducir, auditar, revisar y poner en producción</strong>, hace falta un conjunto de prácticas de ingeniería que se conoce como <strong>DataOps</strong>: la aplicación de principios de desarrollo de software (control de versiones, entornos reproducibles, pruebas automatizadas, integración continua) al trabajo con datos y modelos.</p>
+<p>En finanzas esto no es opcional: un modelo de riesgo crediticio o una estrategia de <em>trading</em> que no se pueda reproducir exactamente meses después es, en la práctica, no auditable y los reguladores, los comités de riesgo y los propios equipos internos exigen esa trazabilidad.</p>
+<p>El camino desde «tengo un notebook en mi computador» hasta «tengo un repositorio con pruebas automatizadas que se validan solas en cada cambio» lo presentamos en los siguientes bloques.</p>
+<blockquote>
+<div><p><strong>Lectura complementaria:</strong> este cuaderno se apoya en los principios organizacionales descritos en <a class="reference external" href="01%20Practical%20DataOps%20Delivering%20Agile%20Data%20Science%20At%20Scale.pdf">Practical DataOps: Delivering Agile Data Science at Scale</a> (Harvey Atkinson).</p>
+</div></blockquote>
+<section id="Bloque-1-(3-h)-—-Entorno-local">
+<h2>Bloque 1 (3 h) — Entorno local<a class="headerlink" href="#Bloque-1-(3-h)-—-Entorno-local" title="Link to this heading">#</a></h2>
+<section id="1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?">
+<h3>1.1 Python y VS Code: ¿por qué no solo Colab?<a class="headerlink" href="#1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?" title="Link to this heading">#</a></h3>
+<p>Google Colab es un excelente punto de partida para aprender: no requiere instalación y da acceso gratuito a GPU. Pero casi ningún equipo de datos trabaja exclusivamente ahí. Las razones son casi siempre las mismas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Necesidad</p></th>
+<th class="head"><p>Colab</p></th>
+<th class="head"><p>Entorno local / servidor propio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datos privados (posiciones, clientes, transacciones)</p></td>
+<td><p>Suben a la infraestructura de Google</p></td>
+<td><p>Se quedan dentro de la red de la empresa</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cumplimiento normativo (auditoría, protección de datos)</p></td>
+<td><p>Difícil de certificar</p></td>
+<td><p>Se puede controlar y documentar</p></td>
+</tr>
+<tr class="row-even"><td><p>Control de versiones de librerías</p></td>
+<td><p>Entorno compartido, cambia sin previo aviso</p></td>
+<td><p>Ambientes virtuales fijos y reproducibles (Bloque 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integración con Git/CI/CD</p></td>
+<td><p>Limitada</p></td>
+<td><p>Nativa (VS Code, terminal, GitHub Actions)</p></td>
+</tr>
+<tr class="row-even"><td><p>Cómputo dedicado y costos a escala</p></td>
+<td><p>Sesión temporal, se desconecta</p></td>
+<td><p>Servidores propios o en la nube contratados a medida</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La conclusión no es «Colab es malo»: es que Colab sirve para explorar y prototipar rápido, mientras que un entorno local (o un servidor dentro de la infraestructura de la empresa) es el que permite construir algo reproducible y seguro. El primer paso para trabajar de esa segunda forma es instalar Python y VS Code.</p>
+<section id="Paso-a-paso:-instalar-Python-y-VS-Code">
+<h4>Paso a paso: instalar Python y VS Code<a class="headerlink" href="#Paso-a-paso:-instalar-Python-y-VS-Code" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Windows</p></th>
+<th class="head"><p>macOS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Descargar Python</p></li>
+</ol>
+</td>
+<td><p>Ir a <a class="reference external" href="https://www.python.org/downloads/windows/">python.org/downloads</a> y descargar el instalador de la versión más reciente de Python 3</p></td>
+<td><p>Ir a <a class="reference external" href="https://www.python.org/downloads/macos/">python.org/downloads</a> y descargar el instalador <code class="docutils literal notranslate"><span class="pre">.pkg</span></code> — o, si ya tienes <a class="reference external" href="https://brew.sh/">Homebrew</a>,
+instalar con <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">python</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Instalar</p></li>
+</ol>
+</td>
+<td><p>Ejecutar el instalador y <strong>marcar la casilla «Add python.exe to PATH»</strong> antes de darle a «Install Now» — sin esto, la terminal no va a reconocer el comando
+<code class="docutils literal notranslate"><span class="pre">python</span></code></p></td>
+<td><p>Ejecutar el instalador <code class="docutils literal notranslate"><span class="pre">.pkg</span></code> y seguir el asistente (con Homebrew, <code class="docutils literal notranslate"><span class="pre">python3</span></code> queda disponible automáticamente, sin este paso)</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Verificar la instalación</p></li>
+</ol>
+</td>
+<td><p>Abrir <em>PowerShell</em> (o <em>Símbolo del sistema</em>) y ejecutar <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p></td>
+<td><p>Abrir <em>Terminal</em> y ejecutar <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code> (en Mac el comando es <code class="docutils literal notranslate"><span class="pre">python3</span></code>, no <code class="docutils literal notranslate"><span class="pre">python</span></code>, salvo que configures un alias)</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>Descargar VS Code</p></li>
+</ol>
+</td>
+<td><p>Ir a <a class="reference external" href="https://code.visualstudio.com/">code.visualstudio.com</a> y descargar el instalador <code class="docutils literal notranslate"><span class="pre">.exe</span></code></p></td>
+<td><p>Ir a <a class="reference external" href="https://code.visualstudio.com/">code.visualstudio.com</a> y descargar el <code class="docutils literal notranslate"><span class="pre">.zip</span></code></p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="5">
+<li><p>Instalar VS Code</p></li>
+</ol>
+</td>
+<td><p>Ejecutar el instalador (siguiente → siguiente → instalar)</p></td>
+<td><p>Descomprimir y arrastrar <code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">Code.app</span></code> a la carpeta <code class="docutils literal notranslate"><span class="pre">Aplicaciones</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="6">
+<li><p>Abrir la terminal integrada</p></li>
+</ol>
+</td>
+<td><p>Dentro de VS Code: <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">`</span></code> (acento grave), o menú <em>Terminal → New Terminal</em></p></td>
+<td><p>Dentro de VS Code: <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> + <code class="docutils literal notranslate"><span class="pre">`</span></code>, o menú <em>Terminal → New Terminal</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Las extensiones de VS Code (Python, Jupyter, GitLens) las instalamos en la sección 1.3</p>
+</div></blockquote>
+</section>
+</section>
+<section id="1.2-La-terminal:-tu-primera-herramienta-de-trabajo">
+<h3>1.2 La terminal: tu primera herramienta de trabajo<a class="headerlink" href="#1.2-La-terminal:-tu-primera-herramienta-de-trabajo" title="Link to this heading">#</a></h3>
+<p>La terminal es la forma más directa de decirle a tu computador qué hacer, sin pasar por una interfaz gráfica. La mayoría de los comandos básicos son los mismos en macOS/Linux y en <strong>PowerShell</strong> —la terminal que VS Code abre por defecto en Windows (sección 1.1)—, porque PowerShell incluye alias que reconocen los nombres de Unix. Donde sí hay diferencias, van lado a lado:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Qué quieres hacer</p></th>
+<th class="head"><p>macOS / Linux (Terminal)</p></th>
+<th class="head"><p>Windows (PowerShell)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ver en qué carpeta estás parado</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Listar el contenido de la carpeta actual</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> (incluye archivos ocultos)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-Force</span></code> (<code class="docutils literal notranslate"><span class="pre">dir</span></code> también funciona)</p></td>
+</tr>
+<tr class="row-even"><td><p>Cambiar de carpeta</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">proyecto_precios_acciones</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">proyecto_precios_acciones</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Crear una carpeta (con subcarpetas si hace falta)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">src/datos</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">src/datos</span></code> (PowerShell crea las carpetas intermedias sin necesitar <code class="docutils literal notranslate"><span class="pre">-p</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Ejecutar un script de Python</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">archivo.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">archivo.py</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Si en lugar de PowerShell usas el <strong>símbolo del sistema clásico</strong> de Windows (<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>, heredado de versiones antiguas): <code class="docutils literal notranslate"><span class="pre">ls</span></code> no existe, usa <code class="docutils literal notranslate"><span class="pre">dir</span></code>; <code class="docutils literal notranslate"><span class="pre">pwd</span></code> tampoco existe, usa <code class="docutils literal notranslate"><span class="pre">cd</span></code> sin argumentos. El resto de la tabla funciona igual.</p>
+</div></blockquote>
+<p>Vamos a ejecutar varios de estos comandos de verdad, usando <code class="docutils literal notranslate"><span class="pre">!</span></code> al inicio de la celda para enviar el comando directamente a la terminal del sistema (una funcionalidad propia de los notebooks de Jupyter). Este cuaderno corre sobre macOS/Linux, así que las salidas que vas a ver usan esa sintaxis — en tu propia máquina con Windows, sigue la columna de PowerShell de la tabla anterior.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El signo "!" al inicio de una celda envía el comando a la terminal del sistema,</span>
+<span class="c1"># no al intérprete de Python</span>
+<span class="o">!</span>pwd
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/Users/nataliaacevedo/MisCursos/docs/source/analitica_financiera
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+
+<span class="n">taller_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">"taller_dataops_"</span><span class="p">))</span>
+<span class="o">%</span><span class="k">cd</span> {taller_dir}
+
+<span class="o">!</span>mkdir<span class="w"> </span>-p<span class="w"> </span>bloque1_demo
+<span class="o">!</span>ls<span class="w"> </span>-la<span class="w"> </span>bloque1_demo
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/private/var/folders/tf/x2jqms8n4wn8gfljd87ypbl40000gn/T/taller_dataops_85f0v8gv
+total 0
+drwxr-xr-x  2 nataliaacevedo  staff  64 Sep 18 15:03 <span class="ansi-blue-fg">.</span>
+drwx------  3 nataliaacevedo  staff  96 Sep 18 15:03 <span class="ansi-blue-fg">..</span>
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">codigo_script</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">print("Hola. Este script se ejecutó desde la terminal, no desde el notebook.")</span>
+<span class="s1">'''</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"bloque1_demo/hola_finanzas.py"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">codigo_script</span><span class="p">)</span>
+
+<span class="o">!</span>python<span class="w"> </span>bloque1_demo/hola_finanzas.py
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hola. Este script se ejecutó desde la terminal, no desde el notebook.
+</pre></div></div>
+</div>
+</section>
+<section id="1.3-Extensiones-esenciales-de-VS-Code">
+<h3>1.3 Extensiones esenciales de VS Code<a class="headerlink" href="#1.3-Extensiones-esenciales-de-VS-Code" title="Link to this heading">#</a></h3>
+<p>Una instalación mínima de VS Code para trabajo de datos necesita tres extensiones:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Extensión</p></th>
+<th class="head"><p>Para qué sirve</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Python</strong> (Microsoft)</p></td>
+<td><p>Autocompletado, selección de intérprete/entorno virtual, depuración</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Jupyter</strong> (Microsoft)</p></td>
+<td><p>Ejecutar y editar archivos <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> directamente dentro de VS Code</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>GitLens</strong></p></td>
+<td><p>Ver el historial de Git línea por línea, quién cambió qué y cuándo, directamente en el editor</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="1.4-Notebooks-(.ipynb)-vs.-scripts-(.py):-¿cuándo-usar-cada-uno?">
+<h3>1.4 Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) vs. scripts (<code class="docutils literal notranslate"><span class="pre">.py</span></code>): ¿cuándo usar cada uno?<a class="headerlink" href="#1.4-Notebooks-(.ipynb)-vs.-scripts-(.py):-¿cuándo-usar-cada-uno?" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Notebook (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>)</p></th>
+<th class="head"><p>Script (<code class="docutils literal notranslate"><span class="pre">.py</span></code>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mejor para</p></td>
+<td><p>Explorar datos, prototipar, comunicar resultados con gráficos</p></td>
+<td><p>Código que se va a reutilizar, probar y poner en producción</p></td>
+</tr>
+<tr class="row-odd"><td><p>Orden de ejecución</p></td>
+<td><p>Puede ejecutarse fuera de orden (fuente común de errores)</p></td>
+<td><p>Siempre de arriba hacia abajo, predecible</p></td>
+</tr>
+<tr class="row-even"><td><p>Control de versiones con Git</p></td>
+<td><p>El archivo mezcla código y salidas (imágenes, tablas) — los <code class="docutils literal notranslate"><span class="pre">diff</span></code> son difíciles de leer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diff</span></code> limpio, línea por línea</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pruebas automatizadas (Bloque 5)</p></td>
+<td><p>Difícil de probar con <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p></td>
+<td><p>Se prueba de forma natural</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Regla práctica:</strong> explora y valida ideas en un notebook; en cuanto una función funciona y la vas a reutilizar, muévela a un archivo <code class="docutils literal notranslate"><span class="pre">.py</span></code> dentro de <code class="docutils literal notranslate"><span class="pre">src/</span></code> (lo practicamos en el Bloque 5).</p>
+<p><strong>Ejercicio 1 (para tu propia terminal):</strong> crea una carpeta <code class="docutils literal notranslate"><span class="pre">mi_primer_proyecto</span></code>, entra en ella con <code class="docutils literal notranslate"><span class="pre">cd</span></code>, crea un archivo <code class="docutils literal notranslate"><span class="pre">resumen.py</span></code> que imprima tu nombre y la fecha de hoy, y ejecútalo con <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">resumen.py</span></code>.</p>
+</section>
+</section>
+<section id="Bloque-2:-Ambientes-virtuales-y-dependencias">
+<h2>Bloque 2: Ambientes virtuales y dependencias<a class="headerlink" href="#Bloque-2:-Ambientes-virtuales-y-dependencias" title="Link to this heading">#</a></h2>
+<section id="2.1-¿Por-qué-aislar-dependencias?">
+<h3>2.1 ¿Por qué aislar dependencias?<a class="headerlink" href="#2.1-¿Por-qué-aislar-dependencias?" title="Link to this heading">#</a></h3>
+<p>Imagina que trabajas en dos proyectos al mismo tiempo: un modelo de riesgo de crédito que depende de <code class="docutils literal notranslate"><span class="pre">scikit-learn==1.2</span></code> y un proyecto nuevo de series de tiempo que necesita una versión más reciente de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> incompatible con esa versión de <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. Si instalas todo en el mismo Python «global» de tu computador, en algún momento un <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> de un proyecto rompe al otro.</p>
+<p>Un <strong>ambiente virtual</strong> es una copia aislada del intérprete de Python con sus propias librerías, independiente de cualquier otro proyecto. Además de evitar conflictos, resuelve un problema aún más importante en finanzas: la <strong>reproducibilidad</strong>. Si un comité de riesgo pide reproducir exactamente un resultado de hace seis meses, necesitas poder recrear el entorno exacto en el que se generó — no «la versión más reciente de todo».</p>
+</section>
+<section id="2.2-venv:-crear,-activar-y-seleccionar-el-intérprete">
+<h3>2.2 <code class="docutils literal notranslate"><span class="pre">venv</span></code>: crear, activar y seleccionar el intérprete<a class="headerlink" href="#2.2-venv:-crear,-activar-y-seleccionar-el-intérprete" title="Link to this heading">#</a></h3>
+<p>El módulo <code class="docutils literal notranslate"><span class="pre">venv</span></code> viene incluido con Python. El flujo típico, <strong>en tu terminal</strong>, es:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w">          </span><span class="c1"># crea el ambiente en la carpeta .venv</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">      </span><span class="c1"># lo activa (macOS/Linux)</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">         </span><span class="c1"># lo activa (Windows)</span>
+deactivate<span class="w">                     </span><span class="c1"># lo desactiva, vuelve al Python global</span>
+</pre></div>
+</div>
+<p>En VS Code, después de crear el ambiente, selecciona el intérprete correcto con <code class="docutils literal notranslate"><span class="pre">Cmd/Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">P</span></code> → <strong>«Python: Select Interpreter»</strong> → eliges la ruta dentro de <code class="docutils literal notranslate"><span class="pre">.venv</span></code>. Así el editor, la terminal integrada y el kernel de Jupyter usan siempre el mismo ambiente.</p>
+<p>Dentro de este notebook no podemos «activar» un ambiente de forma persistente (cada celda con <code class="docutils literal notranslate"><span class="pre">!</span></code> es una terminal nueva), pero sí podemos crear uno real y usar directamente su <code class="docutils literal notranslate"><span class="pre">pip</span></code>, sin activarlo, para ver exactamente lo que ocurre por dentro.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>bloque1_demo/.venv_demo
+<span class="o">!</span>ls<span class="w"> </span>bloque1_demo/.venv_demo
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-blue-fg">bin</span>        <span class="ansi-blue-fg">include</span>    <span class="ansi-blue-fg">lib</span>        pyvenv.cfg
+</pre></div></div>
+</div>
+<p>La carpeta contiene <code class="docutils literal notranslate"><span class="pre">bin/</span></code> (los ejecutables, incluido <code class="docutils literal notranslate"><span class="pre">python</span></code> y <code class="docutils literal notranslate"><span class="pre">pip</span></code> propios de este ambiente), <code class="docutils literal notranslate"><span class="pre">lib/</span></code> (donde se instalan las librerías) y <code class="docutils literal notranslate"><span class="pre">pyvenv.cfg</span></code> (la configuración del ambiente). Si alguna de estas piezas falta —algo que puede pasar si el ambiente se copió mal entre computadores o se interrumpió su creación— el ambiente queda inutilizable y hay que recrearlo desde cero.</p>
+</section>
+<section id="2.3-pip:-instalar-y-congelar-dependencias">
+<h3>2.3 <code class="docutils literal notranslate"><span class="pre">pip</span></code>: instalar y congelar dependencias<a class="headerlink" href="#2.3-pip:-instalar-y-congelar-dependencias" title="Link to this heading">#</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalamos una librería directamente con el pip DE ESE ambiente (sin activarlo)</span>
+<span class="o">!</span>bloque1_demo/.venv_demo/bin/pip<span class="w"> </span>install<span class="w"> </span>--quiet<span class="w"> </span>--disable-pip-version-check<span class="w"> </span>requests
+
+<span class="c1"># pip freeze imprime, en formato "paquete==version", todo lo instalado</span>
+<span class="o">!</span>bloque1_demo/.venv_demo/bin/pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>bloque1_demo/requirements.txt
+<span class="o">!</span>cat<span class="w"> </span>bloque1_demo/requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+certifi==2026.7.22
+charset-normalizer==3.5.1
+idna==3.20
+requests==2.34.2
+urllib3==2.8.0
+</pre></div></div>
+</div>
+<p>Ese archivo <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> es el contrato de reproducibilidad del proyecto: cualquier persona (o cualquier servidor) puede recrear exactamente el mismo ambiente con:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="2.4-Alternativas:-conda-y-uv-(mención-breve)">
+<h3>2.4 Alternativas: <code class="docutils literal notranslate"><span class="pre">conda</span></code> y <code class="docutils literal notranslate"><span class="pre">uv</span></code> (mención breve)<a class="headerlink" href="#2.4-Alternativas:-conda-y-uv-(mención-breve)" title="Link to this heading">#</a></h3>
+<p>No las vamos a practicar en este cuaderno, pero es útil saber que existen y cuándo se prefieren:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Herramienta</p></th>
+<th class="head"><p>Cuándo se usa en la práctica</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">venv</span></code> + <code class="docutils literal notranslate"><span class="pre">pip</span></code></p></td>
+<td><p>Estándar de la librería, suficiente para la mayoría de proyectos de Python puro</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">conda</span></code></p></td>
+<td><p>Cuando el proyecto depende de librerías con componentes en C/Fortran difíciles de compilar (ej. paquetes científicos pesados, GPU)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uv</span></code></p></td>
+<td><p>Alternativa moderna y mucho más rápida a <code class="docutils literal notranslate"><span class="pre">pip</span></code>/<code class="docutils literal notranslate"><span class="pre">venv</span></code>, cada vez más común en equipos nuevos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Ejercicio 2:</strong> crea un ambiente virtual para un proyecto nuevo, actívalo en tu terminal, instala <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, genera su <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> y ábrelo para confirmar que aparece la versión instalada.</p>
+</section>
+</section>
+<section id="Bloque-3-(3-h)-—-Git-local">
+<h2>Bloque 3 (3 h) — Git local<a class="headerlink" href="#Bloque-3-(3-h)-—-Git-local" title="Link to this heading">#</a></h2>
+<section id="3.1-¿Qué-es-el-control-de-versiones?">
+<h3>3.1 ¿Qué es el control de versiones?<a class="headerlink" href="#3.1-¿Qué-es-el-control-de-versiones?" title="Link to this heading">#</a></h3>
+<p>Git guarda el historial completo de los cambios de un proyecto: quién cambió qué, cuándo y por qué. A diferencia de guardar copias como <code class="docutils literal notranslate"><span class="pre">analisis_v1.py</span></code>, <code class="docutils literal notranslate"><span class="pre">analisis_v2_final.py</span></code>, <code class="docutils literal notranslate"><span class="pre">analisis_v2_final_DEFINITIVO.py</span></code> (todos hemos hecho esto), Git guarda <strong>un solo archivo</strong> con <strong>todo su historial</strong> navegable.</p>
+<p>De aquí en adelante vamos a construir, paso a paso y en vivo, un proyecto de ejemplo — un pipeline de precios de acciones — que iremos ampliando a lo largo de los bloques 3, 4 y 5.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+
+<span class="n">demo_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">"proyecto_precios_acciones_"</span><span class="p">))</span>
+<span class="o">%</span><span class="k">cd</span> {demo_dir}
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Proyecto de ejemplo creado en: </span><span class="si">{</span><span class="n">demo_dir</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/private/var/folders/tf/x2jqms8n4wn8gfljd87ypbl40000gn/T/proyecto_precios_acciones_oe773k5z
+Proyecto de ejemplo creado en: /var/folders/tf/x2jqms8n4wn8gfljd87ypbl40000gn/T/proyecto_precios_acciones_oe773k5z
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>init<span class="w"> </span>-q
+<span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use &#34;git add&#34; to track)
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> es el comando que más vas a usar: siempre te dice en qué estado está tu proyecto. Ahora mismo dice «no commits yet» porque el repositorio está vacío. Creemos un primer archivo.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">readme</span> <span class="o">=</span> <span class="s1">'''# Proyecto Precios Acciones</span>
+
+<span class="s1">Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones.</span>
+<span class="s1">'''</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">readme</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+        <span class="ansi-red-fg">README.md</span>
+
+nothing added to commit but untracked files present (use &#34;git add&#34; to track)
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> aparece como <strong>untracked</strong> (Git lo ve, pero todavía no lo está siguiendo). El flujo básico es: <code class="docutils literal notranslate"><span class="pre">add</span></code> (lo prepara para el commit) → <code class="docutils literal notranslate"><span class="pre">commit</span></code> (lo guarda en el historial, con un mensaje).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
+        <span class="ansi-green-fg">new file:   README.md</span>
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Agrega README inicial del proyecto"</span>
+<span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-yellow-fg">8823976</span><span class="ansi-yellow-fg"> (</span><span class="ansi-cyan-intense-fg ansi-bold">HEAD</span><span class="ansi-yellow-fg"> -&gt; </span><span class="ansi-green-intense-fg ansi-bold">main</span><span class="ansi-yellow-fg">)</span> Agrega README inicial del proyecto
+</pre></div></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Qué hace</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></p></td>
+<td><p>Convierte la carpeta actual en un repositorio Git</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></td>
+<td><p>Muestra qué archivos cambiaron, cuáles están preparados (<em>staged</em>) y cuáles no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;archivo&gt;</span></code></p></td>
+<td><p>Prepara un archivo para el próximo commit</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;mensaje&quot;</span></code></p></td>
+<td><p>Guarda una «fotografía» permanente de los archivos preparados</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p></td>
+<td><p>Muestra el historial de commits</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></p></td>
+<td><p>Muestra línea por línea qué cambió y aún no se ha preparado</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Modifiquemos el README y veamos <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> en acción, antes de confirmar el cambio con un nuevo commit.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Fuente de datos</span><span class="se">\n\n</span><span class="s2">Yahoo Finance, vía la librería `yfinance`.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">diff --git a/README.md b/README.md</span>
+<span class="ansi-bold">index 0ef5d34..554759b 100644</span>
+<span class="ansi-bold">--- a/README.md</span>
+<span class="ansi-bold">+++ b/README.md</span>
+<span class="ansi-cyan-fg">@@ -1,3 +1,7 @@</span>
+ # Proyecto Precios Acciones
+
+ Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones.
+<span class="ansi-green-fg">+</span>
+<span class="ansi-green-fg">+</span><span class="ansi-green-fg">## Fuente de datos</span>
+<span class="ansi-green-fg">+</span>
+<span class="ansi-green-fg">+</span><span class="ansi-green-fg">Yahoo Finance, vía la librería `yfinance`.</span>
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Documenta la fuente de datos en el README"</span>
+<span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-yellow-fg">251a066</span><span class="ansi-yellow-fg"> (</span><span class="ansi-cyan-intense-fg ansi-bold">HEAD</span><span class="ansi-yellow-fg"> -&gt; </span><span class="ansi-green-intense-fg ansi-bold">main</span><span class="ansi-yellow-fg">)</span> Documenta la fuente de datos en el README
+<span class="ansi-yellow-fg">8823976</span> Agrega README inicial del proyecto
+</pre></div></div>
+</div>
+</section>
+<section id="3.2-.gitignore:-lo-que-Git-nunca-debe-guardar">
+<h3>3.2 <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: lo que Git nunca debe guardar<a class="headerlink" href="#3.2-.gitignore:-lo-que-Git-nunca-debe-guardar" title="Link to this heading">#</a></h3>
+<p>No todo debe entrar al historial de Git: datos pesados, credenciales, o archivos temporales que genera el propio entorno. Simulemos algunos de esos archivos «peligrosos» y veamos cómo aparecen antes de tener un <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"data/precios_crudos.csv"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"fecha,precio</span><span class="se">\n</span><span class="s2">2026-01-01,150.2</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".env"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"API_KEY=super-secreta-no-deberia-verse</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"__pycache__"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"__pycache__/analisis.cpython-311.pyc"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"binario simulado"</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+On branch main
+Untracked files:
+  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+        <span class="ansi-red-fg">.env</span>
+        <span class="ansi-red-fg">__pycache__/</span>
+        <span class="ansi-red-fg">data/</span>
+
+nothing added to commit but untracked files present (use &#34;git add&#34; to track)
+</pre></div></div>
+</div>
+<p>Los cuatro elementos aparecen como <em>untracked</em> — si alguien corriera <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> sin pensarlo, la clave de API y los datos crudos quedarían en el historial de Git <strong>para siempre</strong> (incluso si luego se borran, seguirían en commits antiguos). Un <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> evita justamente eso.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gitignore</span> <span class="o">=</span> <span class="s1">'''# Datos</span>
+<span class="s1">data/</span>
+
+<span class="s1"># Credenciales y variables de entorno</span>
+<span class="s1">.env</span>
+
+<span class="s1"># Ambientes virtuales</span>
+<span class="s1">venv/</span>
+<span class="s1">.venv/</span>
+
+<span class="s1"># Cachés de Python</span>
+<span class="s1">__pycache__/</span>
+
+<span class="s1"># Checkpoints de notebooks de Jupyter</span>
+<span class="s1">.ipynb_checkpoints/</span>
+<span class="s1">'''</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">".gitignore"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">gitignore</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+On branch main
+Untracked files:
+  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+        <span class="ansi-red-fg">.gitignore</span>
+
+nothing added to commit but untracked files present (use &#34;git add&#34; to track)
+</pre></div></div>
+</div>
+<p>Ahora <code class="docutils literal notranslate"><span class="pre">data/</span></code>, <code class="docutils literal notranslate"><span class="pre">.env</span></code> y <code class="docutils literal notranslate"><span class="pre">__pycache__/</span></code> desaparecieron de la lista de cambios — solo aparece <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, que sí queremos versionar (para que el resto del equipo tenga las mismas reglas).</p>
+</section>
+<section id="3.3-Mensajes-de-commit-útiles">
+<h3>3.3 Mensajes de commit útiles<a class="headerlink" href="#3.3-Mensajes-de-commit-útiles" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mensaje</p></th>
+<th class="head"><p>Problema</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cambios</span></code></p></td>
+<td><p>No dice qué cambió ni por qué</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fix</span></code></p></td>
+<td><p>¿Qué se arregló?</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">asdasd</span></code></p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>``Agrega validación de fechas faltantes en la serie de precios``</strong></p></td>
+<td><p>Claro, específico, en modo imperativo — se entiende sin abrir el commit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Una buena convención (no obligatoria, pero muy usada): <strong>verbo en presente/imperativo + qué cambió</strong>. Evita mensajes genéricos como «update» o «cambios varios».</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Agrega .gitignore para datos, credenciales y cachés"</span>
+<span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-yellow-fg">6dc6f25</span><span class="ansi-yellow-fg"> (</span><span class="ansi-cyan-intense-fg ansi-bold">HEAD</span><span class="ansi-yellow-fg"> -&gt; </span><span class="ansi-green-intense-fg ansi-bold">main</span><span class="ansi-yellow-fg">)</span> Agrega .gitignore para datos, credenciales y cachés
+<span class="ansi-yellow-fg">251a066</span> Documenta la fuente de datos en el README
+<span class="ansi-yellow-fg">8823976</span> Agrega README inicial del proyecto
+</pre></div></div>
+</div>
+</section>
+<section id="3.4-Deshacer-cambios:-restore-y-revert">
+<h3>3.4 Deshacer cambios: <code class="docutils literal notranslate"><span class="pre">restore</span></code> y <code class="docutils literal notranslate"><span class="pre">revert</span></code><a class="headerlink" href="#3.4-Deshacer-cambios:-restore-y-revert" title="Link to this heading">#</a></h3>
+<p>Dos escenarios distintos, dos comandos distintos:</p>
+<ul class="simple">
+<li><p><strong>``git restore &lt;archivo&gt;``</strong>: descarta cambios que <em>todavía no se han confirmado</em> (no hay commit de por medio). Es «deshacer» en el sentido normal.</p></li>
+<li><p><strong>``git revert &lt;commit&gt;``</strong>: crea un <strong>nuevo commit</strong> que deshace los cambios de un commit anterior, sin borrar el historial. Es la forma segura de deshacer algo que ya se compartió con el equipo.</p></li>
+</ul>
+<p>Probemos primero <code class="docutils literal notranslate"><span class="pre">restore</span></code>: dañamos el README sin confirmar el cambio, y lo recuperamos.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">ESTO FUE UN ERROR QUE NO QUERIA GUARDAR</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- antes de restore ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()[</span><span class="o">-</span><span class="mi">60</span><span class="p">:])</span>
+
+<span class="o">!</span>git<span class="w"> </span>restore<span class="w"> </span>README.md
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- después de restore ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()[</span><span class="o">-</span><span class="mi">60</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- antes de restore ---
+rería `yfinance`.
+
+
+ESTO FUE UN ERROR QUE NO QUERIA GUARDAR
+
+
+--- después de restore ---
+Fuente de datos
+
+Yahoo Finance, vía la librería `yfinance`.
+
+</pre></div></div>
+</div>
+<p>Ahora probemos <code class="docutils literal notranslate"><span class="pre">revert</span></code>: hacemos un commit «malo» a propósito, y lo deshacemos sin borrar el historial.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Sección que en realidad no queríamos</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Agrega seccion que no deberia estar"</span>
+<span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-yellow-fg">52260cd</span><span class="ansi-yellow-fg"> (</span><span class="ansi-cyan-intense-fg ansi-bold">HEAD</span><span class="ansi-yellow-fg"> -&gt; </span><span class="ansi-green-intense-fg ansi-bold">main</span><span class="ansi-yellow-fg">)</span> Agrega seccion que no deberia estar
+<span class="ansi-yellow-fg">6dc6f25</span> Agrega .gitignore para datos, credenciales y cachés
+<span class="ansi-yellow-fg">251a066</span> Documenta la fuente de datos en el README
+<span class="ansi-yellow-fg">8823976</span> Agrega README inicial del proyecto
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>revert<span class="w"> </span>--no-edit<span class="w"> </span>HEAD
+<span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[main 78122c2] Revert &#34;Agrega seccion que no deberia estar&#34;
+ Date: Fri Sep 18 15:04:00 2026 -0500
+ 1 file changed, 2 deletions(-)
+<span class="ansi-yellow-fg">78122c2</span><span class="ansi-yellow-fg"> (</span><span class="ansi-cyan-intense-fg ansi-bold">HEAD</span><span class="ansi-yellow-fg"> -&gt; </span><span class="ansi-green-intense-fg ansi-bold">main</span><span class="ansi-yellow-fg">)</span> Revert &#34;Agrega seccion que no deberia estar&#34;
+<span class="ansi-yellow-fg">52260cd</span> Agrega seccion que no deberia estar
+<span class="ansi-yellow-fg">6dc6f25</span> Agrega .gitignore para datos, credenciales y cachés
+<span class="ansi-yellow-fg">251a066</span> Documenta la fuente de datos en el README
+<span class="ansi-yellow-fg">8823976</span> Agrega README inicial del proyecto
+</pre></div></div>
+</div>
+<p>Fíjate que <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code> <strong>no borró</strong> el commit problemático: agregó uno nuevo que deshace sus cambios. El historial completo queda visible — exactamente el tipo de trazabilidad que un equipo financiero necesita poder mostrar.</p>
+<p><strong>Ejercicio 3:</strong> en tu propio repositorio, haz tres commits pequeños con mensajes descriptivos (por ejemplo, tres pasos de limpieza de un dataset), y luego deshaz el último con <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code>. Verifica con <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code> que los tres commits originales siguen visibles.</p>
+</section>
+<section id="3.5-Antes-del-Bloque-4:-crea-tu-cuenta-de-GitHub-(con-GitHub-Education)">
+<h3>3.5 Antes del Bloque 4: crea tu cuenta de GitHub (con GitHub Education)<a class="headerlink" href="#3.5-Antes-del-Bloque-4:-crea-tu-cuenta-de-GitHub-(con-GitHub-Education)" title="Link to this heading">#</a></h3>
+<p>Todo lo que hicimos en este bloque fue <strong>local</strong>: no necesitaste ninguna cuenta. Pero el Bloque 4 sí requiere una cuenta en GitHub — y si eres estudiante o docente, conviene tramitarla como cuenta educativa desde el principio, porque la verificación puede tardar y los beneficios (repositorios privados ilimitados, minutos extra de GitHub Actions para el Bloque 6, GitHub Copilot gratis, entre otros) se activan sobre la cuenta que ya tengas creada.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Qué hacer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Crear la cuenta base</p></li>
+</ol>
+</td>
+<td><p>Entra a <a class="reference external" href="https://github.com/signup">github.com/signup</a> y regístrate. Si tienes correo institucional (<code class="docutils literal notranslate"><span class="pre">&#64;tuuniversidad.edu.co</span></code>), úsalo agiliza la verificación del paso 3. Si no, puedes agregarlo después desde <em>Settings → Emails</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Solicitar el paquete educativo</p></li>
+</ol>
+</td>
+<td><p>Con sesión iniciada, ve a <a class="reference external" href="https://education.github.com/">education.github.com</a> y elige <strong>«Get student benefits»</strong> (si eres estudiante) o <strong>«Get teacher benefits»</strong> (si eres docente).</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Verificar tu afiliación académica</p></li>
+</ol>
+</td>
+<td><p>GitHub te pide país, institución y fecha esperada de grado. Puede verificarte de dos formas: automáticamente si usas un correo <code class="docutils literal notranslate"><span class="pre">.edu</span></code>/institucional reconocido, o pidiéndote subir una foto de tu carnet estudiantil o un certificado de matrícula
+vigente si no tienes ese correo.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>Esperar la aprobación</p></li>
+</ol>
+</td>
+<td><p>La verificación automática por correo institucional suele ser casi inmediata; la revisión manual de documentos puede tardar unos días. GitHub te avisa por correo y con una notificación en la plataforma.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="5">
+<li><p>Confirmar los beneficios activos</p></li>
+</ol>
+</td>
+<td><p>Una vez aprobado, entra a <a class="reference external" href="https://education.github.com/pack">education.github.com/pack</a> para ver el catálogo completo (GitHub Copilot, más minutos de Actions, créditos en otras herramientas como JetBrains o Canva, entre otros).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Si tu institución no tiene correo <code class="docutils literal notranslate"><span class="pre">.edu</span></code> reconocido por GitHub, no pasa nada: la verificación manual con carnet o certificado de matrícula funciona igual, solo toma un poco más de tiempo. En cualquier caso, con la cuenta base del paso 1 ya puedes hacer todo lo del Bloque 4 — el paquete educativo es un beneficio adicional, no un requisito.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="Bloque-4:-GitHub-y-colaboración">
+<h2>Bloque 4: GitHub y colaboración<a class="headerlink" href="#Bloque-4:-GitHub-y-colaboración" title="Link to this heading">#</a></h2>
+<section id="4.1-De-local-a-remoto:-GitHub">
+<h3>4.1 De local a remoto: GitHub<a class="headerlink" href="#4.1-De-local-a-remoto:-GitHub" title="Link to this heading">#</a></h3>
+<p>Todo lo del Bloque 3 vivía solo en tu computador. GitHub es un servidor donde alojar una copia remota del repositorio, para poder compartirlo y colaborar. Estos comandos requieren una cuenta en <a class="reference external" href="https://github.com">github.com</a> y <strong>no los ejecutamos aquí</strong> (crearían un repositorio real) — practícalos en tu propia terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Crea un repositorio vacío en github.com (botón "New repository")</span>
+
+<span class="c1"># 2. Conecta tu repositorio local con el remoto</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/tu-usuario/tu-repositorio.git
+
+<span class="c1"># 3. Sube tu historial local por primera vez</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># 4. En adelante, para subir nuevos commits</span>
+git<span class="w"> </span>push
+
+<span class="c1"># 5. Para traer cambios que otras personas subieron</span>
+git<span class="w"> </span>pull
+
+<span class="c1"># 6. Para obtener una copia completa de un repositorio existente</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tu-usuario/tu-repositorio.git
+</pre></div>
+</div>
+</section>
+<section id="4.2-Ramas,-Pull-Requests-y-revisión-de-código">
+<h3>4.2 Ramas, Pull Requests y revisión de código<a class="headerlink" href="#4.2-Ramas,-Pull-Requests-y-revisión-de-código" title="Link to this heading">#</a></h3>
+<p>Una <strong>rama</strong> (<em>branch</em>) es una línea de desarrollo independiente: te permite trabajar en una funcionalidad nueva sin afectar la rama principal (<code class="docutils literal notranslate"><span class="pre">main</span></code>) hasta que esté lista. Un <strong>Pull Request (PR)</strong> es la propuesta, en GitHub, de fusionar los cambios de una rama hacia otra — y el espacio natural donde el resto del equipo revisa el código antes de aceptarlo.</p>
+<p>Creemos dos ramas locales para simular ese flujo (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>/<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span></code> sí son completamente locales, no requieren GitHub).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+<span class="o">!</span>git<span class="w"> </span>checkout<span class="w"> </span>-qb<span class="w"> </span>agrega-modelo-base
+<span class="o">!</span>git<span class="w"> </span>branch
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+* <span class="ansi-green-fg">agrega-modelo-base</span>
+  main
+</pre></div></div>
+</div>
+<p><strong>Simulación en parejas:</strong> en el taller, cada persona trabaja en su propia rama sobre el mismo repositorio remoto, abre un Pull Request al terminar, y su pareja lo revisa en GitHub dejando al menos un comentario antes de aprobarlo (botón <em>«Review changes» → «Approve»</em> o <em>«Request changes»</em>). Es exactamente el flujo que usarás en un equipo real.</p>
+</section>
+<section id="4.3-README,-licencia-y-tu-perfil-de-GitHub-como-portafolio">
+<h3>4.3 README, licencia y tu perfil de GitHub como portafolio<a class="headerlink" href="#4.3-README,-licencia-y-tu-perfil-de-GitHub-como-portafolio" title="Link to this heading">#</a></h3>
+<p>Tu perfil de GitHub es, en la práctica, parte de tu hoja de vida para roles de datos. Dos elementos mínimos por repositorio:</p>
+<ul class="simple">
+<li><p><strong>``README.md``</strong>: qué hace el proyecto, cómo instalarlo (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>) y cómo ejecutarlo. Es lo primero que ve cualquier reclutador o colega.</p></li>
+<li><p><strong>Licencia</strong>: define qué puede hacer otra persona con tu código. Para proyectos de portafolio, <code class="docutils literal notranslate"><span class="pre">MIT</span></code> (permisiva, casi sin restricciones) es la opción más común; GitHub la puede generar automáticamente al crear el repositorio.</p></li>
+</ul>
+</section>
+<section id="4.4-Resolver-un-conflicto-de-merge">
+<h3>4.4 Resolver un conflicto de <em>merge</em><a class="headerlink" href="#4.4-Resolver-un-conflicto-de-merge" title="Link to this heading">#</a></h3>
+<p>Un conflicto ocurre cuando dos ramas modificaron <strong>la misma línea</strong> de un archivo de formas distintas, y Git no puede decidir cuál versión conservar. Vamos a provocar uno a propósito y resolverlo.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificamos la misma línea del README en la rama "agrega-modelo-base"</span>
+<span class="n">contenido</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<span class="n">contenido</span> <span class="o">=</span> <span class="n">contenido</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+    <span class="s2">"Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones."</span><span class="p">,</span>
+    <span class="s2">"Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones usando un modelo LSTM."</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Menciona el modelo LSTM en el README"</span>
+
+<span class="c1"># Volvemos a main y creamos una SEGUNDA rama que edita la MISMA línea, de otra forma</span>
+<span class="o">!</span>git<span class="w"> </span>checkout<span class="w"> </span>-q<span class="w"> </span>main
+<span class="o">!</span>git<span class="w"> </span>checkout<span class="w"> </span>-qb<span class="w"> </span>agrega-modelo-alternativo
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contenido</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<span class="n">contenido</span> <span class="o">=</span> <span class="n">contenido</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+    <span class="s2">"Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones."</span><span class="p">,</span>
+    <span class="s2">"Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones usando un modelo MLP."</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Menciona el modelo MLP en el README"</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fusionamos la primera rama en main: esta funciona sin problema</span>
+<span class="o">!</span>git<span class="w"> </span>checkout<span class="w"> </span>-q<span class="w"> </span>main
+<span class="o">!</span>git<span class="w"> </span>merge<span class="w"> </span>--no-edit<span class="w"> </span>agrega-modelo-base
+
+<span class="c1"># Ahora intentamos fusionar la segunda rama, que cambió la MISMA línea: esto sí genera conflicto</span>
+<span class="o">!</span>git<span class="w"> </span>merge<span class="w"> </span>--no-edit<span class="w"> </span>agrega-modelo-alternativo
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Updating 78122c2..c4dbf60
+Fast-forward
+ README.md | 2 <span class="ansi-green-fg">+</span><span class="ansi-red-fg">-</span>
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+</pre></div></div>
+</div>
+<p>Git avisa el conflicto y marca el archivo directamente. Así se ve por dentro (en VS Code, estos mismos marcadores aparecen resaltados con botones para elegir una versión, ambas, o escribir una nueva):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+# Proyecto Precios Acciones
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones usando un modelo LSTM.
+=======
+Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones usando un modelo MLP.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; agrega-modelo-alternativo
+
+## Fuente de datos
+
+Yahoo Finance, vía la librería `yfinance`.
+
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="pre">HEAD</span></code> marca el inicio de la versión de la rama en la que estás parado; <code class="docutils literal notranslate"><span class="pre">=======</span></code> separa las dos versiones; <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="pre">agrega-modelo-alternativo</span></code> marca el final de la versión que se intentó fusionar. Resolver el conflicto es decidir qué texto final queremos — aquí optamos por conservar los dos modelos, en vez de elegir uno solo.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resolucion</span> <span class="o">=</span> <span class="s1">'''# Proyecto Precios Acciones</span>
+
+<span class="s1">Pipeline de ejemplo para descargar, limpiar y modelar precios de acciones usando un modelo MLP y un modelo LSTM.</span>
+
+<span class="s1">## Fuente de datos</span>
+
+<span class="s1">Yahoo Finance, vía la librería `yfinance`.</span>
+
+<span class="s1">## Sección que en realidad no queríamos</span>
+<span class="s1">'''</span>
+
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">resolucion</span><span class="p">)</span>
+
+<span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>README.md
+<span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Resuelve conflicto: conserva ambos modelos en el README"</span>
+<span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+*   <span class="ansi-yellow-fg">4d15601</span><span class="ansi-yellow-fg"> (</span><span class="ansi-cyan-intense-fg ansi-bold">HEAD</span><span class="ansi-yellow-fg"> -&gt; </span><span class="ansi-green-intense-fg ansi-bold">main</span><span class="ansi-yellow-fg">)</span> Resuelve conflicto: conserva ambos modelos en el README
+<span class="ansi-red-fg">|</span><span class="ansi-green-fg">\</span>
+<span class="ansi-red-fg">|</span> * <span class="ansi-yellow-fg">9d0e844</span><span class="ansi-yellow-fg"> (</span><span class="ansi-green-intense-fg ansi-bold">agrega-modelo-alternativo</span><span class="ansi-yellow-fg">)</span> Menciona el modelo MLP en el README
+* <span class="ansi-green-fg">|</span> <span class="ansi-yellow-fg">c4dbf60</span><span class="ansi-yellow-fg"> (</span><span class="ansi-green-intense-fg ansi-bold">agrega-modelo-base</span><span class="ansi-yellow-fg">)</span> Menciona el modelo LSTM en el README
+<span class="ansi-green-fg">|</span><span class="ansi-green-fg">/</span>
+* <span class="ansi-yellow-fg">78122c2</span> Revert &#34;Agrega seccion que no deberia estar&#34;
+* <span class="ansi-yellow-fg">52260cd</span> Agrega seccion que no deberia estar
+* <span class="ansi-yellow-fg">6dc6f25</span> Agrega .gitignore para datos, credenciales y cachés
+* <span class="ansi-yellow-fg">251a066</span> Documenta la fuente de datos en el README
+* <span class="ansi-yellow-fg">8823976</span> Agrega README inicial del proyecto
+</pre></div></div>
+</div>
+<p>El <code class="docutils literal notranslate"><span class="pre">--graph</span></code> deja ver visualmente cómo las dos ramas divergieron y volvieron a unirse en <code class="docutils literal notranslate"><span class="pre">main</span></code>. Esto es exactamente lo que ocurre, a mayor escala, al fusionar un Pull Request con conflictos en GitHub — la diferencia es que ahí la resolución se hace desde la interfaz web o desde VS Code, no editando el archivo a mano en Python como hicimos aquí por claridad.</p>
+<p><strong>Ejercicio 4:</strong> con un compañero (o tú mismo, usando dos ramas), edita la misma línea de un archivo en dos ramas distintas, fusiona ambas en <code class="docutils literal notranslate"><span class="pre">main</span></code> y resuelve el conflicto conservando información de las dos versiones.</p>
+</section>
+</section>
+<section id="Bloque-5:-Estructura-de-proyecto-y-buenas-prácticas">
+<h2>Bloque 5: Estructura de proyecto y buenas prácticas<a class="headerlink" href="#Bloque-5:-Estructura-de-proyecto-y-buenas-prácticas" title="Link to this heading">#</a></h2>
+<section id="5.1-Estructura-estándar-de-un-proyecto-de-datos">
+<h3>5.1 Estructura estándar de un proyecto de datos<a class="headerlink" href="#5.1-Estructura-estándar-de-un-proyecto-de-datos" title="Link to this heading">#</a></h3>
+<p>Un proyecto reproducible sigue una convención de carpetas que cualquier persona del equipo reconoce de inmediato:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>proyecto_precios_acciones/
+├── data/              # datos crudos y procesados (NO se versiona en Git)
+├── notebooks/         # exploración y prototipado
+├── src/               # código reutilizable, en funciones
+├── tests/             # pruebas automatizadas de ese código
+├── requirements.txt   # dependencias exactas (Bloque 2)
+├── .gitignore         # qué no versionar (Bloque 3)
+└── README.md          # qué es el proyecto y cómo ejecutarlo
+</pre></div>
+</div>
+<p>Esta convención no es un invento propio: sigue de cerca a <a class="reference external" href="https://cookiecutter-data-science.drivendata.org/">Cookiecutter Data Science</a>, una plantilla de proyecto muy usada en la industria que genera automáticamente esta estructura (no la vamos a instalar aquí, pero vale la pena conocerla para proyectos nuevos).</p>
+<p>Construyamos esta estructura dentro de nuestro proyecto de ejemplo.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">carpeta</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"notebooks"</span><span class="p">,</span> <span class="s2">"src"</span><span class="p">,</span> <span class="s2">"tests"</span><span class="p">]:</span>
+    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">carpeta</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"src/__init__.py"</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+
+<span class="o">!</span>find<span class="w"> </span>.<span class="w"> </span>-not<span class="w"> </span>-path<span class="w"> </span><span class="s2">"./.git*"</span><span class="w"> </span>-not<span class="w"> </span>-path<span class="w"> </span><span class="s2">"./bloque1_demo*"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+.
+./.env
+./README.md
+./__pycache__
+./__pycache__/analisis.cpython-311.pyc
+./data
+./data/precios_crudos.csv
+./notebooks
+./src
+./src/__init__.py
+./tests
+</pre></div></div>
+</div>
+</section>
+<section id="5.2-De-notebook-a-src/:-convertir-código-en-funciones">
+<h3>5.2 De notebook a <code class="docutils literal notranslate"><span class="pre">src/</span></code>: convertir código en funciones<a class="headerlink" href="#5.2-De-notebook-a-src/:-convertir-código-en-funciones" title="Link to this heading">#</a></h3>
+<p>En un notebook es común escribir cálculos «sueltos», pegados directamente en una celda. El primer paso hacia un proyecto reproducible es envolver ese cálculo en una <strong>función con nombre</strong>, guardarla en <code class="docutils literal notranslate"><span class="pre">src/</span></code>, y luego importarla — en vez de copiar y pegar el mismo código en cada notebook nuevo.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Así se ve el cálculo "suelto", estilo notebook exploratorio</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="p">[</span><span class="mf">150.2</span><span class="p">,</span> <span class="mf">152.8</span><span class="p">,</span> <span class="mf">149.5</span><span class="p">,</span> <span class="mf">155.1</span><span class="p">]</span>
+<span class="n">retorno_promedio</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">precios</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">precios</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">precios</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Retorno diario promedio: </span><span class="si">{</span><span class="n">retorno_promedio</span><span class="si">:</span><span class="s2">.4%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Retorno diario promedio: 1.1057%
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">codigo_modulo</span> <span class="o">=</span> <span class="s1">'''# Funciones de procesamiento de precios para el proyecto</span>
+
+
+<span class="s1">def retorno_promedio(precios):</span>
+<span class="s1">    # Calcula el retorno porcentual promedio entre precios consecutivos</span>
+<span class="s1">    retornos = [precios[i] / precios[i - 1] - 1 for i in range(1, len(precios))]</span>
+<span class="s1">    return sum(retornos) / len(retornos)</span>
+<span class="s1">'''</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"src/procesamiento.py"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">codigo_modulo</span><span class="p">)</span>
+
+<span class="o">!</span>cat<span class="w"> </span>src/procesamiento.py
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+# Funciones de procesamiento de precios para el proyecto
+
+
+def retorno_promedio(precios):
+    # Calcula el retorno porcentual promedio entre precios consecutivos
+    retornos = [precios[i] / precios[i - 1] - 1 for i in range(1, len(precios))]
+    return sum(retornos) / len(retornos)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">demo_dir</span><span class="p">))</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.procesamiento</span><span class="w"> </span><span class="kn">import</span> <span class="n">retorno_promedio</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Retorno diario promedio (desde src/): </span><span class="si">{</span><span class="n">retorno_promedio</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span><span class="si">:</span><span class="s2">.4%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Retorno diario promedio (desde src/): 1.1057%
+</pre></div></div>
+</div>
+<p>Mismo resultado, pero ahora la lógica vive en un solo lugar (<code class="docutils literal notranslate"><span class="pre">src/procesamiento.py</span></code>), es importable desde cualquier notebook del proyecto, y —como veremos enseguida— se puede probar automáticamente.</p>
+</section>
+<section id="5.3-Variables-de-entorno-y-.env">
+<h3>5.3 Variables de entorno y <code class="docutils literal notranslate"><span class="pre">.env</span></code><a class="headerlink" href="#5.3-Variables-de-entorno-y-.env" title="Link to this heading">#</a></h3>
+<p>Nunca se escribe una clave de API directamente en el código (recuerda el Bloque 3: si el archivo se versiona, la clave queda en el historial de Git para siempre, aunque se borre después). La práctica estándar es guardarla en un archivo <code class="docutils literal notranslate"><span class="pre">.env</span></code> — que el <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> del Bloque 3 ya excluye — y leerla desde el código.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".env"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"API_KEY_MERCADO=clave-de-ejemplo-nunca-subir-esto</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>  <span class="c1"># lee el archivo .env y carga sus variables al entorno del proceso</span>
+<span class="n">clave</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"API_KEY_MERCADO"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Clave cargada desde .env: </span><span class="si">{</span><span class="n">clave</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="o">!</span>git<span class="w"> </span>status<span class="w"> </span>--short<span class="w"> </span>.env
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Clave cargada desde .env: clave-de-ejemplo-nunca-subir-esto
+
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span> <span class="pre">--short</span> <span class="pre">.env</span></code> no muestra ninguna línea: el <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> que creamos en el Bloque 3 ya cubre este archivo. La clave existe y es usable dentro del proyecto, pero nunca viaja al repositorio.</p>
+</section>
+<section id="5.4-Formateo-con-black-y-linting-con-ruff">
+<h3>5.4 Formateo con <code class="docutils literal notranslate"><span class="pre">black</span></code> y <em>linting</em> con <code class="docutils literal notranslate"><span class="pre">ruff</span></code><a class="headerlink" href="#5.4-Formateo-con-black-y-linting-con-ruff" title="Link to this heading">#</a></h3>
+<p>Un <strong>formateador</strong> (<code class="docutils literal notranslate"><span class="pre">black</span></code>) reescribe automáticamente tu código para que siga un estilo consistente (espacios, comillas, saltos de línea) — elimina las discusiones de estilo en las revisiones de código. Un <strong>linter</strong> (<code class="docutils literal notranslate"><span class="pre">ruff</span></code>) va más allá: detecta errores probables (variables sin usar, importaciones que sobran, comparaciones sospechosas) antes de que lleguen a producción.</p>
+<p>Escribamos un archivo con formato descuidado a propósito.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">codigo_desordenado</span> <span class="o">=</span> <span class="s1">'''import os</span>
+<span class="s1">import sys</span>
+<span class="s1">def calcular_variacion(precio_inicial,precio_final):</span>
+<span class="s1">    variacion = (precio_final-precio_inicial)/precio_inicial</span>
+<span class="s1">    return variacion</span>
+<span class="s1">'''</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"src/variacion.py"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">codigo_desordenado</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- antes de black ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"src/variacion.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- antes de black ---
+import os
+import sys
+def calcular_variacion(precio_inicial,precio_final):
+    variacion = (precio_final-precio_inicial)/precio_inicial
+    return variacion
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>black<span class="w"> </span>-q<span class="w"> </span>src/variacion.py
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- después de black ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"src/variacion.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--- después de black ---
+import os
+import sys
+
+
+def calcular_variacion(precio_inicial, precio_final):
+    variacion = (precio_final - precio_inicial) / precio_inicial
+    return variacion
+
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">black</span></code> corrigió el espaciado alrededor de los operadores y los parámetros — sin cambiar la lógica. Pero el archivo todavía tiene un problema que el formateador no detecta: importa <code class="docutils literal notranslate"><span class="pre">os</span></code> y <code class="docutils literal notranslate"><span class="pre">sys</span></code> y nunca los usa. Ahí es donde entra <code class="docutils literal notranslate"><span class="pre">ruff</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ruff<span class="w"> </span>check<span class="w"> </span>src/variacion.py
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">F401</span> [<span class="ansi-cyan-intense-fg ansi-bold">*</span>]<span class="ansi-bold"> `os` imported but unused</span>
+ <span class="ansi-blue-intense-fg ansi-bold">--&gt; </span>src/variacion.py:1:8
+  <span class="ansi-blue-intense-fg ansi-bold">|</span>
+<span class="ansi-blue-intense-fg ansi-bold">1</span> <span class="ansi-blue-intense-fg ansi-bold">|</span> import os
+  <span class="ansi-blue-intense-fg ansi-bold">|</span>        <span class="ansi-red-intense-fg ansi-bold">^^</span>
+<span class="ansi-blue-intense-fg ansi-bold">2</span> <span class="ansi-blue-intense-fg ansi-bold">|</span> import sys
+  <span class="ansi-blue-intense-fg ansi-bold">|</span>
+<span class="ansi-cyan-intense-fg ansi-bold">help</span><span class="ansi-bold">: Remove unused import: `os`</span>
+<span class="ansi-blue-intense-fg ansi-bold"> </span> <span class="ansi-blue-intense-fg ansi-bold">|</span>
+<span class="ansi-blue-intense-fg ansi-bold"> </span> <span class="ansi-red-intense-fg ansi-bold">-</span> <span class="ansi-red-fg">import os
+</span><span class="ansi-blue-intense-fg ansi-bold">1</span> <span class="ansi-blue-intense-fg ansi-bold">|</span> import sys
+<span class="ansi-blue-intense-fg ansi-bold"> </span> <span class="ansi-blue-intense-fg ansi-bold">|</span>
+
+<span class="ansi-red-intense-fg ansi-bold">F401</span> [<span class="ansi-cyan-intense-fg ansi-bold">*</span>]<span class="ansi-bold"> `sys` imported but unused</span>
+ <span class="ansi-blue-intense-fg ansi-bold">--&gt; </span>src/variacion.py:2:8
+  <span class="ansi-blue-intense-fg ansi-bold">|</span>
+<span class="ansi-blue-intense-fg ansi-bold">1</span> <span class="ansi-blue-intense-fg ansi-bold">|</span> import os
+<span class="ansi-blue-intense-fg ansi-bold">2</span> <span class="ansi-blue-intense-fg ansi-bold">|</span> import sys
+  <span class="ansi-blue-intense-fg ansi-bold">|</span>        <span class="ansi-red-intense-fg ansi-bold">^^^</span>
+<span class="ansi-cyan-intense-fg ansi-bold">help</span><span class="ansi-bold">: Remove unused import: `sys`</span>
+<span class="ansi-blue-intense-fg ansi-bold"> </span> <span class="ansi-blue-intense-fg ansi-bold">|</span>
+<span class="ansi-blue-intense-fg ansi-bold">1</span> <span class="ansi-blue-intense-fg ansi-bold">|</span> import os
+<span class="ansi-blue-intense-fg ansi-bold"> </span> <span class="ansi-red-intense-fg ansi-bold">-</span> <span class="ansi-red-fg">import sys
+</span><span class="ansi-blue-intense-fg ansi-bold">2</span> <span class="ansi-blue-intense-fg ansi-bold">|</span>
+<span class="ansi-blue-intense-fg ansi-bold"> </span> <span class="ansi-blue-intense-fg ansi-bold">|</span>
+
+Found 2 errors.
+[<span class="ansi-cyan-fg">*</span>] 2 fixable with the `--fix` option.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Corregimos el problema que reportó ruff: quitamos las importaciones sin usar</span>
+<span class="n">codigo_corregido</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"src/variacion.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"import os</span><span class="se">\n</span><span class="s2">import sys</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">"src/variacion.py"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">codigo_corregido</span><span class="p">)</span>
+
+<span class="o">!</span>ruff<span class="w"> </span>check<span class="w"> </span>src/variacion.py
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-green-intense-fg ansi-bold">All checks passed!</span>
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">check</span></code> ya no reporta nada: es la señal (usada también por herramientas de integración continua, Bloque 6) de que el archivo pasa el control de calidad.</p>
+</section>
+<section id="5.5-Un-test-mínimo-con-pytest">
+<h3>5.5 Un test mínimo con <code class="docutils literal notranslate"><span class="pre">pytest</span></code><a class="headerlink" href="#5.5-Un-test-mínimo-con-pytest" title="Link to this heading">#</a></h3>
+<p>Una prueba automatizada verifica que una función siga funcionando como se espera, incluso después de que alguien más la modifique meses después. <code class="docutils literal notranslate"><span class="pre">pytest</span></code> reconoce automáticamente cualquier archivo <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> y cualquier función <code class="docutils literal notranslate"><span class="pre">test_*</span></code> dentro de él.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">codigo_test</span> <span class="o">=</span> <span class="s1">'''import sys</span>
+<span class="s1">import pathlib</span>
+
+<span class="s1">sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))</span>
+
+<span class="s1">from src.procesamiento import retorno_promedio</span>
+
+
+<span class="s1">def test_retorno_promedio_con_precios_constantes():</span>
+<span class="s1">    # Si el precio nunca cambia, el retorno promedio debe ser exactamente 0</span>
+<span class="s1">    assert retorno_promedio([100, 100, 100]) == 0</span>
+
+
+<span class="s1">def test_retorno_promedio_con_precios_crecientes():</span>
+<span class="s1">    # Con precios que suben 10</span><span class="si">% c</span><span class="s1">ada día, el promedio debe ser ~10%</span>
+<span class="s1">    assert abs(retorno_promedio([100, 110, 121]) - 0.10) &lt; 1e-9</span>
+<span class="s1">'''</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"tests/test_procesamiento.py"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">codigo_test</span><span class="p">)</span>
+
+<span class="o">!</span>pytest<span class="w"> </span>-q
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-green-fg">.</span><span class="ansi-green-fg">.</span><span class="ansi-green-fg">                                                                       [100%]</span>
+<span class="ansi-green-intense-fg ansi-bold">2 passed</span><span class="ansi-green-fg"> in 0.00s</span>
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">passed</span></code> confirma que la función se comporta como esperamos en ambos escenarios. Si en el futuro alguien cambia <code class="docutils literal notranslate"><span class="pre">retorno_promedio</span></code> y rompe alguno de los dos casos, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> lo va a marcar en rojo de inmediato — antes de que ese error llegue a producción.</p>
+<p><strong>Ejercicio 5:</strong> agrega a <code class="docutils literal notranslate"><span class="pre">src/procesamiento.py</span></code> una función <code class="docutils literal notranslate"><span class="pre">retorno_total(precios)</span></code> que calcule el retorno acumulado entre el primer y el último precio, y escribe al menos un caso de prueba para ella en <code class="docutils literal notranslate"><span class="pre">tests/test_procesamiento.py</span></code>.</p>
+</section>
+</section>
+<section id="Bloque-6:-Panorama-MLOps-y-cierre">
+<h2>Bloque 6: Panorama MLOps y cierre<a class="headerlink" href="#Bloque-6:-Panorama-MLOps-y-cierre" title="Link to this heading">#</a></h2>
+<section id="6.1-El-ciclo-de-vida-de-un-modelo">
+<h3>6.1 El ciclo de vida de un modelo<a class="headerlink" href="#6.1-El-ciclo-de-vida-de-un-modelo" title="Link to this heading">#</a></h3>
+<p>DataOps cubre el proyecto en general; <strong>MLOps</strong> es su aplicación específica al ciclo de vida de un modelo de <em>machine learning</em>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>datos → entrenamiento → versionado → despliegue → monitoreo
+  ↑                                                    │
+  └────────────────── reentrenamiento ←────────────────┘
+</pre></div>
+</div>
+<p>Cada etapa tiene una pregunta que responde:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Etapa</p></th>
+<th class="head"><p>Pregunta que responde</p></th>
+<th class="head"><p>Ejemplo financiero</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datos</p></td>
+<td><p>¿De dónde vienen y son confiables?</p></td>
+<td><p>Precios de mercado, estados financieros, buró de crédito</p></td>
+</tr>
+<tr class="row-odd"><td><p>Entrenamiento</p></td>
+<td><p>¿Qué modelo y con qué configuración?</p></td>
+<td><p>Un modelo de score de crédito, entrenado con datos históricos de mora</p></td>
+</tr>
+<tr class="row-even"><td><p>Versionado</p></td>
+<td><p>¿Puedo reproducir exactamente esta versión del modelo?</p></td>
+<td><p>Guardar el modelo, sus datos de entrenamiento y su código juntos</p></td>
+</tr>
+<tr class="row-odd"><td><p>Despliegue</p></td>
+<td><p>¿Cómo llega el modelo a producción?</p></td>
+<td><p>El modelo corre en el motor de aprobación de créditos en tiempo real</p></td>
+</tr>
+<tr class="row-even"><td><p>Monitoreo</p></td>
+<td><p>¿Sigue funcionando bien con datos nuevos?</p></td>
+<td><p>Si el comportamiento de pago cambia (una crisis económica), el modelo entrenado antes puede perder precisión — esto se llama <em>drift</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El ciclo se cierra con el monitoreo: cuando el desempeño se degrada, hay que reentrenar con datos más recientes y volver a empezar.</p>
+</section>
+<section id="6.2-MLflow:-registro-de-experimentos">
+<h3>6.2 MLflow: registro de experimentos<a class="headerlink" href="#6.2-MLflow:-registro-de-experimentos" title="Link to this heading">#</a></h3>
+<p>Entrenar un modelo casi nunca funciona a la primera. En el camino se prueban decenas de configuraciones (variables distintas, ventanas distintas, arquitecturas distintas, como en nuestro cuaderno de MLP/LSTM). <strong>MLflow</strong> registra automáticamente cada intento —sus parámetros, sus métricas de desempeño— para poder comparar y volver atrás sin depender de la memoria o de notas sueltas.</p>
+<p>Registremos, dentro de nuestro proyecto de ejemplo, dos «experimentos» simulados con distintas configuraciones.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"MLFLOW_DISABLE_AGENT_HINT"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"1"</span>  <span class="c1"># silencia una sugerencia de MLflow dirigida a agentes de IA, no relevante aquí</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sqlite:///</span><span class="si">{</span><span class="n">demo_dir</span><span class="si">}</span><span class="s2">/mlflow.db"</span><span class="p">)</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">"prediccion_precios_accion"</span><span class="p">)</span>
+
+<span class="n">configuraciones</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">"ventana_dias"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">"unidades_lstm"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">"rmse_test"</span><span class="p">:</span> <span class="mf">5.9</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"ventana_dias"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">"unidades_lstm"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"rmse_test"</span><span class="p">:</span> <span class="mf">5.08</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">config</span> <span class="ow">in</span> <span class="n">configuraciones</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">():</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"ventana_dias"</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">"ventana_dias"</span><span class="p">])</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"unidades_lstm"</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">"unidades_lstm"</span><span class="p">])</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"rmse_test"</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">"rmse_test"</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dos corridas registradas en MLflow."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2026/09/18 15:04:08 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/09/18 15:04:08 INFO mlflow.store.db.utils: Updating database tables
+2026/09/18 15:04:08 INFO mlflow.tracking.fluent: Experiment with name &#39;prediccion_precios_accion&#39; does not exist. Creating a new experiment.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dos corridas registradas en MLflow.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corridas</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">search_runs</span><span class="p">(</span><span class="n">experiment_names</span><span class="o">=</span><span class="p">[</span><span class="s2">"prediccion_precios_accion"</span><span class="p">])</span>
+<span class="n">corridas</span><span class="p">[[</span><span class="s2">"run_id"</span><span class="p">,</span> <span class="s2">"params.ventana_dias"</span><span class="p">,</span> <span class="s2">"params.unidades_lstm"</span><span class="p">,</span> <span class="s2">"metrics.rmse_test"</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>run_id</th>
+      <th>params.ventana_dias</th>
+      <th>params.unidades_lstm</th>
+      <th>metrics.rmse_test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>09c16afb95e94abf853b6986c5a5ddcb</td>
+      <td>30</td>
+      <td>50</td>
+      <td>5.08</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a9920481ab8140f3a1782dc44e2a7f5a</td>
+      <td>15</td>
+      <td>30</td>
+      <td>5.90</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mlflow.search_runs</span></code> confirma que ambas corridas quedaron registradas con sus parámetros y su métrica — sin haber anotado nada a mano. Usamos una base de datos SQLite local (<code class="docutils literal notranslate"><span class="pre">mlflow.db</span></code>) como backend de registro: desde la versión 3, MLflow dejó en modo mantenimiento el backend de solo archivos que usaban versiones anteriores. En un proyecto real, después de correr esto en tu terminal (<strong>no</strong> dentro de un notebook, porque levanta un servidor), con:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mlflow<span class="w"> </span>ui<span class="w"> </span>--backend-store-uri<span class="w"> </span>sqlite:///mlflow.db
+</pre></div>
+</div>
+<p>se abre en <code class="docutils literal notranslate"><span class="pre">http://localhost:5000</span></code> una interfaz visual para comparar todas las corridas, ordenarlas por métrica y ver cuál configuración fue la mejor.</p>
+</section>
+<section id="6.3-DVC:-versionado-de-datos">
+<h3>6.3 DVC: versionado de datos<a class="headerlink" href="#6.3-DVC:-versionado-de-datos" title="Link to this heading">#</a></h3>
+<p>Git funciona muy bien para código, pero <strong>no</strong> para archivos de datos grandes (un CSV de varios GB, por ejemplo): los guarda completos en cada versión y el repositorio crece sin control. <strong>DVC (Data Version Control)</strong> resuelve esto: guarda en Git solo un archivo liviano de referencia (un <em>hash</em>), mientras que los datos reales viven en almacenamiento externo (S3, Google Drive, un servidor propio).</p>
+<p>No lo vamos a instalar ni ejecutar aquí, pero así se ve el flujo típico, en tu terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dvc<span class="w"> </span>init
+dvc<span class="w"> </span>add<span class="w"> </span>data/precios_crudos.csv<span class="w">     </span><span class="c1"># crea data/precios_crudos.csv.dvc (esto sí se versiona con git)</span>
+git<span class="w"> </span>add<span class="w"> </span>data/precios_crudos.csv.dvc<span class="w"> </span>.gitignore
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Versiona referencia a los datos crudos con DVC"</span>
+dvc<span class="w"> </span>push<span class="w">                            </span><span class="c1"># sube los datos reales al almacenamiento remoto configurado</span>
+</pre></div>
+</div>
+</section>
+<section id="6.4-Docker:-reproducibilidad-más-allá-de-Python">
+<h3>6.4 Docker: reproducibilidad más allá de Python<a class="headerlink" href="#6.4-Docker:-reproducibilidad-más-allá-de-Python" title="Link to this heading">#</a></h3>
+<p>Un ambiente virtual (Bloque 2) aísla las librerías de Python, pero no aísla la versión del sistema operativo, ni servicios externos como una base de datos. <strong>Docker</strong> empaqueta la aplicación completa —código, dependencias de Python, y hasta el sistema operativo base— en un <strong>contenedor</strong> que corre exactamente igual en tu computador, en el de un colega, o en un servidor en la nube. Es la respuesta definitiva al «en mi máquina sí funciona».</p>
+<p>No vamos a instalar Docker en este cuaderno, pero así se ve la receta (<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>) de un proyecto como el nuestro:</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="k">COPY</span><span class="w"> </span>src/<span class="w"> </span>src/
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"src/procesamiento.py"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Cada línea es un paso reproducible: parte de una imagen base de Python, instala las dependencias exactas del <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, copia el código, y define qué ejecutar al arrancar el contenedor.</p>
+</section>
+<section id="6.5-GitHub-Actions:-pruebas-automáticas-en-cada-cambio">
+<h3>6.5 GitHub Actions: pruebas automáticas en cada cambio<a class="headerlink" href="#6.5-GitHub-Actions:-pruebas-automáticas-en-cada-cambio" title="Link to this heading">#</a></h3>
+<p>Ya escribimos pruebas con <code class="docutils literal notranslate"><span class="pre">pytest</span></code> (Bloque 5) y las corrimos manualmente. <strong>GitHub Actions</strong> las corre automáticamente cada vez que alguien sube un cambio o abre un Pull Request — sin que nadie tenga que acordarse de hacerlo. Es la pieza que cierra el ciclo de <strong>integración continua (CI)</strong>: ningún cambio se fusiona a <code class="docutils literal notranslate"><span class="pre">main</span></code> sin que las pruebas pasen.</p>
+<p>Creemos, dentro de nuestro proyecto de ejemplo, el archivo de configuración real que activa esto.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow_ci</span> <span class="o">=</span> <span class="s1">'''name: CI</span>
+
+<span class="s1">on:</span>
+<span class="s1">  push:</span>
+<span class="s1">    branches: [main]</span>
+<span class="s1">  pull_request:</span>
+<span class="s1">    branches: [main]</span>
+
+<span class="s1">jobs:</span>
+<span class="s1">  test:</span>
+<span class="s1">    runs-on: ubuntu-latest</span>
+<span class="s1">    steps:</span>
+<span class="s1">      - uses: actions/checkout@v4</span>
+
+<span class="s1">      - uses: actions/setup-python@v5</span>
+<span class="s1">        with:</span>
+<span class="s1">          python-version: "3.11"</span>
+
+<span class="s1">      - name: Instalar dependencias</span>
+<span class="s1">        run: pip install -r requirements.txt</span>
+
+<span class="s1">      - name: Ejecutar pruebas</span>
+<span class="s1">        run: pytest -q</span>
+<span class="s1">'''</span>
+
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".github/workflows"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">".github/workflows/ci.yml"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">workflow_ci</span><span class="p">)</span>
+
+<span class="o">!</span>cat<span class="w"> </span>.github/workflows/ci.yml
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: &#34;3.11&#34;
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar pruebas
+        run: pytest -q
+</pre></div></div>
+</div>
+<p>Léelo de arriba hacia abajo: <strong>``on``</strong> define cuándo se dispara (cada <code class="docutils literal notranslate"><span class="pre">push</span></code> o Pull Request hacia <code class="docutils literal notranslate"><span class="pre">main</span></code>); <strong>``jobs``</strong> define qué máquina usar (<code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code>, provista gratis por GitHub) y los pasos a ejecutar en orden — descargar el código (<code class="docutils literal notranslate"><span class="pre">checkout</span></code>), instalar Python, instalar dependencias, y correr <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. Si <code class="docutils literal notranslate"><span class="pre">pytest</span></code> termina en error, GitHub marca el <em>check</em> en rojo y bloquea la fusión del Pull Request hasta que se corrija.</p>
+<p>Este archivo, en un repositorio real, solo necesita estar en la ruta <code class="docutils literal notranslate"><span class="pre">.github/workflows/ci.yml</span></code> para que GitHub lo active automáticamente — no requiere ninguna configuración adicional en la web.</p>
+</section>
+<section id="6.6-Cierre:-tu-entregable-final">
+<h3>6.6 Cierre: tu entregable final<a class="headerlink" href="#6.6-Cierre:-tu-entregable-final" title="Link to this heading">#</a></h3>
+<p>El taller completo (bloques 1 a 6) se cierra con un entregable único que reúne todo lo practicado. Publica un <strong>repositorio público en GitHub</strong> que contenga:</p>
+<ul class="simple">
+<li><p>☐ <code class="docutils literal notranslate"><span class="pre">README.md</span></code> explicando qué hace el proyecto y cómo instalarlo/ejecutarlo.</p></li>
+<li><p>☐ <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> con las dependencias exactas (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span></code>).</p></li>
+<li><p>☐ Código reutilizable dentro de <code class="docutils literal notranslate"><span class="pre">src/</span></code> (no solo notebooks sueltos).</p></li>
+<li><p>☐ Al menos <strong>un test</strong> en <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, ejecutable con <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p></li>
+<li><p>☐ Un <em>workflow</em> de GitHub Actions (<code class="docutils literal notranslate"><span class="pre">.github/workflows/ci.yml</span></code>) que corra ese test automáticamente — y que el <em>badge</em> de CI aparezca <strong>en verde</strong> en la página del repositorio.</p></li>
+</ul>
+<p>Con eso tienes, en un solo repositorio, evidencia concreta de las seis competencias que cubrió este cuaderno: entorno reproducible, control de versiones, colaboración, buenas prácticas de código y una primera pieza real de automatización — exactamente lo que un equipo de datos financieros espera de alguien que se incorpora al equipo.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="redes_neuronales_series_tiempo.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ruta_aprendizaje_sugerida.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Apéndice: Ruta de Aprendizaje Sugerida</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-1-(3-h)-—-Entorno-local">Bloque 1 (3 h) — Entorno local</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?">1.1 Python y VS Code: ¿por qué no solo Colab?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-a-paso:-instalar-Python-y-VS-Code">Paso a paso: instalar Python y VS Code</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.2-La-terminal:-tu-primera-herramienta-de-trabajo">1.2 La terminal: tu primera herramienta de trabajo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.3-Extensiones-esenciales-de-VS-Code">1.3 Extensiones esenciales de VS Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.4-Notebooks-(.ipynb)-vs.-scripts-(.py):-¿cuándo-usar-cada-uno?">1.4 Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) vs. scripts (<code class="docutils literal notranslate"><span class="pre">.py</span></code>): ¿cuándo usar cada uno?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-2:-Ambientes-virtuales-y-dependencias">Bloque 2: Ambientes virtuales y dependencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-¿Por-qué-aislar-dependencias?">2.1 ¿Por qué aislar dependencias?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-venv:-crear,-activar-y-seleccionar-el-intérprete">2.2 <code class="docutils literal notranslate"><span class="pre">venv</span></code>: crear, activar y seleccionar el intérprete</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-pip:-instalar-y-congelar-dependencias">2.3 <code class="docutils literal notranslate"><span class="pre">pip</span></code>: instalar y congelar dependencias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Alternativas:-conda-y-uv-(mención-breve)">2.4 Alternativas: <code class="docutils literal notranslate"><span class="pre">conda</span></code> y <code class="docutils literal notranslate"><span class="pre">uv</span></code> (mención breve)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-3-(3-h)-—-Git-local">Bloque 3 (3 h) — Git local</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-¿Qué-es-el-control-de-versiones?">3.1 ¿Qué es el control de versiones?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-.gitignore:-lo-que-Git-nunca-debe-guardar">3.2 <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: lo que Git nunca debe guardar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Mensajes-de-commit-útiles">3.3 Mensajes de commit útiles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.4-Deshacer-cambios:-restore-y-revert">3.4 Deshacer cambios: <code class="docutils literal notranslate"><span class="pre">restore</span></code> y <code class="docutils literal notranslate"><span class="pre">revert</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.5-Antes-del-Bloque-4:-crea-tu-cuenta-de-GitHub-(con-GitHub-Education)">3.5 Antes del Bloque 4: crea tu cuenta de GitHub (con GitHub Education)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-4:-GitHub-y-colaboración">Bloque 4: GitHub y colaboración</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-De-local-a-remoto:-GitHub">4.1 De local a remoto: GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Ramas,-Pull-Requests-y-revisión-de-código">4.2 Ramas, Pull Requests y revisión de código</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-README,-licencia-y-tu-perfil-de-GitHub-como-portafolio">4.3 README, licencia y tu perfil de GitHub como portafolio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Resolver-un-conflicto-de-merge">4.4 Resolver un conflicto de <em>merge</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-5:-Estructura-de-proyecto-y-buenas-prácticas">Bloque 5: Estructura de proyecto y buenas prácticas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Estructura-estándar-de-un-proyecto-de-datos">5.1 Estructura estándar de un proyecto de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-De-notebook-a-src/:-convertir-código-en-funciones">5.2 De notebook a <code class="docutils literal notranslate"><span class="pre">src/</span></code>: convertir código en funciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.3-Variables-de-entorno-y-.env">5.3 Variables de entorno y <code class="docutils literal notranslate"><span class="pre">.env</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.4-Formateo-con-black-y-linting-con-ruff">5.4 Formateo con <code class="docutils literal notranslate"><span class="pre">black</span></code> y <em>linting</em> con <code class="docutils literal notranslate"><span class="pre">ruff</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.5-Un-test-mínimo-con-pytest">5.5 Un test mínimo con <code class="docutils literal notranslate"><span class="pre">pytest</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-6:-Panorama-MLOps-y-cierre">Bloque 6: Panorama MLOps y cierre</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-El-ciclo-de-vida-de-un-modelo">6.1 El ciclo de vida de un modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.2-MLflow:-registro-de-experimentos">6.2 MLflow: registro de experimentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.3-DVC:-versionado-de-datos">6.3 DVC: versionado de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.4-Docker:-reproducibilidad-más-allá-de-Python">6.4 Docker: reproducibilidad más allá de Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.5-GitHub-Actions:-pruebas-automáticas-en-cada-cambio">6.5 GitHub Actions: pruebas automáticas en cada cambio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.6-Cierre:-tu-entregable-final">6.6 Cierre: tu entregable final</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
