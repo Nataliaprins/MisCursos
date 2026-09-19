@@ -1,0 +1,1451 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analitica_financiera/taller_series_tiempo';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="5. DataOps para Proyectos de Datos Financieros" href="dataops_proyectos_financieros.html" />
+    <link rel="prev" title="4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras" href="redes_neuronales_series_tiempo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">5. Modelos de Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">CIENCIA DE DATOS FINANCIERA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="introducci%C3%B3n.html">3. Ciencia de Datos Financiera: Ingeniería, <em>Feature Engineering</em> y Construcción de Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redes_neuronales_series_tiempo.html">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataops_proyectos_financieros.html">5. DataOps para Proyectos de Datos Financieros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analitica_financiera/taller_series_tiempo.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalitica_financiera/taller_series_tiempo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analitica_financiera/taller_series_tiempo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tema">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Tema" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Claro"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Oscuro"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="Sistema"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>Sistema</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Claro</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Oscuro</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-Descarga-de-datos-reales">1. Descarga de datos reales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Ingeniería-de-variables-financieras">2. Ingeniería de variables financieras</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-Retorno-logarítmico">2.1 Retorno logarítmico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-Volatilidad-histórica-móvil-(21-días,-anualizada)">2.2 Volatilidad histórica móvil (21 días, anualizada)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-RSI-(14-días)">2.3 RSI (14 días)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Bandas-de-Bollinger:-%B">2.4 Bandas de Bollinger: %B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.5-Volumen-relativo">2.5 Volumen relativo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.6-Consolidación-de-la-matriz-de-variables">2.6 Consolidación de la matriz de variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Preparación-para-redes-neuronales">3. Preparación para redes neuronales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-División-cronológica-train/test">3.1 División cronológica train/test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Escalado-sin-fuga-de-información">3.2 Escalado sin fuga de información</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Ventanas-univariadas-y-multivariadas">3.3 Ventanas univariadas y multivariadas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Arquitecturas-reutilizables">4. Arquitecturas reutilizables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Modelos-univariados-(línea-base:-solo-precio)">5. Modelos univariados (línea base: solo precio)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Modelos-multivariados-(precio-+-variables-técnicas)">6. Modelos multivariados (precio + variables técnicas)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-¿Ayudó-la-ingeniería-de-variables?-Comparación-de-desempeño">7. ¿Ayudó la ingeniería de variables? Comparación de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Predicción-one-step-ahead-con-el-mejor-modelo">8. Predicción <em>one-step-ahead</em> con el mejor modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#9.-Cierre:-preguntas-y-ejercicios-propuestos">9. Cierre: preguntas y ejercicios propuestos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Taller:-Ingeniería-de-Variables-+-Redes-Neuronales-para-Series-de-Tiempo-Financieras">
+<h1>Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras<a class="headerlink" href="#Taller:-Ingeniería-de-Variables-+-Redes-Neuronales-para-Series-de-Tiempo-Financieras" title="Link to this heading">#</a></h1>
+<p><strong>Caso de estudio:</strong> trabajas en el equipo de analítica cuantitativa de una gestora de fondos. En el cuaderno <em>Redes Neuronales y Deep Learning para Series de Tiempo Financieras</em> construiste un MLP y una LSTM que predicen el precio de una acción usando <strong>únicamente su precio pasado</strong>. Tu jefa de equipo pregunta algo razonable:</p>
+<p>«¿Y si además le damos al modelo las variables técnicas que ya usamos en analítica financiera volatilidad, RSI, Bandas de Bollinger, mejora la predicción, o el precio solo ya contiene toda la información relevante?»</p>
+<p>Este taller responde esa pregunta de forma empírica.</p>
+<ol class="arabic simple">
+<li><p><em>«Datos reales</em>: descarga precios históricos de un activo real (…) y repite el flujo de limpieza.» — aquí lo hacemos con <code class="docutils literal notranslate"><span class="pre">yfinance</span></code>, igual que en el cuaderno de redes neuronales.</p></li>
+<li><p><em>«Variable de volumen relativo: construye :math:`text{vol_relativo}_t = text{Volume}_t / text{media_movil}_{20}(text{Volume})_t`.»</em> la incluimos como una de las variables de entrada.</p></li>
+</ol>
+<p><strong>Objetivo del taller:</strong> construir, entrenar y comparar cuatro modelos (MLP y LSTM, cada uno univariado y multivariado) frente a una línea base ingenua, para determinar si la ingeniería de variables financieras aporta poder predictivo más allá del precio crudo.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación de librerías</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span>
+
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>   <span class="c1"># fija random de Python, NumPy y TensorFlow de una sola vez</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">enable_op_determinism</span><span class="p">()</span>  <span class="c1"># fuerza operaciones deterministas (evita variar entre corridas)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">"whitegrid"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"figure.figsize"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="1.-Descarga-de-datos-reales">
+<h2>1. Descarga de datos reales<a class="headerlink" href="#1.-Descarga-de-datos-reales" title="Link to this heading">#</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TICKER</span> <span class="o">=</span> <span class="s2">"AAPL"</span> <span class="c1"># Reemplaza con el activo asignado</span>
+<span class="n">FECHA_INICIO</span> <span class="o">=</span> <span class="s2">"2015-01-01"</span>
+
+<span class="n">datos</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">TICKER</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">FECHA_INICIO</span><span class="p">,</span> <span class="n">auto_adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># yfinance devuelve columnas con MultiIndex</span>
+
+<span class="n">precio</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s2">"Close"</span><span class="p">]</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+<span class="n">volumen</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s2">"Volume"</span><span class="p">]</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Periodo: </span><span class="si">{</span><span class="n">precio</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">precio</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">precio</span><span class="p">)</span><span class="si">}</span><span class="s2"> días hábiles)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Periodo: 2015-01-02 -&gt; 2026-09-18  (3056 días hábiles)
+</pre></div></div>
+</div>
+</section>
+<section id="2.-Ingeniería-de-variables-financieras">
+<h2>2. Ingeniería de variables financieras<a class="headerlink" href="#2.-Ingeniería-de-variables-financieras" title="Link to this heading">#</a></h2>
+<p>Reutilizamos, sobre datos reales, el mismo vocabulario de variables construidas en la sección 3 de <em>introducción.ipynb</em>: retornos, volatilidad histórica, RSI, Bandas de Bollinger y (siguiendo el Ejercicio propuesto 2) volumen relativo. Todas se calculan con funciones de ventana móvil (<code class="docutils literal notranslate"><span class="pre">rolling</span></code>, <code class="docutils literal notranslate"><span class="pre">ewm</span></code>) que, por construcción, solo usan información <strong>hasta</strong> el día en curso — respetan la regla de oro contra la fuga de información temporal de la sección 2.1 de ese cuaderno.</p>
+<section id="2.1-Retorno-logarítmico">
+<h3>2.1 Retorno logarítmico<a class="headerlink" href="#2.1-Retorno-logarítmico" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retorno</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precio</span> <span class="o">/</span> <span class="n">precio</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.2-Volatilidad-histórica-móvil-(21-días,-anualizada)">
+<h3>2.2 Volatilidad histórica móvil (21 días, anualizada)<a class="headerlink" href="#2.2-Volatilidad-histórica-móvil-(21-días,-anualizada)" title="Link to this heading">#</a></h3>
+<p>Igual que en la sección 3.2 de <em>introducción.ipynb</em>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_21</span> <span class="o">=</span> <span class="n">retorno</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.3-RSI-(14-días)">
+<h3>2.3 RSI (14 días)<a class="headerlink" href="#2.3-RSI-(14-días)" title="Link to this heading">#</a></h3>
+<p>Reutilizamos exactamente la función <code class="docutils literal notranslate"><span class="pre">calcular_rsi</span></code> de la sección 3.4 de <em>introducción.ipynb</em>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_rsi</span><span class="p">(</span><span class="n">serie_precios</span><span class="p">,</span> <span class="n">ventana</span><span class="o">=</span><span class="mi">14</span><span class="p">):</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">serie_precios</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+    <span class="n">ganancia</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">perdida</span> <span class="o">=</span> <span class="o">-</span><span class="n">delta</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">ganancia_media</span> <span class="o">=</span> <span class="n">ganancia</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">ventana</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">perdida_media</span> <span class="o">=</span> <span class="n">perdida</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">ventana</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="n">rs</span> <span class="o">=</span> <span class="n">ganancia_media</span> <span class="o">/</span> <span class="n">perdida_media</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="mi">100</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rs</span><span class="p">))</span>
+
+<span class="n">rsi_14</span> <span class="o">=</span> <span class="n">calcular_rsi</span><span class="p">(</span><span class="n">precio</span><span class="p">,</span> <span class="n">ventana</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.4-Bandas-de-Bollinger:-%B">
+<h3>2.4 Bandas de Bollinger: %B<a class="headerlink" href="#2.4-Bandas-de-Bollinger:-%B" title="Link to this heading">#</a></h3>
+<p>Convertimos las bandas en una variable numérica normalizada: la posición del precio <strong>dentro</strong> de las bandas, <span class="math notranslate nohighlight">\(\%B = (P_t - \text{banda\_inf}_t) / (\text{banda\_sup}_t - \text{banda\_inf}_t)\)</span>. Valores cercanos a 1 indican precio pegado a la banda superior (posible sobrecompra); cercanos a 0, a la banda inferior.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">sma_w</span> <span class="o">=</span> <span class="n">precio</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std_w</span> <span class="o">=</span> <span class="n">precio</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">banda_sup</span> <span class="o">=</span> <span class="n">sma_w</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">std_w</span>
+<span class="n">banda_inf</span> <span class="o">=</span> <span class="n">sma_w</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">std_w</span>
+<span class="n">pct_b_bollinger</span> <span class="o">=</span> <span class="p">(</span><span class="n">precio</span> <span class="o">-</span> <span class="n">banda_inf</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">banda_sup</span> <span class="o">-</span> <span class="n">banda_inf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.5-Volumen-relativo">
+<h3>2.5 Volumen relativo<a class="headerlink" href="#2.5-Volumen-relativo" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volumen_relativo</span> <span class="o">=</span> <span class="n">volumen</span> <span class="o">/</span> <span class="n">volumen</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.6-Consolidación-de-la-matriz-de-variables">
+<h3>2.6 Consolidación de la matriz de variables<a class="headerlink" href="#2.6-Consolidación-de-la-matriz-de-variables" title="Link to this heading">#</a></h3>
+<p>Unimos todo en un solo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, con el precio como primera columna (la necesitamos tanto como variable de entrada como variable objetivo). Las primeras filas quedan en <code class="docutils literal notranslate"><span class="pre">NaN</span></code> porque las ventanas móviles más largas (21 días) todavía no tienen suficiente historia.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"precio"</span><span class="p">:</span> <span class="n">precio</span><span class="p">,</span>
+    <span class="s2">"retorno"</span><span class="p">:</span> <span class="n">retorno</span><span class="p">,</span>
+    <span class="s2">"volatilidad_21"</span><span class="p">:</span> <span class="n">volatilidad_21</span><span class="p">,</span>
+    <span class="s2">"rsi_14"</span><span class="p">:</span> <span class="n">rsi_14</span><span class="p">,</span>
+    <span class="s2">"pct_b_bollinger"</span><span class="p">:</span> <span class="n">pct_b_bollinger</span><span class="p">,</span>
+    <span class="s2">"volumen_relativo"</span><span class="p">:</span> <span class="n">volumen_relativo</span><span class="p">,</span>
+<span class="p">})</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">COLUMNAS_FEATURES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"retorno"</span><span class="p">,</span> <span class="s2">"volatilidad_21"</span><span class="p">,</span> <span class="s2">"rsi_14"</span><span class="p">,</span> <span class="s2">"pct_b_bollinger"</span><span class="p">,</span> <span class="s2">"volumen_relativo"</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Observaciones utilizables tras descartar NaN iniciales: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">variables</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Observaciones utilizables tras descartar NaN iniciales: 3035
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>precio</th>
+      <th>retorno</th>
+      <th>volatilidad_21</th>
+      <th>rsi_14</th>
+      <th>pct_b_bollinger</th>
+      <th>volumen_relativo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3035.000</td>
+      <td>3035.000</td>
+      <td>3035.000</td>
+      <td>3035.000</td>
+      <td>3035.000</td>
+      <td>3035.000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>117.868</td>
+      <td>0.001</td>
+      <td>0.255</td>
+      <td>55.367</td>
+      <td>0.583</td>
+      <td>1.003</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>84.161</td>
+      <td>0.018</td>
+      <td>0.121</td>
+      <td>18.258</td>
+      <td>0.328</td>
+      <td>0.371</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>20.548</td>
+      <td>-0.138</td>
+      <td>0.074</td>
+      <td>3.260</td>
+      <td>-0.299</td>
+      <td>0.319</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>38.753</td>
+      <td>-0.007</td>
+      <td>0.179</td>
+      <td>41.600</td>
+      <td>0.313</td>
+      <td>0.773</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>117.363</td>
+      <td>0.000</td>
+      <td>0.232</td>
+      <td>56.386</td>
+      <td>0.647</td>
+      <td>0.917</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>177.424</td>
+      <td>0.009</td>
+      <td>0.299</td>
+      <td>69.271</td>
+      <td>0.849</td>
+      <td>1.131</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>339.787</td>
+      <td>0.143</td>
+      <td>1.069</td>
+      <td>96.833</td>
+      <td>1.373</td>
+      <td>5.184</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="3.-Preparación-para-redes-neuronales">
+<h2>3. Preparación para redes neuronales<a class="headerlink" href="#3.-Preparación-para-redes-neuronales" title="Link to this heading">#</a></h2>
+<section id="3.1-División-cronológica-train/test">
+<h3>3.1 División cronológica train/test<a class="headerlink" href="#3.1-División-cronológica-train/test" title="Link to this heading">#</a></h3>
+<p>Misma proporción (80/20) y mismo criterio cronológico del cuaderno de redes neuronales.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FRACCION_TRAIN</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span> <span class="o">*</span> <span class="n">FRACCION_TRAIN</span><span class="p">)</span>
+
+<span class="n">variables_train</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">n_train</span><span class="p">]</span>
+<span class="n">variables_test</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_train</span><span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Entrenamiento: </span><span class="si">{</span><span class="n">variables_train</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">variables_train</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">variables_train</span><span class="p">)</span><span class="si">}</span><span class="s2"> días)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Prueba:        </span><span class="si">{</span><span class="n">variables_test</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">variables_test</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">variables_test</span><span class="p">)</span><span class="si">}</span><span class="s2"> días)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Entrenamiento: 2015-02-02 -&gt; 2024-05-22  (2428 días)
+Prueba:        2024-05-23 -&gt; 2026-09-18  (607 días)
+</pre></div></div>
+</div>
+</section>
+<section id="3.2-Escalado-sin-fuga-de-información">
+<h3>3.2 Escalado sin fuga de información<a class="headerlink" href="#3.2-Escalado-sin-fuga-de-información" title="Link to this heading">#</a></h3>
+<p>Dos escaladores, ambos ajustados <strong>solo con datos de entrenamiento</strong>: uno para el precio (la variable objetivo, y también la única entrada del modelo univariado) y otro para las cinco variables técnicas.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">escalador_precio</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">escalador_features</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">precio_train_esc</span> <span class="o">=</span> <span class="n">escalador_precio</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">variables_train</span><span class="p">[[</span><span class="s2">"precio"</span><span class="p">]])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">precio_test_esc</span> <span class="o">=</span> <span class="n">escalador_precio</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">variables_test</span><span class="p">[[</span><span class="s2">"precio"</span><span class="p">]])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="n">features_train_esc</span> <span class="o">=</span> <span class="n">escalador_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">variables_train</span><span class="p">[</span><span class="n">COLUMNAS_FEATURES</span><span class="p">])</span>
+<span class="n">features_test_esc</span> <span class="o">=</span> <span class="n">escalador_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">variables_test</span><span class="p">[</span><span class="n">COLUMNAS_FEATURES</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="3.3-Ventanas-univariadas-y-multivariadas">
+<h3>3.3 Ventanas univariadas y multivariadas<a class="headerlink" href="#3.3-Ventanas-univariadas-y-multivariadas" title="Link to this heading">#</a></h3>
+<p>Una sola función de ventanas deslizantes, reutilizada para ambos casos: el modelo <strong>univariado</strong> recibe una matriz con una sola columna (el precio); el <strong>multivariado</strong>, una matriz con el precio y las cinco variables técnicas. Como en el cuaderno de redes neuronales, anteponemos la cola del entrenamiento para que la primera ventana de prueba tenga historia completa (son datos ya observados, no hay fuga).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VENTANA</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">crear_ventanas</span><span class="p">(</span><span class="n">matriz_escalada</span><span class="p">,</span> <span class="n">ventana</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ventana</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">matriz_escalada</span><span class="p">)):</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">matriz_escalada</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">ventana</span><span class="p">:</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">matriz_escalada</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># columna 0 = precio, siempre la variable objetivo</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># --- matrices completas: columna 0 = precio, columnas 1-5 = variables técnicas ---</span>
+<span class="n">matriz_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">precio_train_esc</span><span class="p">,</span> <span class="n">features_train_esc</span><span class="p">])</span>
+<span class="n">matriz_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">precio_test_esc</span><span class="p">,</span> <span class="n">features_test_esc</span><span class="p">])</span>
+<span class="n">matriz_test_con_historia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">matriz_train</span><span class="p">[</span><span class="o">-</span><span class="n">VENTANA</span><span class="p">:],</span> <span class="n">matriz_test</span><span class="p">])</span>
+
+<span class="c1"># --- univariado: solo la columna del precio ---</span>
+<span class="n">X_train_uni</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">crear_ventanas</span><span class="p">(</span><span class="n">matriz_train</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">VENTANA</span><span class="p">)</span>
+<span class="n">X_test_uni</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">crear_ventanas</span><span class="p">(</span><span class="n">matriz_test_con_historia</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">VENTANA</span><span class="p">)</span>
+
+<span class="c1"># --- multivariado: precio + 5 variables técnicas ---</span>
+<span class="n">X_train_multi</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">crear_ventanas</span><span class="p">(</span><span class="n">matriz_train</span><span class="p">,</span> <span class="n">VENTANA</span><span class="p">)</span>
+<span class="n">X_test_multi</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">crear_ventanas</span><span class="p">(</span><span class="n">matriz_test_con_historia</span><span class="p">,</span> <span class="n">VENTANA</span><span class="p">)</span>
+
+<span class="n">fechas_test</span> <span class="o">=</span> <span class="n">variables_test</span><span class="o">.</span><span class="n">index</span>
+<span class="n">N_FEATURES</span> <span class="o">=</span> <span class="n">matriz_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Univariado  -&gt; X_train: </span><span class="si">{</span><span class="n">X_train_uni</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">   X_test: </span><span class="si">{</span><span class="n">X_test_uni</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Multivariado -&gt; X_train: </span><span class="si">{</span><span class="n">X_train_multi</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">   X_test: </span><span class="si">{</span><span class="n">X_test_multi</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Univariado  -&gt; X_train: (2398, 30, 1)   X_test: (607, 30, 1)
+Multivariado -&gt; X_train: (2398, 30, 6)   X_test: (607, 30, 6)
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">y_train</span></code>/<code class="docutils literal notranslate"><span class="pre">y_test</span></code> son los mismos en ambos casos (el precio escalado del día siguiente): lo único que cambia entre modelos «univariado» y «multivariado» es <strong>cuánta información de entrada</strong> reciben, no lo que deben predecir — así el experimento aísla el efecto de agregar las variables técnicas.</p>
+</section>
+</section>
+<section id="4.-Arquitecturas-reutilizables">
+<h2>4. Arquitecturas reutilizables<a class="headerlink" href="#4.-Arquitecturas-reutilizables" title="Link to this heading">#</a></h2>
+<p>En vez de repetir cuatro veces el código de definición y entrenamiento (una por cada combinación modelo × conjunto de variables), lo encapsulamos en funciones — la misma idea de «mover código de notebook a funciones reutilizables» que vimos en el taller de DataOps.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construir_mlp</span><span class="p">(</span><span class="n">dimension_entrada</span><span class="p">):</span>
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">dimension_entrada</span><span class="p">,)),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="n">modelo</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">"adam"</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mae"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">modelo</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">construir_lstm</span><span class="p">(</span><span class="n">ventana</span><span class="p">,</span> <span class="n">n_features</span><span class="p">):</span>
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">ventana</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"tanh"</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="c1"># clipnorm: recorta la magnitud del gradiente en cada paso. Las LSTM son más</span>
+    <span class="c1"># propensas que un MLP a dar, ocasionalmente, un paso de entrenamiento demasiado</span>
+    <span class="c1"># grande que las saca de una buena región de la función de pérdida; limitar la</span>
+    <span class="c1"># norma del gradiente es la forma estándar de estabilizar ese entrenamiento.</span>
+    <span class="n">optimizador</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">clipnorm</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">modelo</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizador</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mae"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">modelo</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">entrenar</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+    <span class="c1"># EarlyStopping detiene el entrenamiento si val_loss deja de mejorar; ReduceLROnPlateau</span>
+    <span class="c1"># reduce la tasa de aprendizaje antes de llegar a ese punto, para darle al optimizador</span>
+    <span class="c1"># una oportunidad de salir de una meseta en vez de quedarse estancado (más relevante</span>
+    <span class="c1"># para la LSTM, más sensible a la inicialización que el MLP)</span>
+    <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s2">"val_loss"</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">),</span>
+        <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s2">"val_loss"</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="n">historia</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+        <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">historia</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="5.-Modelos-univariados-(línea-base:-solo-precio)">
+<h2>5. Modelos univariados (línea base: solo precio)<a class="headerlink" href="#5.-Modelos-univariados-(línea-base:-solo-precio)" title="Link to this heading">#</a></h2>
+<p>Misma configuración que en <em>redes_neuronales_series_tiempo.ipynb</em> — los reconstruimos aquí para que el entrenamiento y la evaluación ocurran sobre exactamente los mismos datos que los modelos multivariados.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp_uni</span> <span class="o">=</span> <span class="n">construir_mlp</span><span class="p">(</span><span class="n">dimension_entrada</span><span class="o">=</span><span class="n">VENTANA</span><span class="p">)</span>
+<span class="n">historia_mlp_uni</span> <span class="o">=</span> <span class="n">entrenar</span><span class="p">(</span><span class="n">mlp_uni</span><span class="p">,</span> <span class="n">X_train_uni</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train_uni</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MLP univariado — entrenamiento detenido en la época </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">historia_mlp_uni</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'loss'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1789823603.614583 2443399 node_def_util.cc:682] NodeDef mentions attribute use_unbounded_threadpool which is not in the op definition: Op&lt;name=MapDataset; signature=input_dataset:variant, other_arguments: -&gt; handle:variant; attr=f:func; attr=Targuments:list(type),min=0; attr=output_types:list(type),min=1; attr=output_shapes:list(shape),min=1; attr=use_inter_op_parallelism:bool,default=true; attr=preserve_cardinality:bool,default=false; attr=force_synchronous:bool,default=false; attr=metadata:string,default=&#34;&#34;&gt; This may be expected if your graph generating binary is newer  than this binary. Unknown attributes will be ignored. NodeDef: {{node ParallelMapDatasetV2/_15}}
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MLP univariado — entrenamiento detenido en la época 38
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lstm_uni</span> <span class="o">=</span> <span class="n">construir_lstm</span><span class="p">(</span><span class="n">ventana</span><span class="o">=</span><span class="n">VENTANA</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">historia_lstm_uni</span> <span class="o">=</span> <span class="n">entrenar</span><span class="p">(</span><span class="n">lstm_uni</span><span class="p">,</span> <span class="n">X_train_uni</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"LSTM univariada — entrenamiento detenido en la época </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">historia_lstm_uni</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'loss'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+LSTM univariada — entrenamiento detenido en la época 150
+</pre></div></div>
+</div>
+</section>
+<section id="6.-Modelos-multivariados-(precio-+-variables-técnicas)">
+<h2>6. Modelos multivariados (precio + variables técnicas)<a class="headerlink" href="#6.-Modelos-multivariados-(precio-+-variables-técnicas)" title="Link to this heading">#</a></h2>
+<p>Misma arquitectura y mismos hiperparámetros que los modelos univariados — la única diferencia es la dimensión de entrada, que ahora incluye las cinco variables de la sección 2.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp_multi</span> <span class="o">=</span> <span class="n">construir_mlp</span><span class="p">(</span><span class="n">dimension_entrada</span><span class="o">=</span><span class="n">VENTANA</span> <span class="o">*</span> <span class="n">N_FEATURES</span><span class="p">)</span>
+<span class="n">historia_mlp_multi</span> <span class="o">=</span> <span class="n">entrenar</span><span class="p">(</span><span class="n">mlp_multi</span><span class="p">,</span> <span class="n">X_train_multi</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train_multi</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MLP multivariado — entrenamiento detenido en la época </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">historia_mlp_multi</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'loss'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+E0000 00:00:1789823646.534256 2443399 node_def_util.cc:682] NodeDef mentions attribute use_unbounded_threadpool which is not in the op definition: Op&lt;name=MapDataset; signature=input_dataset:variant, other_arguments: -&gt; handle:variant; attr=f:func; attr=Targuments:list(type),min=0; attr=output_types:list(type),min=1; attr=output_shapes:list(shape),min=1; attr=use_inter_op_parallelism:bool,default=true; attr=preserve_cardinality:bool,default=false; attr=force_synchronous:bool,default=false; attr=metadata:string,default=&#34;&#34;&gt; This may be expected if your graph generating binary is newer  than this binary. Unknown attributes will be ignored. NodeDef: {{node ParallelMapDatasetV2/_15}}
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MLP multivariado — entrenamiento detenido en la época 35
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lstm_multi</span> <span class="o">=</span> <span class="n">construir_lstm</span><span class="p">(</span><span class="n">ventana</span><span class="o">=</span><span class="n">VENTANA</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="n">N_FEATURES</span><span class="p">)</span>
+<span class="n">historia_lstm_multi</span> <span class="o">=</span> <span class="n">entrenar</span><span class="p">(</span><span class="n">lstm_multi</span><span class="p">,</span> <span class="n">X_train_multi</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"LSTM multivariada — entrenamiento detenido en la época </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">historia_lstm_multi</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'loss'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+LSTM multivariada — entrenamiento detenido en la época 30
+</pre></div></div>
+</div>
+</section>
+<section id="7.-¿Ayudó-la-ingeniería-de-variables?-Comparación-de-desempeño">
+<h2>7. ¿Ayudó la ingeniería de variables? Comparación de desempeño<a class="headerlink" href="#7.-¿Ayudó-la-ingeniería-de-variables?-Comparación-de-desempeño" title="Link to this heading">#</a></h2>
+<p>Evaluamos los cuatro modelos sobre el mismo conjunto de prueba, junto con la línea base ingenua (el precio de mañana es igual al de hoy) que ya conocemos del cuaderno de redes neuronales.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">invertir_escala</span><span class="p">(</span><span class="n">valores_escalados</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">escalador_precio</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">valores_escalados</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calcular_metricas</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_real</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_real</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"Modelo"</span><span class="p">:</span> <span class="n">nombre</span><span class="p">,</span> <span class="s2">"RMSE"</span><span class="p">:</span> <span class="n">rmse</span><span class="p">,</span> <span class="s2">"MAE"</span><span class="p">:</span> <span class="n">mae</span><span class="p">,</span> <span class="s2">"MAPE (%)"</span><span class="p">:</span> <span class="n">mape</span><span class="p">,</span> <span class="s2">"R²"</span><span class="p">:</span> <span class="n">r2</span><span class="p">}</span>
+
+
+<span class="n">y_test_real</span> <span class="o">=</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+
+<span class="n">predicciones</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Ingenuo (random walk)"</span><span class="p">:</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">X_test_uni</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+    <span class="s2">"MLP univariado"</span><span class="p">:</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">mlp_uni</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_uni</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test_uni</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+    <span class="s2">"LSTM univariada"</span><span class="p">:</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">lstm_uni</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_uni</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+    <span class="s2">"MLP multivariado"</span><span class="p">:</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">mlp_multi</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_multi</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test_multi</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+    <span class="s2">"LSTM multivariada"</span><span class="p">:</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">lstm_multi</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_multi</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+<span class="p">}</span>
+
+<span class="n">metricas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">y_test_real</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span> <span class="k">for</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predicciones</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"Modelo"</span><span class="p">)</span>
+
+<span class="n">metricas</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+E0000 00:00:1789823658.356718 2443399 node_def_util.cc:682] NodeDef mentions attribute use_unbounded_threadpool which is not in the op definition: Op&lt;name=MapDataset; signature=input_dataset:variant, other_arguments: -&gt; handle:variant; attr=f:func; attr=Targuments:list(type),min=0; attr=output_types:list(type),min=1; attr=output_shapes:list(shape),min=1; attr=use_inter_op_parallelism:bool,default=true; attr=preserve_cardinality:bool,default=false; attr=force_synchronous:bool,default=false; attr=metadata:string,default=&#34;&#34;&gt; This may be expected if your graph generating binary is newer  than this binary. Unknown attributes will be ignored. NodeDef: {{node ParallelMapDatasetV2/_14}}
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MAPE (%)</th>
+      <th>R²</th>
+    </tr>
+    <tr>
+      <th>Modelo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ingenuo (random walk)</th>
+      <td>4.1575</td>
+      <td>2.7955</td>
+      <td>1.1510</td>
+      <td>0.9871</td>
+    </tr>
+    <tr>
+      <th>MLP univariado</th>
+      <td>6.1322</td>
+      <td>4.4575</td>
+      <td>1.8285</td>
+      <td>0.9719</td>
+    </tr>
+    <tr>
+      <th>LSTM univariada</th>
+      <td>13.0974</td>
+      <td>10.1737</td>
+      <td>3.8739</td>
+      <td>0.8720</td>
+    </tr>
+    <tr>
+      <th>MLP multivariado</th>
+      <td>24.3484</td>
+      <td>19.2373</td>
+      <td>7.2533</td>
+      <td>0.5575</td>
+    </tr>
+    <tr>
+      <th>LSTM multivariada</th>
+      <td>22.4256</td>
+      <td>18.0365</td>
+      <td>6.7706</td>
+      <td>0.6246</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmse_ingenuo</span> <span class="o">=</span> <span class="n">metricas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"Ingenuo (random walk)"</span><span class="p">,</span> <span class="s2">"RMSE"</span><span class="p">]</span>
+<span class="n">rmse_mlp_uni</span><span class="p">,</span> <span class="n">rmse_mlp_multi</span> <span class="o">=</span> <span class="n">metricas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"MLP univariado"</span><span class="p">,</span> <span class="s2">"RMSE"</span><span class="p">],</span> <span class="n">metricas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"MLP multivariado"</span><span class="p">,</span> <span class="s2">"RMSE"</span><span class="p">]</span>
+<span class="n">rmse_lstm_uni</span><span class="p">,</span> <span class="n">rmse_lstm_multi</span> <span class="o">=</span> <span class="n">metricas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"LSTM univariada"</span><span class="p">,</span> <span class="s2">"RMSE"</span><span class="p">],</span> <span class="n">metricas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"LSTM multivariada"</span><span class="p">,</span> <span class="s2">"RMSE"</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MLP:  univariado RMSE=</span><span class="si">{</span><span class="n">rmse_mlp_uni</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  -&gt;  multivariado RMSE=</span><span class="si">{</span><span class="n">rmse_mlp_multi</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  "</span>
+      <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="s1">'mejora'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">rmse_mlp_multi</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rmse_mlp_uni</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'empeora'</span><span class="si">}</span><span class="s2"> al agregar variables técnicas)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"LSTM: univariada RMSE=</span><span class="si">{</span><span class="n">rmse_lstm_uni</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  -&gt;  multivariada RMSE=</span><span class="si">{</span><span class="n">rmse_lstm_multi</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  "</span>
+      <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="s1">'mejora'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">rmse_lstm_multi</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rmse_lstm_uni</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'empeora'</span><span class="si">}</span><span class="s2"> al agregar variables técnicas)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Línea base ingenua: RMSE=</span><span class="si">{</span><span class="n">rmse_ingenuo</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MLP:  univariado RMSE=6.132  -&gt;  multivariado RMSE=24.348  (empeora al agregar variables técnicas)
+LSTM: univariada RMSE=13.097  -&gt;  multivariada RMSE=22.426  (empeora al agregar variables técnicas)
+
+Línea base ingenua: RMSE=4.158
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">colores</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Ingenuo (random walk)"</span><span class="p">:</span> <span class="s2">"black"</span><span class="p">,</span>
+    <span class="s2">"MLP univariado"</span><span class="p">:</span> <span class="s2">"darkorange"</span><span class="p">,</span>
+    <span class="s2">"LSTM univariada"</span><span class="p">:</span> <span class="s2">"seagreen"</span><span class="p">,</span>
+    <span class="s2">"MLP multivariado"</span><span class="p">:</span> <span class="s2">"firebrick"</span><span class="p">,</span>
+    <span class="s2">"LSTM multivariada"</span><span class="p">:</span> <span class="s2">"teal"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">ULTIMOS_DIAS</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="k">for</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predicciones</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">estilo</span> <span class="o">=</span> <span class="s2">"--"</span> <span class="k">if</span> <span class="s2">"Ingenuo"</span> <span class="ow">in</span> <span class="n">nombre</span> <span class="k">else</span> <span class="s2">"-"</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fechas_test</span><span class="p">[</span><span class="o">-</span><span class="n">ULTIMOS_DIAS</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[</span><span class="o">-</span><span class="n">ULTIMOS_DIAS</span><span class="p">:],</span> <span class="n">estilo</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">nombre</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fechas_test</span><span class="p">[</span><span class="o">-</span><span class="n">ULTIMOS_DIAS</span><span class="p">:],</span> <span class="n">y_test_real</span><span class="p">[</span><span class="o">-</span><span class="n">ULTIMOS_DIAS</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Real"</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Comparación de modelos — últimos </span><span class="si">{</span><span class="n">ULTIMOS_DIAS</span><span class="si">}</span><span class="s2"> días de prueba (</span><span class="si">{</span><span class="n">TICKER</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Fecha"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Precio (USD)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/analitica_financiera_taller_series_tiempo_34_0.png" src="../_images/analitica_financiera_taller_series_tiempo_34_0.png" />
+</div>
+</div>
+</section>
+<section id="8.-Predicción-one-step-ahead-con-el-mejor-modelo">
+<h2>8. Predicción <em>one-step-ahead</em> con el mejor modelo<a class="headerlink" href="#8.-Predicción-one-step-ahead-con-el-mejor-modelo" title="Link to this heading">#</a></h2>
+<p>Usamos el modelo con menor RMSE en la sección anterior para proyectar el precio del siguiente día hábil, con los datos más recientes disponibles.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mejor_modelo_nombre</span> <span class="o">=</span> <span class="n">metricas</span><span class="p">[</span><span class="s2">"RMSE"</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mejor modelo por RMSE: </span><span class="si">{</span><span class="n">mejor_modelo_nombre</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">modelos_entrenados</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"MLP univariado"</span><span class="p">:</span> <span class="p">(</span><span class="n">mlp_uni</span><span class="p">,</span> <span class="s2">"uni"</span><span class="p">,</span> <span class="s2">"mlp"</span><span class="p">),</span>
+    <span class="s2">"LSTM univariada"</span><span class="p">:</span> <span class="p">(</span><span class="n">lstm_uni</span><span class="p">,</span> <span class="s2">"uni"</span><span class="p">,</span> <span class="s2">"lstm"</span><span class="p">),</span>
+    <span class="s2">"MLP multivariado"</span><span class="p">:</span> <span class="p">(</span><span class="n">mlp_multi</span><span class="p">,</span> <span class="s2">"multi"</span><span class="p">,</span> <span class="s2">"mlp"</span><span class="p">),</span>
+    <span class="s2">"LSTM multivariada"</span><span class="p">:</span> <span class="p">(</span><span class="n">lstm_multi</span><span class="p">,</span> <span class="s2">"multi"</span><span class="p">,</span> <span class="s2">"lstm"</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="n">mejor_modelo_nombre</span> <span class="o">==</span> <span class="s2">"Ingenuo (random walk)"</span><span class="p">:</span>
+    <span class="n">prediccion_manana</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s2">"precio"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">modelo_elegido</span><span class="p">,</span> <span class="n">tipo_variables</span><span class="p">,</span> <span class="n">arquitectura</span> <span class="o">=</span> <span class="n">modelos_entrenados</span><span class="p">[</span><span class="n">mejor_modelo_nombre</span><span class="p">]</span>
+
+    <span class="n">ultima_ventana_precio</span> <span class="o">=</span> <span class="n">escalador_precio</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">variables</span><span class="p">[[</span><span class="s2">"precio"</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">VENTANA</span><span class="p">:])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">ultima_ventana_features</span> <span class="o">=</span> <span class="n">escalador_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">variables</span><span class="p">[</span><span class="n">COLUMNAS_FEATURES</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">VENTANA</span><span class="p">:])</span>
+    <span class="n">ultima_ventana</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">ultima_ventana_precio</span><span class="p">,</span> <span class="n">ultima_ventana_features</span><span class="p">])</span>
+
+    <span class="n">entrada</span> <span class="o">=</span> <span class="n">ultima_ventana</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">if</span> <span class="n">tipo_variables</span> <span class="o">==</span> <span class="s2">"uni"</span> <span class="k">else</span> <span class="n">ultima_ventana</span>
+    <span class="n">entrada</span> <span class="o">=</span> <span class="n">entrada</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">arquitectura</span> <span class="o">==</span> <span class="s2">"mlp"</span> <span class="k">else</span> <span class="n">entrada</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">VENTANA</span><span class="p">,</span> <span class="n">entrada</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">prediccion_manana</span> <span class="o">=</span> <span class="n">invertir_escala</span><span class="p">(</span><span class="n">modelo_elegido</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">entrada</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">ultimo_precio</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s2">"precio"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ultima_fecha</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Último cierre disponible: </span><span class="si">{</span><span class="n">ultimo_precio</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> USD (</span><span class="si">{</span><span class="n">ultima_fecha</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Predicción para el siguiente día hábil (</span><span class="si">{</span><span class="n">mejor_modelo_nombre</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">prediccion_manana</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> USD "</span>
+      <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="p">(</span><span class="n">prediccion_manana</span><span class="o">/</span><span class="n">ultimo_precio</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">%)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Mejor modelo por RMSE: Ingenuo (random walk)
+Último cierre disponible: 336.13 USD (2026-09-18)
+Predicción para el siguiente día hábil (Ingenuo (random walk)): 336.13 USD (+0.000%)
+</pre></div></div>
+</div>
+</section>
+<section id="9.-Cierre:-preguntas-y-ejercicios-propuestos">
+<h2>9. Cierre: preguntas y ejercicios propuestos<a class="headerlink" href="#9.-Cierre:-preguntas-y-ejercicios-propuestos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Elige uno de los siguientes Tickets para realizar tu propio taller: { MSFT, JPM, XOM, SPY, SAP.DE, NESN.SW, 7203.T, 0700.HK, CIB, VALE, GC=F }</p></li>
+<li><p><strong>Interpreta tu propio resultado.</strong> Con los números de la sección 7 delante: ¿la ingeniería de variables mejoró el MLP, la LSTM, ninguno, o ambos? ¿El modelo con mejor RMSE fue también el que mejor «sigue» visualmente al precio real en la gráfica de la sección 7?</p></li>
+<li><p><strong>Importancia de variables.</strong> Los modelos de esta sección no exponen directamente qué variable pesó más (a diferencia del <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> de la sección 3.8 de <em>introducción.ipynb</em>, con su gráfico de importancias). Entrena un <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code> de <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> sobre las mismas ventanas multivariadas (aplanadas) y compara su <code class="docutils literal notranslate"><span class="pre">feature_importances_</span></code> con la mejora — o no — que viste en las redes neuronales.</p></li>
+<li><p><strong>Otra variable técnica.</strong> <em>introducción.ipynb</em> también construye MACD y <em>drawdown</em> (secciones 3.3 y 3.6) que no incluimos aquí. Agrega una de las dos al <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de variables de la sección 2.6 y repite el experimento: ¿cambia la conclusión?</p></li>
+<li><p><strong>Acierto direccional.</strong> El RMSE mide error de magnitud, no si el modelo acertó la <em>dirección</em> del movimiento (subida/bajada) — que es, en la práctica, lo que importaría para una estrategia de <em>trading</em>. Calcula el porcentaje de veces que cada modelo acierta el signo de <code class="docutils literal notranslate"><span class="pre">precio_mañana</span> <span class="pre">-</span> <span class="pre">precio_hoy</span></code> y compáralo con el ranking por RMSE de la sección 7. ¿Es el mismo modelo el mejor en ambos criterios?</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="redes_neuronales_series_tiempo.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dataops_proyectos_financieros.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">5. DataOps para Proyectos de Datos Financieros</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-Descarga-de-datos-reales">1. Descarga de datos reales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Ingeniería-de-variables-financieras">2. Ingeniería de variables financieras</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-Retorno-logarítmico">2.1 Retorno logarítmico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-Volatilidad-histórica-móvil-(21-días,-anualizada)">2.2 Volatilidad histórica móvil (21 días, anualizada)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-RSI-(14-días)">2.3 RSI (14 días)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Bandas-de-Bollinger:-%B">2.4 Bandas de Bollinger: %B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.5-Volumen-relativo">2.5 Volumen relativo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.6-Consolidación-de-la-matriz-de-variables">2.6 Consolidación de la matriz de variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Preparación-para-redes-neuronales">3. Preparación para redes neuronales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-División-cronológica-train/test">3.1 División cronológica train/test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Escalado-sin-fuga-de-información">3.2 Escalado sin fuga de información</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-Ventanas-univariadas-y-multivariadas">3.3 Ventanas univariadas y multivariadas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Arquitecturas-reutilizables">4. Arquitecturas reutilizables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Modelos-univariados-(línea-base:-solo-precio)">5. Modelos univariados (línea base: solo precio)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Modelos-multivariados-(precio-+-variables-técnicas)">6. Modelos multivariados (precio + variables técnicas)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-¿Ayudó-la-ingeniería-de-variables?-Comparación-de-desempeño">7. ¿Ayudó la ingeniería de variables? Comparación de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#8.-Predicción-one-step-ahead-con-el-mejor-modelo">8. Predicción <em>one-step-ahead</em> con el mejor modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#9.-Cierre:-preguntas-y-ejercicios-propuestos">9. Cierre: preguntas y ejercicios propuestos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
