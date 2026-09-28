@@ -1,0 +1,1878 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. NLP y modelos de lenguaje aplicados a finanzas &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analitica_financiera/S7_Introduccion_LLMs_Sentimiento_Financiero';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">5. Modelos de Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">CIENCIA DE DATOS FINANCIERA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="introducci%C3%B3n.html">3. Ciencia de Datos Financiera: Ingeniería, <em>Feature Engineering</em> y Construcción de Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redes_neuronales_series_tiempo.html">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller_series_tiempo.html">Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataops_proyectos_financieros.html">5. DataOps para Proyectos de Datos Financieros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduccion_mlflow_tensorboard.html">Un mini glosario antes de seguir</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analitica_financiera/S7_Introduccion_LLMs_Sentimiento_Financiero.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalitica_financiera/S7_Introduccion_LLMs_Sentimiento_Financiero.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analitica_financiera/S7_Introduccion_LLMs_Sentimiento_Financiero.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tema">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Tema" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Claro"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Oscuro"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="Sistema"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>Sistema</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Claro</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Oscuro</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. NLP y modelos de lenguaje aplicados a finanzas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-formas-de-leer-el-sentimiento-del-mercado">tres formas de leer el sentimiento del mercado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?">¿Por qué nos importa el sentimiento de las noticias?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Qué-se-pretende?">¿Qué se pretende?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#0.1-Entorno-de-ejecución">0.1 Entorno de ejecución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#⚠️-Un-problema-real:-el-dataset-%22no-carga%22">⚠️ Un problema real: el dataset «no carga»</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Exploración-del-dataset">1.1 Exploración del dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.2-Muestra-de-evaluación-común">1.2 Muestra de evaluación común</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-La-idea:-%22bolsa-de-palabras%22">2.1 La idea: «bolsa de palabras»</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-Obtener-el-diccionario">2.2 Obtener el diccionario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-Clasificador-por-conteo-de-palabras">2.3 Clasificador por conteo de palabras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Evaluación">2.4 Evaluación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.5-Limitación-visible:-el-diccionario-no-entiende-negaciones">2.5 Limitación visible: el diccionario no entiende negaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-Embeddings:-palabras-como-puntos-en-un-espacio">3.1 Embeddings: palabras como puntos en un espacio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Atención:-el-significado-depende-del-contexto">3.2 Atención: el significado depende del contexto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-BERT:-un-encoder-hecho-para-entender">3.3 BERT: un encoder hecho para entender</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.4-Demostración:-embeddings-de-palabras-financieras">3.4 Demostración: embeddings de palabras financieras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.5-Clasificación-con-FinBERT">3.5 Clasificación con FinBERT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.6-Volvemos-a-los-ejemplos-de-negación">3.6 Volvemos a los ejemplos de negación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-De-entender-a-generar">4.1 De entender a generar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-El-modelo:-Qwen2.5-3B-Instruct">4.2 El modelo: Qwen2.5-3B-Instruct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-Diseño-del-prompt:-forzar-una-salida-en-JSON">4.3 Diseño del prompt: forzar una salida en JSON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Parser-robusto-de-la-salida">4.4 Parser robusto de la salida</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.5-Generación-por-lotes-(zero-shot-y-few-shot)">4.5 Generación por lotes (zero-shot y few-shot)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.6-Cinco-ejemplos-con-la-justificación-del-modelo">4.6 Cinco ejemplos con la justificación del modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Preguntar-%22de-memoria%22">5.1 Preguntar «de memoria»</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Extraer-de-un-texto-dado">5.2 Extraer de un texto dado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Discusión:-¿cuándo-conviene-cada-enfoque?">6.1 Discusión: ¿cuándo conviene cada enfoque?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-(introductorio)-—-Titulares-en-español">Ejercicio 1 (introductorio) — Titulares en español</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática">Ejercicio 2 (intermedio) — Clasificar también la temática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador">Ejercicio 3 (retador) — Conexión con el proyecto integrador</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="6.-NLP-y-modelos-de-lenguaje-aplicados-a-finanzas">
+<h1>6. NLP y modelos de lenguaje aplicados a finanzas<a class="headerlink" href="#6.-NLP-y-modelos-de-lenguaje-aplicados-a-finanzas" title="Link to this heading">#</a></h1>
+<section id="tres-formas-de-leer-el-sentimiento-del-mercado">
+<h2>tres formas de leer el sentimiento del mercado<a class="headerlink" href="#tres-formas-de-leer-el-sentimiento-del-mercado" title="Link to this heading">#</a></h2>
+<section id="¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?">
+<h3>¿Por qué nos importa el sentimiento de las noticias?<a class="headerlink" href="#¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?" title="Link to this heading">#</a></h3>
+<p>Un anuncio de «recorte de dividendos» o de «récord de utilidades» puede mover un precio en minutos, ajustar la prima de riesgo que el mercado exige a una empresa, o alimentar un modelo de valoración que usa el sentimiento como una señal más, junto al PER o el ROE.</p>
+<p><strong>Ningún analista</strong> puede leer manualmente miles de titulares por día. Necesitamos automatizar la lectura.</p>
+<p>Existen varias formas de hacerlo, con compromisos muy distintos entre costo, velocidad, precisión e interpretabilidad.</p>
+</section>
+<section id="¿Qué-se-pretende?">
+<h3>¿Qué se pretende?<a class="headerlink" href="#¿Qué-se-pretende?" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Explicar por qué el análisis de sentimiento en textos financieros es más difícil que en textos genéricos, y cómo la solución evolucionó de diccionarios a modelos de lenguaje.</p></li>
+<li><p>Implementar y comparar <strong>tres enfoques</strong> de clasificación de sentimiento (diccionario financiero, FinBERT y un LLM generativo) sobre el <strong>mismo conjunto de noticias financieras</strong>.</p></li>
+<li><p>Diseñar <em>prompts</em> estructurados (zero-shot y few-shot) para obtener salidas confiables en formato JSON desde un LLM.</p></li>
+<li><p>Reconocer los riesgos de alucinación de los LLM en contextos financieros y aplicar buenas prácticas (extraer de documentos provistos, no preguntar «de memoria»; verificar siempre la salida).</p></li>
+</ol>
+<p>Vamos a resolver <strong>el mismo problema</strong> clasificar una frase de noticia financiera como positiva, negativa o neutral con tres técnicas cada vez más sofisticadas. Cada peldaño existe porque el anterior tiene una limitación concreta que vamos a ver fallar con nuestros propios ojos:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Peldaño</p></th>
+<th class="head"><p>Técnica</p></th>
+<th class="head"><p>Resuelve…</p></th>
+<th class="head"><p>Pero falla cuando…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Diccionario financiero (Loughran-McDonald)</p></td>
+<td><p>Palabras genéricas mal calificadas en finanzas</p></td>
+<td><p>Hay negaciones o contexto («no cayeron las utilidades»)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Embeddings + FinBERT (encoder)</p></td>
+<td><p>El contexto de cada palabra</p></td>
+<td><p>Necesitamos que el modelo <em>explique</em> su razonamiento o siga instrucciones nuevas</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>LLM generativo con <em>prompting</em> (decoder)</p></td>
+<td><p>Instrucciones flexibles y explicaciones en texto</p></td>
+<td><p>El modelo puede «alucinar» datos que no están en el texto</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="0.1-Entorno-de-ejecución">
+<h3>0.1 Entorno de ejecución<a class="headerlink" href="#0.1-Entorno-de-ejecución" title="Link to this heading">#</a></h3>
+<p>Este cuaderno está pensado para Colab:</p>
+<ul class="simple">
+<li><p>Las partes 1 y 2 funcionan bien en CPU (no necesitas GPU para esa parte).</p></li>
+<li><p>la parte 3 (LLM generativo) necesita <strong>GPU</strong> para correr en un tiempo razonable. En Colab: <code class="docutils literal notranslate"><span class="pre">Entorno</span> <span class="pre">de</span> <span class="pre">ejecución</span> <span class="pre">&gt;</span> <span class="pre">Cambiar</span> <span class="pre">tipo</span> <span class="pre">de</span> <span class="pre">entorno</span> <span class="pre">de</span> <span class="pre">ejecución</span> <span class="pre">&gt;</span> <span class="pre">T4</span> <span class="pre">GPU</span></code> (nivel gratuito).</p></li>
+</ul>
+<p>Ejecuta las siguientes celdas en orden. Si Colab te pide reiniciar el entorno de ejecución después de instalar librerías, hazlo antes de continuar.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalación de librerías con versiones fijadas para reproducibilidad.</span>
+<span class="c1">#</span>
+<span class="c1"># OJO: a propósito NO reinstalamos `torch` aquí. Colab ya trae una versión de</span>
+<span class="c1"># PyTorch compilada específicamente contra la GPU del entorno (CUDA). Si la</span>
+<span class="c1"># reemplazamos con `pip install torch==...` corremos el riesgo de instalar una</span>
+<span class="c1"># build que no coincide con esa GPU y perder el soporte de GPU sin darnos</span>
+<span class="c1"># cuenta. Todo lo demás sí lo fijamos.</span>
+<span class="c1">#</span>
+<span class="c1"># `bitsandbytes` solo publica wheels para Linux y Windows: en Colab (Linux)</span>
+<span class="c1"># se instala sin problema. En MacOS no funciona.</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span><span class="err">\</span>
+    <span class="s2">"transformers==4.46.3"</span> \
+    <span class="s2">"datasets==3.0.1"</span> \
+    <span class="s2">"accelerate==1.0.1"</span> \
+    <span class="s2">"bitsandbytes==0.44.1"</span> \
+    <span class="s2">"sentence-transformers==3.2.1"</span> \
+    <span class="s2">"huggingface_hub==0.25.2"</span> \
+    <span class="s2">"scikit-learn==1.5.2"</span> \
+    <span class="s2">"pandas==2.2.3"</span> \
+    <span class="s2">"matplotlib==3.9.2"</span> \
+    <span class="s2">"seaborn==0.13.2"</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importaciones y configuración general</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">"whitegrid"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"figure.figsize"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_colwidth"</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PyTorch: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Detección de GPU</span>
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="n">DEVICE</span> <span class="o">=</span> <span class="s2">"cuda"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GPU disponible: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Memoria total: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">total_memory</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1e9</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GB"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DEVICE</span> <span class="o">=</span> <span class="s2">"cpu"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"⚠️  No se detectó GPU."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"   Las partes 1 y 2 (diccionario y FinBERT) funcionan bien en CPU."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"   la parte3 (LLM generativo) será MUY lento en CPU."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"   En Colab: Entorno de ejecución &gt; Cambiar tipo de entorno de ejecución &gt; GPU (T4)."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Semillas para reproducibilidad</span>
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>## 1. Datos: Financial PhraseBank</p>
+<p>El <a class="reference external" href="https://huggingface.co/datasets/takala/financial_phrasebank">Financial PhraseBank</a> (Malo et al.,</p>
+<ol class="arabic simple" start="2014">
+<li><p>es un conjunto de ~4 840 frases tomadas de noticias financieras en inglés (Reuters, LexisNexis), anotadas por 16 personas con formación en finanzas. Cada anotador clasificó cada frase como <strong>positiva, negativa o neutral</strong>, siempre desde el punto de vista de un inversionista (¿esta frase sugiere que el precio de la acción debería subir, bajar, o no debería verse afectado?).</p></li>
+</ol>
+<p>El dataset viene en cuatro versiones según qué tan de acuerdo estuvieron los anotadores entre sí:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>% de acuerdo exigido</p></th>
+<th class="head"><p>Nº de frases (aprox.)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sentences_allagree</span></code></p></td>
+<td><p>100% de los anotadores</p></td>
+<td><p>~2 264</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentences_75agree</span></code></p></td>
+<td><p>≥75%</p></td>
+<td><p>~3 453</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sentences_66agree</span></code></p></td>
+<td><p>≥66%</p></td>
+<td><p>~4 217</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentences_50agree</span></code></p></td>
+<td><p>≥50%</p></td>
+<td><p>~4 846</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Usaremos <code class="docutils literal notranslate"><span class="pre">sentences_allagree</span></code>: es la más pequeña, pero también la más confiable (nadie discutió la etiqueta), lo cual la hace ideal para comparar métodos de forma justa.</p>
+</section>
+<section id="⚠️-Un-problema-real:-el-dataset-%22no-carga%22">
+<h3>⚠️ Un problema real: el dataset «no carga»<a class="headerlink" href="#⚠️-Un-problema-real:-el-dataset-%22no-carga%22" title="Link to this heading">#</a></h3>
+<p>Si buscas ejemplos de este dataset en internet, casi todos usan:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="n">load_dataset</span><span class="p">(</span><span class="s2">"takala/financial_phrasebank"</span><span class="p">,</span> <span class="s2">"sentences_allagree"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Esto <strong>ya no funciona</strong> con versiones recientes de la librería <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. El dataset se publicó en Hugging Face usando un <em>script</em> de carga (<code class="docutils literal notranslate"><span class="pre">financial_phrasebank.py</span></code>) que descarga y descomprime el archivo original. Por razones de seguridad, Hugging Face <strong>dejó de permitir la ejecución de scripts de carga arbitrarios</strong>, así que <code class="docutils literal notranslate"><span class="pre">datasets</span></code> ahora rechaza este tipo de dataset directamente con un error <code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">Dataset</span> <span class="pre">scripts</span> <span class="pre">are</span> <span class="pre">no</span> <span class="pre">longer</span> <span class="pre">supported</span></code>. Para completar el cuadro, el
+script además apunta a un identificador de repositorio (<code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code>, sin el prefijo <code class="docutils literal notranslate"><span class="pre">takala/</span></code>) que ya no existe tal cual, así que ni siquiera forzando <code class="docutils literal notranslate"><span class="pre">trust_remote_code=True</span></code> funciona.</p>
+<p>Esto es exactamente el tipo de fricción que te vas a encontrar en proyectos reales con datasets de Hugging Face que llevan varios años publicados: <strong>el archivo de datos original sigue estando ahí</strong> (alojado como un <code class="docutils literal notranslate"><span class="pre">.zip</span></code> normal en el repositorio), pero el mecanismo automático para leerlo se rompió. La solución: descargarlo directamente y parsearlo nosotros mismos.</p>
+<p>Abajo implementamos <strong>plan A</strong> (el camino «oficial», que dejamos por transparencia aunque hoy falle) y un <strong>plan B</strong> que sí funciona: descarga directa del <code class="docutils literal notranslate"><span class="pre">.zip</span></code> oficial desde el repositorio del dataset.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plan A: la forma "de libro de texto" de cargar el dataset.</span>
+<span class="c1"># La dejamos aquí a propósito para que veas el error real y por qué hace falta un plan B.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+
+<span class="n">FPB_CONFIG</span> <span class="o">=</span> <span class="s2">"sentences_allagree"</span>  <span class="c1"># otras opciones: sentences_75agree, sentences_66agree, sentences_50agree</span>
+
+<span class="n">df_fpb</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">fpb_dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">"takala/financial_phrasebank"</span><span class="p">,</span> <span class="n">FPB_CONFIG</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_fpb</span> <span class="o">=</span> <span class="n">fpb_dataset</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"sentence"</span><span class="p">:</span> <span class="s2">"frase"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">:</span> <span class="s2">"etiqueta"</span><span class="p">})</span>
+    <span class="c1"># Si `datasets` cargó el dataset, la etiqueta viene como entero (ClassLabel);</span>
+    <span class="c1"># la convertimos a texto con el mismo mapeo definido en el dataset.</span>
+    <span class="n">class_label</span> <span class="o">=</span> <span class="n">fpb_dataset</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span>
+    <span class="n">df_fpb</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_fpb</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">class_label</span><span class="o">.</span><span class="n">int2str</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Plan A funcionó: dataset cargado con `datasets.load_dataset`."</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Plan A falló (es lo esperado hoy):"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)[:</span><span class="mi">200</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plan B: descarga directa del archivo oficial del dataset (mismos datos, sin script).</span>
+<span class="c1"># El archivo sigue alojado públicamente en el repositorio; solo lo leemos nosotros mismos.</span>
+<span class="k">if</span> <span class="n">df_fpb</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Usando plan B: descarga directa del .zip oficial."</span><span class="p">)</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">huggingface_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">hf_hub_download</span>
+
+    <span class="n">ruta_zip</span> <span class="o">=</span> <span class="n">hf_hub_download</span><span class="p">(</span>
+        <span class="n">repo_id</span><span class="o">=</span><span class="s2">"takala/financial_phrasebank"</span><span class="p">,</span>
+        <span class="n">repo_type</span><span class="o">=</span><span class="s2">"dataset"</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s2">"data/FinancialPhraseBank-v1.0.zip"</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">nombre_archivo_por_config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"sentences_allagree"</span><span class="p">:</span> <span class="s2">"Sentences_AllAgree.txt"</span><span class="p">,</span>
+        <span class="s2">"sentences_75agree"</span><span class="p">:</span> <span class="s2">"Sentences_75Agree.txt"</span><span class="p">,</span>
+        <span class="s2">"sentences_66agree"</span><span class="p">:</span> <span class="s2">"Sentences_66Agree.txt"</span><span class="p">,</span>
+        <span class="s2">"sentences_50agree"</span><span class="p">:</span> <span class="s2">"Sentences_50Agree.txt"</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">nombre_archivo</span> <span class="o">=</span> <span class="n">nombre_archivo_por_config</span><span class="p">[</span><span class="n">FPB_CONFIG</span><span class="p">]</span>
+
+    <span class="n">filas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">ruta_zip</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">ruta_interna</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"FinancialPhraseBank-v1.0/</span><span class="si">{</span><span class="n">nombre_archivo</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">with</span> <span class="n">z</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ruta_interna</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># El archivo original está codificado en latin-1 (ISO-8859-1), no en UTF-8.</span>
+            <span class="c1"># Si lo lees como UTF-8 vas a obtener un UnicodeDecodeError.</span>
+            <span class="n">texto</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"latin-1"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">texto</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s2">"@"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">linea</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">frase</span><span class="p">,</span> <span class="n">etiqueta</span> <span class="o">=</span> <span class="n">linea</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"@"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"frase"</span><span class="p">:</span> <span class="n">frase</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="s2">"etiqueta"</span><span class="p">:</span> <span class="n">etiqueta</span><span class="o">.</span><span class="n">strip</span><span class="p">()})</span>
+
+    <span class="n">df_fpb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filas</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Plan B funcionó: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_fpb</span><span class="p">)</span><span class="si">}</span><span class="s2"> frases cargadas directamente del archivo oficial."</span><span class="p">)</span>
+
+<span class="n">df_fpb</span> <span class="o">=</span> <span class="n">df_fpb</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_fpb</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="1.1-Exploración-del-dataset">
+<h3>1.1 Exploración del dataset<a class="headerlink" href="#1.1-Exploración-del-dataset" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ETIQUETAS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"negative"</span><span class="p">,</span> <span class="s2">"neutral"</span><span class="p">,</span> <span class="s2">"positive"</span><span class="p">]</span>
+
+<span class="n">conteo</span> <span class="o">=</span> <span class="n">df_fpb</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ETIQUETAS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conteo</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">conteo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">conteo</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">ETIQUETAS</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distribución de clases — Financial PhraseBank (</span><span class="si">{</span><span class="n">FPB_CONFIG</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Sentimiento"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Número de frases"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cinco ejemplos de cada clase</span>
+<span class="k">for</span> <span class="n">etiqueta</span> <span class="ow">in</span> <span class="n">ETIQUETAS</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">etiqueta</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ==="</span><span class="p">)</span>
+    <span class="n">ejemplos</span> <span class="o">=</span> <span class="n">df_fpb</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_fpb</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">]</span> <span class="o">==</span> <span class="n">etiqueta</span><span class="p">,</span> <span class="s2">"frase"</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">frase</span> <span class="ow">in</span> <span class="n">ejemplos</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- </span><span class="si">{</span><span class="n">frase</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="1.2-Muestra-de-evaluación-común">
+<h3>1.2 Muestra de evaluación común<a class="headerlink" href="#1.2-Muestra-de-evaluación-común" title="Link to this heading">#</a></h3>
+<p>Para que la comparación entre los tres métodos sea <strong>justa</strong>, vamos a evaluarlos siempre sobre la <strong>misma muestra</strong>. También reservamos unas pocas frases fuera de esa muestra para usarlas como ejemplos de referencia (<em>few-shot</em>) de la parte 3, sin que el LLM «vea» antes las frases que luego vamos a usar para evaluarlo.</p>
+<p><code class="docutils literal notranslate"><span class="pre">N_EVAL</span></code> queda como parámetro editable: bájalo si quieres iterar más rápido (por ejemplo mientras depuras el prompt del LLM) y súbelo para la comparación final.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_EVAL</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># tamaño de la muestra de evaluación común a los tres métodos (ajústalo si lo necesitas)</span>
+
+<span class="n">indices_eval</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">df_fpb</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">train_size</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">N_EVAL</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_fpb</span><span class="p">)),</span>
+    <span class="n">stratify</span><span class="o">=</span><span class="n">df_fpb</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">df_eval</span> <span class="o">=</span> <span class="n">df_fpb</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices_eval</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_resto</span> <span class="o">=</span> <span class="n">df_fpb</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">indices_eval</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Muestra de evaluación: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span><span class="si">}</span><span class="s2"> frases"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ETIQUETAS</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Un ejemplo por clase, tomado del resto (fuera de la muestra de evaluación),</span>
+<span class="c1"># para usar como demostración few-shot en la parte 3.</span>
+<span class="n">ejemplos_few_shot</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_resto</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"etiqueta"</span><span class="p">,</span> <span class="n">group_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span><span class="s2">"frase"</span><span class="p">,</span> <span class="s2">"etiqueta"</span><span class="p">]]</span>
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">ejemplos_few_shot</span>
+</pre></div>
+</div>
+</div>
+<p>## 2. Parte 1: Diccionario financiero (Loughran-McDonald)</p>
+</section>
+<section id="2.1-La-idea:-%22bolsa-de-palabras%22">
+<h3>2.1 La idea: «bolsa de palabras»<a class="headerlink" href="#2.1-La-idea:-%22bolsa-de-palabras%22" title="Link to this heading">#</a></h3>
+<p>El enfoque más simple para medir sentimiento es contar palabras: si una frase tiene más palabras de una lista de «palabras positivas» que de una lista de «palabras negativas», la llamamos positiva, y viceversa. A esto se le llama enfoque de <strong>bolsa de palabras</strong> (<em>bag of words</em>): no importa el orden de las palabras ni cómo se relacionan entre sí, solo cuáles aparecen.</p>
+<p>El primer problema es que <strong>los diccionarios de sentimiento genéricos (pensados para reseñas de productos o redes sociales) fallan sistemáticamente en finanzas</strong>, porque el vocabulario financiero tiene connotaciones propias. Por ejemplo:</p>
+<ul class="simple">
+<li><p><strong>«liability» (pasivo)</strong> suena negativo en el uso cotidiano, pero es un término contable neutral: toda empresa tiene pasivos.</p></li>
+<li><p><strong>«tax» (impuesto)</strong> suena negativo para una persona, pero en un reporte financiero puede aparecer en contextos completamente neutrales («tax expense of $2M»).</p></li>
+<li><p><strong>«cost» (costo)</strong> no es necesariamente negativo: «cost reduction» (reducción de costos) es una noticia positiva para el inversionista, aunque contenga la palabra «cost».</p></li>
+</ul>
+<p>Por eso, Loughran y McDonald (2011) construyeron un diccionario de sentimiento <strong>específico para textos financieros</strong> (reportes 10-K de la SEC), donde palabras como «liability» simplemente no aparecen en la lista negativa, y sí aparecen palabras propias del lenguaje de riesgo financiero («litigation», «impairment», «default», «bankruptcy»…).</p>
+</section>
+<section id="2.2-Obtener-el-diccionario">
+<h3>2.2 Obtener el diccionario<a class="headerlink" href="#2.2-Obtener-el-diccionario" title="Link to this heading">#</a></h3>
+<p>El diccionario Loughran-McDonald se distribuye desde la página de la Universidad de Notre Dame: <a class="reference external" href="https://sraf.nd.edu/loughranmcdonald-master-dictionary/">sraf.nd.edu/loughranmcdonald-master-dictionary</a> (sección «Master Dictionary»). No se puede descargar mediante código porque hay que aceptar los términos de uso en un formulario, así que aquí te damos dos caminos:</p>
+<ul class="simple">
+<li><p><strong>(a) Si ya descargaste el CSV oficial</strong>: súbelo cuando la celda te lo pida (el nombre del archivo suele ser algo como <code class="docutils literal notranslate"><span class="pre">Loughran-McDonald_MasterDictionary_1993-2024.csv</span></code>).</p></li>
+<li><p><strong>(b) Si no lo tienes a mano</strong>: seguimos con una <strong>versión simplificada</strong>, embebida en el código, con ~50 palabras positivas y ~50 negativas representativas del diccionario real. <strong>No es el diccionario completo</strong> (la versión oficial tiene cerca de dos mil palabras negativas y varios cientos de positivas) — es suficiente para ver el enfoque funcionar y, sobre todo, para ver dónde falla.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (a) Intento de carga del CSV oficial (solo tiene efecto si lo subes; si cancelas, seguimos con (b))</span>
+<span class="n">usar_csv_oficial</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">palabras_positivas</span><span class="p">,</span> <span class="n">palabras_negativas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Si tienes el CSV oficial de Loughran-McDonald, súbelo ahora."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Si prefieres usar la versión simplificada, presiona 'Cancel upload'."</span><span class="p">)</span>
+    <span class="n">archivos_subidos</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+    <span class="n">archivos_subidos</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No estamos en Colab: seguimos directo con la versión simplificada (b)."</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">archivos_subidos</span><span class="p">:</span>
+    <span class="n">ruta_csv</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">archivos_subidos</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">df_lm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_csv</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"latin-1"</span><span class="p">)</span>
+    <span class="n">df_lm</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df_lm</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="n">palabras_positivas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df_lm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_lm</span><span class="p">[</span><span class="s2">"positive"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="n">palabras_negativas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df_lm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_lm</span><span class="p">[</span><span class="s2">"negative"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="n">usar_csv_oficial</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CSV oficial cargado: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">palabras_positivas</span><span class="p">)</span><span class="si">}</span><span class="s2"> palabras positivas, "</span>
+          <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">palabras_negativas</span><span class="p">)</span><span class="si">}</span><span class="s2"> negativas."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (b) Versión simplificada con fines didácticos: ~50 palabras representativas por clase,</span>
+<span class="c1"># tomadas del espíritu del diccionario Loughran-McDonald. NO reemplaza al diccionario oficial.</span>
+<span class="n">PALABRAS_POSITIVAS_SIMPLIFICADO</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"improve"</span><span class="p">,</span> <span class="s2">"improved"</span><span class="p">,</span> <span class="s2">"improvement"</span><span class="p">,</span> <span class="s2">"improving"</span><span class="p">,</span> <span class="s2">"improves"</span><span class="p">,</span>
+    <span class="s2">"growth"</span><span class="p">,</span> <span class="s2">"grew"</span><span class="p">,</span> <span class="s2">"growing"</span><span class="p">,</span> <span class="s2">"grows"</span><span class="p">,</span>
+    <span class="s2">"gain"</span><span class="p">,</span> <span class="s2">"gains"</span><span class="p">,</span> <span class="s2">"gained"</span><span class="p">,</span>
+    <span class="s2">"profit"</span><span class="p">,</span> <span class="s2">"profits"</span><span class="p">,</span> <span class="s2">"profitable"</span><span class="p">,</span> <span class="s2">"profitability"</span><span class="p">,</span>
+    <span class="s2">"strong"</span><span class="p">,</span> <span class="s2">"strength"</span><span class="p">,</span> <span class="s2">"strengthen"</span><span class="p">,</span> <span class="s2">"strengthened"</span><span class="p">,</span>
+    <span class="s2">"success"</span><span class="p">,</span> <span class="s2">"successful"</span><span class="p">,</span> <span class="s2">"successfully"</span><span class="p">,</span>
+    <span class="s2">"achieve"</span><span class="p">,</span> <span class="s2">"achieved"</span><span class="p">,</span> <span class="s2">"achievement"</span><span class="p">,</span>
+    <span class="s2">"exceed"</span><span class="p">,</span> <span class="s2">"exceeded"</span><span class="p">,</span> <span class="s2">"exceeding"</span><span class="p">,</span>
+    <span class="s2">"outperform"</span><span class="p">,</span> <span class="s2">"outperformed"</span><span class="p">,</span>
+    <span class="s2">"efficient"</span><span class="p">,</span> <span class="s2">"efficiency"</span><span class="p">,</span>
+    <span class="s2">"innovative"</span><span class="p">,</span> <span class="s2">"innovation"</span><span class="p">,</span>
+    <span class="s2">"favorable"</span><span class="p">,</span> <span class="s2">"favorably"</span><span class="p">,</span>
+    <span class="s2">"opportunity"</span><span class="p">,</span> <span class="s2">"opportunities"</span><span class="p">,</span>
+    <span class="s2">"robust"</span><span class="p">,</span> <span class="s2">"solid"</span><span class="p">,</span>
+    <span class="s2">"upturn"</span><span class="p">,</span> <span class="s2">"expansion"</span><span class="p">,</span> <span class="s2">"expand"</span><span class="p">,</span> <span class="s2">"expanded"</span><span class="p">,</span>
+    <span class="s2">"rebound"</span><span class="p">,</span> <span class="s2">"recovery"</span><span class="p">,</span> <span class="s2">"recovered"</span><span class="p">,</span>
+    <span class="s2">"enhance"</span><span class="p">,</span> <span class="s2">"enhanced"</span><span class="p">,</span> <span class="s2">"enhancement"</span><span class="p">,</span>
+    <span class="s2">"outstanding"</span><span class="p">,</span> <span class="s2">"exceptional"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">PALABRAS_NEGATIVAS_SIMPLIFICADO</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"loss"</span><span class="p">,</span> <span class="s2">"losses"</span><span class="p">,</span>
+    <span class="s2">"decline"</span><span class="p">,</span> <span class="s2">"declined"</span><span class="p">,</span> <span class="s2">"declining"</span><span class="p">,</span> <span class="s2">"declines"</span><span class="p">,</span>
+    <span class="s2">"deficit"</span><span class="p">,</span>
+    <span class="s2">"deteriorate"</span><span class="p">,</span> <span class="s2">"deteriorated"</span><span class="p">,</span> <span class="s2">"deterioration"</span><span class="p">,</span>
+    <span class="s2">"adverse"</span><span class="p">,</span> <span class="s2">"adversely"</span><span class="p">,</span>
+    <span class="s2">"bankruptcy"</span><span class="p">,</span> <span class="s2">"bankrupt"</span><span class="p">,</span>
+    <span class="s2">"impairment"</span><span class="p">,</span> <span class="s2">"impair"</span><span class="p">,</span> <span class="s2">"impaired"</span><span class="p">,</span>
+    <span class="s2">"litigation"</span><span class="p">,</span> <span class="s2">"lawsuit"</span><span class="p">,</span> <span class="s2">"lawsuits"</span><span class="p">,</span>
+    <span class="s2">"penalty"</span><span class="p">,</span> <span class="s2">"penalties"</span><span class="p">,</span>
+    <span class="s2">"fraud"</span><span class="p">,</span> <span class="s2">"fraudulent"</span><span class="p">,</span>
+    <span class="s2">"default"</span><span class="p">,</span> <span class="s2">"defaults"</span><span class="p">,</span> <span class="s2">"defaulted"</span><span class="p">,</span>
+    <span class="s2">"restructuring"</span><span class="p">,</span>
+    <span class="s2">"layoff"</span><span class="p">,</span> <span class="s2">"layoffs"</span><span class="p">,</span>
+    <span class="s2">"downturn"</span><span class="p">,</span> <span class="s2">"recession"</span><span class="p">,</span>
+    <span class="s2">"volatility"</span><span class="p">,</span> <span class="s2">"volatile"</span><span class="p">,</span>
+    <span class="s2">"weak"</span><span class="p">,</span> <span class="s2">"weakness"</span><span class="p">,</span> <span class="s2">"weakened"</span><span class="p">,</span>
+    <span class="s2">"unfavorable"</span><span class="p">,</span> <span class="s2">"negative"</span><span class="p">,</span>
+    <span class="s2">"failure"</span><span class="p">,</span> <span class="s2">"failed"</span><span class="p">,</span> <span class="s2">"fail"</span><span class="p">,</span>
+    <span class="s2">"breach"</span><span class="p">,</span> <span class="s2">"violation"</span><span class="p">,</span> <span class="s2">"violations"</span><span class="p">,</span>
+    <span class="s2">"terminate"</span><span class="p">,</span> <span class="s2">"terminated"</span><span class="p">,</span> <span class="s2">"termination"</span><span class="p">,</span>
+    <span class="s2">"delinquent"</span><span class="p">,</span> <span class="s2">"delinquency"</span><span class="p">,</span>
+    <span class="s2">"shortfall"</span><span class="p">,</span> <span class="s2">"closure"</span><span class="p">,</span> <span class="s2">"closures"</span><span class="p">,</span>
+    <span class="s2">"discontinued"</span><span class="p">,</span> <span class="s2">"insolvent"</span><span class="p">,</span> <span class="s2">"insolvency"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">usar_csv_oficial</span><span class="p">:</span>
+    <span class="n">palabras_positivas</span> <span class="o">=</span> <span class="n">PALABRAS_POSITIVAS_SIMPLIFICADO</span>
+    <span class="n">palabras_negativas</span> <span class="o">=</span> <span class="n">PALABRAS_NEGATIVAS_SIMPLIFICADO</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Usando versión simplificada: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">palabras_positivas</span><span class="p">)</span><span class="si">}</span><span class="s2"> palabras positivas, "</span>
+          <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">palabras_negativas</span><span class="p">)</span><span class="si">}</span><span class="s2"> negativas."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.3-Clasificador-por-conteo-de-palabras">
+<h3>2.3 Clasificador por conteo de palabras<a class="headerlink" href="#2.3-Clasificador-por-conteo-de-palabras" title="Link to this heading">#</a></h3>
+<p>La regla es simple: tokenizamos la frase (minúsculas, solo palabras), contamos cuántos tokens caen en cada lista, y decidimos por mayoría. Empate → neutral.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenizar</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Tokenización simple: minúsculas y solo secuencias de letras."""</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-záéíóúñ]+"</span><span class="p">,</span> <span class="n">texto</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">clasificar_por_diccionario</span><span class="p">(</span><span class="n">texto</span><span class="p">,</span> <span class="n">positivas</span><span class="p">,</span> <span class="n">negativas</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizar</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+    <span class="n">n_pos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">positivas</span><span class="p">)</span>
+    <span class="n">n_neg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">negativas</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_pos</span> <span class="o">&gt;</span> <span class="n">n_neg</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"positive"</span>
+    <span class="k">if</span> <span class="n">n_neg</span> <span class="o">&gt;</span> <span class="n">n_pos</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"negative"</span>
+    <span class="k">return</span> <span class="s2">"neutral"</span>
+
+
+<span class="n">tiempos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">inicio</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_diccionario"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"frase"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">clasificar_por_diccionario</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">palabras_positivas</span><span class="p">,</span> <span class="n">palabras_negativas</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">tiempos</span><span class="p">[</span><span class="s2">"Diccionario"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">inicio</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.4-Evaluación">
+<h3>2.4 Evaluación<a class="headerlink" href="#2.4-Evaluación" title="Link to this heading">#</a></h3>
+<p>Vamos a reutilizar estas dos funciones de evaluación para los <strong>cuatro</strong> métodos que comparemos en este cuaderno (diccionario, FinBERT, LLM zero-shot, LLM few-shot), para que las métricas sean directamente comparables.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluar</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">nombre_metodo</span><span class="p">):</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">f1_macro</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">ETIQUETAS</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">"macro"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"--- </span><span class="si">{</span><span class="n">nombre_metodo</span><span class="si">}</span><span class="s2"> ---"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  |  F1 macro: </span><span class="si">{</span><span class="n">f1_macro</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">ETIQUETAS</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"metodo"</span><span class="p">:</span> <span class="n">nombre_metodo</span><span class="p">,</span> <span class="s2">"accuracy"</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s2">"f1_macro"</span><span class="p">:</span> <span class="n">f1_macro</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">graficar_matriz_confusion</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">nombre_metodo</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">ETIQUETAS</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+        <span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"d"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"Blues"</span><span class="p">,</span>
+        <span class="n">xticklabels</span><span class="o">=</span><span class="n">ETIQUETAS</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">ETIQUETAS</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">nombre_metodo</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Predicho"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Real"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluar</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_diccionario"</span><span class="p">],</span> <span class="s2">"Diccionario"</span><span class="p">))</span>
+<span class="n">graficar_matriz_confusion</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_diccionario"</span><span class="p">],</span> <span class="s2">"Diccionario"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.5-Limitación-visible:-el-diccionario-no-entiende-negaciones">
+<h3>2.5 Limitación visible: el diccionario no entiende negaciones<a class="headerlink" href="#2.5-Limitación-visible:-el-diccionario-no-entiende-negaciones" title="Link to this heading">#</a></h3>
+<p>El conteo de palabras no tiene forma de saber que «not» invierte el sentido de la palabra que sigue. Veamos qué pasa con frases que contienen negaciones explícitas:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ejemplos_negacion</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"Profits did not decline in the third quarter."</span><span class="p">,</span>
+    <span class="s2">"The company avoided losses despite the difficult market conditions."</span><span class="p">,</span>
+    <span class="s2">"Sales did not fail to meet analyst expectations."</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">frase</span> <span class="ow">in</span> <span class="n">ejemplos_negacion</span><span class="p">:</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">clasificar_por_diccionario</span><span class="p">(</span><span class="n">frase</span><span class="p">,</span> <span class="n">palabras_positivas</span><span class="p">,</span> <span class="n">palabras_negativas</span><span class="p">)</span>
+    <span class="n">tokens_detectados</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokenizar</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">palabras_positivas</span> <span class="ow">or</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">palabras_negativas</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Frase: </span><span class="si">{</span><span class="n">frase</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Palabras del diccionario detectadas: </span><span class="si">{</span><span class="n">tokens_detectados</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Predicción: </span><span class="si">{</span><span class="n">pred</span><span class="si">}</span><span class="s2">  (la frase en realidad es neutral o positiva para el inversionista)</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Fíjate en el resultado de la primera frase: el diccionario la clasifica como <strong>neutral</strong>, que a simple vista parece razonable… pero llegó ahí <strong>por la razón equivocada</strong>. Detectó <em>profits</em> (positiva) y <em>decline</em> (negativa), y como hubo empate, el desempate por defecto la mandó a neutral — no porque «entendiera» que «did not decline» invierte el sentido de <em>decline</em>. Si la frase hubiera sido «Operating losses did not decline» (dos palabras negativas, ninguna positiva), el mismo mecanismo la
+habría marcado como negativa a pesar de describir algo malo que <strong>no empeoró</strong>.</p>
+<p>Las otras dos frases sí fallan de forma más obvia: ambas describen algo bueno para la empresa (pérdidas que se <strong>evitaron</strong>, ventas que <strong>no</strong> decepcionaron), pero el diccionario las marca como negativas porque solo ve las palabras <em>losses</em> y <em>fail</em>, sin registrar que «avoided» y «did not fail» invierten su sentido. El diccionario cuenta palabras sin mirar la estructura de la frase, así que se equivoca sistemáticamente con negaciones, condicionales o comparaciones («less bad than expected»).</p>
+<p><strong>Pregunta que motiva la siguiente parte:</strong> ¿cómo logramos que el modelo entienda que el significado de una palabra depende de las palabras que la rodean?</p>
+<p>## 3. Parte 2: Embeddings, atención y FinBERT</p>
+</section>
+<section id="3.1-Embeddings:-palabras-como-puntos-en-un-espacio">
+<h3>3.1 Embeddings: palabras como puntos en un espacio<a class="headerlink" href="#3.1-Embeddings:-palabras-como-puntos-en-un-espacio" title="Link to this heading">#</a></h3>
+<p>Un <strong>embedding</strong> es una representación numérica de una palabra (o frase) como un vector de números reales, aprendido de tal forma que <strong>palabras con significados parecidos quedan cerca en ese espacio</strong>.</p>
+<p>Si conoces el análisis factorial o los modelos multifactoriales en finanzas, la idea es análoga: en vez de describir cada acción con decenas de variables observadas (P/E, ROE, beta, momentum…), un modelo de factores la resume en unas pocas coordenadas latentes (tamaño, valor, momentum…) tales que acciones parecidas quedan cerca en ese espacio de factores. Un embedding hace lo mismo con palabras: en lugar de describir «profit» con reglas explícitas, un modelo de lenguaje le asigna un vector
+de, por ejemplo, 384 números, aprendidos de tal forma que «profit» quede cerca de «earnings» y lejos de «bankruptcy».</p>
+</section>
+<section id="3.2-Atención:-el-significado-depende-del-contexto">
+<h3>3.2 Atención: el significado depende del contexto<a class="headerlink" href="#3.2-Atención:-el-significado-depende-del-contexto" title="Link to this heading">#</a></h3>
+<p>El problema de los embeddings <em>estáticos</em> (una palabra → un vector fijo) es que una misma palabra puede significar cosas distintas según el contexto: «shares» puede ser «acciones» (financiero) o «comparte» (verbo); «bank» puede ser un banco o la orilla de un río. El mecanismo de <strong>atención</strong>, introducido por la arquitectura <em>Transformer</em>, resuelve esto: para cada palabra de la frase, el modelo calcula cuánto debe «prestarle atención» a cada una de las demás palabras para ajustar su significado.
+Es como un analista que, al leer «the company’s shares rose after strong earnings», automáticamente interpreta «shares» en su sentido financiero porque el resto de la frase (<em>earnings</em>, <em>rose</em>) le da ese contexto — sin que nadie se lo tenga que indicar explícitamente.</p>
+</section>
+<section id="3.3-BERT:-un-encoder-hecho-para-entender">
+<h3>3.3 BERT: un encoder hecho para entender<a class="headerlink" href="#3.3-BERT:-un-encoder-hecho-para-entender" title="Link to this heading">#</a></h3>
+<p><strong>BERT</strong> (<em>Bidirectional Encoder Representations from Transformers</em>) es un <em>encoder</em>: lee la frase completa de una vez (en ambas direcciones, de ahí «bidirectional») y produce una representación densa de su significado. Está diseñado específicamente para tareas de <strong>comprensión y clasificación</strong> —no para generar texto nuevo—, lo que lo hace rápido y eficiente para justo el tipo de tarea que tenemos aquí: decidir si una frase es positiva, negativa o neutral.</p>
+<p><strong>FinBERT</strong> es una versión de BERT preentrenada adicionalmente sobre texto financiero y afinada específicamente para clasificar sentimiento financiero — es decir, ya «sabe» que «liability» no es una palabra negativa, porque aprendió esa asociación directamente de millones de textos financieros reales, en lugar de depender de una lista de palabras que nosotros mismos armamos a mano.</p>
+</section>
+<section id="3.4-Demostración:-embeddings-de-palabras-financieras">
+<h3>3.4 Demostración: embeddings de palabras financieras<a class="headerlink" href="#3.4-Demostración:-embeddings-de-palabras-financieras" title="Link to this heading">#</a></h3>
+<p>Antes de usar FinBERT para clasificar, veamos con nuestros propios ojos que los embeddings capturan significado: tomamos ~15 palabras financieras, obtenemos su embedding con un modelo pequeño (<code class="docutils literal notranslate"><span class="pre">all-MiniLM-L6-v2</span></code>) y las proyectamos a 2D con PCA para poder graficarlas.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformer</span>
+
+<span class="n">EMBED_MODEL_NAME</span> <span class="o">=</span> <span class="s2">"sentence-transformers/all-MiniLM-L6-v2"</span>
+
+<span class="n">modelo_embeddings</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">EMBED_MODEL_NAME</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+
+<span class="n">palabras_finanzas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"profit"</span><span class="p">,</span> <span class="s2">"revenue"</span><span class="p">,</span> <span class="s2">"earnings"</span><span class="p">,</span> <span class="s2">"growth"</span><span class="p">,</span> <span class="s2">"dividend"</span><span class="p">,</span>
+    <span class="s2">"loss"</span><span class="p">,</span> <span class="s2">"debt"</span><span class="p">,</span> <span class="s2">"decline"</span><span class="p">,</span> <span class="s2">"bankruptcy"</span><span class="p">,</span> <span class="s2">"deficit"</span><span class="p">,</span>
+    <span class="s2">"merger"</span><span class="p">,</span> <span class="s2">"acquisition"</span><span class="p">,</span> <span class="s2">"recession"</span><span class="p">,</span> <span class="s2">"inflation"</span><span class="p">,</span> <span class="s2">"investment"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">embeddings_palabras</span> <span class="o">=</span> <span class="n">modelo_embeddings</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">palabras_finanzas</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Forma de los embeddings: </span><span class="si">{</span><span class="n">embeddings_palabras</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">coordenadas_2d</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">embeddings_palabras</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">coordenadas_2d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">coordenadas_2d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">palabra</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">palabras_finanzas</span><span class="p">,</span> <span class="n">coordenadas_2d</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">palabra</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">"offset points"</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Embeddings de palabras financieras, reducidos a 2D con PCA"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Componente 1"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Componente 2"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Fíjate en los grupos que se forman: palabras de resultados positivos (<em>profit</em>, <em>earnings</em>, <em>revenue</em>, <em>growth</em>, <em>dividend</em>) tienden a quedar cerca entre sí, y separadas de las palabras de dificultad financiera (<em>loss</em>, <em>debt</em>, <em>decline</em>, <em>bankruptcy</em>, <em>deficit</em>). Esto no lo programamos a mano — emergió del entrenamiento del modelo sobre grandes cantidades de texto. <strong>Nota:</strong> al ser un modelo pequeño y genérico (no especializado en finanzas), la separación no será perfecta; con FinBERT, que sí
+está afinado para este dominio, la distinción es mucho más nítida.</p>
+</section>
+<section id="3.5-Clasificación-con-FinBERT">
+<h3>3.5 Clasificación con FinBERT<a class="headerlink" href="#3.5-Clasificación-con-FinBERT" title="Link to this heading">#</a></h3>
+<p>Usamos <code class="docutils literal notranslate"><span class="pre">ProsusAI/finbert</span></code> a través de un <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> de <code class="docutils literal notranslate"><span class="pre">transformers</span></code>, que se encarga de tokenizar, pasar por el modelo y decodificar la predicción por nosotros.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="n">FINBERT_MODEL_NAME</span> <span class="o">=</span> <span class="s2">"ProsusAI/finbert"</span>
+
+<span class="n">clasificador_finbert</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+    <span class="s2">"text-classification"</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">FINBERT_MODEL_NAME</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="mi">0</span> <span class="k">if</span> <span class="n">DEVICE</span> <span class="o">==</span> <span class="s2">"cuda"</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Antes de confiar en las etiquetas que devuelve el pipeline, verificamos el</span>
+<span class="c1"># mapeo id -&gt; etiqueta que trae el propio modelo (esto puede variar entre</span>
+<span class="c1"># checkpoints: algunos devuelven "LABEL_0"/"LABEL_1"/"LABEL_2" en vez de texto).</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clasificador_finbert</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">id2label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inferencia por lotes sobre la misma muestra de evaluación</span>
+<span class="n">frases_eval</span> <span class="o">=</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"frase"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">inicio</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">salidas_finbert</span> <span class="o">=</span> <span class="n">clasificador_finbert</span><span class="p">(</span><span class="n">frases_eval</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tiempos</span><span class="p">[</span><span class="s2">"FinBERT"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">inicio</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">frases_eval</span><span class="p">)</span>
+
+<span class="c1"># El id2label de ProsusAI/finbert ya devuelve texto ("positive"/"negative"/"neutral"),</span>
+<span class="c1"># así que en principio no habría que traducir nada; dejamos el mapeo explícito de</span>
+<span class="c1"># todas formas, como salvaguarda por si algún día cambia el checkpoint.</span>
+<span class="n">MAPA_FINBERT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"positive"</span><span class="p">:</span> <span class="s2">"positive"</span><span class="p">,</span> <span class="s2">"negative"</span><span class="p">:</span> <span class="s2">"negative"</span><span class="p">,</span> <span class="s2">"neutral"</span><span class="p">:</span> <span class="s2">"neutral"</span><span class="p">}</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_finbert"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">MAPA_FINBERT</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">salidas_finbert</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluar</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_finbert"</span><span class="p">],</span> <span class="s2">"FinBERT"</span><span class="p">))</span>
+<span class="n">graficar_matriz_confusion</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_finbert"</span><span class="p">],</span> <span class="s2">"FinBERT"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="3.6-Volvemos-a-los-ejemplos-de-negación">
+<h3>3.6 Volvemos a los ejemplos de negación<a class="headerlink" href="#3.6-Volvemos-a-los-ejemplos-de-negación" title="Link to this heading">#</a></h3>
+<p>¿FinBERT sí entiende el contexto de las frases donde el diccionario falló?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salidas_negacion</span> <span class="o">=</span> <span class="n">clasificador_finbert</span><span class="p">(</span><span class="n">ejemplos_negacion</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">frase</span><span class="p">,</span> <span class="n">salida</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ejemplos_negacion</span><span class="p">,</span> <span class="n">salidas_negacion</span><span class="p">):</span>
+    <span class="n">probabilidades</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]:</span> <span class="nb">round</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">salida</span><span class="p">}</span>
+    <span class="n">prediccion</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">salida</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s2">"score"</span><span class="p">])[</span><span class="s2">"label"</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Frase: </span><span class="si">{</span><span class="n">frase</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Predicción FinBERT: </span><span class="si">{</span><span class="n">prediccion</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Probabilidades: </span><span class="si">{</span><span class="n">probabilidades</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Compara estas predicciones con las del diccionario en la sección 2.5. FinBERT no cuenta palabras sueltas: procesa la frase completa con atención, así que «did not decline» y «avoided losses» se leen como unidades con un significado propio — no como una simple suma de palabras positivas y negativas.</p>
+<p><strong>Pregunta que motiva la siguiente parte:</strong> FinBERT clasifica muy bien, pero solo sabe hacer <em>exactamente</em> la tarea para la que fue afinado (positivo/negativo/neutral) y no puede explicarnos su razonamiento en palabras. ¿Qué hacemos si mañana queremos pedirle, sin reentrenar nada, que además identifique el tema de la noticia, o que justifique su respuesta?</p>
+<p>## 4. Parte 3: LLM generativo (modelo decoder) con <em>prompting</em></p>
+</section>
+<section id="4.1-De-entender-a-generar">
+<h3>4.1 De entender a generar<a class="headerlink" href="#4.1-De-entender-a-generar" title="Link to this heading">#</a></h3>
+<p>Los modelos de lenguaje generativos (GPT, Claude, Qwen, Llama…) usan la misma arquitectura <em>Transformer</em> que BERT, pero con una diferencia clave: son <strong>decoders</strong>, entrenados con un objetivo mucho más simple en apariencia — predecir la siguiente palabra de un texto, una y otra vez, sobre cantidades enormes de texto. Lo sorprendente es que, a suficiente escala (parámetros, datos, cómputo), ese objetivo tan simple da lugar a capacidades emergentes sofisticadas: razonamiento paso a paso,
+seguimiento de instrucciones, generación de código. Con una etapa adicional de afinamiento por instrucciones (<em>instruction tuning</em>), estos modelos aprenden además a comportarse como asistentes que siguen órdenes en lenguaje natural, en vez de simplemente completar texto.</p>
+<p>Esto abre dos formas de usarlos sin entrenar nada:</p>
+<ul class="simple">
+<li><p><strong>Zero-shot</strong>: le damos únicamente la instrucción («clasifica el sentimiento de esta frase…») y esperamos que la siga, sin ejemplos previos.</p></li>
+<li><p><strong>Few-shot</strong>: además de la instrucción, le mostramos unos pocos ejemplos ya resueltos (frase → respuesta correcta) para que «entienda» mejor el formato y el criterio que esperamos.</p></li>
+</ul>
+<p><strong>Analogía:</strong> FinBERT es como un analista junior <em>hiperespecializado</em>, entrenado durante meses para hacer exactamente una tarea (clasificar sentimiento financiero) y que la hace rápido y bien, pero no sabe hacer nada más. Un LLM generativo es como un analista senior generalista, muy capaz, al que puedes pedirle prácticamente cualquier tarea de lenguaje — pero que necesita que le des instrucciones claras (un buen <em>prompt</em>), y cuyas respuestas conviene siempre revisar.</p>
+</section>
+<section id="4.2-El-modelo:-Qwen2.5-3B-Instruct">
+<h3>4.2 El modelo: Qwen2.5-3B-Instruct<a class="headerlink" href="#4.2-El-modelo:-Qwen2.5-3B-Instruct" title="Link to this heading">#</a></h3>
+<p>Vamos a usar <code class="docutils literal notranslate"><span class="pre">`Qwen/Qwen2.5-3B-Instruct</span></code> &lt;<a class="reference external" href="https://huggingface.co/Qwen/Qwen2.5-3B-Instruct">https://huggingface.co/Qwen/Qwen2.5-3B-Instruct</a>&gt;`__, un modelo de pesos abiertos y descarga libre en Hugging Face (no requiere solicitar aprobación de acceso).</p>
+<blockquote>
+<div><p>⚠️ <strong>Nota de licencia:</strong> a diferencia de otros tamaños de la misma familia (0.5B, 1.5B y 7B, que sí son Apache 2.0), <strong>Qwen2.5-3B-Instruct se distribuye bajo la «Qwen Research License»</strong>, pensada para investigación y uso no comercial (revisa los términos exactos en su <a class="reference external" href="https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/blob/main/LICENSE">página de licencia</a> antes de usarlo fuera de un contexto académico). Si en tu proyecto necesitas una licencia permisiva tipo Apache 2.0 con un tamaño
+similar, <code class="docutils literal notranslate"><span class="pre">Qwen/Qwen2.5-7B-Instruct</span></code> es una alternativa igual de sencilla de cargar en una T4 con 4 bits.</p>
+</div></blockquote>
+<p>Dejamos el nombre del modelo en una variable para que puedas cambiarlo fácilmente por otro (por ejemplo <code class="docutils literal notranslate"><span class="pre">&quot;Qwen/Qwen2.5-7B-Instruct&quot;</span></code>, algún modelo de la familia Gemma, o Llama).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">BitsAndBytesConfig</span>
+
+<span class="n">LLM_MODEL_NAME</span> <span class="o">=</span> <span class="s2">"Qwen/Qwen2.5-3B-Instruct"</span>  <span class="c1"># cámbialo aquí para probar otro modelo</span>
+
+<span class="n">tokenizer_llm</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">LLM_MODEL_NAME</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">pad_token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">pad_token</span> <span class="o">=</span> <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">eos_token</span>
+<span class="c1"># Necesario para generar por lotes con un modelo decoder-only: si el relleno</span>
+<span class="c1"># (padding) va a la derecha, el modelo puede terminar "leyendo" tokens de</span>
+<span class="c1"># relleno como si fueran parte real del prompt.</span>
+<span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">padding_side</span> <span class="o">=</span> <span class="s2">"left"</span>
+
+<span class="k">if</span> <span class="n">DEVICE</span> <span class="o">==</span> <span class="s2">"cuda"</span><span class="p">:</span>
+    <span class="n">memoria_gpu_gb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">total_memory</span> <span class="o">/</span> <span class="mf">1e9</span>
+    <span class="c1"># Un modelo de 3B en float16 ocupa ~6GB: sobra en una T4 de 16GB. Dejamos</span>
+    <span class="c1"># los 4 bits como respaldo automático solo si la GPU disponible es chica.</span>
+    <span class="n">usar_4bit</span> <span class="o">=</span> <span class="n">memoria_gpu_gb</span> <span class="o">&lt;</span> <span class="mi">10</span>
+    <span class="k">if</span> <span class="n">usar_4bit</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GPU con </span><span class="si">{</span><span class="n">memoria_gpu_gb</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GB: cargando en 4 bits con bitsandbytes."</span><span class="p">)</span>
+        <span class="n">config_cuantizacion</span> <span class="o">=</span> <span class="n">BitsAndBytesConfig</span><span class="p">(</span>
+            <span class="n">load_in_4bit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">bnb_4bit_compute_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+            <span class="n">bnb_4bit_quant_type</span><span class="o">=</span><span class="s2">"nf4"</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">modelo_llm</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+            <span class="n">LLM_MODEL_NAME</span><span class="p">,</span> <span class="n">quantization_config</span><span class="o">=</span><span class="n">config_cuantizacion</span><span class="p">,</span> <span class="n">device_map</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GPU con </span><span class="si">{</span><span class="n">memoria_gpu_gb</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GB: cargando en float16 (sin necesidad de 4 bits)."</span><span class="p">)</span>
+        <span class="n">modelo_llm</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+            <span class="n">LLM_MODEL_NAME</span><span class="p">,</span> <span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="n">device_map</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span>
+        <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Sin GPU: cargando en CPU en precisión float32. Esto será lento;"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"considera reducir N_EVAL antes de continuar si estás en CPU."</span><span class="p">)</span>
+    <span class="n">modelo_llm</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">LLM_MODEL_NAME</span><span class="p">)</span>
+
+<span class="n">modelo_llm</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<span class="c1"># El generation_config por defecto de muchos modelos instruct trae parámetros</span>
+<span class="c1"># de muestreo (temperature, top_p) pensados para generación creativa. Como</span>
+<span class="c1"># vamos a generar de forma determinística (do_sample=False), los desactivamos</span>
+<span class="c1"># explícitamente aquí para no verlos ni tener que repetirlos en cada llamada.</span>
+<span class="n">modelo_llm</span><span class="o">.</span><span class="n">generation_config</span><span class="o">.</span><span class="n">do_sample</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">modelo_llm</span><span class="o">.</span><span class="n">generation_config</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">modelo_llm</span><span class="o">.</span><span class="n">generation_config</span><span class="o">.</span><span class="n">top_p</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">modelo_llm</span><span class="o">.</span><span class="n">generation_config</span><span class="o">.</span><span class="n">top_k</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Modelo cargado: </span><span class="si">{</span><span class="n">LLM_MODEL_NAME</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.3-Diseño-del-prompt:-forzar-una-salida-en-JSON">
+<h3>4.3 Diseño del prompt: forzar una salida en JSON<a class="headerlink" href="#4.3-Diseño-del-prompt:-forzar-una-salida-en-JSON" title="Link to this heading">#</a></h3>
+<p>Le pedimos al modelo que responda <strong>solo</strong> con un objeto JSON con dos claves: <code class="docutils literal notranslate"><span class="pre">sentimiento</span></code> (una de <code class="docutils literal notranslate"><span class="pre">positive</span></code>, <code class="docutils literal notranslate"><span class="pre">negative</span></code>, <code class="docutils literal notranslate"><span class="pre">neutral</span></code> — las mismas etiquetas que usamos en todo el cuaderno, para poder comparar directamente) y <code class="docutils literal notranslate"><span class="pre">justificacion</span></code> (una frase breve en español). Usamos el <em>chat template</em> propio del tokenizer, que da formato al prompt exactamente como el modelo espera verlo, y generación <strong>determinística</strong> (<code class="docutils literal notranslate"><span class="pre">do_sample=False</span></code>): para una tarea de clasificación no queremos
+aleatoriedad en la salida, sino la respuesta más probable según el modelo.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PROMPT_SISTEMA</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">"Eres un analista financiero. Vas a clasificar el sentimiento de una frase de "</span>
+    <span class="s2">"una noticia financiera desde el punto de vista de un inversionista.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="s2">"Responde ÚNICAMENTE con un objeto JSON válido, sin texto adicional antes ni "</span>
+    <span class="s2">"después, con exactamente estas dos claves:</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="s1">'  "sentimiento": una de "positive", "negative" o "neutral"</span><span class="se">\n</span><span class="s1">'</span>
+    <span class="s1">'  "justificacion": una frase breve en español explicando tu decisión</span><span class="se">\n</span><span class="s1">'</span>
+    <span class="s2">"No agregues explicaciones fuera del JSON ni uses bloques de código markdown."</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">construir_mensajes</span><span class="p">(</span><span class="n">frase</span><span class="p">,</span> <span class="n">ejemplos_few_shot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Arma la lista de mensajes (system/user/assistant) para el chat template."""</span>
+    <span class="n">mensajes</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">PROMPT_SISTEMA</span><span class="p">}]</span>
+    <span class="k">if</span> <span class="n">ejemplos_few_shot</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">fila</span> <span class="ow">in</span> <span class="n">ejemplos_few_shot</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="n">mensajes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">fila</span><span class="p">[</span><span class="s2">"frase"</span><span class="p">]})</span>
+            <span class="n">respuesta_ejemplo</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">"sentimiento"</span><span class="p">:</span> <span class="n">fila</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="s2">"justificacion"</span><span class="p">:</span> <span class="s2">"Ejemplo de referencia."</span><span class="p">},</span>
+                <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">mensajes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"assistant"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">respuesta_ejemplo</span><span class="p">})</span>
+    <span class="n">mensajes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">frase</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">mensajes</span>
+
+
+<span class="c1"># Vista rápida del prompt que efectivamente recibe el modelo (zero-shot)</span>
+<span class="n">prompt_ejemplo</span> <span class="o">=</span> <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span>
+    <span class="n">construir_mensajes</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"frase"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">tokenize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prompt_ejemplo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.4-Parser-robusto-de-la-salida">
+<h3>4.4 Parser robusto de la salida<a class="headerlink" href="#4.4-Parser-robusto-de-la-salida" title="Link to this heading">#</a></h3>
+<p>En la práctica, un LLM casi nunca devuelve <em>exactamente</em> el JSON pedido: a veces agrega texto antes o después, comillas raras, o simplemente no logra producir JSON válido. Escribimos un parser tolerante que busca el primer bloque <code class="docutils literal notranslate"><span class="pre">{...}</span></code> en la respuesta y, si algo falla, <strong>degrada a «neutral»</strong> y marca la fila como error de formato en vez de romper todo el pipeline.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parsear_respuesta_llm</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Extrae {'sentimiento': ..., 'justificacion': ...} de la respuesta del LLM.</span>
+
+<span class="sd">    Si no se puede extraer un sentimiento válido, devuelve ('neutral', '', True),</span>
+<span class="sd">    donde el último valor indica que hubo un error de formato.</span>
+<span class="sd">    """</span>
+    <span class="n">coincidencia</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\{.*?\}"</span><span class="p">,</span> <span class="n">texto</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">coincidencia</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">datos</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">coincidencia</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+            <span class="n">sentimiento</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"sentimiento"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">sentimiento</span> <span class="ow">in</span> <span class="n">ETIQUETAS</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">sentimiento</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"justificacion"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)),</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="s2">"neutral"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.5-Generación-por-lotes-(zero-shot-y-few-shot)">
+<h3>4.5 Generación por lotes (zero-shot y few-shot)<a class="headerlink" href="#4.5-Generación-por-lotes-(zero-shot-y-few-shot)" title="Link to this heading">#</a></h3>
+<p>Definimos una función de generación que procesa las frases en lotes (más eficiente que una por una), con una barra de progreso y medición del tiempo total.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generar_respuestas</span><span class="p">(</span><span class="n">frases</span><span class="p">,</span> <span class="n">ejemplos_few_shot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tam_lote</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Genera una respuesta del LLM por cada frase, en lotes. Devuelve (respuestas, tiempo_total)."""</span>
+    <span class="n">respuestas</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">inicio</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frases</span><span class="p">),</span> <span class="n">tam_lote</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">"Generando"</span><span class="p">):</span>
+        <span class="n">lote</span> <span class="o">=</span> <span class="n">frases</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">tam_lote</span><span class="p">]</span>
+        <span class="n">prompts</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span>
+                <span class="n">construir_mensajes</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">ejemplos_few_shot</span><span class="p">),</span> <span class="n">tokenize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">lote</span>
+        <span class="p">]</span>
+        <span class="n">entradas</span> <span class="o">=</span> <span class="n">tokenizer_llm</span><span class="p">(</span><span class="n">prompts</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">modelo_llm</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">salidas</span> <span class="o">=</span> <span class="n">modelo_llm</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+                <span class="o">**</span><span class="n">entradas</span><span class="p">,</span>
+                <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span>
+                <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">num_beams</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">pad_token_id</span><span class="o">=</span><span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">entrada_ids</span><span class="p">,</span> <span class="n">salida_ids</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">entradas</span><span class="p">[</span><span class="s2">"input_ids"</span><span class="p">],</span> <span class="n">salidas</span><span class="p">):</span>
+            <span class="n">texto_generado</span> <span class="o">=</span> <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                <span class="n">salida_ids</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">entrada_ids</span><span class="p">):],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">respuestas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">texto_generado</span><span class="p">)</span>
+    <span class="n">tiempo_total</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">inicio</span>
+    <span class="k">return</span> <span class="n">respuestas</span><span class="p">,</span> <span class="n">tiempo_total</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Zero-shot ---</span>
+<span class="n">respuestas_zero</span><span class="p">,</span> <span class="n">tiempo_zero</span> <span class="o">=</span> <span class="n">generar_respuestas</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"frase"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ejemplos_few_shot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">parseo_zero</span> <span class="o">=</span> <span class="p">[</span><span class="n">parsear_respuesta_llm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">respuestas_zero</span><span class="p">]</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_llm_zero"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parseo_zero</span><span class="p">]</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"justificacion_llm_zero"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parseo_zero</span><span class="p">]</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"error_formato_zero"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parseo_zero</span><span class="p">]</span>
+<span class="n">tiempos</span><span class="p">[</span><span class="s2">"LLM zero-shot"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tiempo_zero</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tiempo total zero-shot: </span><span class="si">{</span><span class="n">tiempo_zero</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s (</span><span class="si">{</span><span class="n">tiempos</span><span class="p">[</span><span class="s1">'LLM zero-shot'</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms/frase)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Respuestas no parseables: </span><span class="si">{</span><span class="n">df_eval</span><span class="p">[</span><span class="s1">'error_formato_zero'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> de </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Few-shot (3 ejemplos, uno por clase, tomados fuera de la muestra de evaluación) ---</span>
+<span class="n">respuestas_few</span><span class="p">,</span> <span class="n">tiempo_few</span> <span class="o">=</span> <span class="n">generar_respuestas</span><span class="p">(</span>
+    <span class="n">df_eval</span><span class="p">[</span><span class="s2">"frase"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ejemplos_few_shot</span><span class="o">=</span><span class="n">ejemplos_few_shot</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">parseo_few</span> <span class="o">=</span> <span class="p">[</span><span class="n">parsear_respuesta_llm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">respuestas_few</span><span class="p">]</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_llm_few"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parseo_few</span><span class="p">]</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"justificacion_llm_few"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parseo_few</span><span class="p">]</span>
+<span class="n">df_eval</span><span class="p">[</span><span class="s2">"error_formato_few"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parseo_few</span><span class="p">]</span>
+<span class="n">tiempos</span><span class="p">[</span><span class="s2">"LLM few-shot"</span><span class="p">]</span> <span class="o">=</span> <span class="n">tiempo_few</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tiempo total few-shot: </span><span class="si">{</span><span class="n">tiempo_few</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s (</span><span class="si">{</span><span class="n">tiempos</span><span class="p">[</span><span class="s1">'LLM few-shot'</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms/frase)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Respuestas no parseables: </span><span class="si">{</span><span class="n">df_eval</span><span class="p">[</span><span class="s1">'error_formato_few'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> de </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluar</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_llm_zero"</span><span class="p">],</span> <span class="s2">"LLM zero-shot"</span><span class="p">))</span>
+<span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluar</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_llm_few"</span><span class="p">],</span> <span class="s2">"LLM few-shot"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.6-Cinco-ejemplos-con-la-justificación-del-modelo">
+<h3>4.6 Cinco ejemplos con la justificación del modelo<a class="headerlink" href="#4.6-Cinco-ejemplos-con-la-justificación-del-modelo" title="Link to this heading">#</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eval</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)[</span>
+    <span class="p">[</span><span class="s2">"frase"</span><span class="p">,</span> <span class="s2">"etiqueta"</span><span class="p">,</span> <span class="s2">"pred_llm_few"</span><span class="p">,</span> <span class="s2">"justificacion_llm_few"</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>## 5. Demostración de riesgos: alucinaciones</p>
+<p>Un LLM genera la continuación de texto <strong>más probable</strong> dado su entrenamiento — no consulta una base de datos para verificar hechos. Cuando le preguntas algo que no está en su entrenamiento (o que requiere datos actualizados que no tiene), puede generar una respuesta <strong>con total seguridad</strong> que simplemente es incorrecta. A esto se le llama <strong>alucinación</strong>, y es uno de los riesgos más importantes de usar LLMs en finanzas, donde una cifra inventada puede parecer perfectamente creíble.</p>
+<p>Vamos a comparar dos formas de preguntar lo mismo: pedirle al modelo una cifra <strong>«de memoria»</strong>, contra pedirle que la <strong>extraiga de un texto que le damos</strong>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generar_respuesta_libre</span><span class="p">(</span><span class="n">mensajes</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">150</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Genera texto libre (sin forzar formato JSON) para una sola lista de mensajes."""</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">apply_chat_template</span><span class="p">(</span><span class="n">mensajes</span><span class="p">,</span> <span class="n">tokenize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">add_generation_prompt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">entradas</span> <span class="o">=</span> <span class="n">tokenizer_llm</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">modelo_llm</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">salida</span> <span class="o">=</span> <span class="n">modelo_llm</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+            <span class="o">**</span><span class="n">entradas</span><span class="p">,</span>
+            <span class="n">max_new_tokens</span><span class="o">=</span><span class="n">max_new_tokens</span><span class="p">,</span>
+            <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">num_beams</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">pad_token_id</span><span class="o">=</span><span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">pad_token_id</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">tokenizer_llm</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">salida</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">entradas</span><span class="p">[</span><span class="s2">"input_ids"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="5.1-Preguntar-%22de-memoria%22">
+<h3>5.1 Preguntar «de memoria»<a class="headerlink" href="#5.1-Preguntar-%22de-memoria%22" title="Link to this heading">#</a></h3>
+<p>Le pedimos una cifra trimestral específica de una empresa real, sin darle ningún dato en el prompt.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pregunta_de_memoria</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
+        <span class="s2">"content"</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s2">"¿Cuál fue el EBITDA de Grupo Argos en el tercer trimestre de 2023? "</span>
+            <span class="s2">"Responde con la cifra exacta en pesos colombianos."</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">respuesta_memoria</span> <span class="o">=</span> <span class="n">generar_respuesta_libre</span><span class="p">(</span><span class="n">pregunta_de_memoria</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">respuesta_memoria</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Presta atención al <strong>tono</strong> de la respuesta, no solo al número: si el modelo responde con una cifra concreta y un tono seguro, sin advertir que no tiene forma de verificarla, esa confianza aparente es justamente el problema — no hay manera de distinguir, solo por cómo está redactada la respuesta, una cifra real de una inventada. Antes de usar cualquier cifra que un LLM te dé «de memoria» en un contexto financiero, <strong>debes verificarla contra una fuente primaria</strong> (el reporte financiero real de la
+empresa).</p>
+</section>
+<section id="5.2-Extraer-de-un-texto-dado">
+<h3>5.2 Extraer de un texto dado<a class="headerlink" href="#5.2-Extraer-de-un-texto-dado" title="Link to this heading">#</a></h3>
+<p>Ahora le damos un párrafo <strong>corto, corto y explícitamente marcado como ficticio</strong>, y le pedimos que extraiga el mismo tipo de dato — pero esta vez el dato sí está disponible en el contexto.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contexto_ficticio</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">"[Dato de ejemplo, inventado únicamente para esta demostración; no corresponde a ninguna "</span>
+    <span class="s2">"empresa real]</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="s2">"Según el reporte trimestral de la empresa ACME S.A., el EBITDA del tercer trimestre de 2023 "</span>
+    <span class="s2">"fue de COP 128 400 millones, un 6% más que en el trimestre anterior."</span>
+<span class="p">)</span>
+
+<span class="n">pregunta_extraccion</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
+        <span class="s2">"content"</span><span class="p">:</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">contexto_ficticio</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">"</span>
+            <span class="s2">"¿Cuál fue el EBITDA de ACME S.A. en el tercer trimestre de 2023, según el texto anterior? "</span>
+            <span class="s2">"Responde solo con la cifra."</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">respuesta_extraccion</span> <span class="o">=</span> <span class="n">generar_respuesta_libre</span><span class="p">(</span><span class="n">pregunta_extraccion</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">respuesta_extraccion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Esta vez el modelo no tiene que «adivinar» nada: el número está literalmente en el texto que le dimos, así que su tarea es de <strong>extracción</strong>, no de recuperación de memoria. Esta es la diferencia que importa en la práctica: cuando le preguntas a un LLM algo «de memoria», estás confiando en que haya memorizado correctamente un dato específico entre billones de tokens de entrenamiento (y que ese dato siga vigente); cuando le pides que extraiga o resuma algo <strong>de un documento que tú le
+proporcionas</strong>, la tarea es mucho más confiable, y el modelo tiene mucho menos margen para inventar.</p>
+<p><strong>La lección para finanzas:</strong> un LLM en un flujo de trabajo financiero debe trabajar sobre documentos que tú le entregas (reportes, transcripciones, noticias) — nunca como fuente de verdad de memoria — y toda salida que produzca (una cifra, una clasificación, un resumen) debe poder verificarse contra la fuente original antes de usarse para una decisión real.</p>
+<p>## 6. Comparación final</p>
+<p>Reunimos las métricas de los cuatro enfoques evaluados sobre la misma muestra (<code class="docutils literal notranslate"><span class="pre">df_eval</span></code>), junto con información cualitativa sobre cada uno (necesidad de GPU, si explica su decisión, costo aproximado).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadatos_metodos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Diccionario"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"requiere_gpu"</span><span class="p">:</span> <span class="s2">"No"</span><span class="p">,</span>
+        <span class="s2">"explica_decision"</span><span class="p">:</span> <span class="s2">"Sí (palabras contadas)"</span><span class="p">,</span>
+        <span class="s2">"costo_aprox"</span><span class="p">:</span> <span class="s2">"Nulo (reglas en Python)"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"FinBERT"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"requiere_gpu"</span><span class="p">:</span> <span class="s2">"No (recomendado si hay)"</span><span class="p">,</span>
+        <span class="s2">"explica_decision"</span><span class="p">:</span> <span class="s2">"Parcial (probabilidades, sin texto)"</span><span class="p">,</span>
+        <span class="s2">"costo_aprox"</span><span class="p">:</span> <span class="s2">"Bajo (modelo propio ~440 MB, sin API)"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"LLM zero-shot"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"requiere_gpu"</span><span class="p">:</span> <span class="s2">"Sí (o CPU muy lento)"</span><span class="p">,</span>
+        <span class="s2">"explica_decision"</span><span class="p">:</span> <span class="s2">"Sí (justificación en texto)"</span><span class="p">,</span>
+        <span class="s2">"costo_aprox"</span><span class="p">:</span> <span class="s2">"Medio-alto (más cómputo por frase)"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"LLM few-shot"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"requiere_gpu"</span><span class="p">:</span> <span class="s2">"Sí (o CPU muy lento)"</span><span class="p">,</span>
+        <span class="s2">"explica_decision"</span><span class="p">:</span> <span class="s2">"Sí (justificación en texto)"</span><span class="p">,</span>
+        <span class="s2">"costo_aprox"</span><span class="p">:</span> <span class="s2">"Medio-alto (prompt más largo que zero-shot)"</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">df_comparacion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"metodo"</span><span class="p">)</span>
+<span class="n">df_comparacion</span><span class="p">[</span><span class="s2">"tiempo_ms_por_frase"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">columna</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"requiere_gpu"</span><span class="p">,</span> <span class="s2">"explica_decision"</span><span class="p">,</span> <span class="s2">"costo_aprox"</span><span class="p">]:</span>
+    <span class="n">df_comparacion</span><span class="p">[</span><span class="n">columna</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">metadatos_metodos</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">columna</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">df_comparacion</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+<span class="n">df_comparacion</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_comparacion</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df_comparacion</span><span class="p">[</span><span class="s2">"f1_macro"</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"F1 macro"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Comparación de F1 macro por método"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">metodos_para_graficar</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Diccionario"</span><span class="p">:</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_diccionario"</span><span class="p">],</span>
+    <span class="s2">"FinBERT"</span><span class="p">:</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_finbert"</span><span class="p">],</span>
+    <span class="s2">"LLM zero-shot"</span><span class="p">:</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_llm_zero"</span><span class="p">],</span>
+    <span class="s2">"LLM few-shot"</span><span class="p">:</span> <span class="n">df_eval</span><span class="p">[</span><span class="s2">"pred_llm_few"</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">predicciones</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">metodos_para_graficar</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">graficar_matriz_confusion</span><span class="p">(</span><span class="n">df_eval</span><span class="p">[</span><span class="s2">"etiqueta"</span><span class="p">],</span> <span class="n">predicciones</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="6.1-Discusión:-¿cuándo-conviene-cada-enfoque?">
+<h3>6.1 Discusión: ¿cuándo conviene cada enfoque?<a class="headerlink" href="#6.1-Discusión:-¿cuándo-conviene-cada-enfoque?" title="Link to this heading">#</a></h3>
+<p>La siguiente celda genera un resumen a partir de <strong>las métricas que efectivamente obtuviste</strong> en esta ejecución (van a variar según la muestra, la semilla y el modelo de LLM elegido, así que no asumimos de antemano cuál «gana»).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mejor_metodo</span> <span class="o">=</span> <span class="n">df_comparacion</span><span class="p">[</span><span class="s2">"f1_macro"</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="n">metodo_mas_rapido</span> <span class="o">=</span> <span class="n">df_comparacion</span><span class="p">[</span><span class="s2">"tiempo_ms_por_frase"</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
+
+<span class="n">resumen</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"En esta ejecución (N_EVAL=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_eval</span><span class="p">)</span><span class="si">}</span><span class="s2">, modelo LLM `</span><span class="si">{</span><span class="n">LLM_MODEL_NAME</span><span class="si">}</span><span class="s2">`), el método con mayor "</span>
+    <span class="sa">f</span><span class="s2">"F1 macro fue **</span><span class="si">{</span><span class="n">mejor_metodo</span><span class="si">}</span><span class="s2">** (</span><span class="si">{</span><span class="n">df_comparacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mejor_metodo</span><span class="p">,</span><span class="w"> </span><span class="s1">'f1_macro'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">), y el más "</span>
+    <span class="sa">f</span><span class="s2">"rápido por frase fue **</span><span class="si">{</span><span class="n">metodo_mas_rapido</span><span class="si">}</span><span class="s2">** "</span>
+    <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">df_comparacion</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">metodo_mas_rapido</span><span class="p">,</span><span class="w"> </span><span class="s1">'tiempo_ms_por_frase'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms/frase).</span><span class="se">\n\n</span><span class="s2">"</span>
+    <span class="s2">"Estos resultados dependen de la muestra, la semilla y el modelo elegido — vuelve a ejecutar esta "</span>
+    <span class="s2">"celda después de cambiar `N_EVAL` o `LLM_MODEL_NAME` y compara."</span>
+<span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">resumen</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Más allá del número que haya ganado hoy, en un contexto financiero real la elección no depende solo de la métrica de exactitud:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterio</p></th>
+<th class="head"><p>Diccionario</p></th>
+<th class="head"><p>FinBERT</p></th>
+<th class="head"><p>LLM (zero/few-shot)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Costo por frase</strong></p></td>
+<td><p>Prácticamente nulo</p></td>
+<td><p>Bajo (modelo propio, sin costo por llamada)</p></td>
+<td><p>Medio-alto (más cómputo, o costo de API si usas un LLM externo)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Velocidad</strong></p></td>
+<td><p>Muy alta</p></td>
+<td><p>Alta</p></td>
+<td><p>Baja-media (generación token a token)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Interpretabilidad</strong></p></td>
+<td><p>Total (ves las palabras contadas)</p></td>
+<td><p>Parcial (probabilidades, no razones)</p></td>
+<td><p>Alta si el prompt pide justificación — pero la justificación puede ser post-hoc</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Necesita GPU</strong></p></td>
+<td><p>No</p></td>
+<td><p>No (ayuda, no es indispensable)</p></td>
+<td><p>Prácticamente sí, para volúmenes grandes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Se adapta a tareas nuevas sin reentrenar</strong></p></td>
+<td><p>No (hay que rehacer las listas)</p></td>
+<td><p>No (haría falta reafinar el modelo)</p></td>
+<td><p>Sí (basta con cambiar el prompt)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Funciona en otros idiomas</strong></p></td>
+<td><p>Solo si tienes el diccionario en ese idioma</p></td>
+<td><p>No (entrenado en inglés financiero)</p></td>
+<td><p>Sí, en distintos grados según el modelo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En la práctica, muchos equipos de datos financieros usan <strong>más de uno a la vez</strong>: un diccionario o FinBERT para procesar el volumen completo de noticias todos los días a bajo costo, y un LLM reservado para los casos ambiguos, para tareas nuevas que aún no justifican entrenar un modelo dedicado, o para generar explicaciones en lenguaje natural que un analista humano pueda revisar rápidamente.</p>
+<p>## 7. Ejercicios para los estudiantes</p>
+</section>
+<section id="Ejercicio-1-(introductorio)-—-Titulares-en-español">
+<h3>Ejercicio 1 (introductorio) — Titulares en español<a class="headerlink" href="#Ejercicio-1-(introductorio)-—-Titulares-en-español" title="Link to this heading">#</a></h3>
+<p>Prueba el LLM (parte 3) con 5-10 titulares <strong>en español</strong> de noticias financieras colombianas (puedes buscarlos en La República, Portafolio o Valora Analitik). ¿El modelo sigue clasificando bien el sentimiento aunque el prompt esté en inglés/español mezclado? ¿Cambia la calidad de la justificación?</p>
+<p><em>Pista: no necesitas tocar ``PROMPT_SISTEMA`` para esto — solo la lista de frases que le pasas a ``generar_respuestas``.</em></p>
+</section>
+<section id="Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática">
+<h3>Ejercicio 2 (intermedio) — Clasificar también la temática<a class="headerlink" href="#Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática" title="Link to this heading">#</a></h3>
+<p>Modifica <code class="docutils literal notranslate"><span class="pre">PROMPT_SISTEMA</span></code> y <code class="docutils literal notranslate"><span class="pre">parsear_respuesta_llm</span></code> para que, además del sentimiento, el modelo devuelva una tercera clave <code class="docutils literal notranslate"><span class="pre">&quot;tematica&quot;</span></code> con una de estas categorías: <code class="docutils literal notranslate"><span class="pre">&quot;resultados&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;fusiones&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;regulacion&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;macro&quot;</span></code> u <code class="docutils literal notranslate"><span class="pre">&quot;otro&quot;</span></code>. Evalúa manualmente sobre 15-20 frases (no tenemos etiquetas reales de temática en este dataset) qué tan razonables son las clasificaciones.</p>
+<p><em>Pista: agrega la nueva clave al JSON de ejemplo en el prompt, y actualiza el parser para leer y validar también ``»tematica»`` contra la lista de categorías permitidas — igual que hacemos con ``»sentimiento»``.</em></p>
+</section>
+<section id="Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador">
+<h3>Ejercicio 3 (retador) — Conexión con el proyecto integrador<a class="headerlink" href="#Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador" title="Link to this heading">#</a></h3>
+<p>Para una empresa que sigas en tu proyecto integrador:</p>
+<ol class="arabic simple">
+<li><p>Consigue un pequeño conjunto de titulares o noticias diarias de esa empresa (pueden ser reales, de los últimos meses).</p></li>
+<li><p>Calcula el sentimiento diario agregado (por ejemplo, el promedio de <code class="docutils literal notranslate"><span class="pre">+1</span></code>/<code class="docutils literal notranslate"><span class="pre">0</span></code>/<code class="docutils literal notranslate"><span class="pre">-1</span></code> según la predicción del método que prefieras de este cuaderno).</p></li>
+<li><p>Descarga los retornos diarios de la acción con <code class="docutils literal notranslate"><span class="pre">yfinance</span></code> (como en el cuaderno de redes neuronales de la sesión anterior) y compara el sentimiento del día <span class="math notranslate nohighlight">\(t\)</span> contra el retorno del día <span class="math notranslate nohighlight">\(t+1\)</span>.</p></li>
+<li><p>¿Hay alguna relación visible? ¿Un gráfico de dispersión sugiere algo, o el ruido domina? Sé honesto en tu conclusión — en la práctica, esta relación suele ser débil y ruidosa, y <strong>eso también es un resultado válido</strong> para reportar.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-formas-de-leer-el-sentimiento-del-mercado">tres formas de leer el sentimiento del mercado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?">¿Por qué nos importa el sentimiento de las noticias?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Qué-se-pretende?">¿Qué se pretende?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#0.1-Entorno-de-ejecución">0.1 Entorno de ejecución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#⚠️-Un-problema-real:-el-dataset-%22no-carga%22">⚠️ Un problema real: el dataset «no carga»</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Exploración-del-dataset">1.1 Exploración del dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.2-Muestra-de-evaluación-común">1.2 Muestra de evaluación común</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-La-idea:-%22bolsa-de-palabras%22">2.1 La idea: «bolsa de palabras»</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-Obtener-el-diccionario">2.2 Obtener el diccionario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-Clasificador-por-conteo-de-palabras">2.3 Clasificador por conteo de palabras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.4-Evaluación">2.4 Evaluación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.5-Limitación-visible:-el-diccionario-no-entiende-negaciones">2.5 Limitación visible: el diccionario no entiende negaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-Embeddings:-palabras-como-puntos-en-un-espacio">3.1 Embeddings: palabras como puntos en un espacio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Atención:-el-significado-depende-del-contexto">3.2 Atención: el significado depende del contexto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-BERT:-un-encoder-hecho-para-entender">3.3 BERT: un encoder hecho para entender</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.4-Demostración:-embeddings-de-palabras-financieras">3.4 Demostración: embeddings de palabras financieras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.5-Clasificación-con-FinBERT">3.5 Clasificación con FinBERT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.6-Volvemos-a-los-ejemplos-de-negación">3.6 Volvemos a los ejemplos de negación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-De-entender-a-generar">4.1 De entender a generar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-El-modelo:-Qwen2.5-3B-Instruct">4.2 El modelo: Qwen2.5-3B-Instruct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-Diseño-del-prompt:-forzar-una-salida-en-JSON">4.3 Diseño del prompt: forzar una salida en JSON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Parser-robusto-de-la-salida">4.4 Parser robusto de la salida</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.5-Generación-por-lotes-(zero-shot-y-few-shot)">4.5 Generación por lotes (zero-shot y few-shot)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.6-Cinco-ejemplos-con-la-justificación-del-modelo">4.6 Cinco ejemplos con la justificación del modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Preguntar-%22de-memoria%22">5.1 Preguntar «de memoria»</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Extraer-de-un-texto-dado">5.2 Extraer de un texto dado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Discusión:-¿cuándo-conviene-cada-enfoque?">6.1 Discusión: ¿cuándo conviene cada enfoque?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-(introductorio)-—-Titulares-en-español">Ejercicio 1 (introductorio) — Titulares en español</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática">Ejercicio 2 (intermedio) — Clasificar también la temática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador">Ejercicio 3 (retador) — Conexión con el proyecto integrador</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

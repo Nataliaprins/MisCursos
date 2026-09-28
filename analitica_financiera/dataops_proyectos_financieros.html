@@ -53,7 +53,7 @@
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Apéndice: Ruta de Aprendizaje Sugerida" href="ruta_aprendizaje_sugerida.html" />
+    <link rel="next" title="Un mini glosario antes de seguir" href="introduccion_mlflow_tensorboard.html" />
     <link rel="prev" title="Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras" href="taller_series_tiempo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -292,6 +292,27 @@
 <li class="toctree-l2"><a class="reference internal" href="redes_neuronales_series_tiempo.html">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="taller_series_tiempo.html">Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5. DataOps para Proyectos de Datos Financieros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduccion_mlflow_tensorboard.html">Un mini glosario antes de seguir</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
 </ul>
 </details></li>
@@ -511,7 +532,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-1-(3-h)-—-Entorno-local">Bloque 1 (3 h) — Entorno local</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-1-—-Entorno-local">Bloque 1 — Entorno local</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?">1.1 Python y VS Code: ¿por qué no solo Colab?</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-a-paso:-instalar-Python-y-VS-Code">Paso a paso: instalar Python y VS Code</a></li>
 </ul>
@@ -580,8 +601,8 @@
 <blockquote>
 <div><p><strong>Lectura complementaria:</strong> este cuaderno se apoya en los principios organizacionales descritos en <a class="reference external" href="01%20Practical%20DataOps%20Delivering%20Agile%20Data%20Science%20At%20Scale.pdf">Practical DataOps: Delivering Agile Data Science at Scale</a> (Harvey Atkinson).</p>
 </div></blockquote>
-<section id="Bloque-1-(3-h)-—-Entorno-local">
-<h2>Bloque 1 (3 h) — Entorno local<a class="headerlink" href="#Bloque-1-(3-h)-—-Entorno-local" title="Link to this heading">#</a></h2>
+<section id="Bloque-1-—-Entorno-local">
+<h2>Bloque 1 — Entorno local<a class="headerlink" href="#Bloque-1-—-Entorno-local" title="Link to this heading">#</a></h2>
 <section id="1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?">
 <h3>1.1 Python y VS Code: ¿por qué no solo Colab?<a class="headerlink" href="#1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?" title="Link to this heading">#</a></h3>
 <p>Google Colab es un excelente punto de partida para aprender: no requiere instalación y da acceso gratuito a GPU. Pero casi ningún equipo de datos trabaja exclusivamente ahí. Las razones son casi siempre las mismas:</p>
@@ -1987,6 +2008,8 @@ Found 2 errors.
 <h3>6.2 MLflow: registro de experimentos<a class="headerlink" href="#6.2-MLflow:-registro-de-experimentos" title="Link to this heading">#</a></h3>
 <p>Entrenar un modelo casi nunca funciona a la primera. En el camino se prueban decenas de configuraciones (variables distintas, ventanas distintas, arquitecturas distintas, como en nuestro cuaderno de MLP/LSTM). <strong>MLflow</strong> registra automáticamente cada intento —sus parámetros, sus métricas de desempeño— para poder comparar y volver atrás sin depender de la memoria o de notas sueltas.</p>
 <p>Registremos, dentro de nuestro proyecto de ejemplo, dos «experimentos» simulados con distintas configuraciones.</p>
+<p>Revisemos en detalle el funcionamiento de MLFlow y TensorBoard:</p>
+<p><a class="reference internal" href="introduccion_mlflow_tensorboard.html"><span class="doc">introduccion_mlflow_tensorboard</span></a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
@@ -2206,7 +2229,7 @@ jobs:
 <li><p>☐ Al menos <strong>un test</strong> en <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, ejecutable con <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p></li>
 <li><p>☐ Un <em>workflow</em> de GitHub Actions (<code class="docutils literal notranslate"><span class="pre">.github/workflows/ci.yml</span></code>) que corra ese test automáticamente — y que el <em>badge</em> de CI aparezca <strong>en verde</strong> en la página del repositorio.</p></li>
 </ul>
-<p>Con eso tienes, en un solo repositorio, evidencia concreta de las seis competencias que cubrió este cuaderno: entorno reproducible, control de versiones, colaboración, buenas prácticas de código y una primera pieza real de automatización — exactamente lo que un equipo de datos financieros espera de alguien que se incorpora al equipo.</p>
+<p>Con eso tienes, en un solo repositorio, evidencia concreta de las seis competencias que cubrió este cuaderno: entorno reproducible, control de versiones, colaboración, buenas prácticas de código y una primera pieza real de automatización exactamente lo que un equipo de datos financieros espera de alguien que se incorpora al equipo.</p>
 </section>
 </section>
 </section>
@@ -2232,11 +2255,11 @@ jobs:
       </div>
     </a>
     <a class="right-next"
-       href="ruta_aprendizaje_sugerida.html"
+       href="introduccion_mlflow_tensorboard.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Apéndice: Ruta de Aprendizaje Sugerida</p>
+        <p class="prev-next-title">Un mini glosario antes de seguir</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2258,7 +2281,7 @@ jobs:
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-1-(3-h)-—-Entorno-local">Bloque 1 (3 h) — Entorno local</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bloque-1-—-Entorno-local">Bloque 1 — Entorno local</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Python-y-VS-Code:-¿por-qué-no-solo-Colab?">1.1 Python y VS Code: ¿por qué no solo Colab?</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#Paso-a-paso:-instalar-Python-y-VS-Code">Paso a paso: instalar Python y VS Code</a></li>
 </ul>

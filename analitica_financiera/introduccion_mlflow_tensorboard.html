@@ -1,0 +1,1688 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.1. Introducción a MLflow y TensorBoard &#8212; Portafolio de Cursos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analitica_financiera/introduccion_mlflow_tensorboard';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Apéndice: Ruta de Aprendizaje Sugerida" href="ruta_aprendizaje_sugerida.html" />
+    <link rel="prev" title="5. DataOps para Proyectos de Datos Financieros" href="dataops_proyectos_financieros.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Portafolio de Cursos</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/analisis_multivariado/index.html">3. Análisis Multivariado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/1_distancias_pca_multivariado.html">1. Distancias y Análisis de Componentes Principales (PCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/2_analisis_conglomerados.html">2. Análisis de Conglomerados (Clúster)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/3_cluster%20jerarquico.html">Análisis de Clúster Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/analisis_multivariado/taller_pca.html">Taller: Análisis Exploratorio y PCA - Gestión de Recursos Humanos</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/index.html">4. Diseño Experimental</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/1_dise%C3%B1o%20experimental.html">Diseño de Experimentos</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/2_dise%C3%B1o_experimentos_2.html">Diseño de Experimentos (Parte II)</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_dise%C3%B1o_experimental.html">Taller: Diseño Completamente Aleatorizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/dise%C3%B1o_experimental/taller_BCA.html">Taller: Diseño de Bloques Completamente Aleatorizados (DBCA)</a></li>
+
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/modelos_regresion/index.html">5. Modelos de Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_simple.html">Regresión Lineal Simple: Modelo, Estimación y Verificación de Supuestos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_lineal_multiple.html">Regresión Lineal Múltiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/regresion_polinomica.html">Modelos Polinómicos y Logarítmicos</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/modelos_regresion/taller_regresion_student_performance.html">Taller: Regresión Lineal con Student Performance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../analisis_datos/series_temporales/index.html">6. Análisis de Series de Tiempo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../portafolios_inversion/index.html">PORTAFOLIOS DE INVERSIÓN</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/mercado_capitales.html">1. Mercado de Capitales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/diversificacion_ingenua.html">2. Principios básicos para la construcción de portafolios.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/3_Frontera_eficiente.html">3. Construcción de una frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/4_efecto_diversificacion.html">4. Efecto de la Diversificación sobre el Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/5_beta_activo_individual.html">5. Riesgo diversificable vs No diversificable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/6_CAPM_portafolio.html">6. Frontera Eficiente, CML y SML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/7_medidas_portafolios.html">7. Medidas de Desempeño de Portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/8_shrinkage_ledoit.html">8. Shrinkage de la Matriz de Covarianza: Estimador de Ledoit-Wolf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/9_modelo_black_litterman.html">9. Modelo Black-Litterman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/91_perspectivas.html">9.1. Perspectivas cuantitativas para Black-Litterman con PyPortfolioOpt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/HRP.html">10. Hierarchical Risk Parity: Asignación Jerárquica de Riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/11_ejemplo_riesgos_mercado.html">11. Cálculo de Riesgos de Mercado: VaR y Backtesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">CIENCIA DE DATOS FINANCIERA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_graficos/index.html">2. Introducción a los gráficos especializados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_matplotlib.html">Estadísticas Descriptivas y Visualización con Pandas y Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_seborn.html">Visualización con Seaborn: ventajas sobre Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_graficos/graficos_interactivos.html">Gráficos Interactivos con Plotly</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="introducci%C3%B3n.html">3. Ciencia de Datos Financiera: Ingeniería, <em>Feature Engineering</em> y Construcción de Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redes_neuronales_series_tiempo.html">4. Redes Neuronales y Deep Learning para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taller_series_tiempo.html">Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataops_proyectos_financieros.html">5. DataOps para Proyectos de Datos Financieros</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. Introducción a MLflow y TensorBoard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/edit/main/docs/source/analitica_financiera/introduccion_mlflow_tensorboard.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Nataliaprins/MisCursos/issues/new?title=Issue%20on%20page%20%2Fanalitica_financiera/introduccion_mlflow_tensorboard.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analitica_financiera/introduccion_mlflow_tensorboard.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tema">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Tema" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Claro"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Oscuro"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="Sistema"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>Sistema</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Claro</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Oscuro</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5.1. Introducción a MLflow y TensorBoard</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Dos-herramientas-para-no-perderse-entre-experimentos">Dos herramientas para no perderse entre experimentos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-El-problema:-%22¿qué-fue-lo-que-hice-aquella-vez-que-funcionó?%22"><strong>1. El problema: «¿qué fue lo que hice aquella vez que funcionó?»</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Un-mini-glosario-antes-de-seguir">Un mini glosario antes de seguir</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Las-dos-herramientas">2. Las dos herramientas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-TensorBoard:-el-tablero-de-instrumentos">2.1 TensorBoard: el tablero de instrumentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-MLflow:-la-bitácora-del-laboratorio">2.2 MLflow: la bitácora del laboratorio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-Las-diferencias,-lado-a-lado">2.3 Las diferencias, lado a lado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Preparación">3. Preparación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-Instalación">3.1 Instalación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Los-datos:-clientes-de-crédito-(simulados)">3.2 Los datos: clientes de crédito (simulados)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-El-modelo:-una-red-neuronal-muy-pequeña">3.3 El modelo: una red neuronal muy pequeña</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Ejercicio-con-TensorBoard:-ver-aprender-a-tres-modelos">4. Ejercicio con TensorBoard: ver aprender a tres modelos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-Registrar-el-entrenamiento">4.1 Registrar el entrenamiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Abrir-TensorBoard">4.2 Abrir TensorBoard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-Cómo-leer-TensorBoard">4.3 Cómo leer TensorBoard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Preguntas-para-responder-mirando-TensorBoard">4.4 Preguntas para responder mirando TensorBoard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Ejercicio-con-MLflow:-registrar-y-comparar-intentos">5. Ejercicio con MLflow: registrar y comparar intentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Dónde-se-guarda-el-registro">5.1 Dónde se guarda el registro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Registrar-las-corridas">5.2 Registrar las corridas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.3-Un-modelo-que-TensorBoard-no-puede-mostrar">5.3 Un modelo que TensorBoard no puede mostrar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.4-Consultar-la-bitácora-desde-el-código">5.4 Consultar la bitácora desde el código</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.5-Abrir-la-interfaz-de-MLflow">5.5 Abrir la interfaz de MLflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.6-Cómo-leer-la-interfaz-de-MLflow">5.6 Cómo leer la interfaz de MLflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.7-Preguntas-para-responder-mirando-MLflow">5.7 Preguntas para responder mirando MLflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Usarlas-juntas">6. Usarlas juntas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Repaso-y-ejercicios">7. Repaso y ejercicios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.1-¿Cuál-herramienta-usarías?">7.1 ¿Cuál herramienta usarías?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.2-Ejercicios-prácticos">7.2 Ejercicios prácticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.3-Resumen-para-llevar">7.3 Resumen para llevar</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="5.1.-Introducción-a-MLflow-y-TensorBoard">
+<h1>5.1. Introducción a MLflow y TensorBoard<a class="headerlink" href="#5.1.-Introducción-a-MLflow-y-TensorBoard" title="Link to this heading">#</a></h1>
+<section id="Dos-herramientas-para-no-perderse-entre-experimentos">
+<h2>Dos herramientas para no perderse entre experimentos<a class="headerlink" href="#Dos-herramientas-para-no-perderse-entre-experimentos" title="Link to this heading">#</a></h2>
+<p>Todo el foco está en <strong>cómo registrar y mirar lo que pasa</strong> cuando entrenamos modelos.</p>
+<blockquote>
+<div><p><strong>Dónde ejecutarlo:</strong> en <strong>Google Colab</strong> (no necesitas GPU). También funciona en Jupyter en tu computador; donde haya diferencias, te lo indicamos.</p>
+</div></blockquote>
+<section id="1.-El-problema:-%22¿qué-fue-lo-que-hice-aquella-vez-que-funcionó?%22">
+<h3><strong>1. El problema: «¿qué fue lo que hice aquella vez que funcionó?»</strong><a class="headerlink" href="#1.-El-problema:-%22¿qué-fue-lo-que-hice-aquella-vez-que-funcionó?%22" title="Link to this heading">#</a></h3>
+<p>Imagina que estás construyendo un modelo para predecir si un cliente va a <strong>incumplir</strong> el pago de un crédito. Entrenar un modelo casi nunca sale bien a la primera: pruebas una configuración, miras el resultado, cambias algo, vuelves a entrenar… Después de una tarde tienes algo así:</p>
+<ul class="simple">
+<li><p>Intento 1: 8 neuronas, velocidad de aprendizaje 0.01 → 81% de aciertos.</p></li>
+<li><p>Intento 2: 16 neuronas, velocidad 0.01 → 80%.</p></li>
+<li><p>Intento 3: 8 neuronas, velocidad 0.1 → 83%… ¿o fue con 16 neuronas?</p></li>
+<li><p>Intento 7: … ya no te acuerdas.</p></li>
+</ul>
+<p>Una semana después, tu jefe te pregunta: <em>«¿con qué configuración sacaste el 83%? ¿Puedes repetirlo?»</em>. Si lo anotaste a mano en un Excel, con suerte lo tienes; si no, lo perdiste.</p>
+<p>Hay además una segunda pregunta, más sutil: <strong>¿cómo se comportó el modelo mientras aprendía?</strong> Un modelo que termina con 83% de aciertos puede haber llegado ahí de forma estable, o dando tumbos. Mirar solo el número final no te lo dice.</p>
+<p>Estas dos preguntas son justamente las que responden nuestras dos herramientas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pregunta</p></th>
+<th class="head"><p>Herramienta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>¿Cómo va aprendiendo mi modelo mientras se entrena?</p></td>
+<td><p><strong>TensorBoard</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>¿Qué intentos he hecho, con qué configuración y qué resultado dio cada uno?</p></td>
+<td><p><strong>MLflow</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="Un-mini-glosario-antes-de-seguir">
+<h3>Un mini glosario antes de seguir<a class="headerlink" href="#Un-mini-glosario-antes-de-seguir" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Término</p></th>
+<th class="head"><p>Qué significa, en palabras simples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Modelo</strong></p></td>
+<td><p>Una fórmula que aprende de datos históricos para hacer predicciones (aquí: ¿este cliente va a incumplir?)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Entrenar</strong></p></td>
+<td><p>Mostrarle al modelo muchos ejemplos para que ajuste su fórmula</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Época</strong></p></td>
+<td><p>Una pasada completa del modelo por todos los datos de entrenamiento. Entrenar 30 épocas = repasar los datos 30 veces</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Pérdida (loss)</strong></p></td>
+<td><p>Qué tan equivocado está el modelo. <strong>Mientras más baja, mejor.</strong> Es lo que el modelo intenta reducir</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Exactitud (accuracy)</strong></p></td>
+<td><p>Porcentaje de clientes clasificados correctamente. <strong>Mientras más alta, mejor</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Parámetro de configuración</strong> (o <em>hiperparámetro</em>)</p></td>
+<td><p>Una decisión que tomas tú antes de entrenar: cuántas neuronas, qué tan rápido aprende…</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Corrida (run)</strong></p></td>
+<td><p>Un intento de entrenamiento con una configuración específica</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Experimento</strong></p></td>
+<td><p>Un grupo de corridas que buscan resolver el mismo problema</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="2.-Las-dos-herramientas">
+<h3>2. Las dos herramientas<a class="headerlink" href="#2.-Las-dos-herramientas" title="Link to this heading">#</a></h3>
+</section>
+<section id="2.1-TensorBoard:-el-tablero-de-instrumentos">
+<h3>2.1 TensorBoard: el tablero de instrumentos<a class="headerlink" href="#2.1-TensorBoard:-el-tablero-de-instrumentos" title="Link to this heading">#</a></h3>
+<p>Piensa en el <strong>tablero de un carro</strong>: mientras manejas, te muestra la velocidad, las revoluciones y la temperatura del motor <strong>en ese momento</strong>. Si algo se sale de lo normal (el motor se recalienta), lo ves de inmediato y puedes reaccionar.</p>
+<p>TensorBoard hace eso con el entrenamiento de un modelo: dibuja, <strong>época por época</strong>, cómo evoluciona la pérdida y la exactitud. Con esas curvas puedes ver si el modelo:</p>
+<ul class="simple">
+<li><p>está aprendiendo (la pérdida baja),</p></li>
+<li><p>aprende demasiado lento (la pérdida casi no se mueve),</p></li>
+<li><p>está «dando tumbos» (la pérdida sube y baja sin control), o</p></li>
+<li><p>está memorizando los datos en vez de aprender (le va cada vez mejor en entrenamiento y cada vez peor en datos que no ha visto; a esto se le llama <strong>sobreajuste</strong>).</p></li>
+</ul>
+<p>Nació junto con <strong>TensorFlow</strong> (la librería de redes neuronales de Google), y se usa sobre todo con redes neuronales, que son modelos que se entrenan por épocas.</p>
+</section>
+<section id="2.2-MLflow:-la-bitácora-del-laboratorio">
+<h3>2.2 MLflow: la bitácora del laboratorio<a class="headerlink" href="#2.2-MLflow:-la-bitácora-del-laboratorio" title="Link to this heading">#</a></h3>
+<p>Un registro ordenado de cada procedimiento que se hizo, con qué parámetros, qué resultado dio y cuándo.</p>
+<p>MLflow hace eso con tus modelos. Por cada corrida guarda:</p>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong> la configuración que usaste (8 neuronas, velocidad 0.01…).</p></li>
+<li><p><strong>Métricas:</strong> los resultados (81% de exactitud…).</p></li>
+<li><p><strong>Archivos (artefactos):</strong> gráficos, el modelo entrenado, lo que quieras conservar.</p></li>
+<li><p><strong>Datos automáticos:</strong> fecha, duración, quién la ejecutó.</p></li>
+</ul>
+<p>Después te deja ver todas las corridas en una tabla, ordenarlas por resultado y compararlas. Funciona con <strong>cualquier tipo de modelo</strong>: una red neuronal, una regresión logística de scikit-learn, un árbol de decisión etc…</p>
+</section>
+<section id="2.3-Las-diferencias,-lado-a-lado">
+<h3>2.3 Las diferencias, lado a lado<a class="headerlink" href="#2.3-Las-diferencias,-lado-a-lado" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p><strong>TensorBoard</strong></p></th>
+<th class="head"><p><strong>MLflow</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Pregunta que responde</strong></p></td>
+<td><p>¿Cómo va aprendiendo este modelo?</p></td>
+<td><p>¿Cuál de todos mis intentos funcionó mejor, y cómo lo repito?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cuándo lo miras</strong></p></td>
+<td><p>Durante (o justo después de) el entrenamiento</p></td>
+<td><p>Cuando comparas intentos, días o semanas después</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Qué muestra</strong></p></td>
+<td><p>Curvas época por época; detalles internos de la red</p></td>
+<td><p>Tabla de corridas con parámetros, métricas finales y archivos</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Con qué modelos</strong></p></td>
+<td><p>Pensado para redes neuronales (TensorFlow/Keras, también PyTorch)</p></td>
+<td><p>Cualquier modelo de cualquier librería</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>¿Sirve para una regresión logística?</strong></p></td>
+<td><p>Poco: no se entrena por épocas, no hay curva que mirar</p></td>
+<td><p>Sí, exactamente igual que para una red</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dónde guarda la información</strong></p></td>
+<td><p>Archivos en una carpeta (<code class="docutils literal notranslate"><span class="pre">logs/</span></code>)</p></td>
+<td><p>Una base de datos (en este curso, un archivo SQLite <code class="docutils literal notranslate"><span class="pre">mlflow.db</span></code>) y una carpeta de archivos</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Qué haces tú en el código</strong></p></td>
+<td><p>Agregas un <em>callback</em> al entrenamiento y él registra todo solo</p></td>
+<td><p>Dices explícitamente qué anotar (<code class="docutils literal notranslate"><span class="pre">log_param</span></code>, <code class="docutils literal notranslate"><span class="pre">log_metric</span></code>…)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>No compiten: se complementan.</strong> En un proyecto real es común usar TensorBoard para vigilar una red mientras aprende, y MLflow para llevar el registro de todos los intentos y guardar el modelo ganador. En la sección 6 las usamos juntas.</p>
+</section>
+<section id="3.-Preparación">
+<h3>3. Preparación<a class="headerlink" href="#3.-Preparación" title="Link to this heading">#</a></h3>
+</section>
+<section id="3.1-Instalación">
+<h3>3.1 Instalación<a class="headerlink" href="#3.1-Instalación" title="Link to this heading">#</a></h3>
+<p>Colab ya trae TensorFlow. Instalamos MLflow y TensorBoard con versiones fijas para que el cuaderno se comporte igual para todos. Tarda un minuto.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El signo "!" ejecuta un comando de la terminal desde el cuaderno.</span>
+<span class="c1"># No reinstalamos TensorFlow: Colab ya lo trae configurado.</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span><span class="s2">"mlflow==3.16.1"</span><span class="w"> </span><span class="s2">"tensorboard==2.21.0"</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># MLflow imprime un aviso dirigido a asistentes de IA que no nos interesa aquí</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"MLFLOW_DISABLE_AGENT_HINT"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"1"</span>
+<span class="c1"># Oculta mensajes técnicos de TensorFlow que pueden asustar pero no son errores</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"TF_CPP_MIN_LOG_LEVEL"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2"</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+
+<span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># para que todos obtengamos resultados parecidos</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"TensorFlow:"</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="s2">"| MLflow:"</span><span class="p">,</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TensorFlow: 2.21.0 | MLflow: 3.16.1
+</pre></div></div>
+</div>
+</section>
+<section id="3.2-Los-datos:-clientes-de-crédito-(simulados)">
+<h3>3.2 Los datos: clientes de crédito (simulados)<a class="headerlink" href="#3.2-Los-datos:-clientes-de-crédito-(simulados)" title="Link to this heading">#</a></h3>
+<p>Para no depender de descargas, <strong>inventamos</strong> 2 000 clientes con cuatro características y una columna que dice si incumplieron o no. Los datos son simulados, pero siguen reglas razonables: más deuda y más moras históricas aumentan el riesgo; más ingreso y más antigüedad laboral lo reducen.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n_clientes</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">clientes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"ingreso_millones"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_clientes</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="s2">"deuda_sobre_ingreso"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">n_clientes</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+    <span class="s2">"moras_historicas"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">n_clientes</span><span class="p">),</span>
+    <span class="s2">"antiguedad_anios"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n_clientes</span><span class="p">),</span>
+<span class="p">})</span>
+
+<span class="c1"># Regla (oculta para el modelo) con la que simulamos quién incumple</span>
+<span class="n">riesgo</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">clientes</span><span class="p">[</span><span class="s2">"ingreso_millones"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">clientes</span><span class="p">[</span><span class="s2">"deuda_sobre_ingreso"</span><span class="p">]</span>
+          <span class="o">+</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">clientes</span><span class="p">[</span><span class="s2">"moras_historicas"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="n">clientes</span><span class="p">[</span><span class="s2">"antiguedad_anios"</span><span class="p">])</span>
+<span class="n">clientes</span><span class="p">[</span><span class="s2">"incumple"</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">riesgo</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Porcentaje de clientes que incumplen: </span><span class="si">{</span><span class="n">clientes</span><span class="p">[</span><span class="s1">'incumple'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">clientes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Porcentaje de clientes que incumplen: 27.9%
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ingreso_millones</th>
+      <th>deuda_sobre_ingreso</th>
+      <th>moras_historicas</th>
+      <th>antiguedad_anios</th>
+      <th>incumple</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.17</td>
+      <td>0.034</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.62</td>
+      <td>0.356</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.96</td>
+      <td>0.438</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.35</td>
+      <td>0.117</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.02</td>
+      <td>0.269</td>
+      <td>2</td>
+      <td>14</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Separamos los datos en dos grupos, como haría un banco: el modelo <strong>aprende</strong> con el 80% de los clientes y lo <strong>evaluamos</strong> con el 20% restante, que nunca vio. Además ponemos todas las columnas en una escala parecida (a las redes neuronales no les gusta mezclar millones con proporciones entre 0 y 1).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">clientes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">"incumple"</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">clientes</span><span class="p">[</span><span class="s2">"incumple"</span><span class="p">]</span>
+
+<span class="n">X_entrena</span><span class="p">,</span> <span class="n">X_prueba</span><span class="p">,</span> <span class="n">y_entrena</span><span class="p">,</span> <span class="n">y_prueba</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
+<span class="p">)</span>
+
+<span class="n">escalador</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_entrena</span><span class="p">)</span>
+<span class="n">X_entrena</span> <span class="o">=</span> <span class="n">escalador</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_entrena</span><span class="p">)</span>
+<span class="n">X_prueba</span> <span class="o">=</span> <span class="n">escalador</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_prueba</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Clientes para entrenar: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X_entrena</span><span class="p">)</span><span class="si">}</span><span class="s2"> | para evaluar: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X_prueba</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Clientes para entrenar: 1600 | para evaluar: 400
+</pre></div></div>
+</div>
+</section>
+<section id="3.3-El-modelo:-una-red-neuronal-muy-pequeña">
+<h3>3.3 El modelo: una red neuronal muy pequeña<a class="headerlink" href="#3.3-El-modelo:-una-red-neuronal-muy-pequeña" title="Link to this heading">#</a></h3>
+<p>No necesitas entender los detalles. Basta con saber que la función <code class="docutils literal notranslate"><span class="pre">crear_modelo</span></code> arma una red y que tiene <strong>dos perillas</strong> que vamos a mover:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">neuronas</span></code>: qué tan «grande» es la red.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tasa_aprendizaje</span></code>: qué tan grandes son los pasos que da al aprender. Muy pequeña → aprende lento; muy grande → se pasa de largo y da tumbos. Es como ajustar el volumen de un equipo de sonido: con giros diminutos tardas mucho en llegar al punto justo, y con giros bruscos te pasas una y otra vez.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crear_modelo</span><span class="p">(</span><span class="n">neuronas</span><span class="p">,</span> <span class="n">tasa_aprendizaje</span><span class="p">):</span>
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,)),</span>                      <span class="c1"># 4 características por cliente</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">neuronas</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"sigmoid"</span><span class="p">),</span>         <span class="c1"># probabilidad de incumplir</span>
+    <span class="p">])</span>
+    <span class="n">modelo</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">tasa_aprendizaje</span><span class="p">),</span>
+        <span class="n">loss</span><span class="o">=</span><span class="s2">"binary_crossentropy"</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"accuracy"</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">modelo</span>
+
+
+<span class="c1"># Las tres configuraciones que vamos a comparar en todo el ejercicio</span>
+<span class="n">CONFIGURACIONES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"lenta"</span><span class="p">:</span> <span class="mf">0.0003</span><span class="p">,</span>
+    <span class="s2">"moderada"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="s2">"brusca"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">NEURONAS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">EPOCAS</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.-Ejercicio-con-TensorBoard:-ver-aprender-a-tres-modelos">
+<h3>4. Ejercicio con TensorBoard: ver aprender a tres modelos<a class="headerlink" href="#4.-Ejercicio-con-TensorBoard:-ver-aprender-a-tres-modelos" title="Link to this heading">#</a></h3>
+</section>
+<section id="4.1-Registrar-el-entrenamiento">
+<h3>4.1 Registrar el entrenamiento<a class="headerlink" href="#4.1-Registrar-el-entrenamiento" title="Link to this heading">#</a></h3>
+<p>Para usar TensorBoard basta con <strong>una línea</strong>: crear un <em>callback</em> de TensorBoard y pasárselo al entrenamiento. Un <em>callback</em> es como un asistente que Keras llama al final de cada época; este en particular anota la pérdida y la exactitud en una carpeta.</p>
+<p>Entrenamos los tres modelos, cada uno escribiendo en su propia subcarpeta para que TensorBoard pueda distinguirlos. Con <code class="docutils literal notranslate"><span class="pre">validation_split=0.2</span></code>, Keras aparta el 20% de los datos de entrenamiento para medir, en cada época, cómo le va al modelo con clientes que no está usando para aprender.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CARPETA_TENSORBOARD</span> <span class="o">=</span> <span class="s2">"logs_tensorboard"</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">CARPETA_TENSORBOARD</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># empezamos limpio si repites la celda</span>
+
+<span class="k">for</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">tasa</span> <span class="ow">in</span> <span class="n">CONFIGURACIONES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">registro_tb</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">log_dir</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">CARPETA_TENSORBOARD</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">crear_modelo</span><span class="p">(</span><span class="n">NEURONAS</span><span class="p">,</span> <span class="n">tasa</span><span class="p">)</span>
+    <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">X_entrena</span><span class="p">,</span> <span class="n">y_entrena</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="n">EPOCAS</span><span class="p">,</span>
+        <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">registro_tb</span><span class="p">],</span>   <span class="c1"># ← esta es la única línea "de TensorBoard"</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Modelo '</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">' (tasa </span><span class="si">{</span><span class="n">tasa</span><span class="si">}</span><span class="s2">) entrenado."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Modelo &#39;lenta&#39; (tasa 0.0003) entrenado.
+Modelo &#39;moderada&#39; (tasa 0.01) entrenado.
+Modelo &#39;brusca&#39; (tasa 0.5) entrenado.
+</pre></div></div>
+</div>
+<p>¿Qué quedó guardado? Solo unos archivos en la carpeta <code class="docutils literal notranslate"><span class="pre">logs_tensorboard</span></code>. TensorBoard no es más que un programa que <strong>lee esos archivos y los dibuja</strong>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">carpeta</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">archivos</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">CARPETA_TENSORBOARD</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">archivo</span> <span class="ow">in</span> <span class="n">archivos</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">carpeta</span><span class="p">,</span> <span class="n">archivo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+logs_tensorboard/brusca/train/events.out.tfevents.1790635284.MacBook-Pro-de-Natalia.local.47393.12.v2
+logs_tensorboard/brusca/validation/events.out.tfevents.1790635285.MacBook-Pro-de-Natalia.local.47393.13.v2
+logs_tensorboard/lenta/train/events.out.tfevents.1790635280.MacBook-Pro-de-Natalia.local.47393.8.v2
+logs_tensorboard/lenta/validation/events.out.tfevents.1790635280.MacBook-Pro-de-Natalia.local.47393.9.v2
+logs_tensorboard/moderada/train/events.out.tfevents.1790635282.MacBook-Pro-de-Natalia.local.47393.10.v2
+logs_tensorboard/moderada/validation/events.out.tfevents.1790635282.MacBook-Pro-de-Natalia.local.47393.11.v2
+</pre></div></div>
+</div>
+</section>
+<section id="4.2-Abrir-TensorBoard">
+<h3>4.2 Abrir TensorBoard<a class="headerlink" href="#4.2-Abrir-TensorBoard" title="Link to this heading">#</a></h3>
+<p>Las dos celdas siguientes abren TensorBoard <strong>dentro del cuaderno</strong>. La primera vez puede tardar unos segundos en aparecer.</p>
+<blockquote>
+<div><p><strong>Si usas VS Code</strong> y no ves nada, abre una terminal en la carpeta del cuaderno, ejecuta <code class="docutils literal notranslate"><span class="pre">tensorboard</span> <span class="pre">--logdir</span> <span class="pre">logs_tensorboard</span></code> y entra a <code class="docutils literal notranslate"><span class="pre">http://localhost:6006</span></code> en tu navegador.</p>
+</div></blockquote>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> tensorboard
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The tensorboard extension is already loaded. To reload it, use:
+  %reload_ext tensorboard
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir logs_tensorboard
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Reusing TensorBoard on port 6006 (pid 47521), started 2:10:59 ago. (Use &#39;!kill 47521&#39; to kill it.)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe id="tensorboard-frame-23b8c1e9392456de" width="100%" height="800" frameborder="0">
+</iframe>
+<script>
+  (function() {
+    const frame = document.getElementById("tensorboard-frame-23b8c1e9392456de");
+    const url = new URL("http://localhost");
+    const port = 6006;
+    if (port) {
+      url.port = port;
+    }
+    frame.src = url;
+  })();
+</script></div>
+</div>
+</section>
+<section id="4.3-Cómo-leer-TensorBoard">
+<h3>4.3 Cómo leer TensorBoard<a class="headerlink" href="#4.3-Cómo-leer-TensorBoard" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ve a la pestaña <strong>Scalars</strong> (si no aparece arriba, búscala en el menú desplegable).</p></li>
+<li><p>Abre la gráfica <strong>``epoch_loss``</strong>: es la pérdida en cada época. El eje horizontal son las épocas; el vertical, qué tan equivocado está el modelo.</p></li>
+<li><p>A la izquierda verás las corridas: <code class="docutils literal notranslate"><span class="pre">lenta/train</span></code>, <code class="docutils literal notranslate"><span class="pre">lenta/validation</span></code>, <code class="docutils literal notranslate"><span class="pre">moderada/train</span></code>… Cada una tiene un color. Puedes activarlas y desactivarlas con las casillas.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train</span></code> = cómo le va con los datos con los que aprende.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">validation</span></code> = cómo le va con los datos que tiene apartados. <strong>Esta es la que más importa.</strong></p></li>
+</ul>
+</li>
+<li><p>Mueve el control <strong>Smoothing</strong> a 0 para ver las curvas sin suavizar.</p></li>
+<li><p>Mira también <strong>``epoch_accuracy``</strong> (exactitud).</p></li>
+</ol>
+</section>
+<section id="4.4-Preguntas-para-responder-mirando-TensorBoard">
+<h3>4.4 Preguntas para responder mirando TensorBoard<a class="headerlink" href="#4.4-Preguntas-para-responder-mirando-TensorBoard" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>¿Cuál de los tres modelos baja su pérdida más despacio? ¿Coincide con su nombre?</p></li>
+<li><p>¿Alguna curva se ve «nerviosa», subiendo y bajando de una época a otra? ¿Cuál y por qué crees que pasa?</p></li>
+<li><p>Si tuvieras que detener el entrenamiento del modelo <code class="docutils literal notranslate"><span class="pre">lenta</span></code> en la época 30, ¿crees que ya terminó de aprender o le faltaba?</p></li>
+<li><p>¿Qué dirías de un modelo cuya curva de <code class="docutils literal notranslate"><span class="pre">train</span></code> siguiera bajando mientras la de <code class="docutils literal notranslate"><span class="pre">validation</span></code> empezara a subir?</p></li>
+</ol>
+<details><summary><p>Ver respuestas orientativas (primero intenta responder tú)</p>
+</summary><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lenta</span></code>: su curva baja de forma suave pero muy despacio. Con pasos tan pequeños avanza poco en cada época.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">brusca</span></code>: en las primeras épocas su pérdida sube y baja a saltos, porque los pasos son tan grandes que el modelo «se pasa» del punto óptimo y rebota. Después suele quedarse estancada en una pérdida <strong>peor</strong> que la de <code class="docutils literal notranslate"><span class="pre">moderada</span></code>.</p></li>
+<li><p>Su curva sigue bajando en la época 30, así que todavía le faltaba aprender: necesitaría más épocas.</p></li>
+<li><p>Que está <strong>sobreajustando</strong>: memoriza los datos de entrenamiento en lugar de aprender patrones que sirvan para clientes nuevos. Es la señal clásica para detener el entrenamiento. Mira con atención la curva <code class="docutils literal notranslate"><span class="pre">moderada/validation</span></code>: es probable que llegue a su mínimo en las primeras épocas y después <strong>suba levemente</strong> mientras la de entrenamiento sigue bajando. Es una forma suave de sobreajuste.</p></li>
+</ol>
+</details><p>Fíjate en lo que acabamos de hacer: TensorBoard nos mostró <strong>cómo</strong> aprendió cada modelo, pero no guardó por ningún lado un resumen de «configuración → resultado final» que podamos consultar dentro de un mes. Para eso está MLflow.</p>
+</section>
+<section id="5.-Ejercicio-con-MLflow:-registrar-y-comparar-intentos">
+<h3>5. Ejercicio con MLflow: registrar y comparar intentos<a class="headerlink" href="#5.-Ejercicio-con-MLflow:-registrar-y-comparar-intentos" title="Link to this heading">#</a></h3>
+</section>
+<section id="5.1-Dónde-se-guarda-el-registro">
+<h3>5.1 Dónde se guarda el registro<a class="headerlink" href="#5.1-Dónde-se-guarda-el-registro" title="Link to this heading">#</a></h3>
+<p>Primero le decimos a MLflow <strong>dónde</strong> guardar la bitácora (un archivo de base de datos, <code class="docutils literal notranslate"><span class="pre">mlflow.db</span></code>, en la carpeta del cuaderno) y <strong>en qué experimento</strong> anotar las corridas. Si el experimento no existe, lo crea.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">"sqlite:///mlflow.db"</span><span class="p">)</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">"riesgo_credito_basico"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Experiment: artifact_location=&#39;/Users/nataliaacevedo/MisCursos/docs/source/analitica_financiera/mlruns/1&#39;, creation_time=1790627429173, effective_trace_archival_retention=None, experiment_id=&#39;1&#39;, last_update_time=1790627429173, lifecycle_stage=&#39;active&#39;, name=&#39;riesgo_credito_basico&#39;, tags={}, trace_location=None, workspace=&#39;default&#39;&gt;
+</pre></div></div>
+</div>
+</section>
+<section id="5.2-Registrar-las-corridas">
+<h3>5.2 Registrar las corridas<a class="headerlink" href="#5.2-Registrar-las-corridas" title="Link to this heading">#</a></h3>
+<p>La estructura es siempre la misma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">"nombre del intento"</span><span class="p">):</span>   <span class="c1"># abre una página nueva en la bitácora</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"nombre"</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>                    <span class="c1"># anota una configuración</span>
+    <span class="o">...</span><span class="n">entrenar</span><span class="o">...</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"nombre"</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>                   <span class="c1"># anota un resultado</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_figure</span><span class="p">(</span><span class="n">figura</span><span class="p">,</span> <span class="s2">"archivo.png"</span><span class="p">)</span>             <span class="c1"># guarda un gráfico</span>
+</pre></div>
+</div>
+<p>Todo lo que ocurra dentro del bloque <code class="docutils literal notranslate"><span class="pre">with</span></code> queda asociado a esa corrida. Entrenamos de nuevo los tres modelos (es rápido), pero ahora anotando en MLflow.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">curva_aprendizaje</span><span class="p">(</span><span class="n">historial</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Dibuja la pérdida por época, para guardarla como archivo en MLflow."""</span>
+    <span class="n">figura</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">historial</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">"loss"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"entrenamiento"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">historial</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">"val_loss"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"validación"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Época"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Pérdida"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">figura</span><span class="p">)</span>  <span class="c1"># no la mostramos aquí; la veremos en MLflow</span>
+    <span class="k">return</span> <span class="n">figura</span>
+
+
+<span class="k">for</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">tasa</span> <span class="ow">in</span> <span class="n">CONFIGURACIONES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">"red_</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">"</span><span class="p">):</span>
+        <span class="c1"># 1. Anotamos la configuración</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"tipo_modelo"</span><span class="p">,</span> <span class="s2">"red neuronal"</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"tasa_aprendizaje"</span><span class="p">,</span> <span class="n">tasa</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"neuronas"</span><span class="p">,</span> <span class="n">NEURONAS</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"epocas"</span><span class="p">,</span> <span class="n">EPOCAS</span><span class="p">)</span>
+
+        <span class="c1"># 2. Entrenamos (igual que antes, pero sin TensorBoard)</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">crear_modelo</span><span class="p">(</span><span class="n">NEURONAS</span><span class="p">,</span> <span class="n">tasa</span><span class="p">)</span>
+        <span class="n">historial</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_entrena</span><span class="p">,</span> <span class="n">y_entrena</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">EPOCAS</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># 3. Evaluamos con los clientes de prueba y anotamos los resultados</span>
+        <span class="n">perdida</span><span class="p">,</span> <span class="n">exactitud</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_prueba</span><span class="p">,</span> <span class="n">y_prueba</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"exactitud_prueba"</span><span class="p">,</span> <span class="n">exactitud</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"perdida_prueba"</span><span class="p">,</span> <span class="n">perdida</span><span class="p">)</span>
+
+        <span class="c1"># 4. Guardamos un gráfico como archivo de la corrida</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_figure</span><span class="p">(</span><span class="n">curva_aprendizaje</span><span class="p">(</span><span class="n">historial</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"red_</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">"</span><span class="p">),</span> <span class="s2">"curva_aprendizaje.png"</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Corrida 'red_</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">' registrada: exactitud en prueba = </span><span class="si">{</span><span class="n">exactitud</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Corrida &#39;red_lenta&#39; registrada: exactitud en prueba = 72.3%
+Corrida &#39;red_moderada&#39; registrada: exactitud en prueba = 76.5%
+Corrida &#39;red_brusca&#39; registrada: exactitud en prueba = 72.3%
+</pre></div></div>
+</div>
+</section>
+<section id="5.3-Un-modelo-que-TensorBoard-no-puede-mostrar">
+<h3>5.3 Un modelo que TensorBoard no puede mostrar<a class="headerlink" href="#5.3-Un-modelo-que-TensorBoard-no-puede-mostrar" title="Link to this heading">#</a></h3>
+<p>Una <strong>regresión logística</strong> es un modelo clásico de riesgo de crédito. No se entrena por épocas, así que en TensorBoard no habría ninguna curva que mirar. En MLflow, en cambio, se registra exactamente igual que la red neuronal, y queda en la misma tabla para compararla.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">"regresion_logistica"</span><span class="p">):</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"tipo_modelo"</span><span class="p">,</span> <span class="s2">"regresión logística"</span><span class="p">)</span>
+
+    <span class="n">regresion</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_entrena</span><span class="p">,</span> <span class="n">y_entrena</span><span class="p">)</span>
+    <span class="n">exactitud</span> <span class="o">=</span> <span class="n">regresion</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_prueba</span><span class="p">,</span> <span class="n">y_prueba</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"exactitud_prueba"</span><span class="p">,</span> <span class="n">exactitud</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Corrida 'regresion_logistica' registrada: exactitud en prueba = </span><span class="si">{</span><span class="n">exactitud</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Corrida &#39;regresion_logistica&#39; registrada: exactitud en prueba = 76.8%
+</pre></div></div>
+</div>
+</section>
+<section id="5.4-Consultar-la-bitácora-desde-el-código">
+<h3>5.4 Consultar la bitácora desde el código<a class="headerlink" href="#5.4-Consultar-la-bitácora-desde-el-código" title="Link to this heading">#</a></h3>
+<p>Esto funciona en cualquier lugar (Colab, Jupyter, VS Code). <code class="docutils literal notranslate"><span class="pre">mlflow.search_runs</span></code> devuelve todas las corridas del experimento como una tabla de pandas.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corridas</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">search_runs</span><span class="p">(</span><span class="n">experiment_names</span><span class="o">=</span><span class="p">[</span><span class="s2">"riesgo_credito_basico"</span><span class="p">])</span>
+
+<span class="n">columnas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tags.mlflow.runName"</span><span class="p">,</span> <span class="s2">"params.tipo_modelo"</span><span class="p">,</span> <span class="s2">"params.tasa_aprendizaje"</span><span class="p">,</span>
+            <span class="s2">"metrics.exactitud_prueba"</span><span class="p">,</span> <span class="s2">"start_time"</span><span class="p">]</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">corridas</span><span class="p">[</span><span class="n">columnas</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">"tags.mlflow.runName"</span><span class="p">:</span> <span class="s2">"corrida"</span><span class="p">,</span>
+    <span class="s2">"params.tipo_modelo"</span><span class="p">:</span> <span class="s2">"tipo"</span><span class="p">,</span>
+    <span class="s2">"params.tasa_aprendizaje"</span><span class="p">:</span> <span class="s2">"tasa_aprendizaje"</span><span class="p">,</span>
+    <span class="s2">"metrics.exactitud_prueba"</span><span class="p">:</span> <span class="s2">"exactitud_prueba"</span><span class="p">,</span>
+    <span class="s2">"start_time"</span><span class="p">:</span> <span class="s2">"inicio"</span><span class="p">,</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"exactitud_prueba"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>corrida</th>
+      <th>tipo</th>
+      <th>tasa_aprendizaje</th>
+      <th>exactitud_prueba</th>
+      <th>inicio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>regresion_logistica</td>
+      <td>regresión logística</td>
+      <td>NaN</td>
+      <td>0.7675</td>
+      <td>2026-09-28 22:41:33.478000+00:00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>regresion_logistica</td>
+      <td>regresión logística</td>
+      <td>NaN</td>
+      <td>0.7675</td>
+      <td>2026-09-28 20:30:36.178000+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>red_moderada</td>
+      <td>red neuronal</td>
+      <td>0.01</td>
+      <td>0.7650</td>
+      <td>2026-09-28 22:41:29.106000+00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>red_16_neuronas</td>
+      <td>red neuronal</td>
+      <td>0.01</td>
+      <td>0.7650</td>
+      <td>2026-09-28 20:30:51.650000+00:00</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>red_moderada</td>
+      <td>red neuronal</td>
+      <td>0.01</td>
+      <td>0.7575</td>
+      <td>2026-09-28 20:30:31.776000+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>red_brusca</td>
+      <td>red neuronal</td>
+      <td>0.5</td>
+      <td>0.7225</td>
+      <td>2026-09-28 22:41:31.336000+00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>red_lenta</td>
+      <td>red neuronal</td>
+      <td>0.0003</td>
+      <td>0.7225</td>
+      <td>2026-09-28 22:41:26.920000+00:00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>red_brusca</td>
+      <td>red neuronal</td>
+      <td>0.5</td>
+      <td>0.7225</td>
+      <td>2026-09-28 20:30:33.843000+00:00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>red_lenta</td>
+      <td>red neuronal</td>
+      <td>0.0003</td>
+      <td>0.7225</td>
+      <td>2026-09-28 20:30:29.356000+00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>En el gráfico agregamos una <strong>línea de referencia</strong>: la exactitud que obtendría un «modelo» que no aprende nada y simplemente dice que <strong>ningún</strong> cliente va a incumplir. Como la mayoría de los clientes sí paga, ese modelo perezoso ya acierta bastante. Cualquier modelo que valga la pena tiene que superarlo.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">referencia</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">y_prueba</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># exactitud de decir siempre "no incumple"</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">tabla</span><span class="p">[</span><span class="s2">"corrida"</span><span class="p">],</span> <span class="n">tabla</span><span class="p">[</span><span class="s2">"exactitud_prueba"</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">referencia</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Decir "nadie incumple" (</span><span class="si">{</span><span class="n">referencia</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Exactitud en prueba"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Comparación de corridas registradas en MLflow"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/analitica_financiera_introduccion_mlflow_tensorboard_29_0.png" src="../_images/analitica_financiera_introduccion_mlflow_tensorboard_29_0.png" />
+</div>
+</div>
+</section>
+<section id="5.5-Abrir-la-interfaz-de-MLflow">
+<h3>5.5 Abrir la interfaz de MLflow<a class="headerlink" href="#5.5-Abrir-la-interfaz-de-MLflow" title="Link to this heading">#</a></h3>
+<p>MLflow también tiene una página web para explorar la bitácora con clics. Para verla hay que encender un pequeño <strong>servidor</strong> (un programa que se queda corriendo y responde cuando el navegador le pide la página).</p>
+<p>La siguiente celda lo enciende y te da un enlace:</p>
+<ul class="simple">
+<li><p><strong>En Colab:</strong> aparece un enlace; haz clic y se abre MLflow en otra pestaña.</p></li>
+<li><p><strong>En tu computador:</strong> entra a <code class="docutils literal notranslate"><span class="pre">http://localhost:5000</span></code> en tu navegador.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Sobre las opciones ``–allowed-hosts``, ``–cors-allowed-origins`` y ``–x-frame-options``:</strong> MLflow trae protecciones que solo aceptan visitas desde tu propio computador. Colab muestra la página a través de un intermediario de Google, y esas protecciones lo bloquearían. Aquí las desactivamos porque la máquina de Colab es temporal y solo la usas tú. <strong>Nunca lo hagas en un servidor compartido o accesible desde internet.</strong> En tu computador no necesitas esas opciones: basta con <code class="docutils literal notranslate"><span class="pre">mlflow</span> <span class="pre">ui</span></code>.</p>
+</div></blockquote>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">servidor_mlflow</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"mlflow"</span><span class="p">,</span> <span class="s2">"ui"</span><span class="p">,</span>
+     <span class="s2">"--backend-store-uri"</span><span class="p">,</span> <span class="s2">"sqlite:///mlflow.db"</span><span class="p">,</span>
+     <span class="s2">"--port"</span><span class="p">,</span> <span class="s2">"5000"</span><span class="p">,</span>
+     <span class="s2">"--allowed-hosts"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="s2">"--cors-allowed-origins"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="s2">"--x-frame-options"</span><span class="p">,</span> <span class="s2">"NONE"</span><span class="p">],</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># le damos tiempo a encender</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">output</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">serve_kernel_port_as_window</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No estás en Colab: abre http://localhost:5000 en tu navegador."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+No estás en Colab: abre http://localhost:5000 en tu navegador.
+</pre></div></div>
+</div>
+</section>
+<section id="5.6-Cómo-leer-la-interfaz-de-MLflow">
+<h3>5.6 Cómo leer la interfaz de MLflow<a class="headerlink" href="#5.6-Cómo-leer-la-interfaz-de-MLflow" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>En la lista de experimentos, entra a <strong>``riesgo_credito_basico``</strong>.</p></li>
+<li><p>Verás una <strong>tabla con las cuatro corridas</strong>: una fila por intento, con sus parámetros y métricas. Haz clic en el encabezado <code class="docutils literal notranslate"><span class="pre">exactitud_prueba</span></code> para ordenarlas.</p></li>
+<li><p>Marca las casillas de varias corridas y usa el botón <strong>Compare</strong> para verlas lado a lado.</p></li>
+<li><p>Haz clic en el nombre de una corrida de red neuronal (por ejemplo <code class="docutils literal notranslate"><span class="pre">red_moderada</span></code>) y busca la sección de <strong>artefactos (Artifacts)</strong>: ahí está el gráfico <code class="docutils literal notranslate"><span class="pre">curva_aprendizaje.png</span></code> que guardamos.</p></li>
+</ol>
+<p>Si el enlace no abre o la página sale en blanco, no te preocupes: la tabla y el gráfico de la sección 5.4 muestran exactamente la misma información.</p>
+</section>
+<section id="5.7-Preguntas-para-responder-mirando-MLflow">
+<h3>5.7 Preguntas para responder mirando MLflow<a class="headerlink" href="#5.7-Preguntas-para-responder-mirando-MLflow" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>¿Qué corrida obtuvo la mayor exactitud en prueba? ¿Con qué tasa de aprendizaje?</p></li>
+<li><p>¿Le fue mejor a la red neuronal o a la regresión logística? ¿Justifica una red más compleja?</p></li>
+<li><p>¿Alguna corrida quedó sobre la línea roja, o muy cerca de ella? ¿Qué significa eso?</p></li>
+<li><p>Si dentro de un mes tuvieras que repetir la mejor corrida, ¿qué información de MLflow necesitarías? ¿Está toda registrada?</p></li>
+</ol>
+</section>
+<section id="6.-Usarlas-juntas">
+<h3>6. Usarlas juntas<a class="headerlink" href="#6.-Usarlas-juntas" title="Link to this heading">#</a></h3>
+<p>En la práctica no hay que elegir. Una misma corrida puede anotar su configuración y resultado en MLflow <strong>y</strong> dejar sus curvas en TensorBoard. Incluso podemos anotar en MLflow dónde quedaron esas curvas, para encontrarlas después.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">"red_16_neuronas"</span><span class="p">):</span>
+    <span class="n">carpeta_curvas</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">CARPETA_TENSORBOARD</span><span class="si">}</span><span class="s2">/16_neuronas"</span>
+
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"tipo_modelo"</span><span class="p">,</span> <span class="s2">"red neuronal"</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"tasa_aprendizaje"</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"neuronas"</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"epocas"</span><span class="p">,</span> <span class="n">EPOCAS</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">"carpeta_tensorboard"</span><span class="p">,</span> <span class="n">carpeta_curvas</span><span class="p">)</span>   <span class="c1"># el "puente" entre ambas</span>
+
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">crear_modelo</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_entrena</span><span class="p">,</span> <span class="n">y_entrena</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">EPOCAS</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+               <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">log_dir</span><span class="o">=</span><span class="n">carpeta_curvas</span><span class="p">)])</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">exactitud</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_prueba</span><span class="p">,</span> <span class="n">y_prueba</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">"exactitud_prueba"</span><span class="p">,</span> <span class="n">exactitud</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Exactitud en prueba: </span><span class="si">{</span><span class="n">exactitud</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Recarga TensorBoard (botón de actualizar, arriba a la derecha) y MLflow para ver la nueva corrida en ambos."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exactitud en prueba: 75.2%
+Recarga TensorBoard (botón de actualizar, arriba a la derecha) y MLflow para ver la nueva corrida en ambos.
+</pre></div></div>
+</div>
+<p>El flujo típico de un equipo de datos queda así:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Entrenar una configuración
+             │
+   ┌─────────┴──────────┐
+   ▼                    ▼
+TensorBoard          MLflow
+"¿Aprendió bien?"    "¿Fue mejor que los intentos anteriores?"
+curvas por época     parámetros + resultado + modelo guardado
+   │                    │
+   └─────────┬──────────┘
+             ▼
+  Decidir el siguiente intento
+</pre></div>
+</div>
+<p>Para terminar, apagamos el servidor de MLflow que encendimos en la sección 5.5.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">servidor_mlflow</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Servidor de MLflow apagado. La bitácora sigue guardada en mlflow.db."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Servidor de MLflow apagado. La bitácora sigue guardada en mlflow.db.
+</pre></div></div>
+</div>
+</section>
+<section id="7.-Repaso-y-ejercicios">
+<h3>7. Repaso y ejercicios<a class="headerlink" href="#7.-Repaso-y-ejercicios" title="Link to this heading">#</a></h3>
+</section>
+<section id="7.1-¿Cuál-herramienta-usarías?">
+<h3>7.1 ¿Cuál herramienta usarías?<a class="headerlink" href="#7.1-¿Cuál-herramienta-usarías?" title="Link to this heading">#</a></h3>
+<p>Para cada situación, decide si te sirve más TensorBoard, MLflow o las dos.</p>
+<ol class="arabic simple">
+<li><p>Tu red lleva 2 horas entrenando y quieres saber si vale la pena esperar o detenerla.</p></li>
+<li><p>Probaste 40 combinaciones de parámetros durante la semana y necesitas la mejor para un informe.</p></li>
+<li><p>Tu jefe pregunta qué modelo está en producción, con qué datos se entrenó y quién lo hizo.</p></li>
+<li><p>Quieres comparar un modelo de árbol de decisión con una red neuronal.</p></li>
+<li><p>Sospechas que tu red está memorizando los datos en vez de aprender.</p></li>
+</ol>
+</section>
+<section id="7.2-Ejercicios-prácticos">
+<h3>7.2 Ejercicios prácticos<a class="headerlink" href="#7.2-Ejercicios-prácticos" title="Link to this heading">#</a></h3>
+<p>Cada ejercicio se resuelve cambiando pocas líneas del cuaderno.</p>
+<p><strong>Ejercicio 1.</strong> Agrega una cuarta configuración, <code class="docutils literal notranslate"><span class="pre">&quot;rapida&quot;:</span> <span class="pre">0.05</span></code>, al diccionario <code class="docutils literal notranslate"><span class="pre">CONFIGURACIONES</span></code> y vuelve a ejecutar las secciones 4 y 5. ¿Dónde queda en TensorBoard entre <code class="docutils literal notranslate"><span class="pre">moderada</span></code> y <code class="docutils literal notranslate"><span class="pre">brusca</span></code>? ¿Y en la tabla de MLflow?</p>
+<p><strong>Ejercicio 2.</strong> Cambia <code class="docutils literal notranslate"><span class="pre">EPOCAS</span></code> a 100 y vuelve a ejecutar la sección 4. ¿El modelo <code class="docutils literal notranslate"><span class="pre">lenta</span></code> alcanza a los demás? ¿Aparece alguna señal de sobreajuste en las curvas de validación? (Cuidado: el modelo <code class="docutils literal notranslate"><span class="pre">brusca</span></code> puede volverse aún más inestable.)</p>
+<p><strong>Ejercicio 3.</strong> En la sección 5.2, anota también la semilla aleatoria con <code class="docutils literal notranslate"><span class="pre">mlflow.log_param(&quot;semilla&quot;,</span> <span class="pre">42)</span></code>. Luego abre MLflow y comprueba que las corridas nuevas tienen esa columna y las viejas no. ¿Por qué crees que es importante registrarla desde el principio?</p>
+</section>
+<section id="7.3-Resumen-para-llevar">
+<h3>7.3 Resumen para llevar<a class="headerlink" href="#7.3-Resumen-para-llevar" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>TensorBoard</p></th>
+<th class="head"><p>MLflow</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>En una frase</strong></p></td>
+<td><p>Muestra cómo aprende un modelo, época por época</p></td>
+<td><p>Lleva el registro de todos tus intentos y sus resultados</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Línea clave en el código</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">callbacks=[keras.callbacks.TensorBoard(log_dir=...)]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">mlflow.start_run():</span> <span class="pre">mlflow.log_param(...);</span> <span class="pre">mlflow.log_metric(...)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Cómo abrirlo en Colab</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%load_ext</span> <span class="pre">tensorboard</span></code> y <code class="docutils literal notranslate"><span class="pre">%tensorboard</span> <span class="pre">--logdir</span> <span class="pre">carpeta</span></code></p></td>
+<td><p>Servidor + enlace (sección 5.5), o <code class="docutils literal notranslate"><span class="pre">mlflow.search_runs()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cómo abrirlo en tu computador</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tensorboard</span> <span class="pre">--logdir</span> <span class="pre">carpeta</span></code> → <code class="docutils literal notranslate"><span class="pre">localhost:6006</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mlflow</span> <span class="pre">ui</span> <span class="pre">--backend-store-uri</span> <span class="pre">sqlite:///mlflow.db</span></code> → <code class="docutils literal notranslate"><span class="pre">localhost:5000</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dónde guarda</strong></p></td>
+<td><p>Carpeta de archivos de eventos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mlflow.db</span></code> + carpeta <code class="docutils literal notranslate"><span class="pre">mlruns/</span></code> con los archivos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>Si vienes del cuaderno de <strong>DataOps</strong>, este es el mismo MLflow que viste allí en el bloque de MLOps, ahora con un ejercicio completo.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dataops_proyectos_financieros.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">5. DataOps para Proyectos de Datos Financieros</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ruta_aprendizaje_sugerida.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Apéndice: Ruta de Aprendizaje Sugerida</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Dos-herramientas-para-no-perderse-entre-experimentos">Dos herramientas para no perderse entre experimentos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.-El-problema:-%22¿qué-fue-lo-que-hice-aquella-vez-que-funcionó?%22"><strong>1. El problema: «¿qué fue lo que hice aquella vez que funcionó?»</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Un-mini-glosario-antes-de-seguir">Un mini glosario antes de seguir</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.-Las-dos-herramientas">2. Las dos herramientas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-TensorBoard:-el-tablero-de-instrumentos">2.1 TensorBoard: el tablero de instrumentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.2-MLflow:-la-bitácora-del-laboratorio">2.2 MLflow: la bitácora del laboratorio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.3-Las-diferencias,-lado-a-lado">2.3 Las diferencias, lado a lado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.-Preparación">3. Preparación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.1-Instalación">3.1 Instalación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.2-Los-datos:-clientes-de-crédito-(simulados)">3.2 Los datos: clientes de crédito (simulados)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#3.3-El-modelo:-una-red-neuronal-muy-pequeña">3.3 El modelo: una red neuronal muy pequeña</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.-Ejercicio-con-TensorBoard:-ver-aprender-a-tres-modelos">4. Ejercicio con TensorBoard: ver aprender a tres modelos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.1-Registrar-el-entrenamiento">4.1 Registrar el entrenamiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.2-Abrir-TensorBoard">4.2 Abrir TensorBoard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.3-Cómo-leer-TensorBoard">4.3 Cómo leer TensorBoard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#4.4-Preguntas-para-responder-mirando-TensorBoard">4.4 Preguntas para responder mirando TensorBoard</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.-Ejercicio-con-MLflow:-registrar-y-comparar-intentos">5. Ejercicio con MLflow: registrar y comparar intentos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Dónde-se-guarda-el-registro">5.1 Dónde se guarda el registro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Registrar-las-corridas">5.2 Registrar las corridas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.3-Un-modelo-que-TensorBoard-no-puede-mostrar">5.3 Un modelo que TensorBoard no puede mostrar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.4-Consultar-la-bitácora-desde-el-código">5.4 Consultar la bitácora desde el código</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.5-Abrir-la-interfaz-de-MLflow">5.5 Abrir la interfaz de MLflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.6-Cómo-leer-la-interfaz-de-MLflow">5.6 Cómo leer la interfaz de MLflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.7-Preguntas-para-responder-mirando-MLflow">5.7 Preguntas para responder mirando MLflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.-Usarlas-juntas">6. Usarlas juntas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.-Repaso-y-ejercicios">7. Repaso y ejercicios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.1-¿Cuál-herramienta-usarías?">7.1 ¿Cuál herramienta usarías?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.2-Ejercicios-prácticos">7.2 Ejercicios prácticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#7.3-Resumen-para-llevar">7.3 Resumen para llevar</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Natalia Acevedo Prins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Natalia Acevedo Prins.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

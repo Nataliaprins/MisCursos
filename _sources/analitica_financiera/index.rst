@@ -27,5 +27,6 @@ Contenido del curso:
    redes_neuronales_series_tiempo
    taller_series_tiempo
    dataops_proyectos_financieros
+   introduccion_mlflow_tensorboard
    ruta_aprendizaje_sugerida
    
