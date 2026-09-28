@@ -8,3 +8,10 @@ docs/build/
 # Datos generados al ejecutar los notebooks (ver flujos_trabajo.ipynb)
 docs/source/**/data/raw/
 docs/source/**/data/processed/
+
+# Datos pesados y artefactos generados por los notebooks de analítica financiera
+docs/source/analitica_financiera/news_archive/
+docs/source/analitica_financiera/analyst_ratings_processed.csv
+docs/source/**/mlflow.db
+docs/source/**/mlruns/
+docs/source/**/logs_tensorboard/
