@@ -29,4 +29,4 @@ Contenido del curso:
    dataops_proyectos_financieros
    introduccion_mlflow_tensorboard
    ruta_aprendizaje_sugerida
-   
+   sesiones_virtuales
