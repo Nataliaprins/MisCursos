@@ -1,0 +1,4 @@
+/* El recuadro de TensorBoard apunta a localhost y sale vacío en la página estática: lo ocultamos */
+iframe[id^="tensorboard-frame"] {
+    display: none;
+}
