@@ -54,6 +54,8 @@
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="7. IA Generativa y LLMs II" href="S8_Reportes_Corporativos_LLMs_Valoracion.html" />
+    <link rel="prev" title="5.1. Introducción a MLflow y TensorBoard" href="introduccion_mlflow_tensorboard.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -155,8 +157,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -204,7 +204,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../analisis_datos/index.html">ANÁLISIS DE DATOS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
@@ -277,7 +277,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../portafolios_inversion/Trabajo_final.html">Trabajo Final: Construcción y Evaluación de un Portafolio de Inversión</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">CIENCIA DE DATOS FINANCIERA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">CIENCIA DE DATOS FINANCIERA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../analisis_datos/introduccion_python/index.html">1. Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/preparacion.html">1. Primera práctica: Introducción a Python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../analisis_datos/introduccion_python/pandas.html">Práctica 2: Lectura y manipulación de datos con Pandas</a></li>
@@ -294,6 +294,8 @@
 <li class="toctree-l2"><a class="reference internal" href="taller_series_tiempo.html">Taller: Ingeniería de Variables + Redes Neuronales para Series de Tiempo Financieras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataops_proyectos_financieros.html">5. DataOps para Proyectos de Datos Financieros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduccion_mlflow_tensorboard.html">5.1. Introducción a MLflow y TensorBoard</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6. NLP y modelos de lenguaje aplicados a finanzas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S8_Reportes_Corporativos_LLMs_Valoracion.html">7. IA Generativa y LLMs II</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ruta_aprendizaje_sugerida.html">Apéndice: Ruta de Aprendizaje Sugerida</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sesiones_virtuales.html">Enlaces a las sesiones virtuales</a></li>
 </ul>
@@ -514,11 +516,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-formas-de-leer-el-sentimiento-del-mercado">tres formas de leer el sentimiento del mercado</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Tres-formas-de-leer-el-sentimiento-del-mercado">Tres formas de leer el sentimiento del mercado</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?">¿Por qué nos importa el sentimiento de las noticias?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Qué-se-pretende?">¿Qué se pretende?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#0.1-Entorno-de-ejecución">0.1 Entorno de ejecución</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#⚠️-Un-problema-real:-el-dataset-%22no-carga%22">⚠️ Un problema real: el dataset «no carga»</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Exploración-del-dataset">1.1 Exploración del dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.2-Muestra-de-evaluación-común">1.2 Muestra de evaluación común</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-La-idea:-%22bolsa-de-palabras%22">2.1 La idea: «bolsa de palabras»</a></li>
@@ -541,9 +542,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Preguntar-%22de-memoria%22">5.1 Preguntar «de memoria»</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Extraer-de-un-texto-dado">5.2 Extraer de un texto dado</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Discusión:-¿cuándo-conviene-cada-enfoque?">6.1 Discusión: ¿cuándo conviene cada enfoque?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-(introductorio)-—-Titulares-en-español">Ejercicio 1 (introductorio) — Titulares en español</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática">Ejercicio 2 (intermedio) — Clasificar también la temática</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador">Ejercicio 3 (retador) — Conexión con el proyecto integrador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-—-Titulares-en-español">Ejercicio 1 — Titulares en español</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-—-Clasificar-también-la-temática">Ejercicio 2 — Clasificar también la temática</a></li>
 </ul>
 </li>
 </ul>
@@ -559,8 +559,9 @@
                   
   <section id="6.-NLP-y-modelos-de-lenguaje-aplicados-a-finanzas">
 <h1>6. NLP y modelos de lenguaje aplicados a finanzas<a class="headerlink" href="#6.-NLP-y-modelos-de-lenguaje-aplicados-a-finanzas" title="Link to this heading">#</a></h1>
-<section id="tres-formas-de-leer-el-sentimiento-del-mercado">
-<h2>tres formas de leer el sentimiento del mercado<a class="headerlink" href="#tres-formas-de-leer-el-sentimiento-del-mercado" title="Link to this heading">#</a></h2>
+<section id="Tres-formas-de-leer-el-sentimiento-del-mercado">
+<h2>Tres formas de leer el sentimiento del mercado<a class="headerlink" href="#Tres-formas-de-leer-el-sentimiento-del-mercado" title="Link to this heading">#</a></h2>
+<p><strong>Ver diapositivas:</strong> <a class="reference external" href="De_la_mineria_de_datos_a_la_valoracion_con_LLMs.pdf">Evolución_modelos_de_mineria_texto</a></p>
 <section id="¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?">
 <h3>¿Por qué nos importa el sentimiento de las noticias?<a class="headerlink" href="#¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?" title="Link to this heading">#</a></h3>
 <p>Un anuncio de «recorte de dividendos» o de «récord de utilidades» puede mover un precio en minutos, ajustar la prima de riesgo que el mercado exige a una empresa, o alimentar un modelo de valoración que usa el sentimiento como una señal más, junto al PER o el ROE.</p>
@@ -706,10 +707,7 @@
 </div>
 </div>
 <p>## 1. Datos: Financial PhraseBank</p>
-<p>El <a class="reference external" href="https://huggingface.co/datasets/takala/financial_phrasebank">Financial PhraseBank</a> (Malo et al.,</p>
-<ol class="arabic simple" start="2014">
-<li><p>es un conjunto de ~4 840 frases tomadas de noticias financieras en inglés (Reuters, LexisNexis), anotadas por 16 personas con formación en finanzas. Cada anotador clasificó cada frase como <strong>positiva, negativa o neutral</strong>, siempre desde el punto de vista de un inversionista (¿esta frase sugiere que el precio de la acción debería subir, bajar, o no debería verse afectado?).</p></li>
-</ol>
+<p>El <a class="reference external" href="https://huggingface.co/datasets/takala/financial_phrasebank">Financial PhraseBank</a> (Malo et al.,2014) es un conjunto de ~4 840 frases tomadas de noticias financieras en inglés (Reuters, LexisNexis), anotadas por 16 personas con formación en finanzas. Cada anotador clasificó cada frase como <strong>positiva, negativa o neutral</strong>, siempre desde el punto de vista de un inversionista (¿esta frase sugiere que el precio de la acción debería subir, bajar, o no debería verse afectado?).</p>
 <p>El dataset viene en cuatro versiones según qué tan de acuerdo estuvieron los anotadores entre sí:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -739,16 +737,13 @@
 </table>
 </div>
 <p>Usaremos <code class="docutils literal notranslate"><span class="pre">sentences_allagree</span></code>: es la más pequeña, pero también la más confiable (nadie discutió la etiqueta), lo cual la hace ideal para comparar métodos de forma justa.</p>
-</section>
-<section id="⚠️-Un-problema-real:-el-dataset-%22no-carga%22">
-<h3>⚠️ Un problema real: el dataset «no carga»<a class="headerlink" href="#⚠️-Un-problema-real:-el-dataset-%22no-carga%22" title="Link to this heading">#</a></h3>
-<p>Si buscas ejemplos de este dataset en internet, casi todos usan:</p>
+<p><strong>Si buscas ejemplos de este dataset en internet, casi todos usan:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
 <span class="n">load_dataset</span><span class="p">(</span><span class="s2">"takala/financial_phrasebank"</span><span class="p">,</span> <span class="s2">"sentences_allagree"</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Esto <strong>ya no funciona</strong> con versiones recientes de la librería <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. El dataset se publicó en Hugging Face usando un <em>script</em> de carga (<code class="docutils literal notranslate"><span class="pre">financial_phrasebank.py</span></code>) que descarga y descomprime el archivo original. Por razones de seguridad, Hugging Face <strong>dejó de permitir la ejecución de scripts de carga arbitrarios</strong>, así que <code class="docutils literal notranslate"><span class="pre">datasets</span></code> ahora rechaza este tipo de dataset directamente con un error <code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">Dataset</span> <span class="pre">scripts</span> <span class="pre">are</span> <span class="pre">no</span> <span class="pre">longer</span> <span class="pre">supported</span></code>. Para completar el cuadro, el
-script además apunta a un identificador de repositorio (<code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code>, sin el prefijo <code class="docutils literal notranslate"><span class="pre">takala/</span></code>) que ya no existe tal cual, así que ni siquiera forzando <code class="docutils literal notranslate"><span class="pre">trust_remote_code=True</span></code> funciona.</p>
+<p>Esto ya no funciona con versiones recientes de la librería <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. El dataset se publicó en Hugging Face usando un <em>script</em> de carga (<code class="docutils literal notranslate"><span class="pre">financial_phrasebank.py</span></code>) que descarga y descomprime el archivo original. Por razones de seguridad, Hugging Face <strong>dejó de permitir la ejecución de scripts de carga arbitrarios</strong>, así que <code class="docutils literal notranslate"><span class="pre">datasets</span></code> ahora rechaza este tipo de dataset directamente con un error <code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">Dataset</span> <span class="pre">scripts</span> <span class="pre">are</span> <span class="pre">no</span> <span class="pre">longer</span> <span class="pre">supported</span></code>. Para completar el cuadro, el script
+además apunta a un identificador de repositorio (<code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code>, sin el prefijo <code class="docutils literal notranslate"><span class="pre">takala/</span></code>) que ya no existe tal cual, así que ni siquiera forzando <code class="docutils literal notranslate"><span class="pre">trust_remote_code=True</span></code> funciona.</p>
 <p>Esto es exactamente el tipo de fricción que te vas a encontrar en proyectos reales con datasets de Hugging Face que llevan varios años publicados: <strong>el archivo de datos original sigue estando ahí</strong> (alojado como un <code class="docutils literal notranslate"><span class="pre">.zip</span></code> normal en el repositorio), pero el mecanismo automático para leerlo se rompió. La solución: descargarlo directamente y parsearlo nosotros mismos.</p>
 <p>Abajo implementamos <strong>plan A</strong> (el camino «oficial», que dejamos por transparencia aunque hoy falle) y un <strong>plan B</strong> que sí funciona: descarga directa del <code class="docutils literal notranslate"><span class="pre">.zip</span></code> oficial desde el repositorio del dataset.</p>
 <div class="nbinput nblast docutils container">
@@ -1108,10 +1103,8 @@ script además apunta a un identificador de repositorio (<code class="docutils l
 </pre></div>
 </div>
 </div>
-<p>Fíjate en el resultado de la primera frase: el diccionario la clasifica como <strong>neutral</strong>, que a simple vista parece razonable… pero llegó ahí <strong>por la razón equivocada</strong>. Detectó <em>profits</em> (positiva) y <em>decline</em> (negativa), y como hubo empate, el desempate por defecto la mandó a neutral — no porque «entendiera» que «did not decline» invierte el sentido de <em>decline</em>. Si la frase hubiera sido «Operating losses did not decline» (dos palabras negativas, ninguna positiva), el mismo mecanismo la
-habría marcado como negativa a pesar de describir algo malo que <strong>no empeoró</strong>.</p>
-<p>Las otras dos frases sí fallan de forma más obvia: ambas describen algo bueno para la empresa (pérdidas que se <strong>evitaron</strong>, ventas que <strong>no</strong> decepcionaron), pero el diccionario las marca como negativas porque solo ve las palabras <em>losses</em> y <em>fail</em>, sin registrar que «avoided» y «did not fail» invierten su sentido. El diccionario cuenta palabras sin mirar la estructura de la frase, así que se equivoca sistemáticamente con negaciones, condicionales o comparaciones («less bad than expected»).</p>
-<p><strong>Pregunta que motiva la siguiente parte:</strong> ¿cómo logramos que el modelo entienda que el significado de una palabra depende de las palabras que la rodean?</p>
+<p>Las frases describen algo bueno para la empresa (pérdidas que se <strong>evitaron</strong>, ventas que <strong>no</strong> decepcionaron), pero el diccionario las marca como negativas porque solo ve las palabras <em>losses</em> y <em>fail</em>, sin registrar que «avoided» y «did not fail» invierten su sentido. El diccionario cuenta palabras sin mirar la estructura de la frase, así que se equivoca sistemáticamente con negaciones, condicionales o comparaciones («less bad than expected»).</p>
+<p><strong>¿cómo logramos que el modelo entienda que el significado de una palabra depende de las palabras que la rodean?</strong></p>
 <p>## 3. Parte 2: Embeddings, atención y FinBERT</p>
 </section>
 <section id="3.1-Embeddings:-palabras-como-puntos-en-un-espacio">
@@ -1248,7 +1241,7 @@ está afinado para este dominio, la distinción es mucho más nítida.</p>
 </div>
 </div>
 <p>Compara estas predicciones con las del diccionario en la sección 2.5. FinBERT no cuenta palabras sueltas: procesa la frase completa con atención, así que «did not decline» y «avoided losses» se leen como unidades con un significado propio — no como una simple suma de palabras positivas y negativas.</p>
-<p><strong>Pregunta que motiva la siguiente parte:</strong> FinBERT clasifica muy bien, pero solo sabe hacer <em>exactamente</em> la tarea para la que fue afinado (positivo/negativo/neutral) y no puede explicarnos su razonamiento en palabras. ¿Qué hacemos si mañana queremos pedirle, sin reentrenar nada, que además identifique el tema de la noticia, o que justifique su respuesta?</p>
+<p>FinBERT clasifica muy bien, pero solo sabe hacer <em>exactamente</em> la tarea para la que fue afinado (positivo/negativo/neutral) y no puede explicarnos su razonamiento en palabras. ¿Qué hacemos si mañana queremos pedirle, sin reentrenar nada, que además identifique el tema de la noticia, o que justifique su respuesta?</p>
 <p>## 4. Parte 3: LLM generativo (modelo decoder) con <em>prompting</em></p>
 </section>
 <section id="4.1-De-entender-a-generar">
@@ -1719,25 +1712,15 @@ proporcionas</strong>, la tarea es mucho más confiable, y el modelo tiene mucho
 <p>En la práctica, muchos equipos de datos financieros usan <strong>más de uno a la vez</strong>: un diccionario o FinBERT para procesar el volumen completo de noticias todos los días a bajo costo, y un LLM reservado para los casos ambiguos, para tareas nuevas que aún no justifican entrenar un modelo dedicado, o para generar explicaciones en lenguaje natural que un analista humano pueda revisar rápidamente.</p>
 <p>## 7. Ejercicios para los estudiantes</p>
 </section>
-<section id="Ejercicio-1-(introductorio)-—-Titulares-en-español">
-<h3>Ejercicio 1 (introductorio) — Titulares en español<a class="headerlink" href="#Ejercicio-1-(introductorio)-—-Titulares-en-español" title="Link to this heading">#</a></h3>
+<section id="Ejercicio-1-—-Titulares-en-español">
+<h3>Ejercicio 1 — Titulares en español<a class="headerlink" href="#Ejercicio-1-—-Titulares-en-español" title="Link to this heading">#</a></h3>
 <p>Prueba el LLM (parte 3) con 5-10 titulares <strong>en español</strong> de noticias financieras colombianas (puedes buscarlos en La República, Portafolio o Valora Analitik). ¿El modelo sigue clasificando bien el sentimiento aunque el prompt esté en inglés/español mezclado? ¿Cambia la calidad de la justificación?</p>
 <p><em>Pista: no necesitas tocar ``PROMPT_SISTEMA`` para esto — solo la lista de frases que le pasas a ``generar_respuestas``.</em></p>
 </section>
-<section id="Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática">
-<h3>Ejercicio 2 (intermedio) — Clasificar también la temática<a class="headerlink" href="#Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática" title="Link to this heading">#</a></h3>
+<section id="Ejercicio-2-—-Clasificar-también-la-temática">
+<h3>Ejercicio 2 — Clasificar también la temática<a class="headerlink" href="#Ejercicio-2-—-Clasificar-también-la-temática" title="Link to this heading">#</a></h3>
 <p>Modifica <code class="docutils literal notranslate"><span class="pre">PROMPT_SISTEMA</span></code> y <code class="docutils literal notranslate"><span class="pre">parsear_respuesta_llm</span></code> para que, además del sentimiento, el modelo devuelva una tercera clave <code class="docutils literal notranslate"><span class="pre">&quot;tematica&quot;</span></code> con una de estas categorías: <code class="docutils literal notranslate"><span class="pre">&quot;resultados&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;fusiones&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;regulacion&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;macro&quot;</span></code> u <code class="docutils literal notranslate"><span class="pre">&quot;otro&quot;</span></code>. Evalúa manualmente sobre 15-20 frases (no tenemos etiquetas reales de temática en este dataset) qué tan razonables son las clasificaciones.</p>
 <p><em>Pista: agrega la nueva clave al JSON de ejemplo en el prompt, y actualiza el parser para leer y validar también ``»tematica»`` contra la lista de categorías permitidas — igual que hacemos con ``»sentimiento»``.</em></p>
-</section>
-<section id="Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador">
-<h3>Ejercicio 3 (retador) — Conexión con el proyecto integrador<a class="headerlink" href="#Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador" title="Link to this heading">#</a></h3>
-<p>Para una empresa que sigas en tu proyecto integrador:</p>
-<ol class="arabic simple">
-<li><p>Consigue un pequeño conjunto de titulares o noticias diarias de esa empresa (pueden ser reales, de los últimos meses).</p></li>
-<li><p>Calcula el sentimiento diario agregado (por ejemplo, el promedio de <code class="docutils literal notranslate"><span class="pre">+1</span></code>/<code class="docutils literal notranslate"><span class="pre">0</span></code>/<code class="docutils literal notranslate"><span class="pre">-1</span></code> según la predicción del método que prefieras de este cuaderno).</p></li>
-<li><p>Descarga los retornos diarios de la acción con <code class="docutils literal notranslate"><span class="pre">yfinance</span></code> (como en el cuaderno de redes neuronales de la sesión anterior) y compara el sentimiento del día <span class="math notranslate nohighlight">\(t\)</span> contra el retorno del día <span class="math notranslate nohighlight">\(t+1\)</span>.</p></li>
-<li><p>¿Hay alguna relación visible? ¿Un gráfico de dispersión sugiere algo, o el ruido domina? Sé honesto en tu conclusión — en la práctica, esta relación suele ser débil y ruidosa, y <strong>eso también es un resultado válido</strong> para reportar.</p></li>
-</ol>
 </section>
 </section>
 </section>
@@ -1753,6 +1736,24 @@ proporcionas</strong>, la tarea es mucho más confiable, y el modelo tiene mucho
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="introduccion_mlflow_tensorboard.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">5.1. Introducción a MLflow y TensorBoard</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="S8_Reportes_Corporativos_LLMs_Valoracion.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">7. IA Generativa y LLMs II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1771,11 +1772,10 @@ proporcionas</strong>, la tarea es mucho más confiable, y el modelo tiene mucho
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-formas-de-leer-el-sentimiento-del-mercado">tres formas de leer el sentimiento del mercado</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Tres-formas-de-leer-el-sentimiento-del-mercado">Tres formas de leer el sentimiento del mercado</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Por-qué-nos-importa-el-sentimiento-de-las-noticias?">¿Por qué nos importa el sentimiento de las noticias?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#¿Qué-se-pretende?">¿Qué se pretende?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#0.1-Entorno-de-ejecución">0.1 Entorno de ejecución</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#⚠️-Un-problema-real:-el-dataset-%22no-carga%22">⚠️ Un problema real: el dataset «no carga»</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.1-Exploración-del-dataset">1.1 Exploración del dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#1.2-Muestra-de-evaluación-común">1.2 Muestra de evaluación común</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#2.1-La-idea:-%22bolsa-de-palabras%22">2.1 La idea: «bolsa de palabras»</a></li>
@@ -1798,9 +1798,8 @@ proporcionas</strong>, la tarea es mucho más confiable, y el modelo tiene mucho
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.1-Preguntar-%22de-memoria%22">5.1 Preguntar «de memoria»</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#5.2-Extraer-de-un-texto-dado">5.2 Extraer de un texto dado</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#6.1-Discusión:-¿cuándo-conviene-cada-enfoque?">6.1 Discusión: ¿cuándo conviene cada enfoque?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-(introductorio)-—-Titulares-en-español">Ejercicio 1 (introductorio) — Titulares en español</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-(intermedio)-—-Clasificar-también-la-temática">Ejercicio 2 (intermedio) — Clasificar también la temática</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-3-(retador)-—-Conexión-con-el-proyecto-integrador">Ejercicio 3 (retador) — Conexión con el proyecto integrador</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-1-—-Titulares-en-español">Ejercicio 1 — Titulares en español</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Ejercicio-2-—-Clasificar-también-la-temática">Ejercicio 2 — Clasificar también la temática</a></li>
 </ul>
 </li>
 </ul>

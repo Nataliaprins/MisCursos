@@ -28,5 +28,7 @@ Contenido del curso:
    taller_series_tiempo
    dataops_proyectos_financieros
    introduccion_mlflow_tensorboard
+   S7_Introduccion_LLMs_Sentimiento_Financiero
+   S8_Reportes_Corporativos_LLMs_Valoracion
    ruta_aprendizaje_sugerida
    sesiones_virtuales
