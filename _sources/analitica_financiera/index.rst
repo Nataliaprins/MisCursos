@@ -30,5 +30,6 @@ Contenido del curso:
    introduccion_mlflow_tensorboard
    S7_Introduccion_LLMs_Sentimiento_Financiero
    S8_Reportes_Corporativos_LLMs_Valoracion
+   S8_Taller2_Reportes_Colombianos
    ruta_aprendizaje_sugerida
    sesiones_virtuales
