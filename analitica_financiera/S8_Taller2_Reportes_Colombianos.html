@@ -1379,12 +1379,35 @@ de situación financiera y el de flujo de efectivo, se queda con el último env�
 </div>
 <div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">faltantes</span> <span class="o">=</span> <span class="n">FINANCIEROS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">faltantes</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"⚠️  Variables sin dato (complétalas en FINANCIEROS_MANUALES antes de las secciones 5 y 6):"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"⚠️  Variables sin dato (complétalas en la celda siguiente antes de las secciones 5 y 6):"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">faltantes</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"✅ Todas las variables tienen dato para los años analizados."</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">ANIO_ACTUAL</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FINANCIEROS</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"⚠️  FINANCIEROS no tiene el año </span><span class="si">{</span><span class="n">ANIO_ACTUAL</span><span class="si">}</span><span class="s2">, que es el del informe más reciente."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Completar lo que falte.</strong> Si el aviso anterior lista variables sin dato (es frecuente con <code class="docutils literal notranslate"><span class="pre">acciones</span></code>, que Yahoo Finance no siempre trae y el kit no incluye), escríbelas en <code class="docutils literal notranslate"><span class="pre">COMPLETAR</span></code> con la cifra del informe: una línea por pareja <code class="docutils literal notranslate"><span class="pre">(año,</span> <span class="pre">variable)</span></code>, en <strong>millones de COP</strong> (acciones en millones). Si vuelves a ejecutar la celda de <code class="docutils literal notranslate"><span class="pre">FINANCIEROS_MANUALES</span></code>, ejecuta de nuevo esta.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✍️ {(año, variable): valor} → millones de COP; acciones en millones. None = todavía sin diligenciar</span>
+<span class="n">COMPLETAR</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># (2023, "acciones"): None,</span>
+    <span class="c1"># (2024, "acciones"): None,</span>
+    <span class="c1"># (2025, "acciones"): None,</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">anio</span><span class="p">,</span> <span class="n">variable</span><span class="p">),</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">COMPLETAR</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">valor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">FINANCIEROS_MANUALES</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">anio</span><span class="p">,</span> <span class="n">variable</span><span class="p">]</span> <span class="o">=</span> <span class="n">valor</span>   <span class="c1"># queda registrado como dato manual</span>
+        <span class="n">FINANCIEROS</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">anio</span><span class="p">,</span> <span class="n">variable</span><span class="p">]</span> <span class="o">=</span> <span class="n">valor</span>            <span class="c1"># y se aplica de una vez a la tabla final</span>
+
+<span class="n">pendientes</span> <span class="o">=</span> <span class="n">FINANCIEROS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✅ Tabla completa."</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">pendientes</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"⚠️  Aún faltan: </span><span class="si">{</span><span class="n">pendientes</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">FINANCIEROS</span>
 </pre></div>
 </div>
 </div>
